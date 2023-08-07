@@ -2,6 +2,6 @@
 <resources>
     <!-- Bottom Navigation View -->
     <string name="navigation_box_office">박스오피스</string>
-    <string name="navigation_screening_information">상영정보</string>
+    <string name="navigation_screening">상영정보</string>
     <string name="navigation_bookmark">즐겨찾기</string>
 </resources>

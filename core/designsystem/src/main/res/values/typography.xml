@@ -2,7 +2,7 @@
 <resources>
 
     <style name="MooBesideTextAppearance" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@color/White</item>
+        <item name="android:textColor">@color/Black</item>
         <item name="android:includeFontPadding">false</item>
     </style>
 

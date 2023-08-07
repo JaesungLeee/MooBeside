@@ -1,8 +1,8 @@
-package com.jslee.presentation.feature.settings
+package com.jslee.presentation.feature.home.screening
 
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
-import com.jslee.presentation.databinding.FragmentSettingsBinding
+import com.jslee.presentation.databinding.FragmentScreeningBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @created 2023/08/08
  */
 @AndroidEntryPoint
-class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
+class ScreeningFragment : BaseFragment<FragmentScreeningBinding>(R.layout.fragment_screening) {
     override fun initViews() {
 
     }

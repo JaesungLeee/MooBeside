@@ -1,8 +1,8 @@
-package com.jslee.presentation.feature.settings
+package com.jslee.presentation.feature.home.plan
 
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
-import com.jslee.presentation.databinding.FragmentSettingsBinding
+import com.jslee.presentation.databinding.FragmentPlanBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @created 2023/08/08
  */
 @AndroidEntryPoint
-class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
+class PlanFragment : BaseFragment<FragmentPlanBinding>(R.layout.fragment_plan) {
     override fun initViews() {
 
     }
