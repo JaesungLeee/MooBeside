@@ -15,3 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "MooBeside"
 include(":app")
+include(":data")
+include(":presentation")
+include(":domain")
+include(":designsystem")
