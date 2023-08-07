@@ -1,14 +1,12 @@
 package com.jslee.presentation.feature
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.jslee.presentation.R
+import com.jslee.presentation.common.base.BaseActivity
+import com.jslee.presentation.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+    
+
 }
