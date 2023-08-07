@@ -42,7 +42,7 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":presentation"))
-    implementation(project(":designsystem"))
+    implementation(project(":core:designsystem"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
