@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Bottom Navigation View -->
+    <style name="MooBeside.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="itemActiveIndicatorStyle">@style/MooBeside.BottomNavigationView.Indicator</item>
+        <item name="itemBackground">@color/White</item>
+        <item name="itemTextColor">@drawable/selector_bottom_bar</item>
+        <item name="itemIconTint">@drawable/selector_bottom_bar</item>
+        <item name="labelVisibilityMode">auto</item>
+    </style>
+
+    <style name="MooBeside.BottomNavigationView.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@null</item>
+    </style>
+</resources>
