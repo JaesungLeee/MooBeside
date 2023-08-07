@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_box_office"
+        android:icon="@drawable/ic_chart_24"
+        android:title="@string/navigation_box_office" />
+    <item
+        android:id="@+id/navigation_screening"
+        android:icon="@drawable/ic_movie_24"
+        android:title="@string/navigation_screening" />
+    <item
+        android:id="@+id/navigation_bookmark"
+        android:icon="@drawable/ic_heart_24"
+        android:title="@string/navigation_bookmark" />
+</menu>
