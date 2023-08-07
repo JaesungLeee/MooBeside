@@ -15,4 +15,16 @@
     <style name="MooBeside.BottomNavigationView.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@null</item>
     </style>
+
+    <!-- Toolbar -->
+    <style name="MooBeside.MaterialToolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="titleTextAppearance">@style/MooBesideTextAppearance.Body1</item>
+    </style>
+
+    <style name="MooBeside.MaterialToolbar.Back" parent="MooBeside.MaterialToolbar">
+        <item name="navigationIcon">@drawable/ic_back_24</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
 </resources>
