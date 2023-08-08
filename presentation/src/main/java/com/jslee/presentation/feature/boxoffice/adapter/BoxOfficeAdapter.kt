@@ -13,11 +13,13 @@ import com.jslee.presentation.feature.boxoffice.BoxOfficeUiModel
  * @author jaesung
  * @created 2023/08/09
  */
-class BoxOfficeAdapter : ListAdapter<BoxOfficeUiModel, BoxOfficeViewHolder>(diffCallBack) {
+class BoxOfficeAdapter(
+    private val onCardClick: () -> Unit
+) : ListAdapter<BoxOfficeUiModel, BoxOfficeViewHolder>(diffCallBack) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxOfficeViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemBoxOfficeRankBinding.inflate(layoutInflater, parent, false)
-        return BoxOfficeViewHolder(binding)
+        return BoxOfficeViewHolder(binding, onCardClick)
     }
 
     override fun onBindViewHolder(holder: BoxOfficeViewHolder, position: Int) {
@@ -31,7 +33,7 @@ class BoxOfficeAdapter : ListAdapter<BoxOfficeUiModel, BoxOfficeViewHolder>(diff
                 oldItem: BoxOfficeUiModel,
                 newItem: BoxOfficeUiModel
             ): Boolean {
-                return oldItem.test == newItem.test
+                return oldItem.rank == newItem.rank
             }
 
             override fun areContentsTheSame(
@@ -45,9 +47,18 @@ class BoxOfficeAdapter : ListAdapter<BoxOfficeUiModel, BoxOfficeViewHolder>(diff
 }
 
 class BoxOfficeViewHolder(
-    private val binding: ItemBoxOfficeRankBinding
+    private val binding: ItemBoxOfficeRankBinding,
+    onCardClick: () -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
+    init {
+        binding.cvBoxOffice.setOnClickListener {
+            onCardClick()
+        }
+    }
     fun bindItems(item: BoxOfficeUiModel) {
-
+        with(binding) {
+            boxOffice = item
+            executePendingBindings()
+        }
     }
 }
