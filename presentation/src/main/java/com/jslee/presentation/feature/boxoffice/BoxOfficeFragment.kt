@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.boxoffice
 
 import android.widget.Toast
+import com.jslee.core.date.getDisplayedDateWithDay
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
@@ -26,7 +27,14 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
     }
 
     override fun initViews() {
+        initDatePicker()
         initRecyclerView()
+    }
+
+    private fun initDatePicker() {
+        with(binding) {
+            tvDate.text = System.currentTimeMillis().getDisplayedDateWithDay()
+        }
     }
 
     private fun initRecyclerView() {
