@@ -3,55 +3,79 @@
 
     <style name="MooBesideTextAppearance.Heading1">
         <item name="android:textSize">32sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontWeight">500</item>
+        <item name="android:lineHeight">8sp</item>
+        <item name="android:textFontWeight">500</item>
     </style>
 
     <style name="MooBesideTextAppearance.Heading2">
         <item name="android:textSize">24sp</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="android:fontWeight">700</item>
+        <item name="android:lineHeight">10sp</item>
+        <item name="android:textFontWeight">700</item>
     </style>
 
     <style name="MooBesideTextAppearance.Heading3">
         <item name="android:textSize">22sp</item>
-        <item name="android:lineSpacingExtra">9sp</item>
-        <item name="android:fontWeight">700</item>
+        <item name="android:lineHeight">9sp</item>
+        <item name="android:textFontWeight">700</item>
     </style>
 
     <style name="MooBesideTextAppearance.Heading4">
         <item name="android:textSize">20sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontWeight">600</item>
+        <item name="android:lineHeight">8sp</item>
+        <item name="android:textFontWeight">600</item>
     </style>
 
     <style name="MooBesideTextAppearance.Title1">
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontWeight">600</item>
+        <item name="android:lineHeight">8sp</item>
+        <item name="android:textFontWeight">600</item>
     </style>
 
     <style name="MooBesideTextAppearance.Title2">
         <item name="android:textSize">15sp</item>
-        <item name="android:lineSpacingExtra">7sp</item>
-        <item name="android:fontWeight">600</item>
+        <item name="android:lineHeight">7sp</item>
+        <item name="android:textFontWeight">600</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Title3">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineHeight">7sp</item>
+        <item name="android:textFontWeight">600</item>
     </style>
 
     <style name="MooBesideTextAppearance.Body1">
         <item name="android:textSize">16sp</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="android:fontWeight">400</item>
+        <item name="android:lineHeight">10sp</item>
+        <item name="android:textFontWeight">400</item>
     </style>
 
     <style name="MooBesideTextAppearance.Body2">
         <item name="android:textSize">14sp</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="android:fontWeight">400</item>
+        <item name="android:lineHeight">8sp</item>
+        <item name="android:textFontWeight">400</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Caption">
+    <style name="MooBesideTextAppearance.Body3">
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineHeight">8sp</item>
+        <item name="android:textFontWeight">400</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineHeight">6sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption2">
         <item name="android:textSize">12sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="android:fontWeight">500</item>
+        <item name="android:lineHeight">6sp</item>
+        <item name="android:textFontWeight">500</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption3">
+        <item name="android:textSize">10sp</item>
+        <item name="android:lineHeight">6sp</item>
+        <item name="android:textFontWeight">500</item>
     </style>
 </resources>
