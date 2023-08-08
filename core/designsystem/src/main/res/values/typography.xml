@@ -36,22 +36,14 @@
         <item name="fontWeight">600</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Title1.Gray10">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/Gray10</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="fontWeight">600</item>
-    </style>
-
     <style name="MooBesideTextAppearance.Title2">
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingExtra">7sp</item>
         <item name="fontWeight">600</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Title2.Gray06">
-        <item name="android:textSize">15sp</item>
-        <item name="android:textColor">@color/Gray06</item>
+    <style name="MooBesideTextAppearance.Title3">
+        <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">7sp</item>
         <item name="fontWeight">600</item>
     </style>
@@ -62,77 +54,14 @@
         <item name="fontWeight">400</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Body1.White">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/White</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body1.Gray06">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/Gray06</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body1.Gray09">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/Gray09</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body1.Red">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/Red</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body1.Mint">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">@color/Mint</item>
-        <item name="android:lineSpacingExtra">10sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
     <style name="MooBesideTextAppearance.Body2">
         <item name="android:textSize">14sp</item>
         <item name="android:lineSpacingExtra">8sp</item>
         <item name="fontWeight">400</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Body2.Red">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/Red</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body2.Gray05">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/Gray05</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Body2.Gray06">
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/Gray06</item>
-        <item name="android:lineSpacingExtra">8sp</item>
-        <item name="fontWeight">400</item>
-    </style>
-
     <style name="MooBesideTextAppearance.Caption">
         <item name="android:textSize">12sp</item>
-        <item name="android:lineSpacingExtra">6sp</item>
-        <item name="fontWeight">500</item>
-    </style>
-
-    <style name="MooBesideTextAppearance.Caption.Gray07">
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/Gray07</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="fontWeight">500</item>
     </style>
