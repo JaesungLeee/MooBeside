@@ -60,8 +60,26 @@
         <item name="fontWeight">400</item>
     </style>
 
-    <style name="MooBesideTextAppearance.Caption">
+    <style name="MooBesideTextAppearance.Body3">
+        <item name="android:textSize">13sp</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+        <item name="fontWeight">400</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption2">
         <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="MooBesideTextAppearance.Caption3">
+        <item name="android:textSize">10sp</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="fontWeight">500</item>
     </style>
