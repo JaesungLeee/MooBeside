@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MooBeside" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.MooBeside" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/Purple</item>
         <item name="colorPrimaryVariant">@color/Purple</item>
         <item name="colorOnPrimary">@color/White</item>
