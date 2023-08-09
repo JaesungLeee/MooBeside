@@ -43,6 +43,8 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":presentation"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:common"))
+    implementation(project(":core:date"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
