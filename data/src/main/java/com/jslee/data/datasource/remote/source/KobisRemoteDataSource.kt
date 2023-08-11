@@ -1,6 +1,5 @@
 package com.jslee.data.datasource.remote.source
 
-import android.util.Log
 import com.jslee.data.datasource.remote.dto.response.kobis.toDataModel
 import com.jslee.data.datasource.remote.service.KobisService
 import com.jslee.data.model.DailyBoxOfficeModel
@@ -18,7 +17,6 @@ internal class KobisRemoteDataSource @Inject constructor(
 ) {
     suspend fun getDailyBoxOffice(targetDate: String): List<DailyBoxOfficeModel> {
         val response = kobisService.getDailyBoxOffice(targetDate = targetDate)
-        Log.e("CHECK", "$response")
         return response.boxOfficeResponse?.dailyBoxOfficeList?.map { dailyBoxOfficeResponse ->
             dailyBoxOfficeResponse.toDataModel()
         } ?: emptyList()

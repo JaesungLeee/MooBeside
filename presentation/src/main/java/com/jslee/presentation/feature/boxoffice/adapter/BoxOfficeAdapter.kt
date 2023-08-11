@@ -33,7 +33,7 @@ class BoxOfficeAdapter(
                 oldItem: BoxOfficeUiModel,
                 newItem: BoxOfficeUiModel
             ): Boolean {
-                return oldItem.rank == newItem.rank
+                return oldItem.movieTitle == newItem.movieTitle
             }
 
             override fun areContentsTheSame(

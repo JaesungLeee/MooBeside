@@ -11,6 +11,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.jslee.core.date.toDisplayedDateWithDay
 import com.jslee.core.date.toDisplayedPreviousDateWithDay
 import com.jslee.core.date.toMillisOfPreviousDay
+import com.jslee.core.date.toShortenPreviousDate
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
@@ -62,11 +63,9 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
                         Loading -> {
                             Timber.e("Loading")
                         }
-
                         is Success -> {
                             boxOfficeAdapter.submitList(state.data)
                         }
-
                         Failure -> {
                             Timber.e("Error")
                         }
@@ -78,7 +77,11 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
 
     private fun showDatePickerDialog() {
         val calendarConstraints = CalendarConstraints.Builder()
-            .setValidator(DateValidatorPointBackward.before(System.currentTimeMillis()))
+            .setValidator(
+                DateValidatorPointBackward.before(
+                    System.currentTimeMillis().toMillisOfPreviousDay()
+                )
+            )
             .build()
 
         val datePickerBuilder = MaterialDatePicker.Builder.datePicker().apply {
@@ -89,6 +92,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
         datePickerBuilder.show(childFragmentManager, DATE_PICKER_TAG)
         datePickerBuilder.addOnPositiveButtonClickListener {
             binding.tvDate.text = it.toDisplayedDateWithDay()
+            viewModel.updateBoxOfficeByTargetDate(it.toShortenPreviousDate())
         }
     }
 
