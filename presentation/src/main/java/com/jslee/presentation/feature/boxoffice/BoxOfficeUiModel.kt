@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.boxoffice
 
+import com.jslee.core.date.toDisplayedDate
 import com.jslee.domain.model.Movie
 
 /**
@@ -18,7 +19,7 @@ data class BoxOfficeUiModel(
 fun Movie.toPresentation() = BoxOfficeUiModel(
     rank = rank,
     movieTitle = movieName,
-    openingDate = openDate,
+    openingDate = openDate.toDisplayedDate(),
     audienceAmount = cumulativeAudience,
     averageAudienceGrowth = audienceIncrementRatio
 )
