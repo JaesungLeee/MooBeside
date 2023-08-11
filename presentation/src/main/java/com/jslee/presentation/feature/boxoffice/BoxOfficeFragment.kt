@@ -8,9 +8,9 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.jslee.core.date.getDisplayedDate
-import com.jslee.core.date.getDisplayedDateWithDay
-import com.jslee.core.date.getMillisOfPreviousDay
+import com.jslee.core.date.toDisplayedDateWithDay
+import com.jslee.core.date.toDisplayedPreviousDateWithDay
+import com.jslee.core.date.toMillisOfPreviousDay
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
@@ -43,7 +43,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
     override fun initViews() {
         with(binding) {
             tvDate.text =
-                System.currentTimeMillis().getMillisOfPreviousDay().getDisplayedDateWithDay()
+                System.currentTimeMillis().toDisplayedPreviousDateWithDay()
             ivCalendar.setOnClickListener {
                 showDatePickerDialog()
             }
@@ -62,9 +62,11 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
                         Loading -> {
                             Timber.e("Loading")
                         }
+
                         is Success -> {
                             boxOfficeAdapter.submitList(state.data)
                         }
+
                         Failure -> {
                             Timber.e("Error")
                         }
@@ -73,6 +75,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
             }
         }
     }
+
     private fun showDatePickerDialog() {
         val calendarConstraints = CalendarConstraints.Builder()
             .setValidator(DateValidatorPointBackward.before(System.currentTimeMillis()))
@@ -85,7 +88,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
         }.build()
         datePickerBuilder.show(childFragmentManager, DATE_PICKER_TAG)
         datePickerBuilder.addOnPositiveButtonClickListener {
-            binding.tvDate.text = it.getDisplayedDateWithDay()
+            binding.tvDate.text = it.toDisplayedDateWithDay()
         }
     }
 

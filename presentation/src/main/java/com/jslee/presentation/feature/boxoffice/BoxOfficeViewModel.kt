@@ -23,7 +23,7 @@ class BoxOfficeViewModel @Inject constructor(
 ) : ViewModel() {
 
     init {
-        getDailyBoxOffice("20230810")
+        getDailyBoxOffice(System.currentTimeMillis().toShortenPreviousDate())
     }
 
     private val _boxOfficeUiState: MutableStateFlow<BoxOfficeUiState> = MutableStateFlow(Loading)
