@@ -33,10 +33,14 @@ open class BaseFragment<VB : ViewDataBinding>(@LayoutRes private val layoutId: I
         binding.lifecycleOwner = viewLifecycleOwner
 
         initViews()
+        observeStates()
     }
 
     /* must implement */
     open fun initViews() {}
+
+    /* must implement */
+    open fun observeStates() {}
 
     override fun onDestroyView() {
         super.onDestroyView()
