@@ -1,5 +1,6 @@
 package com.jslee.data.datasource.remote.dto.response.kobis
 
+import com.jslee.data.model.DailyBoxOfficeModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -16,7 +17,7 @@ internal data class BoxOfficeResponse(
     @SerialName("showRange")
     val showRange: String,
     @SerialName("dailyBoxOfficeList")
-    val dailyBoxOfficeList: DailyBoxOfficeResponse
+    val dailyBoxOfficeList: List<DailyBoxOfficeResponse>
 )
 
 @Serializable
@@ -57,4 +58,25 @@ internal data class DailyBoxOfficeResponse(
     val screeningCount: String,
     @SerialName("showCnt")
     val showCount: String,
+)
+
+internal fun DailyBoxOfficeResponse.toDataModel() = DailyBoxOfficeModel(
+    rankId = rankId,
+    rank = rank,
+    rankIncrement = rankIncrement,
+    rankEntryStatus = rankEntryStatus,
+    movieCode = movieCode,
+    movieName = movieName,
+    openDate = openDate,
+    salesAmount = salesAmount,
+    salesRatio = salesRatio,
+    salesIncrement = salesIncrement,
+    salesIncrementRatio = salesIncrementRatio,
+    cumulativeSales = cumulativeSales,
+    audienceCount = audienceCount,
+    audienceIncrement = audienceIncrement,
+    audienceIncrementRatio = audienceIncrementRatio,
+    cumulativeAudience = cumulativeAudience,
+    screeningCount = screeningCount,
+    showCount = showCount,
 )
