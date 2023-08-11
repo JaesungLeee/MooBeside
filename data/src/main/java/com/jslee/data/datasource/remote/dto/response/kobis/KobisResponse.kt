@@ -11,9 +11,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class KobisBoxOfficeResponse(
     @SerialName("boxOfficeResult")
-    val boxOfficeResponse: BoxOfficeResponse?,
+    val boxOfficeResponse: BoxOfficeResponse? = null,
     @SerialName("faultInfo")
-    val errorResponse: KobisErrorResponse?
+    val errorResponse: KobisErrorResponse? = null
 )
 
 @Serializable
