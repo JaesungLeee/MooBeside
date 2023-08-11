@@ -1,9 +1,23 @@
 package com.jslee.data.di
 
+import com.jslee.data.repository.MovieRepositoryImpl
+import com.jslee.domain.repository.MovieRepository
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
 /**
  * MooBeside
  * @author jaesung
  * @created 2023/08/07
  */
-class RepositoryModule {
+@Module
+@InstallIn(SingletonComponent::class)
+internal abstract class RepositoryModule {
+
+    @Binds
+    @Singleton
+    abstract fun bindMovieRepository(movieRepositoryImpl: MovieRepositoryImpl): MovieRepository
 }
