@@ -21,5 +21,6 @@ internal interface KobisService {
     suspend fun getDailyBoxOffice(
         @Query("key") apiKey: String = BuildConfig.KOBIS_API_KEY,
         @Query("targetDt") targetDate: String,
+        @Query("multiMovieYn") movieType: String = "N"
     ): KobisBoxOfficeResponse
 }
