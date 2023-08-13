@@ -12,6 +12,10 @@ data class Movie(
     val cumulativeAudience: String,
     val audienceIncrement: String,
     val audienceIncrementRatio: String,
+    val boxOffice: BoxOfficeMovie? = null
+)
+
+data class BoxOfficeMovie(
     val rank: String,
     val rankIncrement: String,
     val rankEntryStatus: String,

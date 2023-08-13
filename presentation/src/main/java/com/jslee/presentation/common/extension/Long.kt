@@ -1,4 +1,4 @@
-package com.jslee.core.date
+package com.jslee.presentation.common.extension
 
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -8,7 +8,7 @@ import java.util.Locale
 /**
  * MooBeside
  * @author jaesung
- * @created 2023/08/09
+ * @created 2023/08/13
  */
 fun Long.toMillisOfPreviousDay(): Long {
     val calendar = Calendar.getInstance().apply {
@@ -28,10 +28,6 @@ fun Long.toDisplayedDate(): String {
     return formatter.format(Date(this))
 }
 
-fun String.toDisplayedDate(): String {
-    val splitDate = this.split("-")
-    return "${splitDate[0]}년 ${splitDate[1]}월 ${splitDate[2]}일"
-}
 
 fun Long.toDisplayedDateWithDay(): String {
     val formatter = SimpleDateFormat("yyyy년 M월 d일 E요일", Locale.KOREA)

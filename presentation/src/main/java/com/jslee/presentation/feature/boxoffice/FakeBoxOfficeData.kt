@@ -17,6 +17,8 @@ class FakeBoxOfficeData @Inject constructor() {
                 movieTitle = "존 윅3 (John Wick 3)",
                 openingDate = "2022년 10월 3일",
                 audienceAmount = "4,000명",
+                rankIncrement = "3",
+                isNewEntry = true,
                 averageAudienceGrowth = "(-14.5%)"
             )
         }

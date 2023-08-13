@@ -1,7 +1,7 @@
 package com.jslee.data.model
 
+import com.jslee.domain.model.BoxOfficeMovie
 import com.jslee.domain.model.Movie
-import kotlinx.serialization.SerialName
 
 /**
  * MooBeside
@@ -36,8 +36,10 @@ internal fun DailyBoxOfficeModel.toDomain() = Movie(
     cumulativeAudience = cumulativeAudience,
     audienceIncrement = audienceIncrement,
     audienceIncrementRatio = audienceIncrementRatio,
-    rank = rank,
-    rankIncrement = rankIncrement,
-    rankEntryStatus = rankEntryStatus
+    boxOffice = BoxOfficeMovie(
+        rank = rank,
+        rankIncrement = rankIncrement,
+        rankEntryStatus = rankEntryStatus
+    )
 )
 

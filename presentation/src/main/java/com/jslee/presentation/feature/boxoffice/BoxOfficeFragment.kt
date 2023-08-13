@@ -8,12 +8,12 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
-import com.jslee.core.date.toDisplayedDateWithDay
-import com.jslee.core.date.toDisplayedPreviousDateWithDay
-import com.jslee.core.date.toMillisOfPreviousDay
-import com.jslee.core.date.toShortenPreviousDate
 import com.jslee.presentation.R
 import com.jslee.presentation.common.base.BaseFragment
+import com.jslee.presentation.common.extension.toDisplayedDateWithDay
+import com.jslee.presentation.common.extension.toDisplayedPreviousDateWithDay
+import com.jslee.presentation.common.extension.toMillisOfPreviousDay
+import com.jslee.presentation.common.extension.toShortenPreviousDate
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
 import com.jslee.presentation.feature.boxoffice.adapter.BoxOfficeAdapter
 import dagger.hilt.android.AndroidEntryPoint
