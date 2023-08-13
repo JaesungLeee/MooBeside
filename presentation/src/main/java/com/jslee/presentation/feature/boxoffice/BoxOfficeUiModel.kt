@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.boxoffice
 import com.jslee.domain.model.Movie
 import com.jslee.presentation.common.extension.toDecimalFormat
 import com.jslee.presentation.common.extension.toDisplayedDate
+import com.jslee.presentation.common.extension.toPercentage
 
 /**
  * MooBeside
@@ -24,7 +25,7 @@ fun Movie.toPresentation() = BoxOfficeUiModel(
     movieTitle = movieName,
     openingDate = openDate.toDisplayedDate(),
     audienceAmount = boxOffice?.dailyAudienceCount?.toDecimalFormat().orEmpty(),
-    averageAudienceGrowth = boxOffice?.dailyAudienceIncrementRatio.orEmpty(),
+    averageAudienceGrowth = boxOffice?.dailyAudienceIncrementRatio?.toPercentage().orEmpty(),
     isNewEntry = boxOffice?.rankEntryStatus == "NEW",
     rankIncrement = boxOffice?.rankIncrement.orEmpty()
 )

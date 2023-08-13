@@ -17,3 +17,5 @@ fun String.toDecimalFormat(): String {
     val decimalFormat = DecimalFormat("#,###명")
     return decimalFormat.format(this.toInt())
 }
+
+fun String.toPercentage() = "($this%)"
