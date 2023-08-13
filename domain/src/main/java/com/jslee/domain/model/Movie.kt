@@ -9,14 +9,15 @@ data class Movie(
     val kobisMovieCode: String,
     val movieName: String,
     val openDate: String,
-    val cumulativeAudience: String,
-    val audienceIncrement: String,
-    val audienceIncrementRatio: String,
-    val boxOffice: BoxOfficeMovie? = null
+    val boxOffice: BoxOfficeMovie? = null,
 )
 
 data class BoxOfficeMovie(
     val rank: String,
     val rankIncrement: String,
     val rankEntryStatus: String,
+    val dailyAudienceCount: String,
+    val dailyAudienceIncrement: String,
+    val dailyAudienceIncrementRatio: String,
+    val cumulativeAudience: String,
 )

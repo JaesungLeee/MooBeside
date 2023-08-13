@@ -1,5 +1,6 @@
 package com.jslee.presentation.common.extension
 
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -19,7 +20,40 @@ object BindingAdapter {
         if (isNewEntry) {
             isVisible = true
             text = resources.getString(R.string.box_office_is_new)
-            setTextColor(ContextCompat.getColor(this.context, DR.color.Green))
+            setTextColor(ContextCompat.getColor(this.context, DR.color.Amber))
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("rankIncrementText")
+    fun TextView.setRankIncrementText(rankIncrement: String?) {
+        if (!rankIncrement.isNullOrEmpty()) {
+            if (rankIncrement.toInt() == 0) return
+            isVisible = true
+            text = rankIncrement
+            setTextColor(ContextCompat.getColor(this.context, DR.color.Gray03))
+        }
+    }
+
+
+    @JvmStatic
+    @BindingAdapter("rankIncrementDrawable")
+    fun ImageView.setRankIncrementDrawable(rankIncrement: String?) {
+        if (!rankIncrement.isNullOrEmpty()) {
+            if (rankIncrement.toInt() == 0) return
+            if (rankIncrement.toInt() > 0) {
+                isVisible = true
+                setImageDrawable(
+                    ContextCompat.getDrawable(this.context, DR.drawable.ic_arrow_up_14)
+                )
+                setColorFilter(ContextCompat.getColor(this.context, DR.color.Blue))
+            } else {
+                isVisible = true
+                setImageDrawable(
+                    ContextCompat.getDrawable(this.context, DR.drawable.ic_arrow_down_14)
+                )
+                setColorFilter(ContextCompat.getColor(this.context, DR.color.Green))
+            }
+        } else setImageDrawable(null)
     }
 }

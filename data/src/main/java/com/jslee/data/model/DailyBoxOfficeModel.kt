@@ -33,13 +33,14 @@ internal fun DailyBoxOfficeModel.toDomain() = Movie(
     kobisMovieCode = movieCode,
     movieName = movieName,
     openDate = openDate,
-    cumulativeAudience = cumulativeAudience,
-    audienceIncrement = audienceIncrement,
-    audienceIncrementRatio = audienceIncrementRatio,
     boxOffice = BoxOfficeMovie(
         rank = rank,
         rankIncrement = rankIncrement,
-        rankEntryStatus = rankEntryStatus
+        rankEntryStatus = rankEntryStatus,
+        dailyAudienceCount = audienceCount,
+        dailyAudienceIncrement = audienceIncrement,
+        dailyAudienceIncrementRatio = audienceIncrementRatio,
+        cumulativeAudience = cumulativeAudience,
     )
 )
 

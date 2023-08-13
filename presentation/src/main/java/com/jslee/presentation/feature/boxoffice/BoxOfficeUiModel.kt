@@ -23,8 +23,8 @@ fun Movie.toPresentation() = BoxOfficeUiModel(
     rank = boxOffice?.rank.orEmpty(),
     movieTitle = movieName,
     openingDate = openDate.toDisplayedDate(),
-    audienceAmount = cumulativeAudience.toDecimalFormat(),
-    averageAudienceGrowth = audienceIncrementRatio,
+    audienceAmount = boxOffice?.dailyAudienceCount?.toDecimalFormat().orEmpty(),
+    averageAudienceGrowth = boxOffice?.dailyAudienceIncrementRatio.orEmpty(),
     isNewEntry = boxOffice?.rankEntryStatus == "NEW",
     rankIncrement = boxOffice?.rankIncrement.orEmpty()
 )
