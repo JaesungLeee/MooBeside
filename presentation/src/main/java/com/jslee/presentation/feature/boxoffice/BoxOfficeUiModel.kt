@@ -1,7 +1,8 @@
 package com.jslee.presentation.feature.boxoffice
 
-import com.jslee.core.date.toDisplayedDate
 import com.jslee.domain.model.Movie
+import com.jslee.presentation.common.extension.toDecimalFormat
+import com.jslee.presentation.common.extension.toDisplayedDate
 
 /**
  * MooBeside
@@ -10,16 +11,21 @@ import com.jslee.domain.model.Movie
  */
 data class BoxOfficeUiModel(
     val rank: String,
+    val rankIncrement: String,
     val movieTitle: String,
     val openingDate: String,
     val audienceAmount: String,
-    val averageAudienceGrowth: String
+    val averageAudienceGrowth: String,
+    val isNewEntry: Boolean,
 )
 
 fun Movie.toPresentation() = BoxOfficeUiModel(
-    rank = rank,
+    rank = boxOffice?.rank.orEmpty(),
     movieTitle = movieName,
     openingDate = openDate.toDisplayedDate(),
-    audienceAmount = cumulativeAudience,
-    averageAudienceGrowth = audienceIncrementRatio
+    audienceAmount = cumulativeAudience.toDecimalFormat(),
+    averageAudienceGrowth = audienceIncrementRatio,
+    isNewEntry = boxOffice?.rankEntryStatus == "NEW",
+    rankIncrement = boxOffice?.rankIncrement.orEmpty()
 )
+

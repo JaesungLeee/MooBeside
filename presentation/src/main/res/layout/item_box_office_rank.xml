@@ -53,12 +53,15 @@
 
             <TextView
                 android:id="@+id/tv_rank_status"
-                style="@style/MooBesideTextAppearance.Body1"
+                android:visibility="gone"
+                style="@style/MooBesideTextAppearance.Caption2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                newEntry="@{boxOffice.newEntry}"
                 app:layout_constraintStart_toStartOf="@id/tv_rank"
-                app:layout_constraintTop_toBottomOf="@id/tv_movie_title" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_open_date"
+                app:layout_constraintTop_toTopOf="@id/tv_open_date"
+                tools:text="NEW"/>
 
             <ImageView
                 android:id="@+id/iv_rank_variance"
@@ -71,14 +74,15 @@
 
             <TextView
                 android:id="@+id/tv_rank_variance"
-                style="@style/MooBesideTextAppearance.Caption3"
+                style="@style/MooBesideTextAppearance.Caption1"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_rank_variance"
                 app:layout_constraintStart_toEndOf="@id/iv_rank_variance"
                 app:layout_constraintTop_toTopOf="@id/iv_rank_variance"
-                tools:text="NEW" />
+                tools:text="-1" />
 
             <TextView
                 android:id="@+id/tv_open_date"
