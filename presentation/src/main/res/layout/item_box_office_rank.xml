@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="boxOffice"
             type="com.jslee.presentation.feature.boxoffice.BoxOfficeUiModel" />
@@ -13,8 +14,8 @@
         android:id="@+id/cv_box_office"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp">
@@ -29,7 +30,7 @@
                 style="@style/MooBesideTextAppearance.Heading3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="32dp"
+                android:minWidth="24dp"
                 android:text="@{boxOffice.rank}"
                 android:textColor="@color/Purple"
                 android:textStyle="italic"
@@ -39,10 +40,12 @@
 
             <TextView
                 android:id="@+id/tv_movie_title"
-                style="@style/MooBesideTextAppearance.Title3"
+                style="@style/MooBesideTextAppearance.Title2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="@{boxOffice.movieTitle}"
                 android:textColor="@color/Gray01"
                 app:layout_constraintBottom_toBottomOf="@id/tv_rank"
@@ -53,32 +56,35 @@
 
             <TextView
                 android:id="@+id/tv_rank_status"
-                android:visibility="gone"
                 style="@style/MooBesideTextAppearance.Caption2"
+                newEntry="@{boxOffice.newEntry}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                newEntry="@{boxOffice.newEntry}"
-                app:layout_constraintStart_toStartOf="@id/tv_rank"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/tv_open_date"
+                app:layout_constraintStart_toStartOf="@id/tv_rank"
                 app:layout_constraintTop_toTopOf="@id/tv_open_date"
-                tools:text="NEW"/>
+                tools:text="NEW" />
 
             <ImageView
                 android:id="@+id/iv_rank_variance"
+                rankIncrementDrawable="@{boxOffice.rankIncrement}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@null"
                 app:layout_constraintBottom_toBottomOf="@id/tv_open_date"
                 app:layout_constraintStart_toStartOf="@id/tv_rank"
-                app:layout_constraintTop_toTopOf="@id/tv_open_date" />
+                app:layout_constraintTop_toTopOf="@id/tv_open_date"
+                tools:src="@drawable/ic_arrow_down_14"
+                tools:tint="@color/Blue" />
 
             <TextView
                 android:id="@+id/tv_rank_variance"
-                style="@style/MooBesideTextAppearance.Caption1"
-                android:visibility="gone"
+                style="@style/MooBesideTextAppearance.Caption2"
+                rankIncrementText="@{boxOffice.rankIncrement}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="2dp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_rank_variance"
                 app:layout_constraintStart_toEndOf="@id/iv_rank_variance"
                 app:layout_constraintTop_toTopOf="@id/iv_rank_variance"
@@ -86,10 +92,10 @@
 
             <TextView
                 android:id="@+id/tv_open_date"
-                style="@style/MooBesideTextAppearance.Body3"
+                style="@style/MooBesideTextAppearance.Body2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="12dp"
                 android:includeFontPadding="false"
                 android:maxWidth="140dp"
                 android:maxLines="1"
@@ -103,24 +109,25 @@
                 android:id="@+id/iv_audience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginEnd="6dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_person_16"
-                app:layout_constraintBottom_toBottomOf="@id/tv_open_date"
-                app:layout_constraintStart_toEndOf="@id/tv_open_date"
-                app:layout_constraintTop_toTopOf="@id/tv_open_date" />
+                app:layout_constraintBottom_toBottomOf="@id/tv_audience_amount"
+                app:layout_constraintEnd_toStartOf="@id/tv_audience_amount"
+                app:layout_constraintTop_toTopOf="@id/tv_audience_amount" />
 
             <TextView
                 android:id="@+id/tv_audience_amount"
-                style="@style/MooBesideTextAppearance.Body3"
+                style="@style/MooBesideTextAppearance.Body2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:textColor="@color/Gray06"
+                android:layout_marginEnd="6dp"
                 android:text="@{boxOffice.audienceAmount}"
-                app:layout_constraintBottom_toBottomOf="@id/tv_open_date"
-                app:layout_constraintStart_toEndOf="@id/iv_audience"
-                app:layout_constraintTop_toTopOf="@id/tv_open_date"
+                android:textColor="@color/Gray06"
+                app:layout_constraintBottom_toBottomOf="@id/tv_average_audience_growth"
+                app:layout_constraintEnd_toStartOf="@id/tv_average_audience_growth"
+                app:layout_constraintTop_toTopOf="@id/tv_average_audience_growth"
                 tools:text="4,000명" />
 
             <TextView
@@ -132,7 +139,7 @@
                 android:text="@{boxOffice.averageAudienceGrowth}"
                 android:textColor="@color/Blurple"
                 app:layout_constraintBaseline_toBaselineOf="@id/tv_audience_amount"
-                app:layout_constraintStart_toEndOf="@id/tv_audience_amount"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_audience_amount"
                 tools:text="(-14.5%)" />
         </androidx.constraintlayout.widget.ConstraintLayout>
