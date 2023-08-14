@@ -6,18 +6,17 @@ package com.jslee.domain.model
  * @created 2023/08/09
  */
 data class Movie(
-    val kobisMovieCode: String,
-    val movieName: String,
-    val openDate: String,
-    val boxOffice: BoxOfficeMovie? = null,
-)
-
-data class BoxOfficeMovie(
-    val rank: String,
-    val rankIncrement: String,
-    val rankEntryStatus: String,
-    val dailyAudienceCount: String,
-    val dailyAudienceIncrement: String,
-    val dailyAudienceIncrementRatio: String,
-    val cumulativeAudience: String,
+    val kobisMovieCode: String? = null,
+    val tmdbMovieId: Long? = null,
+    val movieName: String? = null,
+    val language: String? = null,
+    val overview: String? = null,
+    val openDate: String? = null,
+    val releaseDate: String? = null,
+    val genreIdList: List<Int>? = null,
+    val posterImageUrl: String? = null,
+    val tmdbAverageVoteRate: Double? = null,
+    val tmdbVoteCount: Int? = null,
+    val boxOffice: BoxOffice? = null,
+    val isAdultMovie: Boolean? = null,
 )
