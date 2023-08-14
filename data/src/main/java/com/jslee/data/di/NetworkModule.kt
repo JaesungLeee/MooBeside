@@ -1,9 +1,12 @@
 package com.jslee.data.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.jslee.data.di.qualifier.DefaultOkHttpClient
 import com.jslee.data.di.qualifier.KobisQualifer
+import com.jslee.data.di.qualifier.TmdbOkHttpClient
 import com.jslee.data.di.qualifier.TmdbQualifier
 import com.jslee.data.di.qualifier.YoutubeQualifier
+import com.jslee.data.network.TmdbAuthorizationInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -46,7 +49,8 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(
+    @DefaultOkHttpClient
+    fun provideDefaultOkHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
     ): OkHttpClient = OkHttpClient.Builder()
         .addNetworkInterceptor(httpLoggingInterceptor)
@@ -56,9 +60,22 @@ internal class NetworkModule {
 
     @Provides
     @Singleton
+    @TmdbOkHttpClient
+    fun provideTmdbOkHttpClient(
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+        authInterceptor: TmdbAuthorizationInterceptor
+    ): OkHttpClient = OkHttpClient.Builder()
+        .addInterceptor(authInterceptor)
+        .addNetworkInterceptor(httpLoggingInterceptor)
+        .readTimeout(5, TimeUnit.SECONDS)
+        .connectTimeout(5, TimeUnit.SECONDS)
+        .build()
+
+    @Provides
+    @Singleton
     @KobisQualifer
-    fun provideKOBISRetrofit(
-        okHttpClient: OkHttpClient,
+    fun provideKobisRetrofit(
+        @DefaultOkHttpClient okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(KOBIS_BASE_URL)
@@ -69,8 +86,8 @@ internal class NetworkModule {
     @Provides
     @Singleton
     @TmdbQualifier
-    fun provideTMDBRetrofit(
-        okHttpClient: OkHttpClient,
+    fun provideTmdbRetrofit(
+        @TmdbOkHttpClient okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(TMDB_BASE_URL)
