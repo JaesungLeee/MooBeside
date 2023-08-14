@@ -42,10 +42,12 @@ jobs:
 
       - name: Generate local.properties
         run: |
-          echo KOBIS_API_KEY=\"$KOBIS_API_KEY\" > local.properties
+          echo KOBIS_API_KEY=\"$KOBIS_API_KEY\" >> local.properties
+          echo TMDB_API_KEY=\"$TMDB_API_KEY\" >> local.properties
         shell: bash
         env:
           KOBIS_API_KEY: ${{ secrets.KOBIS_API_KEY }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
