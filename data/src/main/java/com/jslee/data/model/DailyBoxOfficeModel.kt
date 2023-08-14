@@ -1,6 +1,6 @@
 package com.jslee.data.model
 
-import com.jslee.domain.model.BoxOfficeMovie
+import com.jslee.domain.model.BoxOffice
 import com.jslee.domain.model.Movie
 
 /**
@@ -33,7 +33,7 @@ internal fun DailyBoxOfficeModel.toDomain() = Movie(
     kobisMovieCode = movieCode,
     movieName = movieName,
     openDate = openDate,
-    boxOffice = BoxOfficeMovie(
+    boxOffice = BoxOffice(
         rank = rank,
         rankIncrement = rankIncrement,
         rankEntryStatus = rankEntryStatus,
