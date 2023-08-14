@@ -1,5 +1,6 @@
 package com.jslee.data.datasource.remote.dto.response.tmdb
 
+import com.jslee.data.model.MovieSearchModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -38,4 +39,22 @@ data class MovieSearchResponse(
     val averageVoteRate: Double,
     @SerialName("vote_count")
     val voteCount: Int,
+)
+
+
+internal fun MovieSearchResponse.toDataModel() = MovieSearchModel(
+    isAdultMovie = isAdultMovie,
+    backDropImagePath = backDropImagePath,
+    genreIdList = genreIdList,
+    tmdbMovieId = tmdbMovieId,
+    language = language,
+    originalMovieTitle = originalMovieTitle,
+    overview = overview,
+    popularity = popularity,
+    posterImagePath = posterImagePath,
+    releaseDate = releaseDate,
+    movieTitle = movieTitle,
+    isIncludeVideo = isIncludeVideo,
+    averageVoteRate = averageVoteRate,
+    voteCount = voteCount,
 )
