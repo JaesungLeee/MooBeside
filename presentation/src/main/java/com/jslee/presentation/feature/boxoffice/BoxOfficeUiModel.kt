@@ -22,8 +22,8 @@ data class BoxOfficeUiModel(
 
 fun Movie.toPresentation() = BoxOfficeUiModel(
     rank = boxOffice?.rank.orEmpty(),
-    movieTitle = movieName,
-    openingDate = openDate.toDisplayedDate(),
+    movieTitle = movieName.orEmpty(),
+    openingDate = openDate?.toDisplayedDate().orEmpty(),
     audienceAmount = boxOffice?.dailyAudienceCount?.toDecimalFormat().orEmpty(),
     averageAudienceGrowth = boxOffice?.dailyAudienceIncrementRatio?.toPercentage().orEmpty(),
     isNewEntry = boxOffice?.rankEntryStatus == "NEW",
