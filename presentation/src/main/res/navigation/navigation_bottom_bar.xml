@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/navigation_bottom_bar"
-    app:startDestination="@id/navigation_screening">
+    app:startDestination="@id/navigation_home">
 
     <include app:graph="@navigation/navigation_box_office" />
-    <include app:graph="@navigation/navigation_screening" />
+    <include app:graph="@navigation/navigation_home" />
     <include app:graph="@navigation/navigation_bookmark" />
 
 </navigation>

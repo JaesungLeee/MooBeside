@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_chart_24"
         android:title="@string/navigation_box_office" />
     <item
-        android:id="@+id/navigation_screening"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_movie_24"
         android:title="@string/navigation_screening" />
     <item

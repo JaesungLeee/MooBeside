@@ -24,7 +24,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun setDestinationChangeListener() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bnvMain.visibility = when (destination.id) {
-                R.id.screeningFragment, R.id.boxOfficeFragment, R.id.bookmarkFragment -> View.VISIBLE
+                R.id.homeFragment, R.id.boxOfficeFragment, R.id.bookmarkFragment -> View.VISIBLE
                 else -> View.GONE
             }
         }
