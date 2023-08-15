@@ -1,4 +1,5 @@
 <resources >
     <string name="content_description_box_office_date_picker">날짜를 선택하는 영역입니다.</string>
     <string name="box_office_is_new">NEW</string>
+    <string name="toolbar_search">검색</string>
 </resources>
