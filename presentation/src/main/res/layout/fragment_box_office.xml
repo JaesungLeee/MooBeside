@@ -23,8 +23,7 @@
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/tb_box_office"
                 style="@style/MooBeside.MaterialToolbar"
-                app:title="일간 박스오피스 순위"
-                app:titleTextAppearance="@style/MooBesideTextAppearance.Title1" />
+                app:title="일간 박스오피스 순위" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout

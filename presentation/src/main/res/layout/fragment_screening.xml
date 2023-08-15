@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -9,12 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            style="@style/MooBesideTextAppearance.Heading1"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/abl_screening"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Screening" />
+            android:layout_height="wrap_content"
+            android:background="@color/White"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/tb_screening"
+                style="@style/MooBeside.MaterialToolbar"
+                app:logo="@drawable/ic_video"
+                app:menu="@menu/menu_screening"
+                app:title="무비사이드"
+                app:titleMarginStart="28dp"
+                app:titleTextColor="@color/Blurple" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
