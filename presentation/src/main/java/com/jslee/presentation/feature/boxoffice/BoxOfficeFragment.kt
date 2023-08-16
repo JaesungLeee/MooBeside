@@ -13,6 +13,7 @@ import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.common.extension.toDisplayedDateWithDay
 import com.jslee.presentation.common.extension.toDisplayedPreviousDateWithDay
 import com.jslee.presentation.common.extension.toMillisOfPreviousDay
+import com.jslee.presentation.common.extension.toShortenDate
 import com.jslee.presentation.common.extension.toShortenPreviousDate
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
 import com.jslee.presentation.feature.boxoffice.adapter.BoxOfficeAdapter
@@ -92,7 +93,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
         datePickerBuilder.show(childFragmentManager, DATE_PICKER_TAG)
         datePickerBuilder.addOnPositiveButtonClickListener {
             binding.tvDate.text = it.toDisplayedDateWithDay()
-            viewModel.updateBoxOfficeByTargetDate(it.toShortenPreviousDate())
+            viewModel.updateBoxOfficeByTargetDate(it.toShortenDate())
         }
     }
 
