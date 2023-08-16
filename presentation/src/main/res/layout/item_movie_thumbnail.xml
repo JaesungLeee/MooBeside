@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="searchResult"
+            type="com.jslee.presentation.feature.search.SearchResultUiModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,6 +33,7 @@
 
                 <ImageView
                     android:id="@+id/iv_poster"
+                    posterImage="@{searchResult.posterImageUrl}"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:contentDescription="@null"

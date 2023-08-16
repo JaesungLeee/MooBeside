@@ -16,12 +16,12 @@ class SearchMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
 
-    operator fun invoke(query: String): Flow<List<Movie>> = flow {
-        val movieSearchResult = fetchSearchMovieResult(query)
-//        val movieDetailResult = fetchMovieDetailResult()
-        
-    }
+    operator fun invoke(query: String): Flow<List<Movie>> =
+        fetchSearchMovieResult(query)
 
-    private fun fetchSearchMovieResult(query: String) = movieRepository.getSearchMovie(query = query)
+//        val movieSearchResult = fetchSearchMovieResult(query)
+//        val movieDetailResult = fetchMovieDetailResult()
+    private fun fetchSearchMovieResult(query: String) =
+        movieRepository.getSearchMovie(query = query)
 
 }
