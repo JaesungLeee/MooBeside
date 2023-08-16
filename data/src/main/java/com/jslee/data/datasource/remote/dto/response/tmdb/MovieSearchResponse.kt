@@ -14,7 +14,7 @@ data class MovieSearchResponse(
     @SerialName("adult")
     val isAdultMovie: Boolean,
     @SerialName("backdrop_path")
-    val backDropImagePath: String,
+    val backDropImagePath: String?,
     @SerialName("genres_ids")
     val genreIdList: List<Int>,
     @SerialName("id")
@@ -44,7 +44,7 @@ data class MovieSearchResponse(
 
 internal fun MovieSearchResponse.toDataModel() = MovieSearchModel(
     isAdultMovie = isAdultMovie,
-    backDropImagePath = backDropImagePath,
+    backDropImagePath = backDropImagePath.orEmpty(),
     genreIdList = genreIdList,
     tmdbMovieId = tmdbMovieId,
     language = language,

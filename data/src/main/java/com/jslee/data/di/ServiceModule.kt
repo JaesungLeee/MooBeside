@@ -4,6 +4,8 @@ import com.jslee.data.datasource.remote.service.KobisService
 import com.jslee.data.datasource.remote.service.TmdbService
 import com.jslee.data.datasource.remote.service.YoutubeService
 import com.jslee.data.di.qualifier.KobisQualifer
+import com.jslee.data.di.qualifier.TmdbQualifier
+import com.jslee.data.di.qualifier.YoutubeQualifier
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,12 +32,12 @@ internal class ServiceModule {
     @Provides
     @Singleton
     fun provideTmdbService(
-        @KobisQualifer retrofit: Retrofit
+        @TmdbQualifier retrofit: Retrofit
     ): TmdbService = retrofit.create()
 
     @Provides
     @Singleton
     fun provideYoutubeService(
-        @KobisQualifer retrofit: Retrofit
+        @YoutubeQualifier retrofit: Retrofit
     ): YoutubeService = retrofit.create()
 }
