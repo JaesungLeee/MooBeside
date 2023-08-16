@@ -1,5 +1,6 @@
 package com.jslee.data.datasource.remote.service
 
+import com.jslee.data.BuildConfig
 import com.jslee.data.datasource.remote.dto.response.tmdb.MovieSearchResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbPagingResponse
 import retrofit2.http.GET
@@ -14,6 +15,7 @@ internal interface TmdbService {
 
     @GET("search/movie")
     suspend fun getSearchMovie(
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("query") query: String,
         @Query("include_adult") includeAdultMovie: Boolean = false,
         @Query("language") language: String = "ko",

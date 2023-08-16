@@ -18,6 +18,6 @@ class MooBesideApplication : Application() {
     lateinit var customDebugTree: CustomTimberDebugTree
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(customDebugTree)
+        Timber.plant(Timber.DebugTree())
     }
 }

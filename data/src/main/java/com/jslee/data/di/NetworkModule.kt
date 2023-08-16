@@ -87,7 +87,7 @@ internal class NetworkModule {
     @Singleton
     @TmdbQualifier
     fun provideTmdbRetrofit(
-        @TmdbOkHttpClient okHttpClient: OkHttpClient,
+        @DefaultOkHttpClient okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(TMDB_BASE_URL)
@@ -99,7 +99,7 @@ internal class NetworkModule {
     @Singleton
     @YoutubeQualifier
     fun provideYoutubeRetrofit(
-        okHttpClient: OkHttpClient,
+        @DefaultOkHttpClient okHttpClient: OkHttpClient,
         converterFactory: Converter.Factory,
     ): Retrofit = Retrofit.Builder()
         .baseUrl(YOUTUBE_BASE_URL)
