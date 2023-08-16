@@ -15,7 +15,7 @@ data class MovieSearchResponse(
     val isAdultMovie: Boolean,
     @SerialName("backdrop_path")
     val backDropImagePath: String?,
-    @SerialName("genres_ids")
+    @SerialName("genre_ids")
     val genreIdList: List<Int>,
     @SerialName("id")
     val tmdbMovieId: Long,
