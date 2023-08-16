@@ -22,6 +22,8 @@ object BindingAdapter {
             isVisible = true
             text = resources.getString(R.string.box_office_is_new)
             setTextColor(ContextCompat.getColor(this.context, DR.color.Amber))
+        } else {
+            isVisible = false
         }
     }
 
@@ -33,6 +35,8 @@ object BindingAdapter {
             isVisible = true
             text = rankIncrement
             setTextColor(ContextCompat.getColor(this.context, DR.color.Gray03))
+        } else {
+            isVisible = false
         }
     }
 

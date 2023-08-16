@@ -23,6 +23,11 @@ fun Long.toShortenPreviousDate(): String {
     return formatter.format(Date(this.toMillisOfPreviousDay()))
 }
 
+fun Long.toShortenDate(): String {
+    val formatter = SimpleDateFormat("yyyyMMdd", Locale.KOREA)
+    return formatter.format(Date(this))
+}
+
 fun Long.toDisplayedDate(): String {
     val formatter = SimpleDateFormat("yyyy년 M월 d일", Locale.KOREA)
     return formatter.format(Date(this))
