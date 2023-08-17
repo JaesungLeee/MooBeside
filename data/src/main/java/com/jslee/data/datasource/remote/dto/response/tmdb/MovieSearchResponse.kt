@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
  * @created 2023/08/14
  */
 @Serializable
-data class MovieSearchResponse(
+data class TmdbCommonMovieResponse(
     @SerialName("adult")
     val isAdultMovie: Boolean,
     @SerialName("backdrop_path")
@@ -42,7 +42,7 @@ data class MovieSearchResponse(
 )
 
 
-internal fun MovieSearchResponse.toDataModel() = MovieSearchModel(
+internal fun TmdbCommonMovieResponse.toDataModel() = MovieSearchModel(
     isAdultMovie = isAdultMovie,
     backDropImagePath = backDropImagePath.orEmpty(),
     genreIdList = genreIdList,
