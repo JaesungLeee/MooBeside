@@ -9,7 +9,7 @@ import com.jslee.domain.model.Movie
  * @created 2023/08/14
  */
 
-internal data class MovieSearchModel (
+internal data class TmdbCommonMovieModel(
     val isAdultMovie: Boolean,
     val backDropImagePath: String,
     val genreIdList: List<Int>,
@@ -26,7 +26,7 @@ internal data class MovieSearchModel (
     val voteCount: Int,
 )
 
-internal fun MovieSearchModel.toDomain() = Movie(
+internal fun TmdbCommonMovieModel.toDomain() = Movie(
     tmdbMovieId = tmdbMovieId,
     language = language,
     overview = overview,
