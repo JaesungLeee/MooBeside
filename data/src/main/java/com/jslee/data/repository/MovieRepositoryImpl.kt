@@ -34,4 +34,11 @@ internal class MovieRepositoryImpl @Inject constructor(
         }.getOrThrow()
         emit(movieList)
     }
+
+    override fun getPopularMovie(): Flow<List<Movie>> = flow {
+        val popularMovies = suspendRunCatching {
+            tmdbRemoteDataSource.getPopularMovie().map { it.toDomain() }
+        }.getOrThrow()
+        emit(popularMovies)
+    }
 }
