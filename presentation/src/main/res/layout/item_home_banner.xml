@@ -21,19 +21,10 @@
             android:contentDescription="@null"
             android:scaleType="fitXY"
             android:src="@drawable/img_sample"
-            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintDimensionRatio="1:0.8"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <include
-            layout="@layout/layout_banner_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_home_banner"
-            app:layout_constraintEnd_toEndOf="@id/iv_home_banner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
