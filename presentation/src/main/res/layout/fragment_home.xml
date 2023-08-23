@@ -29,15 +29,41 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
+        <TextView
+            android:id="@+id/tv_title_popular_movie"
+            style="@style/MooBesideTextAppearance.Heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/home_popular_movie_title"
+            android:textColor="@color/Gray02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/abl_screening" />
+
+        <ImageView
+            android:id="@+id/iv_banner_tooltip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/Black"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_help_24"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title_popular_movie"
+            app:layout_constraintStart_toEndOf="@id/tv_title_popular_movie"
+            app:layout_constraintTop_toTopOf="@id/tv_title_popular_movie"
+            app:tint="@color/Gray07" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_popular_banner"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             app:layout_constraintDimensionRatio="1:0.6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/abl_screening" />
+            app:layout_constraintTop_toBottomOf="@id/tv_title_popular_movie" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
