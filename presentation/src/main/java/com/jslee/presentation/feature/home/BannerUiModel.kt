@@ -9,13 +9,20 @@ import com.jslee.domain.model.Movie
  */
 data class BannerUiModel(
     val id: Long,
-    val posterImageUrl: String,
+    val movieTitle: String,
+    val backdropImageUrl: String,
 ) {
     companion object {
-        fun default() = BannerUiModel(id = 0, posterImageUrl = "")
+        fun default() = BannerUiModel(
+            id = 0,
+            movieTitle = "",
+            backdropImageUrl = ""
+        )
     }
 }
 
 fun Movie.toBannerUiModel() = BannerUiModel(
-    id = tmdbMovieId ?: -1, posterImageUrl = posterImageUrl.orEmpty()
+    id = tmdbMovieId ?: -1,
+    movieTitle = movieName.orEmpty(),
+    backdropImageUrl = backdropImageUrl.orEmpty()
 )

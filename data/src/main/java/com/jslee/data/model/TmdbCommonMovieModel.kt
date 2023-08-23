@@ -28,6 +28,7 @@ internal data class TmdbCommonMovieModel(
 
 internal fun TmdbCommonMovieModel.toDomain() = Movie(
     tmdbMovieId = tmdbMovieId,
+    movieName = movieTitle,
     language = language,
     overview = overview,
     releaseDate = releaseDate,
@@ -35,5 +36,6 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
     tmdbAverageVoteRate = averageVoteRate,
     tmdbVoteCount = voteCount,
     isAdultMovie = isAdultMovie,
-    posterImageUrl = TMDB_IMAGE_PREFIX + posterImagePath
+    posterImageUrl = TMDB_IMAGE_PREFIX + posterImagePath,
+    backdropImageUrl = TMDB_IMAGE_PREFIX + backDropImagePath
 )

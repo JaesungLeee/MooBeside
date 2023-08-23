@@ -17,7 +17,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -66,8 +65,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initTopBanner() {
-        binding.tvCurrentPage.text = "1"
+        binding.tvCurrentPage.text = "$CURRENT_PAGE"
         binding.tvTotalPage.text = "$BANNER_COUNT"
+
         with(binding.vpPopularBanner) {
             registerOnPageChangeCallback(object : OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
