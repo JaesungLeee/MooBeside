@@ -15,6 +15,7 @@ data class Movie(
     val releaseDate: String? = null,
     val genreIdList: List<Int>? = null,
     val posterImageUrl: String? = null,
+    val backdropImageUrl: String? = null,
     val tmdbAverageVoteRate: Double? = null,
     val tmdbVoteCount: Int? = null,
     val boxOffice: BoxOffice? = null,
