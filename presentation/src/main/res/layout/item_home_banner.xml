@@ -22,7 +22,7 @@
             android:layout_height="0dp"
             android:contentDescription="@null"
             android:scaleType="fitXY"
-            app:layout_constraintDimensionRatio="1:0.5"
+            app:layout_constraintDimensionRatio="1:0.6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,15 +38,15 @@
 
         <TextView
             android:id="@+id/tv_movie_title"
-            style="@style/MooBesideTextAppearance.Title1"
+            style="@style/MooBesideTextAppearance.Heading4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
             android:text="@{banner.movieTitle}"
             android:textColor="@color/White"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="엘리멘탈" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
