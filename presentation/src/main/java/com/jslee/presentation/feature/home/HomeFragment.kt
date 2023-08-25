@@ -3,7 +3,6 @@ package com.jslee.presentation.feature.home
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING
@@ -105,12 +104,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     override fun observeStates() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.banner.collectLatest { bannerList ->
-                    binding.vpPopularBanner.adapter = bannerAdapter.also {
-                        it.submitList(bannerList)
-                    }
+        repeatOn(Lifecycle.State.STARTED) {
+            viewModel.banner.collectLatest { bannerList ->
+                binding.vpPopularBanner.adapter = bannerAdapter.also {
+                    it.submitList(bannerList)
                 }
             }
         }
