@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.logging.interceptor)
 
+    implementation(libs.androidx.paging.runtime)
+
     implementation(libs.bundles.kotlinx.coroutines)
     implementation(libs.kotlinx.serialization.json)
 
