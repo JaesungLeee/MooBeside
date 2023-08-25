@@ -10,6 +10,6 @@ import com.skydoves.balloon.Balloon
  * @created 2023/08/23
  */
 interface TooltipBuilder {
-    fun showTooltip(context: Context, lifecycleOwner: LifecycleOwner, text: String): Balloon
+    fun setTooltip(context: Context, lifecycleOwner: LifecycleOwner, description: String): Balloon
     fun dismissTooltip(balloon: Balloon)
 }
