@@ -13,4 +13,5 @@ interface MovieRepository {
     fun getDailyBoxOffice(targetDate: String): Flow<Result<List<Movie>>>
     fun getSearchMovie(query: String): Flow<List<Movie>>
     fun getPopularMovie(): Flow<List<Movie>>
+    fun getNowPlayingMovie(): Flow<List<Movie>>
 }
