@@ -38,7 +38,7 @@
 
         <TextView
             android:id="@+id/tv_movie_title"
-            style="@style/MooBesideTextAppearance.Heading4"
+            style="@style/MooBesideTextAppearance.Title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"

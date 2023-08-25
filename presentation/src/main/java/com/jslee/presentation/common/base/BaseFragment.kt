@@ -8,6 +8,11 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 /**
  * MooBeside
@@ -41,6 +46,15 @@ open class BaseFragment<VB : ViewDataBinding>(@LayoutRes private val layoutId: I
 
     /* must implement */
     open fun observeStates() {}
+
+    protected fun repeatOn(
+        lifecycle: Lifecycle.State = Lifecycle.State.STARTED,
+        builder: suspend CoroutineScope.() -> Unit
+    ) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(lifecycle, builder)
+        }
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
