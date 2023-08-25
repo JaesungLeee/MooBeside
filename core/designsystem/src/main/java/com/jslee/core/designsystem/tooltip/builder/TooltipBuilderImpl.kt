@@ -27,7 +27,7 @@ class TooltipBuilderImpl @Inject constructor() : TooltipBuilder {
         description: String
     ): Balloon {
         return TooltipConfig.createTooltip(context) {
-            setWidth(220)
+            setWidthRatio(0.65f)
             setHeight(BalloonSizeSpec.WRAP)
             setText(description)
             setTextColorResource(R.color.TMDB_Green)
