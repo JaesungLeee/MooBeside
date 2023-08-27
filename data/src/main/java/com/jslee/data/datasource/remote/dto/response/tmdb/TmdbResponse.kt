@@ -20,6 +20,8 @@ data class TmdbPagingResponse<T>(
     val statusMessage: String? = null,
     @SerialName("success")
     val isSuccess: Boolean? = null,
+    @SerialName("dates")
+    val dateRange: DateRange? = null,
     @SerialName("page")
     val page: Int? = null,
     @SerialName("results")
@@ -29,3 +31,12 @@ data class TmdbPagingResponse<T>(
     @SerialName("total_results")
     val totalItemCount: Int? = null,
 )
+
+@Serializable
+data class DateRange(
+    @SerialName("maximum")
+    val maximumDate: String,
+    @SerialName("minimum")
+    val minimumDate: String,
+)
+

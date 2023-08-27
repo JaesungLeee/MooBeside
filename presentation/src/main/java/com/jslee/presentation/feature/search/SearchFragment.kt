@@ -70,7 +70,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
 
                                 is Success -> {
                                     Timber.e("Success")
-                                    searchAdapter.submitList(uiState.data)
+                                    searchAdapter.submitData(uiState.data)
                                 }
 
                                 is Failure -> {

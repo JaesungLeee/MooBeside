@@ -3,7 +3,6 @@ package com.jslee.data.paging.extension
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.jslee.data.PAGING_REQUEST_DATA_SIZE
-import com.jslee.data.paging.PagedData
 import com.jslee.data.paging.base.MooBesidePagingSource
 
 /**

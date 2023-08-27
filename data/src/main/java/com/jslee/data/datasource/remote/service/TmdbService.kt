@@ -17,6 +17,7 @@ internal interface TmdbService {
     suspend fun getSearchMovie(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("query") query: String,
+        @Query("page") page: Int,
         @Query("include_adult") includeAdultMovie: Boolean = false,
         @Query("language") language: String = KOREAN,
         @Query("region") region: String = KOREA,

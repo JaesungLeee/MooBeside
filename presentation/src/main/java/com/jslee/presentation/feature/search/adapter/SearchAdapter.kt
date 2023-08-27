@@ -2,6 +2,7 @@ package com.jslee.presentation.feature.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,7 @@ import com.jslee.presentation.feature.search.SearchResultUiModel
  */
 class SearchAdapter(
     private val onCardClick: () -> Unit
-) : ListAdapter<SearchResultUiModel, SearchViewHolder>(searchDiffCallback) {
+) : PagingDataAdapter<SearchResultUiModel, SearchViewHolder>(searchDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,8 +25,8 @@ class SearchAdapter(
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        val item = currentList[position]
-        holder.bindItems(item)
+        val item = getItem(position)
+        holder.bindItems(item ?: return)
     }
 
     companion object {

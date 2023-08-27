@@ -1,8 +1,10 @@
 package com.jslee.data.repository
 
+import androidx.paging.PagingData
 import com.jslee.data.datasource.remote.source.KobisRemoteDataSource
 import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
 import com.jslee.data.model.toDomain
+import com.jslee.data.paging.extension.createPager
 import com.jslee.data.suspendRunCatching
 import com.jslee.domain.model.Movie
 import com.jslee.domain.repository.MovieRepository
@@ -28,11 +30,10 @@ internal class MovieRepositoryImpl @Inject constructor(
         )
     }
 
-    override fun getSearchMovie(query: String): Flow<List<Movie>> = flow {
-        val movieList = suspendRunCatching {
-            tmdbRemoteDataSource.getSearchMovie(query = query).map { it.toDomain() }
-        }.getOrThrow()
-        emit(movieList)
+    override fun getSearchMovie(query: String): Flow<PagingData<Movie>> {
+        return createPager { page ->
+            tmdbRemoteDataSource.getSearchMovie(query = query, page = page).map { it.toDomain() }
+        }.flow
     }
 
     override fun getPopularMovie(): Flow<List<Movie>> = flow {
