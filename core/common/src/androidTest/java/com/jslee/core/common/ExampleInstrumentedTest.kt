@@ -1,4 +1,4 @@
-package com.jslee.common
+package com.jslee.core.common
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
