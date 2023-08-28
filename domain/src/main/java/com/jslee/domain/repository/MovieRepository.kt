@@ -15,4 +15,5 @@ interface MovieRepository {
     fun getSearchMovie(query: String): Flow<PagingData<Movie>>
     fun getPopularMovie(): Flow<List<Movie>>
     fun getNowPlayingMovie(): Flow<PagingData<Movie>>
+    fun getUpcomingMovie(): Flow<PagingData<Movie>>
 }
