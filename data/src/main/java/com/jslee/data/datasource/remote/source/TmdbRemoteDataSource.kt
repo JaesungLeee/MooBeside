@@ -3,7 +3,6 @@ package com.jslee.data.datasource.remote.source
 import com.jslee.data.datasource.remote.dto.response.tmdb.toDataModel
 import com.jslee.data.datasource.remote.service.TmdbService
 import com.jslee.data.model.TmdbCommonMovieModel
-import retrofit2.HttpException
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,9 +16,9 @@ internal class TmdbRemoteDataSource @Inject constructor(
     private val tmdbService: TmdbService
 ) {
 
-    suspend fun getSearchMovie(query: String): List<TmdbCommonMovieModel> {
-        val response = tmdbService.getSearchMovie(query = query)
-        return response.pagingResult?.map { it.toDataModel() } ?: emptyList()
+    suspend fun getSearchMovie(query: String, page: Int): List<TmdbCommonMovieModel> {
+        val response = tmdbService.getSearchMovie(query = query, page = page)
+        return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 
     suspend fun getPopularMovie(): List<TmdbCommonMovieModel> {
@@ -27,8 +26,8 @@ internal class TmdbRemoteDataSource @Inject constructor(
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 
-    suspend fun getNowPlayingMovie(): List<TmdbCommonMovieModel> {
-        val response = tmdbService.getNowPlayingMovie()
+    suspend fun getNowPlayingMovie(page: Int): List<TmdbCommonMovieModel> {
+        val response = tmdbService.getNowPlayingMovie(page = page)
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 }

@@ -1,5 +1,6 @@
 package com.jslee.domain.usecase
 
+import androidx.paging.PagingData
 import com.jslee.domain.model.Movie
 import com.jslee.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +15,7 @@ class SearchMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
 
-    operator fun invoke(query: String): Flow<List<Movie>> =
+    operator fun invoke(query: String): Flow<PagingData<Movie>> =
         fetchSearchMovieResult(query)
 
 //        val movieSearchResult = fetchSearchMovieResult(query)

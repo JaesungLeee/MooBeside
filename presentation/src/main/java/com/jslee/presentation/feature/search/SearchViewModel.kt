@@ -2,6 +2,8 @@ package com.jslee.presentation.feature.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.map
 import com.jslee.domain.usecase.SearchMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -55,5 +57,5 @@ sealed interface SearchUiState
 object Idle : SearchUiState
 object EmptyResult : SearchUiState
 object Loading : SearchUiState
-data class Success(val data: List<SearchResultUiModel>) : SearchUiState
+data class Success(val data: PagingData<SearchResultUiModel>) : SearchUiState
 data class Failure(val message: String?) : SearchUiState
