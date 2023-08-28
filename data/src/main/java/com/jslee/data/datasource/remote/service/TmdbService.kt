@@ -36,7 +36,7 @@ internal interface TmdbService {
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = KOREAN,
         @Query("region") region: String = KOREA,
-        @Query("page") page: Int = 1,
+        @Query("page") page: Int,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
     companion object {

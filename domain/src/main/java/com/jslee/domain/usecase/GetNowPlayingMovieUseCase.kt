@@ -1,5 +1,6 @@
 package com.jslee.domain.usecase
 
+import androidx.paging.PagingData
 import com.jslee.domain.model.Movie
 import com.jslee.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
@@ -14,7 +15,7 @@ class GetNowPlayingMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
 
-    operator fun invoke(): Flow<List<Movie>> {
+    operator fun invoke(): Flow<PagingData<Movie>> {
         return movieRepository.getNowPlayingMovie()
     }
 }

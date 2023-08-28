@@ -26,8 +26,8 @@ internal class TmdbRemoteDataSource @Inject constructor(
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 
-    suspend fun getNowPlayingMovie(): List<TmdbCommonMovieModel> {
-        val response = tmdbService.getNowPlayingMovie()
+    suspend fun getNowPlayingMovie(page: Int): List<TmdbCommonMovieModel> {
+        val response = tmdbService.getNowPlayingMovie(page = page)
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 }
