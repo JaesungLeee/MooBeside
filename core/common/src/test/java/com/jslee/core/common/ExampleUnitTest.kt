@@ -1,4 +1,4 @@
-package com.jslee.common
+package com.jslee.core.common
 
 import org.junit.Test
 
