@@ -39,6 +39,14 @@ internal interface TmdbService {
         @Query("page") page: Int,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
+    @GET("movie/upcoming")
+    suspend fun getUpcomingMovie(
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+        @Query("language") language: String = KOREAN,
+        @Query("region") region: String = KOREA,
+        @Query("page") page: Int,
+    ): TmdbPagingResponse<TmdbCommonMovieResponse>
+
     companion object {
         private const val KOREAN = "ko"
         private const val KOREA = "KR"

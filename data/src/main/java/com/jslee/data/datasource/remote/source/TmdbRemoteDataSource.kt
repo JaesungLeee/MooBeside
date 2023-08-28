@@ -30,6 +30,11 @@ internal class TmdbRemoteDataSource @Inject constructor(
         val response = tmdbService.getNowPlayingMovie(page = page)
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
+
+    suspend fun getUpcomingMovie(page: Int): List<TmdbCommonMovieModel> {
+        val response = tmdbService.getUpcomingMovie(page = page)
+        return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
+    }
 }
 
 fun <T> List<T>?.orThrow(message: String?): List<T> = this ?: throw Exception(message)

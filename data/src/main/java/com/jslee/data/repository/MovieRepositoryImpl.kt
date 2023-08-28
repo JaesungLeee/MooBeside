@@ -48,4 +48,10 @@ internal class MovieRepositoryImpl @Inject constructor(
             tmdbRemoteDataSource.getNowPlayingMovie(page = page).map { it.toDomain() }
         }.flow
     }
+
+    override fun getUpcomingMovie(): Flow<PagingData<Movie>> {
+        return createPager {  page ->
+            tmdbRemoteDataSource.getUpcomingMovie(page = page).map { it.toDomain() }
+        }.flow
+    }
 }
