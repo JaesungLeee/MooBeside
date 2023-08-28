@@ -1,15 +1,21 @@
 <h1 align="center">MooBeside</h1>
 
 <p align="center">
-<a href="[https://kotlinlang.org](https://kotlinlang.org/)"><img alt="Kotlin Version" src="https://img.shields.io/badge/Kotlin-1.6.21-blueviolet.svg?style=flat"/></a>
-<a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat"/></a>
-<a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="AGP" src="https://img.shields.io/badge/AGP-7.2.1-blue?style=flat"/></a>
-<a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="[https://img.shields.io/badge/License-Apache 2.0-blue.svg](https://img.shields.io/badge/License-Apache%202.0-blue.svg)"/></a>
+<a href="[https://kotlinlang.org](https://kotlinlang.org/)"><img alt="Kotlin Version" src="https://img.shields.io/badge/Kotlin-1.8.0-blueviolet.svg?style=flat"/></a>
+<a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
+<a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="AGP" src="https://img.shields.io/badge/AGP-8.1.0-blue?style=flat"/></a>
+<a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 </p>
 
 Description
 
 <img src="" />
+
+## App Download
+
+<a href="https://play.google.com/store/apps/details?id=com.jslee.moobeside">
+<img src="https://user-images.githubusercontent.com/63157395/211233100-2f255c00-3336-4125-b5da-2fd935e40b5a.png" width="150" />
+</a>
 
 ## Tech stack & Open-source libraries
 
