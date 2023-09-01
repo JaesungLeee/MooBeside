@@ -3,8 +3,8 @@ package com.jslee.presentation.feature
 import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.jslee.core.ui.base.view.BaseActivity
 import com.jslee.presentation.R
-import com.jslee.presentation.common.base.BaseActivity
 import com.jslee.presentation.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
