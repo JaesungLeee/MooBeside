@@ -1,6 +1,5 @@
 <resources >
     <string name="content_description_box_office_date_picker">날짜를 선택하는 영역입니다.</string>
-    <string name="box_office_is_new">NEW</string>
     <string name="toolbar_search">검색</string>
     <string name="home_popular_movie_title">인기 영화</string>
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
