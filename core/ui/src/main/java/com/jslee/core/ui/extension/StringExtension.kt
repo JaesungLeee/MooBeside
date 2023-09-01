@@ -1,4 +1,4 @@
-package com.jslee.presentation.common.extension
+package com.jslee.core.ui.extension
 
 import java.text.DecimalFormat
 

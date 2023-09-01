@@ -7,8 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
-import com.jslee.presentation.common.extension.showToast
 import com.jslee.presentation.databinding.FragmentSearchBinding
 import com.jslee.presentation.feature.search.adapter.SearchAdapter
 import dagger.hilt.android.AndroidEntryPoint

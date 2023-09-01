@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
-import com.jslee.presentation.common.extension.toShortenPreviousDate
+import com.jslee.core.ui.extension.toShortenPreviousDate
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

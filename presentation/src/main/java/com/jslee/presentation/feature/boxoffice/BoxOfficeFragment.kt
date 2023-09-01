@@ -10,10 +10,10 @@ import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
-import com.jslee.presentation.common.extension.toDisplayedDateWithDay
-import com.jslee.presentation.common.extension.toDisplayedPreviousDateWithDay
-import com.jslee.presentation.common.extension.toMillisOfPreviousDay
-import com.jslee.presentation.common.extension.toShortenDate
+import com.jslee.core.ui.extension.toDisplayedDateWithDay
+import com.jslee.core.ui.extension.toDisplayedPreviousDateWithDay
+import com.jslee.core.ui.extension.toMillisOfPreviousDay
+import com.jslee.core.ui.extension.toShortenDate
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
 import com.jslee.presentation.feature.boxoffice.adapter.BoxOfficeAdapter
 import dagger.hilt.android.AndroidEntryPoint
