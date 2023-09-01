@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jslee.core.ui.adapter.MultiViewTypeListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.databinding.ItemMovieThumbnailBinding
 import com.jslee.presentation.feature.home.model.HomeListItem
 import com.jslee.presentation.feature.home.viewholder.banner.BannerViewHolder
+import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
 import com.jslee.presentation.feature.home.viewholder.header.HeaderViewHolder
 import com.jslee.presentation.feature.home.viewholder.movie.NowPlayingMovieViewHolder
 import com.jslee.presentation.feature.home.viewholder.movie.UpComingMovieViewHolder
@@ -39,6 +41,10 @@ class HomeAdapter : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeView
 
             HomeListItem.HomeViewType.UP_COMING_CONTENT -> UpComingMovieViewHolder(
                 ItemMovieThumbnailBinding.inflate(layoutInflater, parent, false)
+            )
+
+            HomeListItem.HomeViewType.DIVIDER -> DividerViewHolder(
+                ItemDividerBinding.inflate(layoutInflater, parent, false)
             )
         }
     }

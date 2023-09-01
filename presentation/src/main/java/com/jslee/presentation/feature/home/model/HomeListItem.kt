@@ -12,7 +12,8 @@ sealed class HomeListItem(override val viewType: HomeViewType) : ListItem {
         HEADER,
         BANNER_CONTENT,
         NOW_PLAYING_CONTENT,
-        UP_COMING_CONTENT
+        UP_COMING_CONTENT,
+        DIVIDER,
     }
 
     data class Header(
@@ -34,4 +35,8 @@ sealed class HomeListItem(override val viewType: HomeViewType) : ListItem {
         override val id: Long,
         val upComingData: List<UpComingUiModel>
     ) : HomeListItem(HomeViewType.UP_COMING_CONTENT)
+
+    data class Divider(
+        override val id: Long
+    ) : HomeListItem(HomeViewType.DIVIDER)
 }
