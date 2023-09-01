@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
-import com.jslee.presentation.feature.home.BannerUiModel
+import com.jslee.presentation.feature.home.model.BannerUiModel
 
 /**
  * MooBeside
@@ -33,7 +33,7 @@ class HomeBannerAdapter : ListAdapter<BannerUiModel, HomeBannerViewHolder>(banne
                 oldItem: BannerUiModel,
                 newItem: BannerUiModel
             ): Boolean {
-                return oldItem.id == newItem.id
+                return oldItem.movieId == newItem.movieId
             }
 
             override fun areContentsTheSame(

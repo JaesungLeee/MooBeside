@@ -22,16 +22,16 @@ sealed class HomeListItem(override val viewType: HomeViewType) : ListItem {
 
     data class BannerContent(
         override val id: Long,
-//        val bannerData: List<BannerUiModel>
+        val bannerData: List<BannerUiModel>
     ) : HomeListItem(HomeViewType.BANNER_CONTENT)
 
     data class NowPlayingContent(
         override val id: Long,
-//        val nowPlayingData: List<NowPlayingUiModel>
+        val nowPlayingData: List<NowPlayingUiModel>
     ) : HomeListItem(HomeViewType.NOW_PLAYING_CONTENT)
 
     data class UpComingContent(
         override val id: Long,
-//        val upComingData: List<UpComingUiModel>
+        val upComingData: List<UpComingUiModel>
     ) : HomeListItem(HomeViewType.UP_COMING_CONTENT)
 }
