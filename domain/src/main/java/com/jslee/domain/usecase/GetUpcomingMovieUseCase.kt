@@ -17,4 +17,8 @@ class GetUpcomingMovieUseCase @Inject constructor(
     operator fun invoke(): Flow<PagingData<Movie>> {
         return movieRepository.getUpcomingMovie()
     }
+
+    fun getSnapshot(): Flow<List<Movie>> {
+        return movieRepository.getUpcomingMovieSnapshot()
+    }
 }
