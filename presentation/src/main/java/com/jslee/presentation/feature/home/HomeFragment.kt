@@ -8,8 +8,8 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
+import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
-import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeBannerAdapter
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.home.now
 
+import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
-import com.jslee.presentation.common.base.BaseFragment
 import com.jslee.presentation.databinding.FragmentNowBinding
 import dagger.hilt.android.AndroidEntryPoint
 

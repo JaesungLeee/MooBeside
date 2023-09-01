@@ -1,4 +1,4 @@
-package com.jslee.presentation.common.extension
+package com.jslee.core.ui.extension
 
 import android.content.Context
 import android.widget.Toast

@@ -1,4 +1,4 @@
-package com.jslee.presentation.common.extension
+package com.jslee.core.ui.binding
 
 import android.widget.ImageView
 import android.widget.TextView
@@ -6,8 +6,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.jslee.core.ui.R
 import com.jslee.core.designsystem.R as DR
-import com.jslee.presentation.R
+
 
 /**
  * MooBeside

@@ -1,9 +1,9 @@
 package com.jslee.presentation.feature.boxoffice
 
 import com.jslee.domain.model.Movie
-import com.jslee.presentation.common.extension.toDecimalFormat
-import com.jslee.presentation.common.extension.toDisplayedDate
-import com.jslee.presentation.common.extension.toPercentage
+import com.jslee.core.ui.extension.toDecimalFormat
+import com.jslee.core.ui.extension.toDisplayedDate
+import com.jslee.core.ui.extension.toPercentage
 
 /**
  * MooBeside

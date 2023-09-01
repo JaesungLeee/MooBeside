@@ -1,20 +1,19 @@
-@Suppress("DSL_SCOPE_VIOLATION")
+@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt.plugin)
-    id("kotlin-parcelize")
 }
 
 android {
-    namespace = "com.jslee.presentation"
+    namespace = "com.jslee.core.ui"
     compileSdk = 33
 
     defaultConfig {
         minSdk = 24
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -39,25 +38,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
     implementation(project(":core:designsystem"))
-    implementation(project(":core:ui"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.bundles.androidx.navigation)
-    implementation(libs.bundles.androidx.lifecycle)
-    implementation(libs.androidx.paging.runtime)
-
-    implementation(libs.bundles.kotlinx.coroutines)
-
     implementation(libs.material)
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-
-    implementation(libs.timber)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)

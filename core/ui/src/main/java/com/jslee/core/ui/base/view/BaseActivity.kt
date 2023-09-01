@@ -1,4 +1,4 @@
-package com.jslee.presentation.common.base
+package com.jslee.core.ui.base.view
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
