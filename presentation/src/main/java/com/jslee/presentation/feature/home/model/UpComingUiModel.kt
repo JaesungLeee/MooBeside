@@ -18,3 +18,14 @@ fun Movie.toUpComingUiModel() = UpComingUiModel(
     movieName = movieName.orEmpty(),
     posterImageUrl = posterImageUrl.orEmpty()
 )
+
+fun List<Movie>.mapToUpComingUiModel() = listOf<HomeListItem>(
+    HomeListItem.Header(
+        id = 6,
+        title = "개봉 예정작",
+    ),
+    HomeListItem.UpComingContent(
+        id = 7,
+        upComingData = this.map { it.toUpComingUiModel() },
+    )
+)

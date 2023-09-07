@@ -18,3 +18,17 @@ fun Movie.toNowPlayingUiModel() = NowPlayingUiModel(
     movieName = movieName.orEmpty(),
     posterImageUrl = posterImageUrl.orEmpty(),
 )
+
+fun List<Movie>.mapToNowPlayingUiModel() = listOf(
+    HomeListItem.Header(
+        id = 3,
+        title = "현재 상영작"
+    ),
+    HomeListItem.NowPlayingContent(
+        id = 4,
+        nowPlayingData = this.map { it.toNowPlayingUiModel() }
+    ),
+    HomeListItem.Divider(
+        id = 5,
+    )
+)
