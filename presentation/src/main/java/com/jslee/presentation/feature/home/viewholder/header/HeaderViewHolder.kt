@@ -2,7 +2,7 @@ package com.jslee.presentation.feature.home.viewholder.header
 
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
-import com.jslee.presentation.feature.home.model.HomeListItem
+import com.jslee.presentation.feature.home.model.item.HomeListItem
 
 /**
  * MooBeside

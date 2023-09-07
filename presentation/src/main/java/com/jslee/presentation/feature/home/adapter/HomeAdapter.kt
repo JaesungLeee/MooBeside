@@ -8,7 +8,7 @@ import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.databinding.ItemMovieThumbnailBinding
-import com.jslee.presentation.feature.home.model.HomeListItem
+import com.jslee.presentation.feature.home.model.item.HomeListItem
 import com.jslee.presentation.feature.home.viewholder.banner.BannerViewHolder
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
 import com.jslee.presentation.feature.home.viewholder.header.HeaderViewHolder

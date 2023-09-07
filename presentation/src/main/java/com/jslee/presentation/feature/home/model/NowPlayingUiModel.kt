@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.home.model
 
 import com.jslee.domain.model.Movie
+import com.jslee.presentation.feature.home.model.item.HomeListItem
 
 /**
  * MooBeside

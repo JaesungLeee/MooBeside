@@ -1,6 +1,9 @@
-package com.jslee.presentation.feature.home.model
+package com.jslee.presentation.feature.home.model.item
 
 import com.jslee.core.ui.model.ListItem
+import com.jslee.presentation.feature.home.model.BannerUiModel
+import com.jslee.presentation.feature.home.model.NowPlayingUiModel
+import com.jslee.presentation.feature.home.model.UpComingUiModel
 
 /**
  * MooBeside

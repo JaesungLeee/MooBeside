@@ -2,7 +2,7 @@ package com.jslee.presentation.feature.home.viewholder.movie
 
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemMovieThumbnailBinding
-import com.jslee.presentation.feature.home.model.HomeListItem
+import com.jslee.presentation.feature.home.model.item.HomeListItem
 
 /**
  * MooBeside
