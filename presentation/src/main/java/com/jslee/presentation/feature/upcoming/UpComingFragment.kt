@@ -1,8 +1,8 @@
-package com.jslee.presentation.feature.home.now
+package com.jslee.presentation.feature.upcoming
 
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
-import com.jslee.presentation.databinding.FragmentNowBinding
+import com.jslee.presentation.databinding.FragmentUpComingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -11,7 +11,7 @@ import dagger.hilt.android.AndroidEntryPoint
  * @created 2023/08/08
  */
 @AndroidEntryPoint
-class NowFragment : BaseFragment<FragmentNowBinding>(R.layout.fragment_now) {
+class UpComingFragment : BaseFragment<FragmentUpComingBinding>(R.layout.fragment_up_coming) {
     override fun initViews() {
 
     }

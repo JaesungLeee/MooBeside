@@ -49,9 +49,23 @@ internal class MovieRepositoryImpl @Inject constructor(
         }.flow
     }
 
+    override fun getNowPlayingMovieSnapshot(): Flow<List<Movie>> = flow {
+        val nowPlayingSnapshot = suspendRunCatching {
+            tmdbRemoteDataSource.getNowPlayingMovie(page = 1).map { it.toDomain() }
+        }.getOrThrow()
+        emit(nowPlayingSnapshot)
+    }
+
     override fun getUpcomingMovie(): Flow<PagingData<Movie>> {
-        return createPager {  page ->
+        return createPager { page ->
             tmdbRemoteDataSource.getUpcomingMovie(page = page).map { it.toDomain() }
         }.flow
+    }
+
+    override fun getUpcomingMovieSnapshot(): Flow<List<Movie>> = flow {
+        val upcomingSnapshot = suspendRunCatching {
+            tmdbRemoteDataSource.getUpcomingMovie(page = 1).map { it.toDomain() }
+        }.getOrThrow()
+        emit(upcomingSnapshot)
     }
 }

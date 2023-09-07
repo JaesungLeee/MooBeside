@@ -5,7 +5,7 @@ package com.jslee.core.ui.model
  * @author jaesung
  * @created 2023/09/01
  */
-interface ItemViewType {
+interface ListItem {
     val id: Long
     val viewType: Enum<*>
 }

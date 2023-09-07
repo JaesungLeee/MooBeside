@@ -3,6 +3,8 @@ package com.jslee.presentation.feature.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.domain.usecase.GetPopularMovieUseCase
+import com.jslee.presentation.feature.home.model.BannerUiModel
+import com.jslee.presentation.feature.home.model.toBannerUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.map

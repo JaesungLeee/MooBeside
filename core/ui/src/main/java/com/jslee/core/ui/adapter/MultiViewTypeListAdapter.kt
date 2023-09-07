@@ -3,7 +3,7 @@ package com.jslee.core.ui.adapter
 import android.view.ViewGroup
 import com.jslee.core.ui.base.BaseListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.model.ItemViewType
+import com.jslee.core.ui.model.ListItem
 import java.lang.reflect.ParameterizedType
 
 /**
@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType
  * @author jaesung
  * @created 2023/09/01
  */
-abstract class MultiViewTypeListAdapter<T : ItemViewType, E : Enum<*>> :
+abstract class MultiViewTypeListAdapter<T : ListItem, E : Enum<*>> :
     BaseListAdapter<T>({ it.id }) {
 
     private val viewTypeValues by lazy {

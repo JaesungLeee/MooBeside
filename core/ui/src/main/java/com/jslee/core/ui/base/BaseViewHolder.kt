@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
  * @author jaesung
  * @created 2023/09/01
  */
-abstract class BaseViewHolder<T : Any>(
+abstract class BaseViewHolder<out T>(
     binding: ViewDataBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     /* must implement */
-    open fun bindItems(item: T) {}
+    open fun bindItems(item: @UnsafeVariance T) {}
 }

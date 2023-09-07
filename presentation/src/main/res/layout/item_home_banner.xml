@@ -7,7 +7,7 @@
 
         <variable
             name="banner"
-            type="com.jslee.presentation.feature.home.BannerUiModel" />
+            type="com.jslee.presentation.feature.home.model.BannerUiModel" />
 
     </data>
 
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
-            android:text="@{banner.movieTitle}"
+            android:text="@{banner.movieName}"
             android:textColor="@color/White"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

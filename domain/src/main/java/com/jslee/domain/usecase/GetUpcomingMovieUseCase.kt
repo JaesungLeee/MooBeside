@@ -11,10 +11,14 @@ import javax.inject.Inject
  * @author jaesung
  * @created 2023/08/28
  */
-class GetUpcomingMovieUseCase @Inject constructor(
+class GetUpComingMovieUseCase @Inject constructor(
     private val movieRepository: MovieRepository
 ) {
     operator fun invoke(): Flow<PagingData<Movie>> {
         return movieRepository.getUpcomingMovie()
+    }
+
+    fun getSnapshot(): Flow<List<Movie>> {
+        return movieRepository.getUpcomingMovieSnapshot()
     }
 }
