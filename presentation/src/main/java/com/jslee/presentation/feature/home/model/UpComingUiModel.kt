@@ -30,5 +30,8 @@ fun List<Movie>.mapToUpComingUiModel() = listOf<HomeListItem>(
     HomeListItem.UpComingContent(
         id = 7,
         upComingData = this.map { it.toUpComingUiModel() },
+    ),
+    HomeListItem.Divider(
+        id = 8,
     )
 )

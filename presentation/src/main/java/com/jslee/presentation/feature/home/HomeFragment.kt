@@ -8,6 +8,7 @@ import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
+import com.jslee.presentation.feature.home.decoration.HomeItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -44,6 +45,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun initRecyclerView() = with(binding.rvHome) {
         adapter = homeAdapter
+        addItemDecoration(HomeItemDecoration(20))
     }
 
     override fun observeStates() {
