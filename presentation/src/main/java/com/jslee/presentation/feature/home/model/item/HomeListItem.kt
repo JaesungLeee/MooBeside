@@ -22,6 +22,8 @@ sealed class HomeListItem(override val viewType: HomeViewType) : ListItem {
     data class Header(
         override val id: Long,
         val title: String,
+        val subtitle: String,
+        val isLoadMoreEnabled: Boolean = false
     ) : HomeListItem(HomeViewType.HEADER)
 
     data class BannerContent(

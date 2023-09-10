@@ -24,6 +24,7 @@ fun List<Movie>.mapToBannerUiModel() = listOf(
     HomeListItem.Header(
         id = 0,
         title = "인기 영화",
+        subtitle = "상위 20개의 인기 영화를 확인해보세요"
     ),
     HomeListItem.BannerContent(
         id = 1,

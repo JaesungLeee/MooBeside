@@ -24,6 +24,8 @@ fun List<Movie>.mapToUpComingUiModel() = listOf<HomeListItem>(
     HomeListItem.Header(
         id = 6,
         title = "개봉 예정작",
+        subtitle = "앞으로 상영될 영화를 미리 만나보세요.",
+        isLoadMoreEnabled = true,
     ),
     HomeListItem.UpComingContent(
         id = 7,
