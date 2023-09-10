@@ -8,7 +8,7 @@ import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
-import com.jslee.presentation.feature.home.adapter.HomeBannerAdapter
+import com.jslee.presentation.feature.home.adapter.BannerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     lateinit var tooltip: TooltipBuilder
     private val viewModel: HomeViewModel by viewModels()
     private val homeAdapter: HomeAdapter by lazy { HomeAdapter() }
-    private val bannerAdapter: HomeBannerAdapter by lazy { HomeBannerAdapter() }
+    private val bannerAdapter: BannerAdapter by lazy { BannerAdapter() }
     private lateinit var autoScrollJob: Job
     private var currentPosition = 0
 
