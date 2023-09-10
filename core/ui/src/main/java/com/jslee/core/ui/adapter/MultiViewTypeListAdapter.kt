@@ -23,6 +23,11 @@ abstract class MultiViewTypeListAdapter<T : ListItem, E : Enum<*>> :
         return onCreateViewHolder(parent, viewTypeValues[viewType])
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return currentList[position].viewType.ordinal
+    }
+
+    @Suppress("UNCHECKED_CAST")
     private fun getEnumClass(): Class<E> {
         val genericSuperclass = javaClass.genericSuperclass
         val type = (genericSuperclass as ParameterizedType).actualTypeArguments[1]

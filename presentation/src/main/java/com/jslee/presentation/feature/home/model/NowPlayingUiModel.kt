@@ -23,7 +23,9 @@ fun Movie.toNowPlayingUiModel() = NowPlayingUiModel(
 fun List<Movie>.mapToNowPlayingUiModel() = listOf(
     HomeListItem.Header(
         id = 3,
-        title = "현재 상영작"
+        title = "현재 상영작",
+        subtitle = "지금 상영중인 영화를 만나보세요.",
+        isLoadMoreEnabled = true,
     ),
     HomeListItem.NowPlayingContent(
         id = 4,

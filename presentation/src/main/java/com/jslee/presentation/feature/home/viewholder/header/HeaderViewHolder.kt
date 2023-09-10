@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.home.viewholder.header
 
+import androidx.core.view.isVisible
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.feature.home.model.item.HomeListItem
@@ -12,7 +13,11 @@ import com.jslee.presentation.feature.home.model.item.HomeListItem
 class HeaderViewHolder(private val binding: ItemHomeHeaderBinding) :
     BaseViewHolder<HomeListItem.Header>(binding) {
     override fun bindItems(item: HomeListItem.Header) = with(binding) {
-        tvTitlePopularMovie.text = item.title
+        header = item.also {
+            if (it.isLoadMoreEnabled) {
+                tvLoadMore.isVisible = true
+            }
+        }
         executePendingBindings()
     }
 }

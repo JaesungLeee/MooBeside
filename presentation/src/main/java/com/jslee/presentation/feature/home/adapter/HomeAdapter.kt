@@ -7,13 +7,13 @@ import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
-import com.jslee.presentation.databinding.ItemMovieThumbnailBinding
+import com.jslee.presentation.databinding.ItemHomeMovieBinding
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 import com.jslee.presentation.feature.home.viewholder.banner.BannerViewHolder
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
 import com.jslee.presentation.feature.home.viewholder.header.HeaderViewHolder
-import com.jslee.presentation.feature.home.viewholder.movie.NowPlayingMovieViewHolder
-import com.jslee.presentation.feature.home.viewholder.movie.UpComingMovieViewHolder
+import com.jslee.presentation.feature.home.viewholder.nowplaying.NowPlayingMovieViewHolder
+import com.jslee.presentation.feature.home.viewholder.upcoming.UpComingMovieViewHolder
 
 /**
  * MooBeside
@@ -36,11 +36,11 @@ class HomeAdapter : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeView
             )
 
             HomeListItem.HomeViewType.NOW_PLAYING_CONTENT -> NowPlayingMovieViewHolder(
-                ItemMovieThumbnailBinding.inflate(layoutInflater, parent, false)
+                ItemHomeMovieBinding.inflate(layoutInflater, parent, false)
             )
 
             HomeListItem.HomeViewType.UP_COMING_CONTENT -> UpComingMovieViewHolder(
-                ItemMovieThumbnailBinding.inflate(layoutInflater, parent, false)
+                ItemHomeMovieBinding.inflate(layoutInflater, parent, false)
             )
 
             HomeListItem.HomeViewType.DIVIDER -> DividerViewHolder(
