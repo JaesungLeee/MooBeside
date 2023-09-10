@@ -26,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     lateinit var tooltip: TooltipBuilder
     private val viewModel: HomeViewModel by viewModels()
     private val homeAdapter: HomeAdapter by lazy { HomeAdapter() }
-    
+
     override fun initViews() {
         initToolbarMenu()
         initRecyclerView()
@@ -45,17 +45,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initRecyclerView() = with(binding.rvHome) {
         adapter = homeAdapter
     }
-
-//    private fun initTooltip() {
-//        binding.ivBannerTooltip.setOnClickListener {
-//            val tooltip = tooltip.setTooltip(
-//                requireContext(),
-//                viewLifecycleOwner,
-//                getString(R.string.tooltip_banner_description)
-//            )
-//            tooltip.showAlignRight(binding.ivBannerTooltip, xOff = 8)
-//        }
-//    }
 
     override fun observeStates() {
         repeatOn(Lifecycle.State.STARTED) {
