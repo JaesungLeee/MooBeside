@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
@@ -26,7 +27,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     @Inject
     lateinit var tooltip: TooltipBuilder
     private val viewModel: HomeViewModel by viewModels()
-    private val homeAdapter: HomeAdapter by lazy { HomeAdapter() }
+    private val homeAdapter: HomeAdapter by lazy {
+        HomeAdapter(
+            onLoadMoreClick = { position ->
+                when (position) {
+                    3 -> {
+                        requireContext().showToast("현재 상영")
+                    }
+
+                    6 -> {
+                        requireContext().showToast("개봉 예정")
+                    }
+                }
+            },
+        )
+    }
 
     override fun initViews() {
         initToolbarMenu()
