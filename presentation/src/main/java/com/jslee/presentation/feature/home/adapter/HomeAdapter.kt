@@ -20,7 +20,9 @@ import com.jslee.presentation.feature.home.viewholder.upcoming.UpComingMovieView
  * @author jaesung
  * @created 2023/08/31
  */
-class HomeAdapter : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeViewType>() {
+class HomeAdapter(
+    private val onLoadMoreClick: (Int) -> Unit
+) : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeViewType>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: HomeListItem.HomeViewType
@@ -28,6 +30,7 @@ class HomeAdapter : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeView
         val layoutInflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             HomeListItem.HomeViewType.HEADER -> HeaderViewHolder(
+                onLoadMoreClick = { onLoadMoreClick(it) },
                 ItemHomeHeaderBinding.inflate(layoutInflater, parent, false)
             )
 

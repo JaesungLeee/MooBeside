@@ -26,7 +26,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     @Inject
     lateinit var tooltip: TooltipBuilder
     private val viewModel: HomeViewModel by viewModels()
-    private val homeAdapter: HomeAdapter by lazy { HomeAdapter() }
+    private val homeAdapter: HomeAdapter by lazy {
+        HomeAdapter(
+            onLoadMoreClick = { position ->
+                navigateDestinationWith(position)
+            },
+        )
+    }
 
     override fun initViews() {
         initToolbarMenu()
@@ -73,5 +79,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private fun handleException(exception: Throwable) {
 
+    }
+
+    private fun navigateDestinationWith(position: Int) = when (position) {
+        3 -> findNavController().navigate(R.id.action_home_to_nowPlaying)
+        6 -> findNavController().navigate(R.id.action_home_to_upComing)
+        else -> Unit
     }
 }
