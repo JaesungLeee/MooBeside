@@ -1,9 +1,13 @@
 package com.jslee.presentation.feature.upcoming
 
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentUpComingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 /**
  * MooBeside
@@ -12,7 +16,47 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class UpComingFragment : BaseFragment<FragmentUpComingBinding>(R.layout.fragment_up_coming) {
+
+    private val viewModel: UpComingViewModel by viewModels()
+    private val upComingPagingAdapter: UpComingPagingAdapter by lazy { UpComingPagingAdapter() }
+
     override fun initViews() {
+        initToolbar()
+        initRecyclerView()
+    }
+
+    private fun initToolbar() {
+        binding.tbUpComing.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
+    }
+
+    private fun initRecyclerView() {
+        binding.rvUpComing.adapter = upComingPagingAdapter
+    }
+
+    override fun observeStates() {
+        repeatOn {
+            launch {
+                viewModel.upComingUiState.collectLatest { uiState ->
+                    when (uiState) {
+                        Idle -> {}
+                        is Success -> {
+                            upComingPagingAdapter.submitData(uiState.data)
+                        }
+                    }
+                }
+            }
+
+            launch {
+                viewModel.eventFlow.collect {
+                    handleException(it)
+                }
+            }
+        }
+    }
+
+    private fun handleException(throwable: Throwable) {
 
     }
 }
