@@ -1,8 +1,10 @@
 package com.jslee.presentation.feature.home.viewholder.upcoming
 
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.databinding.ItemHomeMovieBinding
 import com.jslee.presentation.feature.home.adapter.UpComingMovieAdapter
+import com.jslee.presentation.feature.home.decoration.HomeUpComingItemDecoration
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 
 /**
@@ -14,10 +16,14 @@ class UpComingMovieViewHolder(private val binding: ItemHomeMovieBinding) :
     BaseViewHolder<HomeListItem.UpComingContent>(binding) {
 
     private val movieAdapter by lazy { UpComingMovieAdapter() }
-    override fun bindItems(item: HomeListItem.UpComingContent) = with(binding) {
-        rvMovie.adapter = movieAdapter.also {
-            it.submitList(item.upComingData)
+    override fun bindItems(item: HomeListItem.UpComingContent) {
+        with(binding.rvMovie) {
+            adapter = movieAdapter.also {
+                it.submitList(item.upComingData)
+            }
+            val paddingValues = PaddingValues.horizontal(4, 4)
+            addItemDecoration(HomeUpComingItemDecoration(paddingValues))
         }
-        executePendingBindings()
+        binding.executePendingBindings()
     }
 }
