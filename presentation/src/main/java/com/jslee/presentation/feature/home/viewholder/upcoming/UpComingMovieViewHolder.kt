@@ -4,7 +4,8 @@ import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.databinding.ItemHomeMovieBinding
 import com.jslee.presentation.feature.home.adapter.UpComingMovieAdapter
-import com.jslee.presentation.feature.home.decoration.HomeUpComingItemDecoration
+import com.jslee.core.ui.decoration.CommonItemDecoration
+import com.jslee.core.ui.decoration.LayoutType
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 
 /**
@@ -22,7 +23,7 @@ class UpComingMovieViewHolder(private val binding: ItemHomeMovieBinding) :
                 it.submitList(item.upComingData)
             }
             val paddingValues = PaddingValues.horizontal(4, 4)
-            addItemDecoration(HomeUpComingItemDecoration(paddingValues))
+            addItemDecoration(CommonItemDecoration(paddingValues, LayoutType.HORIZONTAL))
         }
         binding.executePendingBindings()
     }
