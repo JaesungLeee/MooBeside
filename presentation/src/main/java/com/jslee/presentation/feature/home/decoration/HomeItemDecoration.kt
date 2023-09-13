@@ -3,7 +3,9 @@ package com.jslee.presentation.feature.home.decoration
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.jslee.core.ui.decoration.ContentPaddingItemDecoration
 import com.jslee.core.ui.extension.dp
+import com.jslee.core.ui.model.PaddingValues
 
 /**
  * MooBeside
@@ -11,21 +13,21 @@ import com.jslee.core.ui.extension.dp
  * @created 2023/09/10
  */
 class HomeItemDecoration(
-    private val size: Int
-) : RecyclerView.ItemDecoration() {
-
-    override fun getItemOffsets(
-        outRect: Rect,
-        view: View,
-        parent: RecyclerView,
-        state: RecyclerView.State
-    ) {
-        super.getItemOffsets(outRect, view, parent, state)
+    private val paddingValues: PaddingValues,
+    private val viewType: Int = DIVIDER,
+) : ContentPaddingItemDecoration() {
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView) {
         val adapterPosition = parent.getChildAdapterPosition(view)
         val itemViewType = parent.adapter?.getItemViewType(adapterPosition)
 
         when (itemViewType) {
-            DIVIDER -> outRect.top = size.dp
+            viewType -> outRect.set(
+                paddingValues.start.dp,
+                paddingValues.top.dp,
+                paddingValues.end.dp,
+                paddingValues.bottom.dp
+            )
+
             else -> outRect.setEmpty()
         }
     }
