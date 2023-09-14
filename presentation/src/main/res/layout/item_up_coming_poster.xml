@@ -10,40 +10,33 @@
             type="com.jslee.presentation.feature.home.model.UpComingUiModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_movie"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="4dp">
+        app:cardCornerRadius="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/Gray08"
+        app:strokeWidth="1dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_movie"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:cardCornerRadius="6dp"
-            app:layout_constraintDimensionRatio="150:220"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="@color/Gray08"
-            app:strokeWidth="1dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/iv_poster"
-                    posterImage="@{upComing.posterImageUrl}"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@drawable/img_sample" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/iv_poster"
+                posterImage="@{upComing.posterImageUrl}"
+                android:layout_width="0dp"
+                android:layout_height="220dp"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="150:220"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/img_sample" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

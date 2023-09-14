@@ -5,4 +5,5 @@
     <string name="home_popular_movie_title">인기 영화</string>
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
     <string name="text_load_more">더보기</string>
+    <string name="toolbar_up_coming">개봉 예정작</string>
 </resources>
