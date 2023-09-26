@@ -21,7 +21,13 @@ import kotlinx.coroutines.launch
 class UpComingFragment : BaseFragment<FragmentUpComingBinding>(R.layout.fragment_up_coming) {
 
     private val viewModel: UpComingViewModel by viewModels()
-    private val upComingPagingAdapter: UpComingPagingAdapter by lazy { UpComingPagingAdapter() }
+    private val upComingPagingAdapter: UpComingPagingAdapter by lazy {
+        UpComingPagingAdapter(
+            onPosterClick = {
+                findNavController().navigate(R.id.action_to_movie_detail)
+            }
+        )
+    }
 
     override fun initViews() {
         initToolbar()
