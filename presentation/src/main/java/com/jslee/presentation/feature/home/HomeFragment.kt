@@ -32,6 +32,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             onLoadMoreClick = { position ->
                 navigateDestinationWith(position)
             },
+            onBannerClick = {
+                findNavController().navigate(R.id.action_to_movie_detail)
+            }
         )
     }
 

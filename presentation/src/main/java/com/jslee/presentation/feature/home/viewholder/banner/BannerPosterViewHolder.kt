@@ -9,8 +9,18 @@ import com.jslee.presentation.feature.home.model.BannerUiModel
  * @author jaesung
  * @created 2023/09/10
  */
-class BannerPosterViewHolder(private val binding: ItemPopularPosterBinding) :
-    BaseViewHolder<BannerUiModel>(binding) {
+class BannerPosterViewHolder(
+    private val binding: ItemPopularPosterBinding,
+    onBannerClick: (BannerUiModel) -> Unit,
+) : BaseViewHolder<BannerUiModel>(binding) {
+
+    init {
+        binding.ivHomeBanner.setOnClickListener {
+            getItem {
+                onBannerClick(it)
+            }
+        }
+    }
 
     override fun bindItems(item: BannerUiModel) = with(binding) {
         banner = item
