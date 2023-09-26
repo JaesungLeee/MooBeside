@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.bundles.androidx.navigation)
     implementation(libs.bundles.androidx.lifecycle)
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.recyclerview)
 
     implementation(libs.bundles.kotlinx.coroutines)
 
