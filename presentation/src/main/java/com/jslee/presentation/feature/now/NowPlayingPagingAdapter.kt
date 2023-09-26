@@ -13,12 +13,13 @@ import com.jslee.presentation.feature.home.viewholder.nowplaying.NowPlayingPoste
  * @author jaesung
  * @created 2023/09/15
  */
-class NowPlayingPagingAdapter() :
-    PagingDataAdapter<NowPlayingUiModel, NowPlayingPosterViewHolder>(NOW_PLAYING_DIFF_CALLBACK) {
+class NowPlayingPagingAdapter(
+    private val onPosterClick: (NowPlayingUiModel) -> Unit,
+) : PagingDataAdapter<NowPlayingUiModel, NowPlayingPosterViewHolder>(NOW_PLAYING_DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NowPlayingPosterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemNowPlayingPosterBinding.inflate(layoutInflater, parent, false)
-        return NowPlayingPosterViewHolder(binding)
+        return NowPlayingPosterViewHolder(onPosterClick, binding)
     }
 
     override fun onBindViewHolder(holder: NowPlayingPosterViewHolder, position: Int) {
@@ -31,14 +32,14 @@ class NowPlayingPagingAdapter() :
             object : DiffUtil.ItemCallback<NowPlayingUiModel>() {
                 override fun areItemsTheSame(
                     oldItem: NowPlayingUiModel,
-                    newItem: NowPlayingUiModel
+                    newItem: NowPlayingUiModel,
                 ): Boolean {
                     return oldItem.movieId == newItem.movieId
                 }
 
                 override fun areContentsTheSame(
                     oldItem: NowPlayingUiModel,
-                    newItem: NowPlayingUiModel
+                    newItem: NowPlayingUiModel,
                 ): Boolean {
                     return oldItem == newItem
                 }

@@ -9,6 +9,7 @@ import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.databinding.ItemHomeMovieBinding
 import com.jslee.presentation.feature.home.model.BannerUiModel
+import com.jslee.presentation.feature.home.model.NowPlayingUiModel
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 import com.jslee.presentation.feature.home.viewholder.banner.BannerViewHolder
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
@@ -24,6 +25,7 @@ import com.jslee.presentation.feature.home.viewholder.upcoming.UpComingMovieView
 class HomeAdapter(
     private val onLoadMoreClick: (Int) -> Unit,
     private val onBannerClick: (BannerUiModel) -> Unit,
+    private val onNowPlayingPosterClick: (NowPlayingUiModel) -> Unit,
 ) : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeViewType>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -42,6 +44,7 @@ class HomeAdapter(
             )
 
             HomeListItem.HomeViewType.NOW_PLAYING_CONTENT -> NowPlayingMovieViewHolder(
+                onNowPlayingPosterClick = { onNowPlayingPosterClick(it) },
                 ItemHomeMovieBinding.inflate(layoutInflater, parent, false)
             )
 

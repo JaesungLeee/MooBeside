@@ -34,6 +34,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             },
             onBannerClick = {
                 findNavController().navigate(R.id.action_to_movie_detail)
+            },
+            onNowPlayingPosterClick = {
+                findNavController().navigate(R.id.action_to_movie_detail)
             }
         )
     }

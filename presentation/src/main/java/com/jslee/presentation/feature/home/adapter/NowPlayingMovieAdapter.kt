@@ -13,10 +13,12 @@ import com.jslee.presentation.feature.home.viewholder.nowplaying.NowPlayingPoste
  * @author jaesung
  * @created 2023/09/08
  */
-class NowPlayingMovieAdapter : SingleViewTypeListAdapter<NowPlayingUiModel>({ it.movieId }) {
+class NowPlayingMovieAdapter(
+    private val onPosterClick: (NowPlayingUiModel) -> Unit,
+) : SingleViewTypeListAdapter<NowPlayingUiModel>({ it.movieId }) {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<NowPlayingUiModel> {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemNowPlayingPosterBinding.inflate(layoutInflater, parent, false)
-        return NowPlayingPosterViewHolder(binding)
+        return NowPlayingPosterViewHolder(onPosterClick, binding)
     }
 }

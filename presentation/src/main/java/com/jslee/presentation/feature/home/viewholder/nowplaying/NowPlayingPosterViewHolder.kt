@@ -10,8 +10,18 @@ import com.jslee.presentation.feature.home.model.NowPlayingUiModel
  * @author jaesung
  * @created 2023/09/08
  */
-class NowPlayingPosterViewHolder(private val binding: ItemNowPlayingPosterBinding) :
-    BaseViewHolder<NowPlayingUiModel>(binding) {
+class NowPlayingPosterViewHolder(
+    onPosterClick: (NowPlayingUiModel) -> Unit,
+    private val binding: ItemNowPlayingPosterBinding,
+) : BaseViewHolder<NowPlayingUiModel>(binding) {
+
+    init {
+        binding.ivPoster.setOnClickListener {
+            getItem {
+                onPosterClick(it)
+            }
+        }
+    }
 
     override fun bindItems(item: NowPlayingUiModel) = with(binding) {
         nowPlaying = item
