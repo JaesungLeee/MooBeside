@@ -13,10 +13,12 @@ import com.jslee.presentation.feature.home.viewholder.upcoming.UpComingPosterVie
  * @author jaesung
  * @created 2023/09/08
  */
-class UpComingMovieAdapter : SingleViewTypeListAdapter<UpComingUiModel>({ it.movieId }) {
+class UpComingMovieAdapter(
+    private val onPosterClick: (UpComingUiModel) -> Unit,
+) : SingleViewTypeListAdapter<UpComingUiModel>({ it.movieId }) {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<UpComingUiModel> {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemUpComingPosterBinding.inflate(layoutInflater, parent, false)
-        return UpComingPosterViewHolder(binding)
+        return UpComingPosterViewHolder(onPosterClick, binding)
     }
 }

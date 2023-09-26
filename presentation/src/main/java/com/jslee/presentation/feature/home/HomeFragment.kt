@@ -10,6 +10,9 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
 import com.jslee.presentation.feature.home.decoration.HomeItemDecoration
+import com.jslee.presentation.feature.home.model.BannerUiModel
+import com.jslee.presentation.feature.home.model.NowPlayingUiModel
+import com.jslee.presentation.feature.home.model.UpComingUiModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -27,13 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     @Inject
     lateinit var tooltip: TooltipBuilder
     private val viewModel: HomeViewModel by viewModels()
-    private val homeAdapter: HomeAdapter by lazy {
-        HomeAdapter(
-            onLoadMoreClick = { position ->
-                navigateDestinationWith(position)
-            },
-        )
-    }
+    private val homeAdapter: HomeAdapter = HomeAdapter()
 
     override fun initViews() {
         initToolbarMenu()
@@ -51,9 +48,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initRecyclerView() = with(binding.rvHome) {
-        adapter = homeAdapter
+        adapter = homeAdapter.also { initClickListener(it) }
         val paddingValues = PaddingValues.vertical(20, 0)
         addItemDecoration(HomeItemDecoration(paddingValues))
+    }
+
+    private fun initClickListener(adapter: HomeAdapter) {
+        adapter.setHomeClickListener(object : HomeClickListener {
+            override fun onLoadMoreClick(position: Int) {
+                navigateDestinationWith(position)
+            }
+
+            override fun onBannerClick(item: BannerUiModel) {
+                navigateToMovieDetail()
+            }
+
+            override fun onNowPlayingPosterClick(item: NowPlayingUiModel) {
+                navigateToMovieDetail()
+            }
+
+            override fun onUpComingPosterClick(item: UpComingUiModel) {
+                navigateToMovieDetail()
+            }
+        })
     }
 
     override fun observeStates() {
@@ -87,5 +104,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         3 -> findNavController().navigate(R.id.action_home_to_nowPlaying)
         6 -> findNavController().navigate(R.id.action_home_to_upComing)
         else -> Unit
+    }
+
+    private fun navigateToMovieDetail() {
+        findNavController().navigate(R.id.action_to_movie_detail)
     }
 }

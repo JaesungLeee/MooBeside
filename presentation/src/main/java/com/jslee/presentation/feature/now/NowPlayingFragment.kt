@@ -23,7 +23,14 @@ class NowPlayingFragment :
     BaseFragment<FragmentNowPlayingBinding>(R.layout.fragment_now_playing) {
 
     private val viewModel: NowPlayingViewModel by viewModels()
-    private val nowPlayingAdapter: NowPlayingPagingAdapter by lazy { NowPlayingPagingAdapter() }
+    private val nowPlayingAdapter: NowPlayingPagingAdapter by lazy {
+        NowPlayingPagingAdapter(
+            onPosterClick = {
+                findNavController().navigate(R.id.action_to_movie_detail)
+            }
+        )
+    }
+
     override fun initViews() {
         initToolbar()
         initRecyclerView()

@@ -1,19 +1,19 @@
 package com.jslee.presentation.feature.boxoffice
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.jslee.core.ui.base.view.BaseFragment
-import com.jslee.presentation.R
 import com.jslee.core.ui.extension.toDisplayedDateWithDay
 import com.jslee.core.ui.extension.toDisplayedPreviousDateWithDay
 import com.jslee.core.ui.extension.toMillisOfPreviousDay
 import com.jslee.core.ui.extension.toShortenDate
+import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
 import com.jslee.presentation.feature.boxoffice.adapter.BoxOfficeAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +37,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
 
     private val boxOfficeAdapter by lazy {
         BoxOfficeAdapter(onCardClick = {
-            Toast.makeText(requireContext(), "CLICK", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_to_movie_detail)
         })
     }
 

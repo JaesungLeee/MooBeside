@@ -13,12 +13,14 @@ import com.jslee.presentation.feature.home.viewholder.banner.BannerPosterViewHol
  * @author jaesung
  * @created 2023/08/17
  */
-class PopularMovieBannerAdapter : SingleViewTypeListAdapter<BannerUiModel>({ it.movieId }) {
+class PopularMovieBannerAdapter(
+    private val onBannerClick : (BannerUiModel) -> Unit
+) : SingleViewTypeListAdapter<BannerUiModel>({ it.movieId }) {
 
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<BannerUiModel> {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemPopularPosterBinding.inflate(layoutInflater, parent, false)
-        return BannerPosterViewHolder(binding)
+        return BannerPosterViewHolder(binding, onBannerClick)
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<BannerUiModel>, position: Int) {

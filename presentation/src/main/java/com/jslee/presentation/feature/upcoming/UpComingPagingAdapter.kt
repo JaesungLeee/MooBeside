@@ -13,12 +13,13 @@ import com.jslee.presentation.feature.home.viewholder.upcoming.UpComingPosterVie
  * @author jaesung
  * @created 2023/09/10
  */
-class UpComingPagingAdapter() :
-    PagingDataAdapter<UpComingUiModel, UpComingPosterViewHolder>(UP_COMING_DIFF_CALLBACK) {
+class UpComingPagingAdapter(
+    private val onPosterClick: (UpComingUiModel) -> Unit,
+) : PagingDataAdapter<UpComingUiModel, UpComingPosterViewHolder>(UP_COMING_DIFF_CALLBACK) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpComingPosterViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemUpComingPosterBinding.inflate(layoutInflater, parent, false)
-        return UpComingPosterViewHolder(binding)
+        return UpComingPosterViewHolder(onPosterClick, binding)
     }
 
     override fun onBindViewHolder(holder: UpComingPosterViewHolder, position: Int) {
@@ -30,14 +31,14 @@ class UpComingPagingAdapter() :
         private val UP_COMING_DIFF_CALLBACK = object : DiffUtil.ItemCallback<UpComingUiModel>() {
             override fun areItemsTheSame(
                 oldItem: UpComingUiModel,
-                newItem: UpComingUiModel
+                newItem: UpComingUiModel,
             ): Boolean {
                 return oldItem.movieId == newItem.movieId
             }
 
             override fun areContentsTheSame(
                 oldItem: UpComingUiModel,
-                newItem: UpComingUiModel
+                newItem: UpComingUiModel,
             ): Boolean {
                 return oldItem == newItem
             }

@@ -13,6 +13,7 @@ import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.feature.home.adapter.PopularMovieBannerAdapter
+import com.jslee.presentation.feature.home.model.BannerUiModel
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -23,10 +24,14 @@ import kotlinx.coroutines.launch
  * @author jaesung
  * @created 2023/09/01
  */
-class BannerViewHolder(private val binding: ItemHomeBannerBinding) :
-    BaseViewHolder<HomeListItem.BannerContent>(binding) {
+class BannerViewHolder(
+    onBannerClick: (BannerUiModel) -> Unit,
+    private val binding: ItemHomeBannerBinding,
+) : BaseViewHolder<HomeListItem.BannerContent>(binding) {
 
-    private val bannerAdapter: PopularMovieBannerAdapter by lazy { PopularMovieBannerAdapter() }
+    private val bannerAdapter: PopularMovieBannerAdapter by lazy {
+        PopularMovieBannerAdapter(onBannerClick = onBannerClick)
+    }
     private lateinit var autoScrollJob: Job
     private var currentPosition = 0
 
