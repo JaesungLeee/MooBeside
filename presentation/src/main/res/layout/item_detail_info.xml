@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_movie_poster"
+                android:layout_width="150dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearance="@style/MooBeside.Radius8"
+                tools:src="@drawable/img_sample" />
+
+            <include
+                android:id="@+id/layout_release_date"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
+                app:layout_constraintTop_toTopOf="@id/iv_movie_poster" />
+
+            <include
+                android:id="@+id/layout_runtime"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_release_date"
+                app:layout_constraintTop_toBottomOf="@id/layout_release_date" />
+
+            <include
+                android:id="@+id/layout_genre"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_runtime"
+                app:layout_constraintTop_toBottomOf="@id/layout_runtime" />
+
+            <include
+                android:id="@+id/layout_country"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_genre"
+                app:layout_constraintTop_toBottomOf="@id/layout_genre" />
+
+            <include
+                android:id="@+id/layout_company"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_country"
+                app:layout_constraintTop_toBottomOf="@id/layout_country" />
+
+            <include
+                android:id="@+id/layout_state"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_company"
+                app:layout_constraintTop_toBottomOf="@id/layout_company" />
+
+            <include
+                android:id="@+id/layout_certification"
+                layout="@layout/partial_info_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/layout_state"
+                app:layout_constraintTop_toBottomOf="@id/layout_state" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
