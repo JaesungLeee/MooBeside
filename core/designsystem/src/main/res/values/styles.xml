@@ -43,4 +43,11 @@
         <item name="android:maxLines">1</item>
         <item name="android:inputType">text</item>
     </style>
+
+    <!-- Radius -->
+    <style name="MooBeside.Radius8" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
 </resources>
