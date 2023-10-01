@@ -44,15 +44,4 @@
         <item name="android:inputType">text</item>
     </style>
 
-    <!-- Radius -->
-    <style name="MooBeside.Shape.Radius8" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">8dp</item>
-    </style>
-
-    <style name="MooBeside.Shape.Circle" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">50%</item>
-    </style>
-
 </resources>
