@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="com.jslee.core.designsystem.RateDesign" />
 
     </data>
 
@@ -37,7 +38,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toStartOf="@id/layout_naver_rate"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_rate_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_rate_title"
+                app:rateType="@{RateDesign.TMDB}" />
 
             <include
                 android:id="@+id/layout_naver_rate"
@@ -47,7 +49,8 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/layout_tmdb_rate"
-                app:layout_constraintTop_toBottomOf="@id/tv_rate_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_rate_title"
+                app:rateType="@{RateDesign.NAVER}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
