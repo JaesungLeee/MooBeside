@@ -26,7 +26,7 @@
                 app:layout_constraintDimensionRatio="1:1.4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearance="@style/MooBeside.Radius8"
+                app:shapeAppearance="@style/MooBeside.Shape.Radius8"
                 tools:src="@drawable/img_sample" />
 
             <include
