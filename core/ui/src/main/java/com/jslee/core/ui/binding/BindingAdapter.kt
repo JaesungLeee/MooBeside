@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.jslee.core.designsystem.RateDesign
 import com.jslee.core.ui.R
 import com.jslee.core.designsystem.R as DR
 
@@ -74,5 +75,12 @@ object BindingAdapter {
                 .into(this)
         } else {
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter("rateStyle")
+    fun TextView.setRateStyle(style: RateDesign) {
+        setTextColor(style.textColor)
+        setBackgroundColor(style.backgroundColor)
     }
 }

@@ -5,6 +5,11 @@
 
     <data>
 
+        <variable
+            name="rateType"
+            type="com.jslee.core.designsystem.RateDesign" />
+
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +21,7 @@
         <TextView
             android:id="@+id/tv_rate_title"
             style="@style/MooBesideTextAppearance.Body1"
+            rateStyle="@{rateType}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="8dp"
