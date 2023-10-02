@@ -30,7 +30,7 @@ class TooltipBuilderImpl @Inject constructor() : TooltipBuilder {
             setWidthRatio(0.65f)
             setHeight(BalloonSizeSpec.WRAP)
             setText(description)
-            setTextColorResource(R.color.TMDB_Green)
+            setTextColorResource(R.color.Tmdb_Green)
             setTextSize(13f)
             setTextGravity(Gravity.START)
             setArrowPositionRules(ArrowPositionRules.ALIGN_BALLOON)
