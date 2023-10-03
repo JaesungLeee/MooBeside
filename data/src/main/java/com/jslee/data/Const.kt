@@ -7,7 +7,7 @@ package com.jslee.data
  */
 
 const val TMDB_IMAGE_PREFIX = "https://image.tmdb.org/t/p/original/"
-const val PAGING_REQUEST_DATA_SIZE = 10const val PAGING_REQUEST_DATA_SIZE = 10
+const val PAGING_REQUEST_DATA_SIZE = 10
 const val SINGLE_PAGE = 1
 
 const val UNKNOWN_EXCEPTION = "알 수 없는 에러 발생"
