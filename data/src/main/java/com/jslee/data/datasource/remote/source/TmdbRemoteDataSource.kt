@@ -59,6 +59,17 @@ internal class TmdbRemoteDataSource @Inject constructor(
         }.getOrElse {
             throw Exception(it)
         }
+
+        return response.toDataModel()
+    }
+
+    suspend fun getMovieDetail(movieId: Long): TmdbCommonMovieModel {
+        val response = runCatching {
+            tmdbService.getMovieDetail(movieId = movieId)
+        }.getOrElse {
+            throw Exception(it)
+        }
+
         return response.toDataModel()
     }
 }
