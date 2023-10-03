@@ -20,7 +20,7 @@ internal data class CommonMovieResponse(
     @SerialName("genres") val genres: List<GenreResponse>? = null,
     @SerialName("homepage") val homepage: String? = null,
     @SerialName("id") val tmdbMovieId: Long,
-    @SerialName("imdb_id") val imdbMovieId: Long? = null,
+    @SerialName("imdb_id") val imdbMovieId: String? = null,
     @SerialName("original_language") val originalLanguage: String,
     @SerialName("original_title") val originalMovieName: String,
     @SerialName("overview") val overview: String,

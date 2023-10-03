@@ -1,6 +1,7 @@
 package com.jslee.data.model
 
 import com.jslee.data.TMDB_IMAGE_PREFIX
+import com.jslee.domain.model.Company
 import com.jslee.domain.model.Movie
 import com.jslee.domain.model.Rate
 import com.jslee.domain.model.TmdbRate
@@ -20,7 +21,7 @@ internal data class TmdbCommonMovieModel(
     val genreList: List<String>?,
     val homepage: String?,
     val tmdbMovieId: Long,
-    val imdbMovieId: Long?,
+    val imdbMovieId: String?,
     val originalLanguage: String,
     val originalMovieName: String,
     val overview: String,
@@ -60,4 +61,20 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
     isAdultMovie = isAdultMovie,
     posterImageUrl = TMDB_IMAGE_PREFIX + posterPath,
     backdropImageUrl = backdropPath?.let { TMDB_IMAGE_PREFIX + it },
+    kobisMovieCode = null,
+    tagline = tagline,
+    runtime = runtime,
+    movieStatus = movieStatus,
+    genres = genreList,
+    localizedReleaseDate = null,
+    certification = null,
+    boxOffice = null,
+    productionCompanies = productionCompanies?.map {
+        Company(
+            companyLogoImageUrl = TMDB_IMAGE_PREFIX + it.companyLogoPath,
+            companyName = it.companyName
+        )
+    },
+    casts = null,
+    staffs = null,
 )

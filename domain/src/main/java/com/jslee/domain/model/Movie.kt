@@ -9,9 +9,9 @@ data class Movie(
     val kobisMovieCode: String? = null,
     val tmdbMovieId: Long? = null,
     val localizedMovieName: String? = null,
-    val tagline: String? = null,
     val overview: String? = null,
-    val runtime: String? = null,
+    val tagline: String? = null,
+    val runtime: Int? = null,
     val movieStatus: String? = null,  // enum 분리
     val genres: List<String>? = null,
     val originalReleaseDate: String? = null,
