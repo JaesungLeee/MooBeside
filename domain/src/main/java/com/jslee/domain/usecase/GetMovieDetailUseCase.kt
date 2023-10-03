@@ -16,12 +16,33 @@ class GetMovieDetailUseCase @Inject constructor(
 
     private fun getMovieReleaseInfo(movieId: Long) = movieRepository.getMovieReleaseInfo(movieId)
     private fun getMovieCredits(movieId: Long) = movieRepository.getMovieCredits(movieId)
+    private fun getMovieDetail(movieId: Long) = movieRepository.getMovieDetail(movieId)
 
     operator fun invoke(movieId: Long) =
-        combine(getMovieReleaseInfo(movieId), getMovieCredits(movieId)) { releaseInfo, credits ->
+        combine(
+            getMovieDetail(movieId),
+            getMovieReleaseInfo(movieId),
+            getMovieCredits(movieId)
+        ) { movieDetail, releaseInfo, credits ->
             Movie(
+                kobisMovieCode = null,
+                tmdbMovieId = movieDetail.tmdbMovieId,
+                localizedMovieName = movieDetail.localizedMovieName,
+                tagline = movieDetail.tagline,
+                overview = movieDetail.overview,
+                runtime = movieDetail.runtime,
+                movieStatus = movieDetail.movieStatus,
+                genres = movieDetail.genres,
+                originalReleaseDate = movieDetail.originalReleaseDate,
                 localizedReleaseDate = releaseInfo.localizedReleaseDate,
+                spokenLanguage = movieDetail.spokenLanguage,
+                posterImageUrl = movieDetail.posterImageUrl,
+                backdropImageUrl = movieDetail.backdropImageUrl,
                 certification = releaseInfo.certification,
+                isAdultMovie = movieDetail.isAdultMovie,
+                rateInfo = movieDetail.rateInfo,
+                boxOffice = null,
+                productionCompanies = movieDetail.productionCompanies,
                 casts = credits.casts,
                 staffs = credits.staffs
             )
