@@ -30,6 +30,8 @@ data class TmdbPagingResponse<T>(
     val totalPages: Int? = null,
     @SerialName("total_results")
     val totalItemCount: Int? = null,
+    @SerialName("id")
+    val movieId: Long? = null,
 )
 
 @Serializable
