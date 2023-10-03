@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
  * Error 응답과 Success 응답 공통으로 처리
  */
 @Serializable
-data class TmdbPagingResponse<T>(
+data class TmdbCommonResponse<T>(
     @SerialName("status_code")
     val statusCode: Int? = null,
     @SerialName("status_message")
