@@ -4,7 +4,7 @@ import com.jslee.data.BuildConfig
 import com.jslee.data.Country
 import com.jslee.data.SINGLE_PAGE
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonMovieResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbPagingResponse
+import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseDateResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -25,7 +25,7 @@ internal interface TmdbService {
         @Query("include_adult") includeAdultMovie: Boolean = false,
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
-    ): TmdbPagingResponse<TmdbCommonMovieResponse>
+    ): TmdbCommonResponse<TmdbCommonMovieResponse>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(
@@ -33,7 +33,7 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("page") page: Int = SINGLE_PAGE,
         @Query("region") region: String = Country.KOREA.regionCode,
-    ): TmdbPagingResponse<TmdbCommonMovieResponse>
+    ): TmdbCommonResponse<TmdbCommonMovieResponse>
 
     @GET("movie/now_playing")
     suspend fun getNowPlayingMovie(
@@ -41,7 +41,7 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
-    ): TmdbPagingResponse<TmdbCommonMovieResponse>
+    ): TmdbCommonResponse<TmdbCommonMovieResponse>
 
     @GET("movie/upcoming")
     suspend fun getUpcomingMovie(
@@ -49,11 +49,11 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
-    ): TmdbPagingResponse<TmdbCommonMovieResponse>
+    ): TmdbCommonResponse<TmdbCommonMovieResponse>
 
     @GET("movie/{movieId}/release_dates")
     suspend fun getMovieReleaseDate(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-    ): TmdbPagingResponse<TmdbReleaseDateResponse>
+    ): TmdbCommonResponse<TmdbReleaseDateResponse>
 }
