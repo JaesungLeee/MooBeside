@@ -3,6 +3,7 @@ package com.jslee.data.datasource.remote.service
 import com.jslee.data.BuildConfig
 import com.jslee.data.Country
 import com.jslee.data.SINGLE_PAGE
+import com.jslee.data.datasource.remote.dto.response.tmdb.CreditsResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonMovieResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseDateResponse
@@ -56,4 +57,10 @@ internal interface TmdbService {
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
     ): TmdbCommonResponse<TmdbReleaseDateResponse>
+
+    @GET("movie/{movieId}/credits")
+    suspend fun getMovieCredits(
+        @Path("movieId") movieId: Long,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+    ): CreditsResponse
 }
