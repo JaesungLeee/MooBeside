@@ -1,7 +1,6 @@
 package com.jslee.data.datasource.remote.source
 
 import com.jslee.data.UNKNOWN_EXCEPTION
-import com.jslee.data.UNKNOWN_FIELD
 import com.jslee.data.datasource.remote.dto.response.tmdb.toDataModel
 import com.jslee.data.datasource.remote.service.TmdbService
 import com.jslee.data.model.ReleaseDateMovieModel
@@ -50,14 +49,7 @@ internal class TmdbRemoteDataSource @Inject constructor(
             throw Exception(it)
         }
 
-        return response.pagingResult?.map {
-            ReleaseDateMovieModel(
-                regionCode = it.regionCode,
-                certification = it.releaseDate.map { it.certification }.firstOrNull()
-                    ?: UNKNOWN_FIELD,
-                releaseDate = it.releaseDate.map { it.releaseDate }.firstOrNull() ?: UNKNOWN_FIELD
-            )
-        } ?: emptyList()
+        return response.pagingResult?.map { it.toDataModel() } ?: emptyList()
     }
 }
 
