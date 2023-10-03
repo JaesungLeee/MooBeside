@@ -7,13 +7,13 @@ import com.jslee.domain.model.Movie
  * @author jaesung
  * @created 2023/10/02
  */
-internal data class ReleaseDateMovieModel(
+internal data class MovieReleaseInfoModel(
     val regionCode: String,
     val certification: String,
     val releaseDate: String,
 )
 
-internal fun ReleaseDateMovieModel.toDomain() = Movie(
+internal fun MovieReleaseInfoModel.toDomain() = Movie(
     certification = certification,
     releaseDate = releaseDate
 )
