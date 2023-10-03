@@ -32,3 +32,23 @@ internal data class MovieStaffModel(
     val job: String,
 )
 
+internal fun MovieCreditsModel.toDomain() = Movie(
+    casts = casts.map {
+        Cast(
+            personId = it.personId,
+            gender = Gender.fromCode(it.genderCode),
+            originalName = it.originalName,
+            profileImageUrl = it.profilePath?.let { path -> TMDB_IMAGE_PREFIX + path },
+            character = it.character,
+        )
+    },
+    staffs = staffs.map {
+        Staff(
+            personId = it.personId,
+            gender = Gender.fromCode(it.genderCode),
+            originalName = it.originalName,
+            profileImageUrl = it.profilePath?.let { path -> TMDB_IMAGE_PREFIX + path },
+            job = it.job,
+        )
+    }
+)

@@ -79,4 +79,11 @@ internal class MovieRepositoryImpl @Inject constructor(
         }.getOrThrow()
         emit(releaseDate)
     }
+
+    override fun getMovieCredits(movieId: Long): Flow<Movie> = flow{
+        val credits = suspendRunCatching {
+            tmdbRemoteDataSource.getMovieCredits(movieId).toDomain()
+        }.getOrThrow()
+        emit(credits)
+    }
 }
