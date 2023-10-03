@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TmdbReleaseInfoResponse(
     @SerialName("iso_3166_1") val regionCode: String,
-    @SerialName("release_dates") val releaseDate: List<ReleaseInfoResponse>,
+    @SerialName("release_dates") val releaseInfo: List<ReleaseInfoResponse>,
 )
 
 @Serializable
@@ -22,12 +22,12 @@ data class ReleaseInfoResponse(
     @SerialName("descriptors") val descriptors: List<String>,
     @SerialName("iso_639_1") val languageCode: String,
     @SerialName("note") val note: String,
-    @SerialName("release_date") val releaseDate: String,
+    @SerialName("release_date") val localizedReleaseDate: String,
     @SerialName("type") val releaseType: Int,
 )
 
 internal fun TmdbReleaseInfoResponse.toDataModel() = MovieReleaseInfoModel(
     regionCode = regionCode,
-    certification = releaseDate.map { it.certification }.firstOrNull() ?: UNKNOWN_FIELD,
-    releaseDate = releaseDate.map { it.releaseDate }.firstOrNull() ?: UNKNOWN_FIELD
+    certification = releaseInfo.map { it.certification }.firstOrNull() ?: UNKNOWN_FIELD,
+    localizedReleaseDate = releaseInfo.map { it.localizedReleaseDate }.firstOrNull() ?: UNKNOWN_FIELD
 )

@@ -10,10 +10,10 @@ import com.jslee.domain.model.Movie
 internal data class MovieReleaseInfoModel(
     val regionCode: String,
     val certification: String,
-    val releaseDate: String,
+    val localizedReleaseDate: String,
 )
 
 internal fun MovieReleaseInfoModel.toDomain() = Movie(
     certification = certification,
-    releaseDate = releaseDate
+    localizedReleaseDate = localizedReleaseDate
 )
