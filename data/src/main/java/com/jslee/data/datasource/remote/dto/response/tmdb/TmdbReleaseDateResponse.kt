@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class TmdbReleaseDateResponse(
-    @SerialName("iso_3166_1") val countryCode: String,
+    @SerialName("iso_3166_1") val regionCode: String,
     @SerialName("release_dates") val releaseDate: List<ReleaseDateResponse>,
 )
 
