@@ -16,7 +16,7 @@ data class NowPlayingUiModel(
 
 fun Movie.toNowPlayingUiModel() = NowPlayingUiModel(
     movieId = tmdbMovieId ?: -1,
-    movieName = movieName.orEmpty(),
+    movieName = localizedMovieName.orEmpty(),
     posterImageUrl = posterImageUrl.orEmpty(),
 )
 
