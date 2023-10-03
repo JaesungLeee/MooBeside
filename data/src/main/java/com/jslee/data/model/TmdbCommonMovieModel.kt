@@ -2,6 +2,8 @@ package com.jslee.data.model
 
 import com.jslee.data.TMDB_IMAGE_PREFIX
 import com.jslee.domain.model.Movie
+import com.jslee.domain.model.Rate
+import com.jslee.domain.model.TmdbRate
 
 /**
  * MooBeside
@@ -11,31 +13,51 @@ import com.jslee.domain.model.Movie
 
 internal data class TmdbCommonMovieModel(
     val isAdultMovie: Boolean,
-    val backDropImagePath: String,
-    val genreIdList: List<Int>,
+    val backdropPath: String?,
+    val belongsToCollection: String?,
+    val budget: Long?,
+    val genreIdList: List<Int>?,
+    val genreList: List<String>?,
+    val homepage: String?,
     val tmdbMovieId: Long,
-    val language: String,
-    val originalMovieTitle: String,
+    val imdbMovieId: Long?,
+    val originalLanguage: String,
+    val originalMovieName: String,
     val overview: String,
     val popularity: Double,
-    val posterImagePath: String,
-    val releaseDate: String,
-    val movieTitle: String,
+    val posterPath: String,
+    val productionCompanies: List<ProductionCompanyModel>?,
+    val productionCountries: List<String>?,
+    val originalReleaseDate: String,
+    val revenue: Long?,
+    val runtime: Int?,
+    val spokenLanguages: List<String>?,
+    val movieStatus: String?,
+    val tagline: String?,
+    val localizedMovieName: String,
     val isIncludeVideo: Boolean,
     val averageVoteRate: Double,
     val voteCount: Int,
 )
 
+internal data class ProductionCompanyModel(
+    val companyLogoPath: String,
+    val companyName: String,
+)
+
 internal fun TmdbCommonMovieModel.toDomain() = Movie(
     tmdbMovieId = tmdbMovieId,
-    movieName = movieTitle,
-    language = language,
+    localizedMovieName = localizedMovieName,
+    spokenLanguage = spokenLanguages,
     overview = overview,
-    releaseDate = releaseDate,
-    genreIdList = genreIdList,
-    tmdbAverageVoteRate = averageVoteRate,
-    tmdbVoteCount = voteCount,
+    originalReleaseDate = originalReleaseDate,
+    rateInfo = Rate(
+        tmdbRate = TmdbRate(
+            averageVoteRate = averageVoteRate,
+            voteCount = voteCount
+        )
+    ),
     isAdultMovie = isAdultMovie,
-    posterImageUrl = TMDB_IMAGE_PREFIX + posterImagePath,
-    backdropImageUrl = TMDB_IMAGE_PREFIX + backDropImagePath
+    posterImageUrl = TMDB_IMAGE_PREFIX + posterPath,
+    backdropImageUrl = backdropPath?.let { TMDB_IMAGE_PREFIX + it },
 )

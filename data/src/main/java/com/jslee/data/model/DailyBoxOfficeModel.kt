@@ -31,8 +31,8 @@ internal data class DailyBoxOfficeModel(
 
 internal fun DailyBoxOfficeModel.toDomain() = Movie(
     kobisMovieCode = movieCode,
-    movieName = movieName,
-    openDate = openDate,
+    localizedMovieName = movieName,
+    localizedReleaseDate = openDate,
     boxOffice = BoxOffice(
         rank = rank,
         rankIncrement = rankIncrement,
