@@ -16,7 +16,7 @@ data class BannerUiModel(
 
 fun Movie.toBannerUiModel() = BannerUiModel(
     movieId = tmdbMovieId ?: -1,
-    movieName = movieName.orEmpty(),
+    movieName = localizedMovieName.orEmpty(),
     backdropImageUrl = backdropImageUrl.orEmpty(),
 )
 

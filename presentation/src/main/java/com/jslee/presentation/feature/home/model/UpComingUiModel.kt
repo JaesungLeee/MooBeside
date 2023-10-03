@@ -16,7 +16,7 @@ data class UpComingUiModel(
 
 fun Movie.toUpComingUiModel() = UpComingUiModel(
     movieId = tmdbMovieId ?: -1,
-    movieName = movieName.orEmpty(),
+    movieName = localizedMovieName.orEmpty(),
     posterImageUrl = posterImageUrl.orEmpty()
 )
 

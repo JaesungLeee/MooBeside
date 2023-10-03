@@ -20,7 +20,7 @@ class GetMovieDetailUseCase @Inject constructor(
     operator fun invoke(movieId: Long) =
         combine(getMovieReleaseInfo(movieId), getMovieCredits(movieId)) { releaseInfo, credits ->
             Movie(
-                releaseDate = releaseInfo.releaseDate,
+                localizedReleaseDate = releaseInfo.localizedReleaseDate,
                 certification = releaseInfo.certification,
                 casts = credits.casts,
                 staffs = credits.staffs
