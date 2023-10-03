@@ -3,7 +3,9 @@ package com.jslee.data.datasource.remote.service
 import com.jslee.data.BuildConfig
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonMovieResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbPagingResponse
+import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseDateResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -51,4 +53,9 @@ internal interface TmdbService {
         private const val KOREAN = "ko"
         private const val KOREA = "KR"
     }
+    @GET("movie/{movieId}/release_dates")
+    suspend fun getMovieReleaseDate(
+        @Path("movieId") movieId: Long,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+    ): TmdbPagingResponse<TmdbReleaseDateResponse>
 }
