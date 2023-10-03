@@ -1,6 +1,7 @@
 package com.jslee.data.repository
 
 import androidx.paging.PagingData
+import com.jslee.data.Country
 import com.jslee.data.datasource.remote.source.KobisRemoteDataSource
 import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
 import com.jslee.data.model.toDomain
@@ -19,7 +20,7 @@ import javax.inject.Inject
  */
 internal class MovieRepositoryImpl @Inject constructor(
     private val kobisRemoteDataSource: KobisRemoteDataSource,
-    private val tmdbRemoteDataSource: TmdbRemoteDataSource
+    private val tmdbRemoteDataSource: TmdbRemoteDataSource,
 ) : MovieRepository {
     override fun getDailyBoxOffice(targetDate: String): Flow<Result<List<Movie>>> = flow {
         emit(
@@ -67,5 +68,15 @@ internal class MovieRepositoryImpl @Inject constructor(
             tmdbRemoteDataSource.getUpcomingMovie(page = 1).map { it.toDomain() }
         }.getOrThrow()
         emit(upcomingSnapshot)
+    }
+
+    override fun getMovieReleaseDate(movieId: Long): Flow<Movie> = flow {
+        val releaseDate = suspendRunCatching {
+            tmdbRemoteDataSource.getMovieReleaseDate(movieId).asSequence()
+                .filter { it.regionCode == Country.KOREA.regionCode }
+                .map { it.toDomain() }
+                .single()
+        }.getOrThrow()
+        emit(releaseDate)
     }
 }
