@@ -1,6 +1,8 @@
 package com.jslee.data.datasource.remote.service
 
 import com.jslee.data.BuildConfig
+import com.jslee.data.Country
+import com.jslee.data.SINGLE_PAGE
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonMovieResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbPagingResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseDateResponse
@@ -21,38 +23,34 @@ internal interface TmdbService {
         @Query("query") query: String,
         @Query("page") page: Int,
         @Query("include_adult") includeAdultMovie: Boolean = false,
-        @Query("language") language: String = KOREAN,
-        @Query("region") region: String = KOREA,
+        @Query("language") language: String = Country.KOREA.languageCode,
+        @Query("region") region: String = Country.KOREA.regionCode,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-        @Query("language") language: String = KOREAN,
-        @Query("page") page: Int = 1,
-        @Query("region") region: String = KOREA
+        @Query("language") language: String = Country.KOREA.languageCode,
+        @Query("page") page: Int = SINGLE_PAGE,
+        @Query("region") region: String = Country.KOREA.regionCode,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
     @GET("movie/now_playing")
     suspend fun getNowPlayingMovie(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-        @Query("language") language: String = KOREAN,
-        @Query("region") region: String = KOREA,
+        @Query("language") language: String = Country.KOREA.languageCode,
+        @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
     @GET("movie/upcoming")
     suspend fun getUpcomingMovie(
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-        @Query("language") language: String = KOREAN,
-        @Query("region") region: String = KOREA,
+        @Query("language") language: String = Country.KOREA.languageCode,
+        @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
     ): TmdbPagingResponse<TmdbCommonMovieResponse>
 
-    companion object {
-        private const val KOREAN = "ko"
-        private const val KOREA = "KR"
-    }
     @GET("movie/{movieId}/release_dates")
     suspend fun getMovieReleaseDate(
         @Path("movieId") movieId: Long,
