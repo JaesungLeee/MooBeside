@@ -20,5 +20,7 @@ data class Movie(
     val tmdbVoteCount: Int? = null,
     val boxOffice: BoxOffice? = null,
     val isAdultMovie: Boolean? = null,
-    val certification: String? = null
+    val certification: String? = null,
+    val casts: List<Cast>? = null,
+    val staffs: List<Staff>? = null,
 )

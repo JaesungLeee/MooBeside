@@ -19,4 +19,5 @@ interface MovieRepository {
     fun getUpcomingMovie(): Flow<PagingData<Movie>>
     fun getUpcomingMovieSnapshot(): Flow<List<Movie>>
     fun getMovieReleaseDate(movieId: Long): Flow<Movie>
+    fun getMovieCredits(movieId: Long): Flow<Movie>
 }
