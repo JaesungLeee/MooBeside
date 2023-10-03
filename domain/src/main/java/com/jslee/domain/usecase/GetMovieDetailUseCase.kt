@@ -14,14 +14,14 @@ class GetMovieDetailUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
 ) {
 
-    private fun getMovieReleaseDate(movieId: Long) = movieRepository.getMovieReleaseDate(movieId)
+    private fun getMovieReleaseInfo(movieId: Long) = movieRepository.getMovieReleaseInfo(movieId)
     private fun getMovieCredits(movieId: Long) = movieRepository.getMovieCredits(movieId)
 
     operator fun invoke(movieId: Long) =
-        combine(getMovieReleaseDate(movieId), getMovieCredits(movieId)) { releaseDates, credits ->
+        combine(getMovieReleaseInfo(movieId), getMovieCredits(movieId)) { releaseInfo, credits ->
             Movie(
-                releaseDate = releaseDates.releaseDate,
-                certification = releaseDates.certification,
+                releaseDate = releaseInfo.releaseDate,
+                certification = releaseInfo.certification,
                 casts = credits.casts,
                 staffs = credits.staffs
             )

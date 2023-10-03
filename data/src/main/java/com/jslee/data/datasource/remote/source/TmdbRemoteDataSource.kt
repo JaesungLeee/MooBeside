@@ -1,11 +1,10 @@
 package com.jslee.data.datasource.remote.source
 
-import android.util.Log
 import com.jslee.data.UNKNOWN_EXCEPTION
 import com.jslee.data.datasource.remote.dto.response.tmdb.toDataModel
 import com.jslee.data.datasource.remote.service.TmdbService
 import com.jslee.data.model.MovieCreditsModel
-import com.jslee.data.model.ReleaseDateMovieModel
+import com.jslee.data.model.MovieReleaseInfoModel
 import com.jslee.data.model.TmdbCommonMovieModel
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -40,15 +39,14 @@ internal class TmdbRemoteDataSource @Inject constructor(
         return response.pagingResult?.map { it.toDataModel() }.orThrow(response.statusMessage)
     }
 
-    suspend fun getMovieReleaseDate(movieId: Long): List<ReleaseDateMovieModel> {
+    suspend fun getMovieReleaseInfo(movieId: Long): List<MovieReleaseInfoModel> {
         val response = runCatching {
-            tmdbService.getMovieReleaseDate(movieId = movieId)
+            tmdbService.getMovieReleaseInfo(movieId = movieId)
         }.onSuccess { tmdbResponse ->
             if (tmdbResponse.isSuccess == false) {
                 throw Exception(tmdbResponse.statusMessage ?: UNKNOWN_EXCEPTION)
             }
         }.getOrElse {
-            Log.e("ReleaseDataSource", "${it}")
             throw Exception(it)
         }
 
@@ -59,7 +57,6 @@ internal class TmdbRemoteDataSource @Inject constructor(
         val response = runCatching {
             tmdbService.getMovieCredits(movieId = movieId)
         }.getOrElse {
-            Log.e("CreditsDataSource", "${it}")
             throw Exception(it)
         }
         return response.toDataModel()

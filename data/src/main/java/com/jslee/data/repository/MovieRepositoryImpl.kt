@@ -70,9 +70,9 @@ internal class MovieRepositoryImpl @Inject constructor(
         emit(upcomingSnapshot)
     }
 
-    override fun getMovieReleaseDate(movieId: Long): Flow<Movie> = flow {
+    override fun getMovieReleaseInfo(movieId: Long): Flow<Movie> = flow {
         val releaseDate = suspendRunCatching {
-            tmdbRemoteDataSource.getMovieReleaseDate(movieId).asSequence()
+            tmdbRemoteDataSource.getMovieReleaseInfo(movieId).asSequence()
                 .filter { it.regionCode == Country.KOREA.regionCode }
                 .map { it.toDomain() }
                 .single()
@@ -80,7 +80,7 @@ internal class MovieRepositoryImpl @Inject constructor(
         emit(releaseDate)
     }
 
-    override fun getMovieCredits(movieId: Long): Flow<Movie> = flow{
+    override fun getMovieCredits(movieId: Long): Flow<Movie> = flow {
         val credits = suspendRunCatching {
             tmdbRemoteDataSource.getMovieCredits(movieId).toDomain()
         }.getOrThrow()

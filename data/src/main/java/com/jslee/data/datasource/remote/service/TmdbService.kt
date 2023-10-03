@@ -6,7 +6,7 @@ import com.jslee.data.SINGLE_PAGE
 import com.jslee.data.datasource.remote.dto.response.tmdb.CreditsResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonMovieResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseDateResponse
+import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseInfoResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -53,10 +53,10 @@ internal interface TmdbService {
     ): TmdbCommonResponse<TmdbCommonMovieResponse>
 
     @GET("movie/{movieId}/release_dates")
-    suspend fun getMovieReleaseDate(
+    suspend fun getMovieReleaseInfo(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-    ): TmdbCommonResponse<TmdbReleaseDateResponse>
+    ): TmdbCommonResponse<TmdbReleaseInfoResponse>
 
     @GET("movie/{movieId}/credits")
     suspend fun getMovieCredits(

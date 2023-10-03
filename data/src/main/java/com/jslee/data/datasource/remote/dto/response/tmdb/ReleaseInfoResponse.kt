@@ -1,7 +1,7 @@
 package com.jslee.data.datasource.remote.dto.response.tmdb
 
 import com.jslee.data.UNKNOWN_FIELD
-import com.jslee.data.model.ReleaseDateMovieModel
+import com.jslee.data.model.MovieReleaseInfoModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -11,13 +11,13 @@ import kotlinx.serialization.Serializable
  * @created 2023/10/02
  */
 @Serializable
-data class TmdbReleaseDateResponse(
+data class TmdbReleaseInfoResponse(
     @SerialName("iso_3166_1") val regionCode: String,
-    @SerialName("release_dates") val releaseDate: List<ReleaseDateResponse>,
+    @SerialName("release_dates") val releaseDate: List<ReleaseInfoResponse>,
 )
 
 @Serializable
-data class ReleaseDateResponse(
+data class ReleaseInfoResponse(
     @SerialName("certification") val certification: String,
     @SerialName("descriptors") val descriptors: List<String>,
     @SerialName("iso_639_1") val languageCode: String,
@@ -26,7 +26,7 @@ data class ReleaseDateResponse(
     @SerialName("type") val releaseType: Int,
 )
 
-internal fun TmdbReleaseDateResponse.toDataModel() = ReleaseDateMovieModel(
+internal fun TmdbReleaseInfoResponse.toDataModel() = MovieReleaseInfoModel(
     regionCode = regionCode,
     certification = releaseDate.map { it.certification }.firstOrNull() ?: UNKNOWN_FIELD,
     releaseDate = releaseDate.map { it.releaseDate }.firstOrNull() ?: UNKNOWN_FIELD
