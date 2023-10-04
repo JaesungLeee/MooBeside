@@ -1,6 +1,6 @@
 package com.jslee.domain.usecase
 
-import com.jslee.domain.model.Movie
+import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

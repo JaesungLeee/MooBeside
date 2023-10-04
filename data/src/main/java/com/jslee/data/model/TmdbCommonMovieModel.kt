@@ -2,8 +2,8 @@ package com.jslee.data.model
 
 import com.jslee.data.TMDB_IMAGE_PREFIX
 import com.jslee.domain.model.Company
-import com.jslee.domain.model.Movie
-import com.jslee.domain.model.MovieStatus
+import com.jslee.domain.model.movie.Movie
+import com.jslee.domain.model.movie.MovieStatus
 import com.jslee.domain.model.Rate
 import com.jslee.domain.model.TmdbRate
 

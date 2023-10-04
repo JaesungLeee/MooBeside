@@ -1,11 +1,9 @@
 package com.jslee.domain.usecase
 
 import androidx.paging.PagingData
-import androidx.paging.map
-import com.jslee.domain.model.Movie
+import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 /**

@@ -1,7 +1,7 @@
 package com.jslee.domain.repository
 
 import androidx.paging.PagingData
-import com.jslee.domain.model.Movie
+import com.jslee.domain.model.movie.Movie
 import kotlinx.coroutines.flow.Flow
 
 /**

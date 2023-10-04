@@ -8,7 +8,7 @@ import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
 import com.jslee.data.model.toDomain
 import com.jslee.data.paging.extension.createPager
 import com.jslee.data.suspendRunCatching
-import com.jslee.domain.model.Movie
+import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
