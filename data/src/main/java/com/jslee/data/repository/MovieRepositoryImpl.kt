@@ -1,7 +1,7 @@
 package com.jslee.data.repository
 
 import androidx.paging.PagingData
-import com.jslee.data.Country
+import com.jslee.domain.model.Country
 import com.jslee.data.TMDB_IMAGE_PREFIX
 import com.jslee.data.datasource.remote.source.KobisRemoteDataSource
 import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
