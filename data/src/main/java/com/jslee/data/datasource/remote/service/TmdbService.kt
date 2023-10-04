@@ -5,6 +5,7 @@ import com.jslee.data.Country
 import com.jslee.data.SINGLE_PAGE
 import com.jslee.data.datasource.remote.dto.response.tmdb.CreditsResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.CommonMovieResponse
+import com.jslee.data.datasource.remote.dto.response.tmdb.ImagesResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseInfoResponse
 import retrofit2.http.GET
@@ -70,4 +71,11 @@ internal interface TmdbService {
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
     ): CommonMovieResponse
+
+    @GET("movie/{movieId}/images")
+    suspend fun getMovieImages(
+        @Path("movieId") movieId: Long,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+        @Query("language") language: String = Country.KOREA.languageCode,
+    ): ImagesResponse
 }
