@@ -4,6 +4,7 @@ import com.jslee.data.UNKNOWN_EXCEPTION
 import com.jslee.data.datasource.remote.dto.response.tmdb.toDataModel
 import com.jslee.data.datasource.remote.service.TmdbService
 import com.jslee.data.model.MovieCreditsModel
+import com.jslee.data.model.MovieImagesModel
 import com.jslee.data.model.MovieReleaseInfoModel
 import com.jslee.data.model.TmdbCommonMovieModel
 import javax.inject.Inject
@@ -66,6 +67,16 @@ internal class TmdbRemoteDataSource @Inject constructor(
     suspend fun getMovieDetail(movieId: Long): TmdbCommonMovieModel {
         val response = runCatching {
             tmdbService.getMovieDetail(movieId = movieId)
+        }.getOrElse {
+            throw Exception(it)
+        }
+
+        return response.toDataModel()
+    }
+
+    suspend fun getMovieImages(movieId: Long): MovieImagesModel {
+        val response = runCatching {
+            tmdbService.getMovieImages(movieId = movieId)
         }.getOrElse {
             throw Exception(it)
         }
