@@ -1,6 +1,6 @@
-package com.jslee.domain.model
+package com.jslee.domain.model.movie
 
-data class Company(
+data class ProductionCompany(
     val companyLogoImageUrl: String,
     val companyName: String,
 )

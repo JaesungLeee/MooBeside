@@ -1,4 +1,4 @@
-package com.jslee.domain.model
+package com.jslee.domain.model.movie
 
 /**
  * MooBeside
