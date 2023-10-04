@@ -1,11 +1,11 @@
 package com.jslee.data.model
 
 import com.jslee.data.TMDB_IMAGE_PREFIX
-import com.jslee.domain.model.Company
+import com.jslee.domain.model.movie.ProductionCompany
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
-import com.jslee.domain.model.Rate
-import com.jslee.domain.model.TmdbRate
+import com.jslee.domain.model.movie.Rate
+import com.jslee.domain.model.movie.TmdbRate
 
 /**
  * MooBeside
@@ -68,7 +68,7 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
     movieStatus = movieStatus?.let { MovieStatus.fromStatus(it) },
     genres = genreList,
     productionCompanies = productionCompanies?.map {
-        Company(
+        ProductionCompany(
             companyLogoImageUrl = TMDB_IMAGE_PREFIX + it.companyLogoPath,
             companyName = it.companyName
         )

@@ -1,10 +1,5 @@
 package com.jslee.domain.model.movie
 
-import com.jslee.domain.model.Cast
-import com.jslee.domain.model.Company
-import com.jslee.domain.model.Rate
-import com.jslee.domain.model.Staff
-
 /**
  * MooBeside
  * @author jaesung
@@ -29,7 +24,7 @@ data class Movie(
     val rateInfo: Rate? = null,
     val boxOffice: BoxOffice? = null,
     val images: List<String>? = null,
-    val productionCompanies: List<Company>? = null,
+    val productionCompanies: List<ProductionCompany>? = null,
     val casts: List<Cast>? = null,
     val staffs: List<Staff>? = null,
 )
