@@ -1,7 +1,7 @@
 package com.jslee.data.datasource.remote.service
 
 import com.jslee.data.BuildConfig
-import com.jslee.data.Country
+import com.jslee.domain.model.Country
 import com.jslee.data.SINGLE_PAGE
 import com.jslee.data.datasource.remote.dto.response.tmdb.CreditsResponse
 import com.jslee.data.datasource.remote.dto.response.tmdb.CommonMovieResponse
