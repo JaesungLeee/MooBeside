@@ -1,4 +1,9 @@
-package com.jslee.domain.model
+package com.jslee.domain.model.movie
+
+import com.jslee.domain.model.Cast
+import com.jslee.domain.model.Company
+import com.jslee.domain.model.Rate
+import com.jslee.domain.model.Staff
 
 /**
  * MooBeside

@@ -1,4 +1,4 @@
-package com.jslee.domain.model
+package com.jslee.domain.model.movie
 
 enum class MovieStatus(val status: String) {
     UNKNOWN("Unknown"),

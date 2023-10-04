@@ -1,6 +1,6 @@
 package com.jslee.data.model
 
-import com.jslee.domain.model.Movie
+import com.jslee.domain.model.movie.Movie
 
 /**
  * MooBeside
