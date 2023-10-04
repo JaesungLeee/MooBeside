@@ -19,7 +19,7 @@ data class Movie(
     val spokenLanguage: List<String>? = null,
     val posterImageUrl: String? = null,
     val backdropImageUrl: String? = null,
-    val certification: String? = null,
+    val certification: Certification? = null,
     val isAdultMovie: Boolean? = null,
     val rateInfo: Rate? = null,
     val boxOffice: BoxOffice? = null,

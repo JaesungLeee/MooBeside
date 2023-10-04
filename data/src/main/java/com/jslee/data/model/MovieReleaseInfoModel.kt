@@ -1,5 +1,6 @@
 package com.jslee.data.model
 
+import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
 
 /**
@@ -14,6 +15,6 @@ internal data class MovieReleaseInfoModel(
 )
 
 internal fun MovieReleaseInfoModel.toDomain() = Movie(
-    certification = certification,
+    certification = Certification.fromCode(certification),
     localizedReleaseDate = localizedReleaseDate
 )
