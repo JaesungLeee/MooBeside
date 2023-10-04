@@ -13,17 +13,18 @@ import javax.inject.Inject
 class GetMovieDetailUseCase @Inject constructor(
     private val movieRepository: MovieRepository,
 ) {
-
     private fun getMovieReleaseInfo(movieId: Long) = movieRepository.getMovieReleaseInfo(movieId)
     private fun getMovieCredits(movieId: Long) = movieRepository.getMovieCredits(movieId)
     private fun getMovieDetail(movieId: Long) = movieRepository.getMovieDetail(movieId)
+    private fun getMovieImages(movieId: Long) = movieRepository.getMovieImages(movieId)
 
     operator fun invoke(movieId: Long) =
         combine(
             getMovieDetail(movieId),
             getMovieReleaseInfo(movieId),
-            getMovieCredits(movieId)
-        ) { movieDetail, releaseInfo, credits ->
+            getMovieCredits(movieId),
+            getMovieImages(movieId)
+        ) { movieDetail, releaseInfo, credits, posters ->
             Movie(
                 kobisMovieCode = null,
                 tmdbMovieId = movieDetail.tmdbMovieId,
@@ -42,6 +43,7 @@ class GetMovieDetailUseCase @Inject constructor(
                 isAdultMovie = movieDetail.isAdultMovie,
                 rateInfo = movieDetail.rateInfo,
                 boxOffice = null,
+                images = posters,
                 productionCompanies = movieDetail.productionCompanies,
                 casts = credits.casts,
                 staffs = credits.staffs
