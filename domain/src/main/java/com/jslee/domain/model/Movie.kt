@@ -12,7 +12,7 @@ data class Movie(
     val overview: String? = null,
     val tagline: String? = null,
     val runtime: Int? = null,
-    val movieStatus: String? = null,  // enum 분리 Canceled, In Production, Planned, Post Production, Released, Rumored
+    val movieStatus: MovieStatus? = null,
     val genres: List<String>? = null,
     val originalReleaseDate: String? = null,
     val localizedReleaseDate: String? = null,
