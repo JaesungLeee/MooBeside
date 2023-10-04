@@ -2,6 +2,7 @@ package com.jslee.data.repository
 
 import androidx.paging.PagingData
 import com.jslee.data.Country
+import com.jslee.data.TMDB_IMAGE_PREFIX
 import com.jslee.data.datasource.remote.source.KobisRemoteDataSource
 import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
 import com.jslee.data.model.toDomain
@@ -92,5 +93,14 @@ internal class MovieRepositoryImpl @Inject constructor(
             tmdbRemoteDataSource.getMovieDetail(movieId).toDomain()
         }.getOrThrow()
         emit(movieDetailInfo)
+    }
+
+    override fun getMovieImages(movieId: Long): Flow<List<String>> = flow {
+        val posterImages = suspendRunCatching {
+            tmdbRemoteDataSource.getMovieImages(movieId).posterImages.map {
+                TMDB_IMAGE_PREFIX + it.imageFilePath
+            }
+        }.getOrThrow()
+        emit(posterImages)
     }
 }
