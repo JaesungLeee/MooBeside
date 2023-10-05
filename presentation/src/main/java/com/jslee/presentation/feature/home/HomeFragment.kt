@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.home
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
@@ -60,15 +61,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
 
             override fun onBannerClick(item: BannerUiModel) {
-                navigateToMovieDetail()
+                navigateToMovieDetail(item.movieId)
             }
 
             override fun onNowPlayingPosterClick(item: NowPlayingUiModel) {
-                navigateToMovieDetail()
+                navigateToMovieDetail(item.movieId)
             }
 
             override fun onUpComingPosterClick(item: UpComingUiModel) {
-                navigateToMovieDetail()
+                navigateToMovieDetail(item.movieId)
             }
         })
     }
@@ -106,7 +107,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         else -> Unit
     }
 
-    private fun navigateToMovieDetail() {
-        findNavController().navigate(R.id.action_to_movie_detail)
+
+    /**
+     * Android Studio Giraffe에서 발생중인 이슈
+     * - navArgs 사용 시 argument name에서 에러 발생
+     * - https://issuetracker.google.com/issues/293665984
+     * - 해결 시 navArgs로 전환
+     */
+    private fun navigateToMovieDetail(movieId: Long) {
+        val bundle = bundleOf("movieId" to movieId)
+        findNavController().navigate(R.id.action_to_movie_detail, bundle)
     }
 }
