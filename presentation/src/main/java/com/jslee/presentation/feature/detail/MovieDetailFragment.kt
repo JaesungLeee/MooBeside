@@ -20,10 +20,11 @@ class MovieDetailFragment :
     BaseFragment<FragmentMovieDetailBinding>(R.layout.fragment_movie_detail) {
 
     private val viewModel: MovieDetailViewModel by viewModels()
+    private val movieId: Long by lazy { arguments?.getLong("movieId") ?: 0L }
     private val itemAdapter by lazy { ListItemAdapter(ItemProvider.provideItem()) }
 
     override fun initViews() {
-        viewModel.getMovieDetails(872585)
+        viewModel.getMovieDetails(movieId)
         setActionBarCollapsedListener()
 
         binding.rvMovieDetail.adapter = itemAdapter
