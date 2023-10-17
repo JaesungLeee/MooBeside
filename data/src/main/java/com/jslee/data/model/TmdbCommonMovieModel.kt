@@ -27,7 +27,7 @@ internal data class TmdbCommonMovieModel(
     val originalMovieName: String,
     val overview: String,
     val popularity: Double,
-    val posterPath: String,
+    val posterPath: String?,
     val productionCompanies: List<ProductionCompanyModel>?,
     val productionCountries: List<String>?,
     val originalReleaseDate: String,
@@ -50,7 +50,7 @@ internal data class MovieCollectionModel(
 )
 
 internal data class ProductionCompanyModel(
-    val companyLogoPath: String,
+    val companyLogoPath: String?,
     val companyName: String,
 )
 
