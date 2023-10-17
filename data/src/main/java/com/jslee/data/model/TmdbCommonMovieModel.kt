@@ -16,7 +16,7 @@ import com.jslee.domain.model.movie.TmdbRate
 internal data class TmdbCommonMovieModel(
     val isAdultMovie: Boolean,
     val backdropPath: String?,
-    val belongsToCollection: String?,
+    val belongsToCollection: MovieCollectionModel?,
     val budget: Long?,
     val genreIdList: List<Int>?,
     val genreList: List<String>?,
@@ -40,6 +40,13 @@ internal data class TmdbCommonMovieModel(
     val isIncludeVideo: Boolean,
     val averageVoteRate: Double,
     val voteCount: Int,
+)
+
+internal data class MovieCollectionModel(
+    val collectionId: Long,
+    val collectionName: String,
+    val posterPath: String?,
+    val backdropPath: String?,
 )
 
 internal data class ProductionCompanyModel(

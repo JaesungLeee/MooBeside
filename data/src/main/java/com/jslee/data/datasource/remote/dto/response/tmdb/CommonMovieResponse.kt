@@ -1,5 +1,6 @@
 package com.jslee.data.datasource.remote.dto.response.tmdb
 
+import com.jslee.data.model.MovieCollectionModel
 import com.jslee.data.model.ProductionCompanyModel
 import com.jslee.data.model.TmdbCommonMovieModel
 import kotlinx.serialization.SerialName
@@ -14,7 +15,7 @@ import kotlinx.serialization.Serializable
 internal data class CommonMovieResponse(
     @SerialName("adult") val isAdultMovie: Boolean,
     @SerialName("backdrop_path") val backdropPath: String?,
-    @SerialName("belongs_to_collection") val belongsToCollection: String? = null,
+    @SerialName("belongs_to_collection") val belongsToCollection: MovieCollection? = null,
     @SerialName("budget") val budget: Long? = null,
     @SerialName("genre_ids") val genreIdList: List<Int>? = null,
     @SerialName("genres") val genres: List<GenreResponse>? = null,
@@ -38,6 +39,21 @@ internal data class CommonMovieResponse(
     @SerialName("video") val isIncludeVideo: Boolean,
     @SerialName("vote_average") val averageVoteRate: Double,
     @SerialName("vote_count") val voteCount: Int,
+)
+
+@Serializable
+internal data class MovieCollection(
+    @SerialName("id") val collectionId: Long,
+    @SerialName("name") val collectionName: String,
+    @SerialName("poster_path") val posterPath: String?,
+    @SerialName("backdrop_path") val backdropPath: String?,
+)
+
+internal fun MovieCollection.toDataModel() = MovieCollectionModel(
+    collectionId = collectionId,
+    collectionName = collectionName,
+    posterPath = posterPath,
+    backdropPath = backdropPath,
 )
 
 @Serializable
@@ -70,7 +86,7 @@ internal data class ProductionCountryResponse(
 internal fun CommonMovieResponse.toDataModel() = TmdbCommonMovieModel(
     isAdultMovie = isAdultMovie,
     backdropPath = backdropPath,
-    belongsToCollection = belongsToCollection,
+    belongsToCollection = belongsToCollection?.toDataModel(),
     budget = budget,
     genreIdList = genreIdList,
     genreList = genres?.map { it.genre },
