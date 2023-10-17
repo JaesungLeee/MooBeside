@@ -26,7 +26,7 @@ internal data class CommonMovieResponse(
     @SerialName("original_title") val originalMovieName: String,
     @SerialName("overview") val overview: String,
     @SerialName("popularity") val popularity: Double,
-    @SerialName("poster_path") val posterPath: String,
+    @SerialName("poster_path") val posterPath: String? = null,
     @SerialName("production_companies") val productionCompanies: List<ProductionCompanyResponse>? = null,
     @SerialName("production_countries") val productionCountries: List<ProductionCountryResponse>? = null,
     @SerialName("release_date") val originalReleaseDate: String,
@@ -45,8 +45,8 @@ internal data class CommonMovieResponse(
 internal data class MovieCollection(
     @SerialName("id") val collectionId: Long,
     @SerialName("name") val collectionName: String,
-    @SerialName("poster_path") val posterPath: String?,
-    @SerialName("backdrop_path") val backdropPath: String?,
+    @SerialName("poster_path") val posterPath: String? = null,
+    @SerialName("backdrop_path") val backdropPath: String? = null,
 )
 
 internal fun MovieCollection.toDataModel() = MovieCollectionModel(
@@ -72,7 +72,7 @@ internal data class SpokenLanguageResponse(
 @Serializable
 internal data class ProductionCompanyResponse(
     @SerialName("id") val companyId: Long,
-    @SerialName("logo_path") val companyLogoPath: String,
+    @SerialName("logo_path") val companyLogoPath: String? = null,
     @SerialName("name") val companyName: String,
     @SerialName("origin_country") val locatedRegionCode: String,
 )
