@@ -7,99 +7,56 @@
 
     </data>
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="10dp">
+        android:paddingTop="20dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/tv_movie_info_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="기본정보"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/iv_movie_poster"
-                android:layout_width="150dp"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="1:1.4"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearance="@style/MooBeside.Shape.Radius8"
-                tools:src="@drawable/img_sample" />
+        <TextView
+            android:id="@+id/tv_movie_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_info_title"
+            tools:text="대한민국을 뜨겁게 만든 폭발적 신드롬의 주인공!\n드라마 [시멘틱 에러]를 극장에서 만난다!" />
 
-            <include
-                android:id="@+id/layout_release_date"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iv_movie_poster"
-                app:layout_constraintTop_toTopOf="@id/iv_movie_poster" />
+        <TextView
+            android:id="@+id/tv_movie_overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_tag"
+            tools:text="컴공과 아싸 추상우의 완벽하게 짜인 일상에 에러처럼 나타난 안하무인 디자인과 인싸 장재영, 극과 극 청춘들의 캠퍼스 로맨스가 스크린으로 펼쳐진다!" />
 
-            <include
-                android:id="@+id/layout_runtime"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_release_date"
-                app:layout_constraintTop_toBottomOf="@id/layout_release_date" />
-
-            <include
-                android:id="@+id/layout_genre"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_runtime"
-                app:layout_constraintTop_toBottomOf="@id/layout_runtime" />
-
-            <include
-                android:id="@+id/layout_country"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_genre"
-                app:layout_constraintTop_toBottomOf="@id/layout_genre" />
-
-            <include
-                android:id="@+id/layout_company"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_country"
-                app:layout_constraintTop_toBottomOf="@id/layout_country" />
-
-            <include
-                android:id="@+id/layout_state"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_company"
-                app:layout_constraintTop_toBottomOf="@id/layout_company" />
-
-            <include
-                android:id="@+id/layout_certification"
-                layout="@layout/partial_info_description"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/layout_state"
-                app:layout_constraintTop_toBottomOf="@id/layout_state" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movie_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/BackgroundGray"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_overview"
+            tools:listitem="@layout/item_movie_info" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

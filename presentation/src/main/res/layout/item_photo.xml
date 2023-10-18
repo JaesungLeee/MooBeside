@@ -16,5 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:shapeAppearance="@style/MooBeside.Shape.Radius8"
+        app:strokeColor="@color/Gray10"
+        app:strokeWidth="1dp"
         tools:src="@drawable/img_sample" />
 </layout>
