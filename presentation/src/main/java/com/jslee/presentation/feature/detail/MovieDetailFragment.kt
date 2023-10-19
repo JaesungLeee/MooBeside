@@ -1,11 +1,14 @@
 package com.jslee.presentation.feature.detail
 
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.dp
+import com.jslee.core.ui.extension.emptyString
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
+import com.jslee.core.designsystem.R as DR
 
 /**
  * MooBeside
@@ -21,8 +24,42 @@ class MovieDetailFragment :
 
     override fun initViews() {
         viewModel.getMovieDetails(872585)
+        setActionBarCollapsedListener()
+
         binding.rvMovieDetail.adapter = itemAdapter
     }
+
+    private fun setActionBarCollapsedListener() = with(binding) {
+        ablMovieDetail.addOnOffsetChangedListener { _, verticalOffset ->
+            val isCollapsed = ctlMovieDetail.height + verticalOffset <= 64.dp
+            setToolbarIconTint(isCollapsed)
+            setToolbarTitle(isCollapsed)
+        }
+    }
+
+    private fun setToolbarTitle(isCollapsed: Boolean) = with(binding.ctlMovieDetail) {
+        if (isCollapsed) {
+            title = "오펜하이머"
+            setCollapsedTitleTextAppearance(DR.style.MooBesideTextAppearance_Title1)
+        } else {
+            title = emptyString
+        }
+    }
+
+    private fun setToolbarIconTint(isCollapsed: Boolean) {
+        val colorTint = getIconColor(isCollapsed)
+        binding.tbMovieDetail.setNavigationIconTint(colorTint)
+    }
+
+    private fun getIconColor(isCollapsed: Boolean): Int {
+        val color = if (isCollapsed) {
+            ContextCompat.getColor(requireContext(), DR.color.Black)
+        } else {
+            ContextCompat.getColor(requireContext(), DR.color.White)
+        }
+        return color
+    }
+}
 
 object ItemProvider {
 
@@ -40,4 +77,7 @@ object ItemProvider {
     }
 }
 
-data class Item(    val id: Long,    val text: String,)
+data class Item(
+    val id: Long,
+    val text: String,
+)
