@@ -7,6 +7,8 @@ import java.text.DecimalFormat
  * @author jaesung
  * @created 2023/08/13
  */
+val emptyString: String
+    get() = ""
 
 fun String.toDisplayedDate(): String {
     val splitDate = this.split("-")
