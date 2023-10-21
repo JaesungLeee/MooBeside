@@ -49,13 +49,6 @@ internal data class MovieCollection(
     @SerialName("backdrop_path") val backdropPath: String? = null,
 )
 
-internal fun MovieCollection.toDataModel() = MovieCollectionModel(
-    collectionId = collectionId,
-    collectionName = collectionName,
-    posterPath = posterPath,
-    backdropPath = backdropPath,
-)
-
 @Serializable
 internal data class GenreResponse(
     @SerialName("id") val genreId: Long,
@@ -83,6 +76,18 @@ internal data class ProductionCountryResponse(
     @SerialName("name") val countryName: String,
 )
 
+internal fun MovieCollection.toDataModel() = MovieCollectionModel(
+    collectionId = collectionId,
+    collectionName = collectionName,
+    posterPath = posterPath,
+    backdropPath = backdropPath,
+)
+
+internal fun ProductionCompanyResponse.toDataModel() = ProductionCompanyModel(
+    companyLogoPath = companyLogoPath,
+    companyName = companyName,
+)
+
 internal fun CommonMovieResponse.toDataModel() = TmdbCommonMovieModel(
     isAdultMovie = isAdultMovie,
     backdropPath = backdropPath,
@@ -98,12 +103,7 @@ internal fun CommonMovieResponse.toDataModel() = TmdbCommonMovieModel(
     overview = overview,
     popularity = popularity,
     posterPath = posterPath,
-    productionCompanies = productionCompanies?.map { response ->
-        ProductionCompanyModel(
-            companyLogoPath = response.companyLogoPath,
-            companyName = response.companyName,
-        )
-    },
+    productionCompanies = productionCompanies?.map { it.toDataModel() },
     productionCountries = productionCountries?.map { it.countryName },
     originalReleaseDate = originalReleaseDate,
     revenue = revenue,
