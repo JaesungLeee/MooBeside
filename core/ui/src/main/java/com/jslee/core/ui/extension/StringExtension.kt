@@ -1,6 +1,9 @@
 package com.jslee.core.ui.extension
 
 import java.text.DecimalFormat
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 /**
  * MooBeside
@@ -21,3 +24,11 @@ fun String.toDecimalFormat(): String {
 }
 
 fun String.toPercentage() = "($this%)"
+
+fun String.toDisplayYear(): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.KOREA)
+    val outputFormat = SimpleDateFormat("yyyy년", Locale.KOREA)
+
+    val date = inputFormat.parse(this) ?: throw Exception()
+    return outputFormat.format(date)
+}
