@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="appBarModel"
+            type="com.jslee.presentation.feature.detail.model.AppBarUiModel" />
+
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -30,6 +34,7 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <ImageView
+                    posterImage="@{appBarModel.backdropImageUrl}"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
                     android:scaleType="fitXY"
@@ -47,22 +52,50 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginBottom="8dp">
 
-                    <ImageView
-                        android:id="@+id/image"
-                        android:layout_width="100dp"
-                        android:layout_height="150dp"
-                        android:src="@drawable/img_sample"
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_poster_image"
+                        posterImage="@{appBarModel.posterImageUrl}"
+                        android:layout_width="80dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearance="@style/MooBeside.Shape.Radius4"
+                        tools:src="@drawable/img_sample" />
 
                     <TextView
+                        android:id="@+id/tv_movie_name"
+                        style="@style/MooBesideTextAppearance.Heading4"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="60dp"
-                        android:text="오펜하이머"
-                        app:layout_constraintBottom_toBottomOf="@id/image"
-                        app:layout_constraintStart_toEndOf="@id/image" />
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{appBarModel.movieName}"
+                        android:textColor="@color/White"
+                        app:layout_constraintBottom_toTopOf="@id/tv_summary_info"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/iv_poster_image"
+                        tools:text="오펜하이머" />
+
+                    <TextView
+                        android:id="@+id/tv_summary_info"
+                        style="@style/MooBesideTextAppearance.Body3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="12dp"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="@{appBarModel.summaryInfo}"
+                        android:textColor="@color/Gray10"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_poster_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/iv_poster_image"
+                        tools:text="2023년·개봉·호러/코미디" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.appbar.MaterialToolbar

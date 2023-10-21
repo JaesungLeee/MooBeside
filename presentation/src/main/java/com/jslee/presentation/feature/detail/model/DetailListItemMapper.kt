@@ -10,6 +10,16 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  * @author jaesung
  * @created 2023/10/17
  */
+fun Movie.toAppBarModel() = AppBarUiModel(
+    movieName = localizedMovieName.orEmpty(),
+    posterImageUrl = posterImageUrl,
+    backdropImageUrl = backdropImageUrl,
+    summaryInfo = makeSummaryInfo(
+        localizedReleaseDate,
+        MovieStatus.getDescription(movieStatus),
+        genres
+    ),
+)
 
 fun Movie.toListItem(): List<DetailListItem> = listOf(
     DetailListItem.MovieInfo(
@@ -19,12 +29,6 @@ fun Movie.toListItem(): List<DetailListItem> = listOf(
 )
 
 fun Movie.toMovieDetailUiModel() = MovieDetailUiModel(
-    movieName = localizedMovieName.orEmpty(),
-    posterImageUrl = posterImageUrl,
-    summaryInfo = makeSummaryInfo(
-        localizedReleaseDate,
-        MovieStatus.getDescription(movieStatus),
-        genres
-    ),
+    appBarModel = toAppBarModel(),
     detailData = toListItem()
 )
