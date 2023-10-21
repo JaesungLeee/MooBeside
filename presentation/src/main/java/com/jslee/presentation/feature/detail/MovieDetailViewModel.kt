@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.domain.usecase.GetMovieDetailUseCase
+import com.jslee.presentation.feature.detail.model.toMovieDetailUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -25,7 +26,8 @@ class MovieDetailViewModel @Inject constructor(
                 .catch {
                     Timber.e(it.message)
                 }.collect {
-                    Timber.e("$it")
+                    Timber.e("${it.toMovieDetailUiModel()}")
+
                 }
         }
     }
