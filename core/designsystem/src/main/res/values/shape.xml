@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="MooBeside.Shape.Radius4" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
     <style name="MooBeside.Shape.Radius8" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>

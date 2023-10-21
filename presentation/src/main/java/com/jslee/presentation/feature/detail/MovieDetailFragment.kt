@@ -5,9 +5,11 @@ import androidx.fragment.app.viewModels
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.extension.emptyString
+import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -24,10 +26,33 @@ class MovieDetailFragment :
     private val itemAdapter by lazy { ListItemAdapter(ItemProvider.provideItem()) }
 
     override fun initViews() {
+//        runCatching {
+//            requireArguments().getLong("movieId")
+//        }.onSuccess {
+//            viewModel.getMovieDetails(it)
+//        }.getOrElse {
+//            requireActivity().showToast("Error !!")
+//        }
         viewModel.getMovieDetails(movieId)
         setActionBarCollapsedListener()
 
         binding.rvMovieDetail.adapter = itemAdapter
+    }
+
+    override fun observeStates() {
+        repeatOn {
+            viewModel.detailUiState.collectLatest { handleUiState(it) }
+        }
+    }
+
+    private fun handleUiState(uiState: MovieDetailUiState) {
+        when (uiState) {
+            MovieDetailUiState.Loading -> {}
+
+            is MovieDetailUiState.Success -> {
+                binding.appBarModel = uiState.data.appBarModel
+            }
+        }
     }
 
     private fun setActionBarCollapsedListener() = with(binding) {
