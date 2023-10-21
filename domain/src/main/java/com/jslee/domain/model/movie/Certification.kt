@@ -1,5 +1,7 @@
 package com.jslee.domain.model.movie
 
+import java.lang.IllegalArgumentException
+
 /**
  * MooBeside
  * @author jaesung
@@ -42,6 +44,17 @@ enum class Certification(val code: String, val meaning: String, val description:
                 R_18.code -> R_18
                 RESTRICTED.code -> RESTRICTED
                 else -> RESTRICTED
+            }
+        }
+
+        fun getMeaning(certification: Certification?): String {
+            return when (certification) {
+                ALL -> ALL.meaning
+                R_12 -> R_12.meaning
+                R_15 -> R_15.meaning
+                R_18 -> R_18.meaning
+                RESTRICTED -> RESTRICTED.meaning
+                else -> throw IllegalArgumentException()
             }
         }
     }
