@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="movieInfoItem"
+            type="com.jslee.presentation.feature.detail.model.MovieInfoItem" />
 
     </data>
 
@@ -16,6 +19,7 @@
             android:id="@+id/tv_info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{movieInfoItem.title}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="감독" />
@@ -25,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:text="@{movieInfoItem.content}"
             app:layout_constraintStart_toStartOf="@id/tv_info_title"
             app:layout_constraintTop_toBottomOf="@id/tv_info_title"
             tools:text="미야자키 하야오" />
