@@ -19,7 +19,7 @@ abstract class MultiViewTypeListAdapter<T : ListItem, E : Enum<*>> :
     }
 
     abstract fun onCreateViewHolder(parent: ViewGroup, viewType: E): BaseViewHolder<T>
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T> {
+    final override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<T> {
         return onCreateViewHolder(parent, viewTypeValues[viewType])
     }
 
