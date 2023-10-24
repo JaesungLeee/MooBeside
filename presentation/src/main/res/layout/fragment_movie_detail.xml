@@ -37,13 +37,12 @@
                     posterImage="@{appBarModel.backdropImageUrl}"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/img_sample" />
+                    android:scaleType="fitXY" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:background="@drawable/bg_gray02_gradient" />
+                    android:background="@drawable/bg_gray02_gradient90" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
