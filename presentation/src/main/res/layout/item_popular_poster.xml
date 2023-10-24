@@ -29,7 +29,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/bg_gray02_gradient"
+            android:background="@drawable/bg_gray02_gradient270"
             app:layout_constraintBottom_toBottomOf="@id/iv_home_banner"
             app:layout_constraintEnd_toEndOf="@id/iv_home_banner"
             app:layout_constraintStart_toStartOf="@id/iv_home_banner"

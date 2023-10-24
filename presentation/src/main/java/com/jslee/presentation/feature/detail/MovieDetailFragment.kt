@@ -2,14 +2,16 @@ package com.jslee.presentation.feature.detail
 
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.extension.emptyString
-import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
+import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import timber.log.Timber
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -23,7 +25,7 @@ class MovieDetailFragment :
 
     private val viewModel: MovieDetailViewModel by viewModels()
     private val movieId: Long by lazy { arguments?.getLong("movieId") ?: 0L }
-    private val itemAdapter by lazy { ListItemAdapter(ItemProvider.provideItem()) }
+    private val movieDetailAdapter = MovieDetailAdapter()
 
     override fun initViews() {
 //        runCatching {
@@ -35,8 +37,14 @@ class MovieDetailFragment :
 //        }
         viewModel.getMovieDetails(movieId)
         setActionBarCollapsedListener()
+        initToolbar()
 
-        binding.rvMovieDetail.adapter = itemAdapter
+
+        binding.rvMovieDetail.adapter = movieDetailAdapter
+    }
+
+    private fun initToolbar() {
+        binding.tbMovieDetail.setNavigationOnClickListener { findNavController().navigateUp() }
     }
 
     override fun observeStates() {
@@ -50,7 +58,9 @@ class MovieDetailFragment :
             MovieDetailUiState.Loading -> {}
 
             is MovieDetailUiState.Success -> {
+                Timber.e("${uiState.data}")
                 binding.appBarModel = uiState.data.appBarModel
+                movieDetailAdapter.submitList(uiState.data.detailData)
             }
         }
     }
@@ -65,7 +75,7 @@ class MovieDetailFragment :
 
     private fun setToolbarTitle(isCollapsed: Boolean) = with(binding.ctlMovieDetail) {
         if (isCollapsed) {
-            title = "오펜하이머"
+            title = viewModel.movieName.value
             setCollapsedTitleTextAppearance(DR.style.MooBesideTextAppearance_Title1)
         } else {
             title = emptyString
@@ -86,24 +96,3 @@ class MovieDetailFragment :
         return color
     }
 }
-
-object ItemProvider {
-
-    fun provideItem(): List<Item> {
-        val data = mutableListOf<Item>()
-        (1..100).forEachIndexed { index, _ ->
-            data.add(
-                Item(
-                    id = index.toLong(),
-                    text = "${index}번째 TextView"
-                )
-            )
-        }
-        return data.toList()
-    }
-}
-
-data class Item(
-    val id: Long,
-    val text: String,
-)

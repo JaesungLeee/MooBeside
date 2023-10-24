@@ -23,6 +23,9 @@ class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase,
 ) : ViewModel() {
 
+    private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
+    val movieName = _movieName.asStateFlow()
+
     private val _detailUiState: MutableStateFlow<MovieDetailUiState> = MutableStateFlow(MovieDetailUiState.Loading)
     val detailUiState = _detailUiState.asStateFlow()
 
@@ -32,6 +35,7 @@ class MovieDetailViewModel @Inject constructor(
                 .catch {
                     Timber.e(it.message)
                 }.collect {
+                    _movieName.value = it.localizedMovieName.orEmpty()
                     _detailUiState.value = MovieDetailUiState.Success(it.toMovieDetailUiModel())
                 }
         }
