@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="castInfo"
+            type="com.jslee.presentation.feature.detail.model.CastInfoUiModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,13 +18,15 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_profile_image"
+            posterImage="@{castInfo.profileImageUrl}"
             android:layout_width="84dp"
             android:layout_height="84dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_sample"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/MooBeside.Shape.Radius4"
+            tools:src="@drawable/img_sample" />
 
         <TextView
             android:id="@+id/tv_cast_name"
@@ -25,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="4dp"
+            android:text="@{castInfo.name}"
             app:layout_constraintBottom_toTopOf="@id/tv_cast_role"
             app:layout_constraintEnd_toStartOf="@id/iv_load_more"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
@@ -37,6 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
+            android:text="@{castInfo.role}"
             app:layout_constraintBottom_toBottomOf="@id/iv_profile_image"
             app:layout_constraintEnd_toStartOf="@id/iv_load_more"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
