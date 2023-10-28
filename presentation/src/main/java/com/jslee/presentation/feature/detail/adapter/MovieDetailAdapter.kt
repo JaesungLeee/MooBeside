@@ -4,9 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jslee.core.ui.adapter.MultiViewTypeListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.presentation.databinding.ItemDetailCastBinding
 import com.jslee.presentation.databinding.ItemDetailInfoBinding
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
+import com.jslee.presentation.feature.detail.viewholder.cast.CastInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.info.MovieInfoViewHolder
+import timber.log.Timber
 
 /**
  * MooBeside
@@ -24,6 +27,16 @@ class MovieDetailAdapter :
         return when (viewType) {
             DetailListItem.DetailViewType.MOVIE_INFO -> MovieInfoViewHolder(
                 ItemDetailInfoBinding.inflate(inflater, parent, false)
+            )
+
+            DetailListItem.DetailViewType.CAST -> CastInfoViewHolder(
+                ItemDetailCastBinding.inflate(inflater, parent, false),
+                onLoadMoreClick = {
+                    Timber.e("LoadMore")
+                },
+                onCastItemClick = {
+                    Timber.e(it)
+                }
             )
         }
     }

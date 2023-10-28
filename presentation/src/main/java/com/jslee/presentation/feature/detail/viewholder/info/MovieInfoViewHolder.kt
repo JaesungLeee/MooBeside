@@ -1,6 +1,5 @@
 package com.jslee.presentation.feature.detail.viewholder.info
 
-import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDetailInfoBinding
 import com.jslee.presentation.feature.detail.adapter.info.MovieInfoListAdapter
@@ -23,7 +22,6 @@ class MovieInfoViewHolder(
 
     private fun initMovieInfoList() = with(binding.rvMovieInfo) {
         adapter = movieInfoListAdapter
-//        addItemDecoration()
     }
 
     override fun bindItems(item: DetailListItem.MovieInfo) = with(binding) {
