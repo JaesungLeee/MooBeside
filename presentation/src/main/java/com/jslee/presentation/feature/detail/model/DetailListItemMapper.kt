@@ -23,9 +23,11 @@ fun Movie.toAppBarModel() = AppBarUiModel(
 
 fun Movie.toListItem(): List<DetailListItem> = listOf(
     DetailListItem.MovieInfo(
-        id = 0,
         movieInfoData = toMovieInfoUiModel()
     ),
+    DetailListItem.Cast(
+        castInfoData = mapToCastInfoUiModel().take(4)
+    )
 )
 
 fun Movie.toMovieDetailUiModel() = MovieDetailUiModel(
