@@ -15,17 +15,27 @@ data class CastInfoUiModel(
 
 fun Movie.mapToCastInfoUiModel(): List<CastInfoUiModel> {
     val castList = mutableListOf<CastInfoUiModel>()
-    castList.add(
-        staffs?.first()?.run {
+    castList.addDirector(this)
+    castList.addActors(this)
+
+    return castList
+}
+
+private fun MutableList<CastInfoUiModel>.addDirector(movie: Movie) {
+    add(
+        movie.staffs?.find { it.isDirector }?.run {
             CastInfoUiModel(
                 profileImageUrl = profileImageUrl,
                 name = originalName,
                 role = job
             )
-        } ?: return emptyList()
+        } ?: return
     )
-    casts?.forEach { cast ->
-        castList.add(
+}
+
+private fun MutableList<CastInfoUiModel>.addActors(movie: Movie) {
+    movie.casts?.forEach { cast ->
+        add(
             CastInfoUiModel(
                 profileImageUrl = cast.profileImageUrl,
                 name = cast.originalName,
@@ -33,5 +43,4 @@ fun Movie.mapToCastInfoUiModel(): List<CastInfoUiModel> {
             )
         )
     }
-    return castList
 }

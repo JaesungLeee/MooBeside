@@ -21,12 +21,13 @@ fun Movie.toAppBarModel() = AppBarUiModel(
     ),
 )
 
-fun Movie.toListItem(): List<DetailListItem> = listOf(
+const val SCREEN_SHOWN_LIMIT = 4
+fun Movie.toListItem() = listOf(
     DetailListItem.MovieInfo(
         movieInfoData = toMovieInfoUiModel()
     ),
     DetailListItem.Cast(
-        castInfoData = mapToCastInfoUiModel().take(4)
+        castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
     )
 )
 
