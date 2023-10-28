@@ -19,7 +19,9 @@ data class Staff(
     val originalName: String,
     val profileImageUrl: String?,
     val job: String,
-)
+) {
+    val isDirector = job == "Director"
+}
 
 enum class Gender(val code: Int) {
     NOT_SPECIFIED(0),
