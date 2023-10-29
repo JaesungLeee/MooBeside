@@ -1,48 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <import type="com.jslee.core.designsystem.RateDesign" />
+
+        <variable
+            name="rateInfo"
+            type="com.jslee.presentation.feature.detail.model.RateUiModel" />
 
     </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="20dp">
 
         <TextView
             android:id="@+id/tv_rate_title"
-            style="@style/MooBesideTextAppearance.Title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_rate_title"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            android:id="@+id/layout_tmdb_rate"
-            layout="@layout/partial_company_rate"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_tmdb_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toStartOf="@id/layout_naver_rate"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cl_naver_rate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_rate_title"
-            app:rateType="@{RateDesign.TMDB}" />
+            app:layout_constraintTop_toBottomOf="@id/tv_rate_title">
 
-        <include
-            android:id="@+id/layout_naver_rate"
-            layout="@layout/partial_company_rate"
+            <TextView
+                android:id="@+id/tv_tmdb_title"
+                rateStyle="@{RateDesign.TMDB}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:text="@string/text_tmdb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_tmdb_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="@string/description_rate"
+                android:src="@drawable/ic_star_rate_24"
+                app:layout_constraintEnd_toStartOf="@id/tv_tmdb_rate"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_tmdb_title"
+                app:tint="@color/Amber" />
+
+            <TextView
+                android:id="@+id/tv_tmdb_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{rateInfo.tmdbRate}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_tmdb_rate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_tmdb_rate"
+                app:layout_constraintTop_toTopOf="@id/iv_tmdb_rate"
+                tools:text="8.8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_naver_rate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/layout_tmdb_rate"
-            app:layout_constraintTop_toBottomOf="@id/tv_rate_title"
-            app:rateType="@{RateDesign.NAVER}" />
+            app:layout_constraintStart_toEndOf="@id/cl_tmdb_rate"
+            app:layout_constraintTop_toBottomOf="@id/tv_rate_title">
+
+            <TextView
+                android:id="@+id/tv_naver_title"
+                rateStyle="@{RateDesign.NAVER}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="4dp"
+                android:text="@string/text_naver"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_naver_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="@string/description_rate"
+                android:src="@drawable/ic_star_rate_24"
+                app:layout_constraintEnd_toStartOf="@id/tv_naver_rate"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_naver_title"
+                app:tint="@color/Amber" />
+
+            <TextView
+                android:id="@+id/tv_naver_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="@{rateInfo.naverRate}"
+                app:layout_constraintBottom_toBottomOf="@id/iv_naver_rate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_naver_rate"
+                app:layout_constraintTop_toTopOf="@id/iv_naver_rate"
+                tools:text="8.8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
