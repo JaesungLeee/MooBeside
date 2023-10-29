@@ -80,7 +80,7 @@ object BindingAdapter {
     @JvmStatic
     @BindingAdapter("rateStyle")
     fun TextView.setRateStyle(style: RateDesign) {
-        setTextColor(style.textColor)
-        setBackgroundColor(style.backgroundColor)
+        setTextColor(ContextCompat.getColor(context, style.textColor))
+        setBackgroundColor(ContextCompat.getColor(context, style.backgroundColor))
     }
 }

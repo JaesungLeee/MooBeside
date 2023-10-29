@@ -1,6 +1,6 @@
 package com.jslee.core.designsystem
 
-import androidx.annotation.DrawableRes
+import androidx.annotation.ColorRes
 
 /**
  * MooBeside
@@ -8,8 +8,8 @@ import androidx.annotation.DrawableRes
  * @created 2023/10/01
  */
 enum class RateDesign(
-    @DrawableRes val textColor: Int,
-    @DrawableRes val backgroundColor: Int,
+    @ColorRes val textColor: Int,
+    @ColorRes val backgroundColor: Int,
 ) {
     TMDB(
         textColor = R.color.Tmdb_Green,
