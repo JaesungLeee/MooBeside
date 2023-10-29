@@ -7,10 +7,12 @@ import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDetailCastBinding
 import com.jslee.presentation.databinding.ItemDetailGalleryBinding
 import com.jslee.presentation.databinding.ItemDetailInfoBinding
+import com.jslee.presentation.databinding.ItemDetailRateBinding
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import com.jslee.presentation.feature.detail.viewholder.cast.CastInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.gallery.GalleryInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.info.MovieInfoViewHolder
+import com.jslee.presentation.feature.detail.viewholder.rate.RateInfoViewHolder
 import timber.log.Timber
 
 /**
@@ -43,6 +45,10 @@ class MovieDetailAdapter :
 
             DetailListItem.DetailViewType.GALLERY -> GalleryInfoViewHolder(
                 ItemDetailGalleryBinding.inflate(inflater, parent, false)
+            )
+
+            DetailListItem.DetailViewType.RATE -> RateInfoViewHolder(
+                ItemDetailRateBinding.inflate(inflater, parent, false)
             )
         }
     }

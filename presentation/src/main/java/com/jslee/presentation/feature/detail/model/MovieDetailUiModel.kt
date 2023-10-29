@@ -43,6 +43,9 @@ fun Movie.toListItem() = listOf(
     DetailListItem.MovieInfo(
         movieInfoData = toMovieInfoUiModel()
     ),
+    DetailListItem.Rate(
+        rateData = toRateUiModel()
+    ),
     DetailListItem.Cast(
         castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
     ),
@@ -50,3 +53,4 @@ fun Movie.toListItem() = listOf(
         galleryData = mapToGalleryUiModel()
     )
 )
+
