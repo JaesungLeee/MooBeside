@@ -8,6 +8,11 @@
     <string name="text_cast_title">출연진</string>
     <string name="text_rate_title">평점</string>
     <string name="text_photo_title">포토</string>
+    <string name="text_movie_info_title">기본정보</string>
+    <string name="text_cast_info_title">출연/제작</string>
+    <string name="text_gallery_info_title">갤러리</string>
+    <string name="text_tmdb">TMDB</string>
+    <string name="text_naver">NAVER</string>
 
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
 
@@ -15,6 +20,4 @@
 
     <string name="description_date_picker">날짜를 선택하는 영역입니다.</string>
     <string name="description_rate">영화 평점을 나타내는 아이콘입니다.</string>
-    <string name="text_tmdb">TMDB</string>
-    <string name="text_naver">NAVER</string>
 </resources>

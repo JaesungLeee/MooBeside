@@ -30,11 +30,13 @@
 
         <TextView
             android:id="@+id/tv_cast_name"
+            style="@style/MooBesideTextAppearance.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginBottom="4dp"
             android:text="@{castInfo.name}"
+            android:textColor="@color/Black"
             app:layout_constraintBottom_toTopOf="@id/tv_cast_role"
             app:layout_constraintEnd_toStartOf="@id/iv_load_more"
             app:layout_constraintStart_toEndOf="@id/iv_profile_image"
@@ -44,6 +46,8 @@
 
         <TextView
             android:id="@+id/tv_cast_role"
+            style="@style/MooBesideTextAppearance.Caption1"
+            android:textColor="@color/Gray06"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"

@@ -21,9 +21,11 @@
 
         <TextView
             android:id="@+id/tv_rate_title"
+            style="@style/MooBesideTextAppearance.Title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_rate_title"
+            android:textColor="@color/Black"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,6 +41,7 @@
 
             <TextView
                 android:id="@+id/tv_tmdb_title"
+                style="@style/MooBesideTextAppearance.Caption1"
                 rateStyle="@{RateDesign.TMDB}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +94,7 @@
 
             <TextView
                 android:id="@+id/tv_naver_title"
+                style="@style/MooBesideTextAppearance.Caption1"
                 rateStyle="@{RateDesign.NAVER}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
