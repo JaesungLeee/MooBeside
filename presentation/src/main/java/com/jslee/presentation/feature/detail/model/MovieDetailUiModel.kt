@@ -41,16 +41,32 @@ fun Movie.toAppBarModel() = AppBarUiModel(
 const val SCREEN_SHOWN_LIMIT = 4
 fun Movie.toListItem() = listOf(
     DetailListItem.MovieInfo(
+        id = 0,
         movieInfoData = toMovieInfoUiModel()
     ),
+    DetailListItem.Divider(
+        id = 1,
+    ),
     DetailListItem.Rate(
+        id = 2,
         rateData = toRateUiModel()
     ),
+    DetailListItem.Divider(
+        id = 3,
+    ),
     DetailListItem.Cast(
+        id = 4,
         castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
     ),
+    DetailListItem.Divider(
+        id = 5,
+    ),
     DetailListItem.Gallery(
+        id = 6,
         galleryData = mapToGalleryUiModel()
-    )
+    ),
+    DetailListItem.Divider(
+        id = 7,
+    ),
 )
 
