@@ -1,9 +1,8 @@
-package com.jslee.presentation.feature.home.decoration
+package com.jslee.core.ui.decoration
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.jslee.core.ui.decoration.ContentPaddingItemDecoration
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.model.PaddingValues
 
@@ -12,7 +11,7 @@ import com.jslee.core.ui.model.PaddingValues
  * @author jaesung
  * @created 2023/09/10
  */
-class HomeItemDecoration(
+class DividerViewItemDecoration(
     private val paddingValues: PaddingValues,
     private val viewType: Int = DIVIDER,
 ) : ContentPaddingItemDecoration() {

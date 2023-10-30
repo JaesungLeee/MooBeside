@@ -6,11 +6,11 @@ import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
-import com.jslee.presentation.feature.home.decoration.HomeItemDecoration
 import com.jslee.presentation.feature.home.model.BannerUiModel
 import com.jslee.presentation.feature.home.model.NowPlayingUiModel
 import com.jslee.presentation.feature.home.model.UpComingUiModel
@@ -51,7 +51,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private fun initRecyclerView() = with(binding.rvHome) {
         adapter = homeAdapter.also { initClickListener(it) }
         val paddingValues = PaddingValues.vertical(20, 0)
-        addItemDecoration(HomeItemDecoration(paddingValues))
+        addItemDecoration(DividerViewItemDecoration(paddingValues))
     }
 
     private fun initClickListener(adapter: HomeAdapter) {
