@@ -20,6 +20,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KOBIS_API_KEY", getApiKey("KOBIS_API_KEY"))
         buildConfigField("String", "TMDB_API_KEY", getApiKey("TMDB_API_KEY"))
+        buildConfigField("String", "YOUTUBE_API_KEY", getApiKey("YOUTUBE_API_KEY"))
     }
 
     buildTypes {
