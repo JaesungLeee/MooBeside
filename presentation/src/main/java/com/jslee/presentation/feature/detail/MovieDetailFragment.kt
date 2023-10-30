@@ -6,9 +6,11 @@ import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.extension.emptyString
+import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
+import com.jslee.presentation.feature.home.decoration.HomeItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import timber.log.Timber
@@ -38,9 +40,15 @@ class MovieDetailFragment :
         viewModel.getMovieDetails(movieId)
         setActionBarCollapsedListener()
         initToolbar()
+        initRecyclerView()
 
 
-        binding.rvMovieDetail.adapter = movieDetailAdapter
+    }
+
+    private fun initRecyclerView() = with(binding.rvMovieDetail) {
+        adapter = movieDetailAdapter
+        val paddingValues = PaddingValues.vertical(20, 0)
+        addItemDecoration(HomeItemDecoration(paddingValues))
     }
 
     private fun initToolbar() {

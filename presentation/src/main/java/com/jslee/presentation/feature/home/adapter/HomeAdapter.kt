@@ -55,7 +55,7 @@ class HomeAdapter : MultiViewTypeListAdapter<HomeListItem, HomeListItem.HomeView
                 ItemHomeMovieBinding.inflate(layoutInflater, parent, false)
             )
 
-            HomeListItem.HomeViewType.DIVIDER -> DividerViewHolder(
+            HomeListItem.HomeViewType.DIVIDER -> DividerViewHolder<HomeListItem.Divider>(
                 ItemDividerBinding.inflate(layoutInflater, parent, false)
             )
         }
