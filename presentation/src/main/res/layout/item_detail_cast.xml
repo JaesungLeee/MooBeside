@@ -10,10 +10,12 @@
 
         <TextView
             android:id="@+id/tv_cast_title"
+            style="@style/MooBesideTextAppearance.Title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:text="출연/제작"
+            android:text="@string/text_cast_info_title"
+            android:textColor="@color/Black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,15 +33,15 @@
 
         <TextView
             android:id="@+id/btn_load_more"
+            style="@style/MooBesideTextAppearance.Body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@color/BackgroundGray"
             android:gravity="center"
             android:paddingVertical="10dp"
-            android:text="모두 보기"
+            android:text="@string/text_load_more"
             android:textColor="@color/Gray03"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_cast" />

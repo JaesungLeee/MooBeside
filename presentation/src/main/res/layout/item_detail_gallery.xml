@@ -10,10 +10,12 @@
 
         <TextView
             android:id="@+id/tv_gallery_title"
+            style="@style/MooBesideTextAppearance.Title1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:text="갤러리"
+            android:text="@string/text_gallery_info_title"
+            android:textColor="@color/Black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
