@@ -25,6 +25,13 @@ fun String.toDecimalFormat(): String {
 
 fun String.toPercentage() = "($this%)"
 
+fun String.toDisplayedDateWithFullFormat(): String {
+    val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.KOREA)
+    val outputFormat = SimpleDateFormat("yyyy년 MM월 dd일", Locale.KOREA)
+
+    val date = inputFormat.parse(this) ?: throw Exception()
+    return outputFormat.format(date)
+}
 fun String.toDisplayYear(): String {
     val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.KOREA)
     val outputFormat = SimpleDateFormat("yyyy년", Locale.KOREA)
