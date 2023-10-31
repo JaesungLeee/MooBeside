@@ -13,4 +13,6 @@ data class Trailer(
     val description: String,
     val publishedDate: String,
     val thumbnailUrl: String,
-)
+) {
+    val isVideoIdEmpty = videoId.isEmpty()
+}
