@@ -11,6 +11,7 @@
     <string name="text_movie_info_title">기본정보</string>
     <string name="text_cast_info_title">출연/제작</string>
     <string name="text_gallery_info_title">갤러리</string>
+    <string name="text_trailer_info_title">%s 예고편 검색결과</string>
     <string name="text_tmdb">TMDB</string>
     <string name="text_naver">NAVER</string>
 
