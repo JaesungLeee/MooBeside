@@ -13,7 +13,6 @@ import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import timber.log.Timber
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -66,7 +65,6 @@ class MovieDetailFragment :
             MovieDetailUiState.Loading -> {}
 
             is MovieDetailUiState.Success -> {
-                Timber.e("${uiState.data}")
                 binding.appBarModel = uiState.data.appBarModel
                 movieDetailAdapter.submitList(uiState.data.detailData)
             }
