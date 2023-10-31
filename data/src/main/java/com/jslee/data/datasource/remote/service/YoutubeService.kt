@@ -24,6 +24,6 @@ internal interface YoutubeService {
 
     companion object {
         private const val RESPONSE_PART = "snippet"
-        private const val MAX_COUNT = 10u
+        private const val MAX_COUNT = 5u
     }
 }
