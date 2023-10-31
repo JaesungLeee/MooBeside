@@ -1,5 +1,7 @@
 package com.jslee.data.datasource.remote.dto.response.youtube
 
+import com.jslee.data.model.MovieTrailerModel
+import com.jslee.data.model.MovieTrailerThumbnailModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -50,3 +52,17 @@ internal data class YoutubeSearchContentResponse(
     @SerialName("publishTime") val publishTime: String,
 )
 
+internal fun YoutubeSearchItemsResponse.toDataModel() = MovieTrailerModel(
+    publishedDate = item.publishedDate,
+    publishTime = item.publishTime,
+    channelId = item.channelId,
+    channelTitle = item.channelTitle,
+    videoId = itemId.videoId,
+    contentTitle = item.contentTitle,
+    description = item.description,
+    thumbnail = MovieTrailerThumbnailModel(
+        thumbnailUrl = item.thumbnails.defaultSize.thumbnailUrl,
+        width = item.thumbnails.defaultSize.width,
+        height = item.thumbnails.defaultSize.height,
+    ),
+)
