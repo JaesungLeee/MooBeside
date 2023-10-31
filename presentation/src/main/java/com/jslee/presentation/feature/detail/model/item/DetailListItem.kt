@@ -4,6 +4,7 @@ import com.jslee.core.ui.model.ListItem
 import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.GalleryUiModel
 import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
+import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
 import com.jslee.presentation.feature.detail.model.RateUiModel
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 
@@ -15,7 +16,7 @@ import com.jslee.presentation.feature.home.model.item.HomeListItem
 sealed class DetailListItem(override val viewType: DetailViewType) : ListItem {
 
     enum class DetailViewType {
-        MOVIE_INFO, CAST, GALLERY, RATE, DIVIDER;
+        MOVIE_INFO, CAST, GALLERY, RATE, TRAILER, DIVIDER;
     }
 
     data class MovieInfo(
@@ -37,6 +38,11 @@ sealed class DetailListItem(override val viewType: DetailViewType) : ListItem {
         override val id: Long,
         val rateData: RateUiModel,
     ) : DetailListItem(DetailViewType.RATE)
+
+    data class MovieTrailer(
+        override val id: Long,
+        val trailerData: List<MovieTrailerUiModel>
+    ) : DetailListItem(DetailViewType.TRAILER)
 
     data class Divider(
         override val id: Long,
