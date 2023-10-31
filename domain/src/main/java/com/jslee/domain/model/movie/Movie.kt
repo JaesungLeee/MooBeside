@@ -1,5 +1,7 @@
 package com.jslee.domain.model.movie
 
+import com.jslee.domain.model.Trailer
+
 /**
  * MooBeside
  * @author jaesung
@@ -27,4 +29,5 @@ data class Movie(
     val productionCompanies: List<ProductionCompany>? = null,
     val casts: List<Cast>? = null,
     val staffs: List<Staff>? = null,
+    val trailers: List<Trailer>? = null
 )
