@@ -12,6 +12,7 @@ data class MovieTrailerUiModel(
     val videoId: String,
     val thumbnailUrl: String,
     val contentTitle: String,
+    val description: String,
     val publishedDate: String,
 )
 
@@ -20,6 +21,7 @@ fun Movie.mapToMovieTrailerUiModel(): List<MovieTrailerUiModel> = trailers?.map 
         videoId = it.videoId,
         thumbnailUrl = it.thumbnailUrl,
         contentTitle = it.contentTitle,
+        description = it.description,
         publishedDate = it.publishedDate.toDisplayedDateWithFullFormat()
     )
 }.orEmpty()

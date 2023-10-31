@@ -8,12 +8,14 @@ import com.jslee.presentation.databinding.ItemDetailCastBinding
 import com.jslee.presentation.databinding.ItemDetailGalleryBinding
 import com.jslee.presentation.databinding.ItemDetailInfoBinding
 import com.jslee.presentation.databinding.ItemDetailRateBinding
+import com.jslee.presentation.databinding.ItemDetailTrailerBinding
 import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import com.jslee.presentation.feature.detail.viewholder.cast.CastInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.gallery.GalleryInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.info.MovieInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.rate.RateInfoViewHolder
+import com.jslee.presentation.feature.detail.viewholder.trailer.TrailerInfoViewHolder
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
 import timber.log.Timber
 
@@ -51,6 +53,10 @@ class MovieDetailAdapter :
 
             DetailListItem.DetailViewType.RATE -> RateInfoViewHolder(
                 ItemDetailRateBinding.inflate(inflater, parent, false)
+            )
+
+            DetailListItem.DetailViewType.TRAILER -> TrailerInfoViewHolder(
+                ItemDetailTrailerBinding.inflate(inflater, parent, false)
             )
 
             DetailListItem.DetailViewType.DIVIDER -> DividerViewHolder<DetailListItem.Divider>(

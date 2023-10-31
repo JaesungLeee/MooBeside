@@ -68,5 +68,12 @@ fun Movie.toListItem() = listOf(
     DetailListItem.Divider(
         id = 7,
     ),
+    DetailListItem.MovieTrailer(
+        id = 8,
+        trailerData = mapToMovieTrailerUiModel()
+    ),
+    DetailListItem.Divider(
+        id = 9,
+    ),
 )
 
