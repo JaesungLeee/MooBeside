@@ -1,5 +1,7 @@
 package com.jslee.data.model
 
+import com.jslee.domain.model.Trailer
+
 /**
  * MooBeside
  * @author jaesung
@@ -20,4 +22,14 @@ internal data class MovieTrailerThumbnailModel(
     val thumbnailUrl: String,
     val width: String,
     val height: String,
+)
+
+internal fun MovieTrailerModel.toDomain() = Trailer(
+    videoId = videoId,
+    channelId = channelId,
+    channelTitle = channelTitle,
+    contentTitle = contentTitle,
+    description = description,
+    publishedDate = publishedDate,
+    thumbnailUrl = thumbnail.thumbnailUrl,
 )
