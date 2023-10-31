@@ -37,7 +37,8 @@ internal data class YoutubeSearchItemsResponse(
 @Serializable
 internal data class YoutubeSearchItemIdResponse(
     @SerialName("kind") val responseKind: String,
-    @SerialName("videoId") val videoId: String,
+    @SerialName("videoId") val videoId: String? = null,
+    @SerialName("channelId") val channelId: String? = null,
 )
 
 @Serializable
@@ -57,12 +58,12 @@ internal fun YoutubeSearchItemsResponse.toDataModel() = MovieTrailerModel(
     publishTime = item.publishTime,
     channelId = item.channelId,
     channelTitle = item.channelTitle,
-    videoId = itemId.videoId,
+    videoId = itemId.videoId.orEmpty(),
     contentTitle = item.contentTitle,
     description = item.description,
     thumbnail = MovieTrailerThumbnailModel(
         thumbnailUrl = item.thumbnails.defaultSize.thumbnailUrl,
-        width = item.thumbnails.defaultSize.width,
-        height = item.thumbnails.defaultSize.height,
+        width = item.thumbnails.defaultSize.width.orEmpty(),
+        height = item.thumbnails.defaultSize.height.orEmpty(),
     ),
 )
