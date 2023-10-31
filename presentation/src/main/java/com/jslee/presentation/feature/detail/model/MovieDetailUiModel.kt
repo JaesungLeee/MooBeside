@@ -22,9 +22,9 @@ data class AppBarUiModel(
     val summaryInfo: String,
 )
 
-fun Movie.toMovieDetailUiModel() = MovieDetailUiModel(
+fun Movie.toMovieDetailUiModel(trailerTitle: String) = MovieDetailUiModel(
     appBarModel = toAppBarModel(),
-    detailData = toListItem()
+    detailData = toListItem(trailerTitle)
 )
 
 fun Movie.toAppBarModel() = AppBarUiModel(
@@ -39,7 +39,7 @@ fun Movie.toAppBarModel() = AppBarUiModel(
 )
 
 const val SCREEN_SHOWN_LIMIT = 4
-fun Movie.toListItem() = listOf(
+fun Movie.toListItem(title: String) = listOf(
     DetailListItem.MovieInfo(
         id = 0,
         movieInfoData = toMovieInfoUiModel()
@@ -70,6 +70,7 @@ fun Movie.toListItem() = listOf(
     ),
     DetailListItem.MovieTrailer(
         id = 8,
+        title = title,
         trailerData = mapToMovieTrailerUiModel()
     ),
     DetailListItem.Divider(

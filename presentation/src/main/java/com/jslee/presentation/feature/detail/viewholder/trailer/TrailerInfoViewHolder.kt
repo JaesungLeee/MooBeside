@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.detail.viewholder.trailer
 
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ItemDetailTrailerBinding
 import com.jslee.presentation.feature.detail.adapter.trailer.MovieTrailerListAdapter
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
@@ -25,7 +26,7 @@ class TrailerInfoViewHolder(
     }
 
     override fun bindItems(item: DetailListItem.MovieTrailer) = with(binding) {
-        tvTrailerTitle.text = "오펜하이머 예고편"
+        tvTrailerTitle.text = root.context.getString(R.string.text_trailer_title, item.title)
         movieTrailerListAdapter.submitList(item.trailerData)
         executePendingBindings()
     }
