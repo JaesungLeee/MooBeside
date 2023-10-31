@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="20dp">
+        android:paddingTop="14dp">
 
         <ImageView
             android:id="@+id/iv_youtube_logo"
@@ -53,7 +53,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/Youtube_Red"
             android:gravity="center"
-            android:paddingVertical="10dp"
+            android:paddingVertical="16dp"
             android:text="@string/text_load_more"
             android:textColor="@color/White"
             app:layout_constraintEnd_toEndOf="parent"

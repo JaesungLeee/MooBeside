@@ -36,7 +36,7 @@ class MovieDetailViewModel @Inject constructor(
                     Timber.e(it.message)
                 }.collect {
                     _movieName.value = it.localizedMovieName.orEmpty()
-                    _detailUiState.value = MovieDetailUiState.Success(it.toMovieDetailUiModel())
+                    _detailUiState.value = MovieDetailUiState.Success(it.toMovieDetailUiModel(it.localizedMovieName.orEmpty()))
                 }
         }
     }

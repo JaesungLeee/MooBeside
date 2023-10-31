@@ -41,6 +41,7 @@ sealed class DetailListItem(override val viewType: DetailViewType) : ListItem {
 
     data class MovieTrailer(
         override val id: Long,
+        val title: String,
         val trailerData: List<MovieTrailerUiModel>
     ) : DetailListItem(DetailViewType.TRAILER)
 
