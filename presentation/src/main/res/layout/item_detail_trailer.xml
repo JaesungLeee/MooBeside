@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieName"
+            type="String" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp">
+
+        <TextView
+            android:id="@+id/tv_trailer_title"
+            style="@style/MooBesideTextAppearance.Title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="@{@string/text_trailer_info_title(movieName)}"
+            android:textColor="@color/Black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="오펜하이머 예고편 검색 결과" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_trailer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/tv_trailer_title"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_trailer" />
+
+        <TextView
+            android:id="@+id/btn_load_more"
+            style="@style/MooBesideTextAppearance.Body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/Youtube_Red"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            android:text="@string/text_load_more"
+            android:textColor="@color/White"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_trailer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

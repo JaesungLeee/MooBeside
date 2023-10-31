@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="trailer"
+            type="com.jslee.presentation.feature.detail.model.MovieTrailerUiModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_thumbnail"
+            posterImage="@{trailer.thumbnailUrl}"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/MooBeside.Shape.Radius8"
+            tools:src="@drawable/img_sample" />
+
+        <View
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:background="@drawable/bg_gray_radius_15"
+            app:layout_constraintBottom_toBottomOf="@id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/iv_thumbnail" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:src="@drawable/img_youtube"
+            app:layout_constraintBottom_toBottomOf="@id/iv_thumbnail"
+            app:layout_constraintDimensionRatio="2:1"
+            app:layout_constraintEnd_toEndOf="@id/iv_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="@id/iv_thumbnail" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/MooBesideTextAppearance.Caption1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{trailer.contentTitle}"
+            android:textColor="@color/Black"
+            app:layout_constraintBottom_toTopOf="@id/tv_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="[더 마블스] 파이널 예고편" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{trailer.description}"
+            android:textColor="@color/Gray03"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_published_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="'마블'히어로들의 역대급 팀워크! 11월, 마블의 새로운 우주가 열린다! [더 마블스] 티저 예고편 공개! #마블 #더마블스 #11월대개봉 ..." />
+
+        <TextView
+            android:id="@+id/tv_published_date"
+            style="@style/MooBesideTextAppearance.Caption1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{trailer.publishedDate}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toBottomOf="@id/iv_thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_description"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="2023년 10월 31일" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
