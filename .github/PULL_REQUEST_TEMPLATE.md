@@ -1,12 +1,13 @@
-## 작업 내역
+### Issue
+- close #ISSUE_NUMBER
 
+### 작업 내역 (Required)
 - none
 
-## 화면
-| 기능     | 화면                       |
-|--------|--------------------------|
-| Sample | <img src="" width=300 /> |
+### Screenshot
+Before | After
+:--: | :--:
+<img src="" width="300" /> | <img src="" width="300" />
 
-
-## 관련 이슈
-close #<issue_number>
+### 관련 링크
+-
