@@ -3,7 +3,7 @@ package com.jslee.presentation.feature.detail
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.jslee.core.external.youtube.YoutubeLauncher
+import com.jslee.core.external.ExternalLauncher
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.extension.dp
@@ -15,6 +15,7 @@ import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import javax.inject.Inject
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -26,23 +27,20 @@ import com.jslee.core.designsystem.R as DR
 class MovieDetailFragment :
     BaseFragment<FragmentMovieDetailBinding>(R.layout.fragment_movie_detail) {
 
+    @Inject
+    lateinit var externalLauncher: ExternalLauncher
+
     private val viewModel: MovieDetailViewModel by viewModels()
     private val movieId: Long by lazy { arguments?.getLong("movieId") ?: 0L }
     private val movieDetailAdapter by lazy {
         MovieDetailAdapter(
             onTrailerClick = { videoId ->
-                YoutubeLauncher.Trailer.launchYoutubeTrailer(
-                    requireContext(),
-                    videoId,
-                ) {
+                externalLauncher.launchTrailer(requireActivity(), videoId) {
                     requireActivity().showToast("앱을 실행시킬 수 없습니다.")
                 }
             },
             onTrailerLoadMoreClick = { query ->
-                YoutubeLauncher.Search.launchYoutubeSearch(
-                    requireContext(),
-                    query
-                ) {
+                externalLauncher.launchSearch(requireActivity(), query) {
                     requireActivity().showToast("앱을 실행시킬 수 없습니다.")
                 }
             }
