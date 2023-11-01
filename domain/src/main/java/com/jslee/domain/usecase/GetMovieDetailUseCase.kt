@@ -32,7 +32,7 @@ class GetMovieDetailUseCase @Inject constructor(
         getMovieImages(movieId)
     ) { movieDetail, releaseInfo, credits, posters ->
         val trailers = mutableListOf<Trailer>()
-        getMovieTrailers(movieDetail.localizedMovieName.orEmpty()).collect { remoteTrailers ->
+        getMovieTrailers("${movieDetail.localizedMovieName} 예고편").collect { remoteTrailers ->
             remoteTrailers.filter { it.isVideoIdEmpty }
             trailers.addAll(remoteTrailers)
         }
