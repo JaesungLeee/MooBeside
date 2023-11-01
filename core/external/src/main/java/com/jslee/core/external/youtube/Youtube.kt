@@ -33,6 +33,11 @@ object Youtube {
             Uri.parse("$WEB_WATCH_URL$videoId")
         )
 
+        /**
+         * Android 11부터 필요한 package visibility 처리
+         * 
+         * https://tech.buzzvil.com/blog/tech-blog-package-visibility-in-android-11/
+         */
         fun launchYoutubeTrailer(
             context: Context,
             videoId: String,
@@ -40,7 +45,7 @@ object Youtube {
         ) {
             runCatching {
                 context.startActivity(createAppIntent(videoId))
-            }.getOrElse { exception ->
+            }.onFailure { exception ->
                 when (exception) {
                     is ActivityNotFoundException -> {
                         context.startActivity(createWebIntent(videoId))
@@ -74,7 +79,7 @@ object Youtube {
             
             runCatching {
                 context.startActivity(createAppIntent(query))
-            }.getOrElse { exception ->
+            }.onFailure { exception ->
                 when (exception) {
                     is ActivityNotFoundException -> {
                         context.startActivity(createWebIntent(query))
