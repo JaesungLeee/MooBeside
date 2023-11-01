@@ -15,7 +15,7 @@ import android.net.Uri
  * 1. AppIntent로 시도
  * 2. WebIntent로 시도
  */
-object YoutubeLauncher {
+object Youtube {
     private const val PACKAGE_NAME_SPACE = "com.google.android.youtube"
     private const val WEB_WATCH_URL = "https://www.youtube.com/watch?v="
     private const val WEB_SEARCH_URL = "https://www.youtube.com/results?search_query="
