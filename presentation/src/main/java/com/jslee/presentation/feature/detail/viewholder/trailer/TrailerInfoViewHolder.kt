@@ -13,12 +13,24 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  */
 class TrailerInfoViewHolder(
     private val binding: ItemDetailTrailerBinding,
+    onLoadMoreClick: (String) -> Unit,
+    onTrailerClick: (String) -> Unit,
 ) : BaseViewHolder<DetailListItem.MovieTrailer>(binding) {
 
-    private val movieTrailerListAdapter = MovieTrailerListAdapter()
+    private val movieTrailerListAdapter: MovieTrailerListAdapter by lazy {
+        MovieTrailerListAdapter(
+            onTrailerClick
+        )
+    }
 
     init {
         initMovieTrailerAdapter()
+
+        binding.btnLoadMore.setOnClickListener {
+            getItem {
+                onLoadMoreClick(it.title)
+            }
+        }
     }
 
     private fun initMovieTrailerAdapter() = with(binding) {

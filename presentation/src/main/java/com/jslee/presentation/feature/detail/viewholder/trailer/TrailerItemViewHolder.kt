@@ -11,7 +11,16 @@ import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
  */
 class TrailerItemViewHolder(
     private val binding: ItemTrailerBinding,
+    onTrailerClick: (String) -> Unit,
 ) : BaseViewHolder<MovieTrailerUiModel>(binding) {
+
+    init {
+        binding.root.setOnClickListener {
+            getItem {
+                onTrailerClick(it.videoId)
+            }
+        }
+    }
 
     override fun bindItems(item: MovieTrailerUiModel) = with(binding) {
         trailer = item

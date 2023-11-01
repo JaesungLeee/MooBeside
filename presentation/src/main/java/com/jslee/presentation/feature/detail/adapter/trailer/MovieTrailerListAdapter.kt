@@ -13,10 +13,12 @@ import com.jslee.presentation.feature.detail.viewholder.trailer.TrailerItemViewH
  * @author jaesung
  * @created 2023/10/31
  */
-class MovieTrailerListAdapter : SingleViewTypeListAdapter<MovieTrailerUiModel>({ it.videoId }) {
+class MovieTrailerListAdapter(
+    private val onTrailerClick: (String) -> Unit,
+) : SingleViewTypeListAdapter<MovieTrailerUiModel>({ it.videoId }) {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<MovieTrailerUiModel> {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemTrailerBinding.inflate(inflater, parent, false)
-        return TrailerItemViewHolder(binding)
+        return TrailerItemViewHolder(binding, onTrailerClick)
     }
 }
