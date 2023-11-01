@@ -24,8 +24,10 @@ import timber.log.Timber
  * @author jaesung
  * @created 2023/10/21
  */
-class MovieDetailAdapter :
-    MultiViewTypeListAdapter<DetailListItem, DetailListItem.DetailViewType>() {
+class MovieDetailAdapter(
+    private val onTrailerLoadMoreClick: (String) -> Unit,
+    private val onTrailerClick: (String) -> Unit,
+) : MultiViewTypeListAdapter<DetailListItem, DetailListItem.DetailViewType>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -56,7 +58,9 @@ class MovieDetailAdapter :
             )
 
             DetailListItem.DetailViewType.TRAILER -> TrailerInfoViewHolder(
-                ItemDetailTrailerBinding.inflate(inflater, parent, false)
+                ItemDetailTrailerBinding.inflate(inflater, parent, false),
+                onLoadMoreClick = { onTrailerLoadMoreClick(it) },
+                onTrailerClick = { onTrailerClick(it) }
             )
 
             DetailListItem.DetailViewType.DIVIDER -> DividerViewHolder<DetailListItem.Divider>(

@@ -3,10 +3,12 @@ package com.jslee.presentation.feature.detail
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.jslee.core.external.youtube.YoutubeLauncher
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.extension.emptyString
+import com.jslee.core.ui.extension.showToast
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
@@ -26,7 +28,26 @@ class MovieDetailFragment :
 
     private val viewModel: MovieDetailViewModel by viewModels()
     private val movieId: Long by lazy { arguments?.getLong("movieId") ?: 0L }
-    private val movieDetailAdapter = MovieDetailAdapter()
+    private val movieDetailAdapter by lazy {
+        MovieDetailAdapter(
+            onTrailerClick = { videoId ->
+                YoutubeLauncher.Trailer.launchYoutubeTrailer(
+                    requireContext(),
+                    videoId,
+                ) {
+                    requireActivity().showToast("앱을 실행시킬 수 없습니다.")
+                }
+            },
+            onTrailerLoadMoreClick = { query ->
+                YoutubeLauncher.Search.launchYoutubeSearch(
+                    requireContext(),
+                    query
+                ) {
+                    requireActivity().showToast("앱을 실행시킬 수 없습니다.")
+                }
+            }
+        )
+    }
 
     override fun initViews() {
 //        runCatching {
