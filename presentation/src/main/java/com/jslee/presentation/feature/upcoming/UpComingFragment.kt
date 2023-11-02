@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.upcoming
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
@@ -24,7 +25,8 @@ class UpComingFragment : BaseFragment<FragmentUpComingBinding>(R.layout.fragment
     private val upComingPagingAdapter: UpComingPagingAdapter by lazy {
         UpComingPagingAdapter(
             onPosterClick = {
-                findNavController().navigate(R.id.action_to_movie_detail)
+                val argument = bundleOf(Pair("movieId", it.movieId))
+                findNavController().navigate(R.id.action_to_movie_detail, argument)
             }
         )
     }
