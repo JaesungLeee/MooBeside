@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.now
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
@@ -26,7 +27,8 @@ class NowPlayingFragment :
     private val nowPlayingAdapter: NowPlayingPagingAdapter by lazy {
         NowPlayingPagingAdapter(
             onPosterClick = {
-                findNavController().navigate(R.id.action_to_movie_detail)
+                val arguments = bundleOf(Pair("movieId", it.movieId))
+                findNavController().navigate(R.id.action_to_movie_detail, arguments)
             }
         )
     }
