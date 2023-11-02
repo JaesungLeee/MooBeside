@@ -8,9 +8,11 @@ import com.jslee.domain.model.movie.Movie
  * @created 2023/08/15
  */
 data class SearchResultUiModel(
+    val movieId: Long,
     val posterImageUrl: String
 )
 
-fun Movie.toPresentation() = SearchResultUiModel(
+fun Movie.toSearchResultUiModel() = SearchResultUiModel(
+    movieId = tmdbMovieId ?: -1,
     posterImageUrl = posterImageUrl.orEmpty()
 )

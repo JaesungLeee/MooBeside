@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.search
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import androidx.paging.map
 import com.jslee.domain.usecase.SearchMovieUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -36,11 +37,11 @@ class SearchViewModel @Inject constructor(
         .filter { query ->
             return@filter query.isNotEmpty()
         }.flatMapLatest { query ->
-            searchMovieUseCase(query)
+            searchMovieUseCase(query).cachedIn(viewModelScope)
                 .catch {
                     Failure(it.toString())
                 }.map { remoteList ->
-                    Success(remoteList.map { it.toPresentation() })
+                    Success(remoteList.map { it.toSearchResultUiModel() })
                 }
         }.stateIn(
             viewModelScope,

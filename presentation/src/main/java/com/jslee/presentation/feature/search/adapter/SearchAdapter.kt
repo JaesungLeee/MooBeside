@@ -6,6 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemMovieThumbnailBinding
 import com.jslee.presentation.feature.search.SearchResultUiModel
 
@@ -15,7 +16,7 @@ import com.jslee.presentation.feature.search.SearchResultUiModel
  * @created 2023/08/15
  */
 class SearchAdapter(
-    private val onCardClick: () -> Unit
+    private val onCardClick: (Long) -> Unit,
 ) : PagingDataAdapter<SearchResultUiModel, SearchViewHolder>(searchDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
@@ -33,14 +34,14 @@ class SearchAdapter(
         private val searchDiffCallback = object : DiffUtil.ItemCallback<SearchResultUiModel>() {
             override fun areItemsTheSame(
                 oldItem: SearchResultUiModel,
-                newItem: SearchResultUiModel
+                newItem: SearchResultUiModel,
             ): Boolean {
                 return oldItem.posterImageUrl == newItem.posterImageUrl
             }
 
             override fun areContentsTheSame(
                 oldItem: SearchResultUiModel,
-                newItem: SearchResultUiModel
+                newItem: SearchResultUiModel,
             ): Boolean {
                 return oldItem == newItem
             }
@@ -50,18 +51,18 @@ class SearchAdapter(
 
 class SearchViewHolder(
     private val binding: ItemMovieThumbnailBinding,
-    onCardClick: () -> Unit,
-) : RecyclerView.ViewHolder(binding.root) {
+    onCardClick: (Long) -> Unit,
+) : BaseViewHolder<SearchResultUiModel>(binding) {
     init {
         binding.cvMovie.setOnClickListener {
-            onCardClick()
+            getItem {
+                onCardClick(it.movieId)
+            }
         }
     }
 
-    fun bindItems(item: SearchResultUiModel) {
-        with(binding) {
-            searchResult = item
-            executePendingBindings()
-        }
+    override fun bindItems(item: SearchResultUiModel) = with(binding) {
+        searchResult = item
+        executePendingBindings()
     }
 }
