@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.search
 
+import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -25,10 +26,17 @@ import timber.log.Timber
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
     private val viewModel: SearchViewModel by viewModels()
-    private val searchAdapter by lazy { SearchAdapter(onCardClick = { navigateToDetail() }) }
+    private val searchAdapter by lazy {
+        SearchAdapter(
+            onCardClick = {
+                navigateToDetail(it)
+            }
+        )
+    }
 
-    private fun navigateToDetail() {
-        requireContext().showToast("클릭")
+    private fun navigateToDetail(movieId: Long) {
+        val argument = bundleOf(Pair("movieId", movieId))
+        findNavController().navigate(R.id.action_to_movie_detail, argument)
     }
 
     override fun initViews() {
