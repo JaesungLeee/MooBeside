@@ -27,7 +27,7 @@
     <style name="MooBeside.SearchOutlinedTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:hint">영화제목을 입력하세요</item>
+        <item name="android:hint">@string/search_bar_hint</item>
         <item name="hintTextColor">@color/Blurple</item>
         <item name="boxStrokeColor">@drawable/selector_text_input_layer_indicator</item>
         <item name="boxStrokeErrorColor">@color/Red</item>
