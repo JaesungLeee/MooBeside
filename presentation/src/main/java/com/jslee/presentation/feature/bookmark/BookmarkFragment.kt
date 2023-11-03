@@ -24,12 +24,21 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     }
 
     override fun initViews() {
+        initFilterView()
         initBookmarkList()
+    }
+
+    private fun initFilterView() {
+        binding.ivFilter.setOnClickListener {
+            showFilterBottomSheet()
+        }
     }
 
     private fun initBookmarkList() {
         binding.rvBookmark.adapter = bookmarkAdapter
     }
 
+    private fun showFilterBottomSheet() {
+        requireActivity().showToast("바텀시트")
     }
 }
