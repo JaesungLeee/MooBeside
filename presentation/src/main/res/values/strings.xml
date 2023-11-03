@@ -1,8 +1,11 @@
 <resources>
+    <!-- toolbar title -->
     <string name="toolbar_search">검색</string>
     <string name="toolbar_now_playing">현재 상영중</string>
     <string name="toolbar_up_coming">개봉 예정작</string>
+    <string name="toolbar_bookmark">즐겨찾기</string>
 
+    <!-- text -->
     <string name="text_load_more">더보기</string>
     <string name="text_movie_overview_title">줄거리</string>
     <string name="text_cast_title">출연진</string>
@@ -14,11 +17,11 @@
     <string name="text_trailer_title">%1$s 예고편 검색 결과</string>
     <string name="text_tmdb">TMDB</string>
     <string name="text_naver">NAVER</string>
-
-    <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
-
+    <string name="text_filter">필터</string>
     <string name="home_popular_movie_title">인기 영화</string>
 
+    <!-- description -->
+    <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
     <string name="description_date_picker">날짜를 선택하는 영역입니다.</string>
     <string name="description_rate">영화 평점을 나타내는 아이콘입니다.</string>
 </resources>
