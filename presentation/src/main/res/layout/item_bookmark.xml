@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="72dp"
+        android:layout_height="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/Gray10"
+        app:shapeAppearance="@style/MooBeside.Shape.Radius4"
+        tools:src="@drawable/img_sample" />
+
+    <TextView
+        android:id="@+id/tv_movie_title"
+        style="@style/MooBesideTextAppearance.Caption1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@color/Gray02"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_poster"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="오펜하이머" />
+
+    <TextView
+        android:id="@+id/tv_summary_info"
+        style="@style/MooBesideTextAppearance.Caption2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/Gray06"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+        tools:text="2023년·개봉·호러/코미디" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
