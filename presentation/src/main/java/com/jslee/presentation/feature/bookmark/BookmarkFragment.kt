@@ -6,6 +6,7 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBookmarkBinding
 import com.jslee.presentation.feature.bookmark.adapter.BookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * MooBeside
@@ -14,6 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment_bookmark) {
+
+    @Inject
+    lateinit var fakeBookmarkData: FakeBookmarkData
 
     private val bookmarkAdapter by lazy {
         BookmarkAdapter(
@@ -35,7 +39,9 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     }
 
     private fun initBookmarkList() {
-        binding.rvBookmark.adapter = bookmarkAdapter
+        binding.rvBookmark.adapter = bookmarkAdapter.also {
+            it.submitList(fakeBookmarkData.provideBookmarkInfoData())
+        }
     }
 
     private fun showFilterBottomSheet() {
