@@ -5,6 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
+import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemBoxOfficeRankBinding
 import com.jslee.presentation.feature.boxoffice.BoxOfficeUiModel
 
@@ -14,48 +16,28 @@ import com.jslee.presentation.feature.boxoffice.BoxOfficeUiModel
  * @created 2023/08/09
  */
 class BoxOfficeAdapter(
-    private val onCardClick: () -> Unit
-) : ListAdapter<BoxOfficeUiModel, BoxOfficeViewHolder>(diffCallBack) {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoxOfficeViewHolder {
+    private val onCardClick: (Long) -> Unit,
+) : SingleViewTypeListAdapter<BoxOfficeUiModel>({ it.movieId }) {
+    override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<BoxOfficeUiModel> {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemBoxOfficeRankBinding.inflate(layoutInflater, parent, false)
         return BoxOfficeViewHolder(binding, onCardClick)
-    }
-
-    override fun onBindViewHolder(holder: BoxOfficeViewHolder, position: Int) {
-        val item = currentList[position]
-        holder.bindItems(item)
-    }
-
-    companion object {
-        val diffCallBack = object : DiffUtil.ItemCallback<BoxOfficeUiModel>() {
-            override fun areItemsTheSame(
-                oldItem: BoxOfficeUiModel,
-                newItem: BoxOfficeUiModel
-            ): Boolean {
-                return oldItem.movieTitle == newItem.movieTitle
-            }
-
-            override fun areContentsTheSame(
-                oldItem: BoxOfficeUiModel,
-                newItem: BoxOfficeUiModel
-            ): Boolean {
-                return oldItem == newItem
-            }
-        }
     }
 }
 
 class BoxOfficeViewHolder(
     private val binding: ItemBoxOfficeRankBinding,
-    onCardClick: () -> Unit
-) : RecyclerView.ViewHolder(binding.root) {
+    onCardClick: (Long) -> Unit,
+) : BaseViewHolder<BoxOfficeUiModel>(binding) {
     init {
         binding.cvBoxOffice.setOnClickListener {
-            onCardClick()
+            getItem {
+                onCardClick(it.movieId)
+            }
         }
     }
-    fun bindItems(item: BoxOfficeUiModel) {
+
+    override fun bindItems(item: BoxOfficeUiModel) {
         with(binding) {
             boxOffice = item
             executePendingBindings()

@@ -11,6 +11,7 @@ import com.jslee.core.ui.extension.toPercentage
  * @created 2023/08/09
  */
 data class BoxOfficeUiModel(
+    val movieId: Long,
     val rank: String,
     val rankIncrement: String,
     val movieTitle: String,
@@ -21,6 +22,7 @@ data class BoxOfficeUiModel(
 )
 
 fun Movie.toPresentation() = BoxOfficeUiModel(
+    movieId = tmdbMovieId ?: -1,
     rank = boxOffice?.rank.orEmpty(),
     movieTitle = localizedMovieName.orEmpty(),
     openingDate = localizedReleaseDate?.toDisplayedDate().orEmpty(),

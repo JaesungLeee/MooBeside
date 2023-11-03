@@ -13,6 +13,7 @@ class FakeBoxOfficeData @Inject constructor() {
     fun provideData(): List<BoxOfficeUiModel> {
         return List(10) {
             BoxOfficeUiModel(
+                movieId = 1,
                 rank = "1",
                 movieTitle = "존 윅3 (John Wick 3)",
                 openingDate = "2022년 10월 3일",

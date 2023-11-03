@@ -1,10 +1,9 @@
 package com.jslee.presentation.feature.boxoffice
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
 import com.jslee.core.ui.extension.toShortenPreviousDate
+import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -20,7 +19,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class BoxOfficeViewModel @Inject constructor(
-    private val getDailyBoxOfficeUseCase: GetDailyBoxOfficeUseCase
+    private val getDailyBoxOfficeUseCase: GetDailyBoxOfficeUseCase,
 ) : ViewModel() {
 
     init {
@@ -30,16 +29,16 @@ class BoxOfficeViewModel @Inject constructor(
     private val _boxOfficeUiState: MutableStateFlow<BoxOfficeUiState> = MutableStateFlow(Loading)
     val boxOfficeUiState = _boxOfficeUiState.asStateFlow()
 
-    fun getDailyBoxOffice(targetDate: String) {
+    private fun getDailyBoxOffice(targetDate: String) {
         viewModelScope.launch {
-            getDailyBoxOfficeUseCase.invoke(targetDate).catch {
-                Timber.e(it.message)
-                _boxOfficeUiState.value = Failure
-            }.collect { remoteBoxOffice ->
-                val dailyBoxOffice = remoteBoxOffice.map { it.toPresentation() }
-                Log.e("CHECK", "$dailyBoxOffice")
-                _boxOfficeUiState.value = Success(dailyBoxOffice)
-            }
+            getDailyBoxOfficeUseCase(targetDate)
+                .catch {
+                    Timber.e(it.message)
+                    _boxOfficeUiState.value = Failure
+                }.collect { remoteBoxOffice ->
+                    val dailyBoxOffice = remoteBoxOffice.map { it.toPresentation() }
+                    _boxOfficeUiState.value = Success(dailyBoxOffice)
+                }
         }
     }
 
