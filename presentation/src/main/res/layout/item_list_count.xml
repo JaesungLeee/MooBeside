@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+            name="totalCount"
+            type="String" />
+
     </data>
 
     <TextView

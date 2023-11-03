@@ -1,8 +1,10 @@
 package com.jslee.presentation.feature.bookmark
 
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBookmarkBinding
+import com.jslee.presentation.feature.bookmark.adapter.BookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 /**
@@ -12,7 +14,22 @@ import dagger.hilt.android.AndroidEntryPoint
  */
 @AndroidEntryPoint
 class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment_bookmark) {
+
+    private val bookmarkAdapter by lazy {
+        BookmarkAdapter(
+            onBookmarkClick = {
+                requireActivity().showToast("북마크 클릭")
+            }
+        )
+    }
+
     override fun initViews() {
+        initBookmarkList()
+    }
+
+    private fun initBookmarkList() {
+        binding.rvBookmark.adapter = bookmarkAdapter
+    }
 
     }
 }
