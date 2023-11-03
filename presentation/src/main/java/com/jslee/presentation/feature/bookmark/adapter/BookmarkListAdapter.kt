@@ -10,7 +10,7 @@ import com.jslee.presentation.feature.bookmark.viewholder.BookmarkItemViewHolder
 
 class BookmarkListAdapter(
     private val onBookmarkClick: (Long) -> Unit,
-) : SingleViewTypeListAdapter<BookmarkUiModel>({ it.item }) {
+) : SingleViewTypeListAdapter<BookmarkUiModel>({ it.movieId }) {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<BookmarkUiModel> {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemBookmarkBinding.inflate(inflater, parent, false)

@@ -19,8 +19,7 @@ import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
  */
 class BookmarkAdapter(
     private val onBookmarkClick: (Long) -> Unit,
-) :
-    MultiViewTypeListAdapter<BookmarkListItem, BookmarkListItem.BookmarkViewType>() {
+) : MultiViewTypeListAdapter<BookmarkListItem, BookmarkListItem.BookmarkViewType>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: BookmarkListItem.BookmarkViewType,
@@ -40,7 +39,6 @@ class BookmarkAdapter(
             BookmarkListItem.BookmarkViewType.DIVIDER -> DividerViewHolder<BookmarkListItem.Divider>(
                 ItemDividerBinding.inflate(inflater, parent, false)
             )
-
         }
     }
 }
