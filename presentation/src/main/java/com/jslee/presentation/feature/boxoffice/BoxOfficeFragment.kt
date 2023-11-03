@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.boxoffice
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -36,9 +37,14 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
     private val viewModel: BoxOfficeViewModel by viewModels()
 
     private val boxOfficeAdapter by lazy {
-        BoxOfficeAdapter(onCardClick = {
-            findNavController().navigate(R.id.action_to_movie_detail)
+        BoxOfficeAdapter(onCardClick = { movieId ->
+            navigateToMovieDetail(movieId)
         })
+    }
+
+    private fun navigateToMovieDetail(movieId: Long) {
+        val argument = bundleOf(Pair("movieId", movieId))
+        findNavController().navigate(R.id.action_to_movie_detail, argument)
     }
 
     override fun initViews() {
