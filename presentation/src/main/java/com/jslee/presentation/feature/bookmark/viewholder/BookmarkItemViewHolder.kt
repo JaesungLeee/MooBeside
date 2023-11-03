@@ -17,10 +17,11 @@ class BookmarkItemViewHolder(
     init {
         binding.root.setOnClickListener {
             getItem {
-                onBookmarkClick(-1)
+                onBookmarkClick(it.movieId)
             }
         }
     }
+
     override fun bindItems(item: BookmarkUiModel) = with(binding) {
         bookmark = item
         executePendingBindings()
