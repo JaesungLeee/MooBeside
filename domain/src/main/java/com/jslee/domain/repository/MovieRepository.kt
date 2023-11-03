@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.Flow
  */
 interface MovieRepository {
 
-    fun getDailyBoxOffice(targetDate: String): Flow<Result<List<Movie>>>
+    fun getDailyBoxOffice(targetDate: String): Flow<List<Movie>>
     fun getSearchMovie(query: String): Flow<PagingData<Movie>>
+    fun getSearchMovieSnapshot(query: String): Flow<List<Movie>>
     fun getPopularMovie(): Flow<List<Movie>>
     fun getNowPlayingMovie(): Flow<PagingData<Movie>>
     fun getNowPlayingMovieSnapshot(): Flow<List<Movie>>
