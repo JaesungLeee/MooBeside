@@ -23,19 +23,25 @@ internal class MovieRepositoryImpl @Inject constructor(
     private val kobisRemoteDataSource: KobisRemoteDataSource,
     private val tmdbRemoteDataSource: TmdbRemoteDataSource,
 ) : MovieRepository {
-    override fun getDailyBoxOffice(targetDate: String): Flow<Result<List<Movie>>> = flow {
-        emit(
-            suspendRunCatching {
-                kobisRemoteDataSource.getDailyBoxOffice(targetDate = targetDate)
-                    .map { it.toDomain() }
-            }
-        )
+
+    override fun getDailyBoxOffice(targetDate: String): Flow<List<Movie>> = flow {
+        val dailyBoxOfficeData = suspendRunCatching {
+            kobisRemoteDataSource.getDailyBoxOffice(targetDate).map { it.toDomain() }
+        }.getOrThrow()
+        emit(dailyBoxOfficeData)
     }
 
     override fun getSearchMovie(query: String): Flow<PagingData<Movie>> {
         return createPager { page ->
             tmdbRemoteDataSource.getSearchMovie(query = query, page = page).map { it.toDomain() }
         }.flow
+    }
+
+    override fun getSearchMovieSnapshot(query: String): Flow<List<Movie>> = flow {
+        val searchResultSnapshot = suspendRunCatching {
+            tmdbRemoteDataSource.getSearchMovie(query = query, page = 1).map { it.toDomain() }
+        }.getOrThrow()
+        emit(searchResultSnapshot)
     }
 
     override fun getPopularMovie(): Flow<List<Movie>> = flow {
