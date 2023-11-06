@@ -33,7 +33,7 @@ class BannerViewHolder(
         PopularMovieBannerAdapter(onBannerClick = onBannerClick)
     }
     private lateinit var autoScrollJob: Job
-    private var currentPosition = 0
+    private var currentPosition = CURRENT_POSITION
 
     init {
         initLifecycleOwner(itemView)
@@ -85,9 +85,9 @@ class BannerViewHolder(
 
     private fun createAutoScrollJob(lifecycleOwner: LifecycleOwner?) {
         autoScrollJob = lifecycleOwner?.lifecycleScope?.launch {
-            delay(3000L)
+            delay(BANNER_SCROLL_DURATION)
             binding.vpPopularBanner.setCurrentItem(++currentPosition, true)
-        }!!
+        } ?: return
     }
 
     private fun initBannerIndicator() {
@@ -100,8 +100,10 @@ class BannerViewHolder(
     }
 
     companion object {
+        private const val BANNER_SCROLL_DURATION = 3000L
         private const val BANNER_LIST_COUNT = 20
         private const val CURRENT_PAGE = 1
+        private const val CURRENT_POSITION = 0
     }
 }
 
