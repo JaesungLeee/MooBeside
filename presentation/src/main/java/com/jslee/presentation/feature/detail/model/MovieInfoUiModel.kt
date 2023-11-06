@@ -2,6 +2,7 @@ package com.jslee.presentation.feature.detail.model
 
 import com.jslee.core.ui.extension.toDisplayTime
 import com.jslee.core.ui.extension.toDisplayYear
+import com.jslee.core.ui.UNKNOWN_FIELD
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
 
@@ -34,6 +35,7 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
         MovieInfoItem(
             title = "감독",
             content = staffs?.first()?.originalName.orEmpty()
+            content = staffs?.find { it.isDirector }?.originalName ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
             title = "상영 시간",
