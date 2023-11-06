@@ -40,8 +40,11 @@ abstract class BaseViewHolder<out T>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    inline fun getItem(action: (item: T) -> Unit) {
-        val item = getItem(bindingAdapterPosition) as? T ?: return
+    inline fun getItem(
+        position: Int = bindingAdapterPosition,
+        action: (item: T) -> Unit,
+    ) {
+        val item = getItem(position) as? T ?: return
         action(item)
     }
 }

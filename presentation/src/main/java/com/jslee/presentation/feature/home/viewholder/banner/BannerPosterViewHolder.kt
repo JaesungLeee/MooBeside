@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.home.viewholder.banner
 
+import androidx.recyclerview.widget.ListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemPopularPosterBinding
 import com.jslee.presentation.feature.home.model.BannerUiModel
@@ -16,7 +17,10 @@ class BannerPosterViewHolder(
 
     init {
         binding.ivHomeBanner.setOnClickListener {
-            getItem {
+            val itemSize = (bindingAdapter as ListAdapter<*, *>).currentList.size
+            val position = bindingAdapterPosition % itemSize
+
+            getItem(position) {
                 onBannerClick(it)
             }
         }
