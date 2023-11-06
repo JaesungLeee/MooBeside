@@ -37,7 +37,7 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
             content = staffs?.find { it.isDirector }?.originalName ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
-            title = "개봉일",
+            title = "국내 개봉일",
             content = localizedReleaseDate?.toDisplayDateWithMillisFormat() ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
@@ -53,7 +53,7 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
             content = genres?.joinToString() ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
-            title = "제작 회사",
+            title = "제작사",
             content = productionCompanies?.joinToString { it.companyName } ?: UNKNOWN_FIELD
         ),
     )
