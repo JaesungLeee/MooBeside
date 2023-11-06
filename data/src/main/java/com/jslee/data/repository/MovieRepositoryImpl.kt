@@ -79,10 +79,9 @@ internal class MovieRepositoryImpl @Inject constructor(
 
     override fun getMovieReleaseInfo(movieId: Long): Flow<Movie> = flow {
         val releaseDate = suspendRunCatching {
-            tmdbRemoteDataSource.getMovieReleaseInfo(movieId).asSequence()
-                .filter { it.regionCode == Country.KOREA.regionCode }
-                .map { it.toDomain() }
-                .single()
+            tmdbRemoteDataSource.getMovieReleaseInfo(movieId)
+                .find { it.regionCode == Country.KOREA.regionCode }
+                ?.toDomain() ?: Movie(localizedReleaseDate = null, certification = null)
         }.getOrThrow()
         emit(releaseDate)
     }
