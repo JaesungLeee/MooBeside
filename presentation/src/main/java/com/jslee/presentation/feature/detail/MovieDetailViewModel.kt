@@ -33,7 +33,7 @@ class MovieDetailViewModel @Inject constructor(
         viewModelScope.launch {
             getMovieDetailUseCase.invoke(movieId)
                 .catch {
-                    Timber.e(it.message)
+                    Timber.e(it)
                 }.collect {
                     _movieName.value = it.localizedMovieName.orEmpty()
                     _detailUiState.value = MovieDetailUiState.Success(it.toMovieDetailUiModel(it.localizedMovieName.orEmpty()))
