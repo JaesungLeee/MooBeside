@@ -1,8 +1,8 @@
 package com.jslee.presentation.feature.detail.model
 
-import com.jslee.core.ui.extension.toDisplayTime
-import com.jslee.core.ui.extension.toDisplayYear
 import com.jslee.core.ui.UNKNOWN_FIELD
+import com.jslee.core.ui.extension.toDisplayDateWithMillisFormat
+import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
 
@@ -34,12 +34,15 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
     return listOf(
         MovieInfoItem(
             title = "감독",
-            content = staffs?.first()?.originalName.orEmpty()
             content = staffs?.find { it.isDirector }?.originalName ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
+            title = "개봉일",
+            content = localizedReleaseDate?.toDisplayDateWithMillisFormat() ?: UNKNOWN_FIELD
+        ),
+        MovieInfoItem(
             title = "상영 시간",
-            content = runtime?.toDisplayTime().orEmpty()
+            content = runtime?.toDisplayRunTime() ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
             title = "연령 등급",
@@ -47,15 +50,11 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
         ),
         MovieInfoItem(
             title = "장르",
-            content = genres?.joinToString().orEmpty()
+            content = genres?.joinToString() ?: UNKNOWN_FIELD
         ),
         MovieInfoItem(
             title = "제작 회사",
-            content = productionCompanies?.joinToString { it.companyName }.orEmpty()
+            content = productionCompanies?.joinToString { it.companyName } ?: UNKNOWN_FIELD
         ),
-        MovieInfoItem(
-            title = "제작 연도",
-            content = localizedReleaseDate?.toDisplayYear().orEmpty()
-        )
     )
 }

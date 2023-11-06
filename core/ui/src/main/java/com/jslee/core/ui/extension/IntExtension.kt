@@ -2,6 +2,7 @@ package com.jslee.core.ui.extension
 
 import android.content.res.Resources
 import android.util.TypedValue
+import com.jslee.core.ui.UNKNOWN_FIELD
 
 /**
  * MooBeside
@@ -16,8 +17,10 @@ inline val Int.dp: Int
         TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), Resources.getSystem().displayMetrics
     ).toInt()
 
-fun Int?.toDisplayTime(): String {
+fun Int?.toDisplayRunTime(): String {
     requireNotNull(this) { "runtime null" }
+
+    if (this == 0) return UNKNOWN_FIELD
 
     val hour = this / HOUR_MINUTE
     val minute = this % HOUR_MINUTE

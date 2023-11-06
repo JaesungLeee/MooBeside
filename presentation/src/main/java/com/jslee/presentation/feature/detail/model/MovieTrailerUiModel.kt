@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.detail.model
 
-import com.jslee.core.ui.extension.toDisplayedDateWithFullFormat
+import com.jslee.core.ui.extension.toDisplayDateWithSecondsFormat
 import com.jslee.domain.model.movie.Movie
 
 /**
@@ -22,6 +22,6 @@ fun Movie.mapToMovieTrailerUiModel(): List<MovieTrailerUiModel> = trailers?.map 
         thumbnailUrl = it.thumbnailUrl,
         contentTitle = it.contentTitle,
         description = it.description,
-        publishedDate = it.publishedDate.toDisplayedDateWithFullFormat()
+        publishedDate = it.publishedDate.toDisplayDateWithSecondsFormat()
     )
 }.orEmpty()
