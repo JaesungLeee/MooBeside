@@ -44,4 +44,15 @@
         <item name="android:inputType">text</item>
     </style>
 
+    <!-- BottomSheet -->
+    <style name="MooBeside.BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MooBeside.BottomSheet.ShapeAppearanceOverlay</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="MooBeside.BottomSheet.ShapeAppearanceOverlay" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/MooBeside.Shape.BottomSheet.TopRadius14</item>
+    </style>
+
 </resources>
