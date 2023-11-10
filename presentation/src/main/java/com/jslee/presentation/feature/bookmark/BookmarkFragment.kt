@@ -4,6 +4,7 @@ import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBookmarkBinding
+import com.jslee.presentation.feature.bookmark.FilterBottomSheetFragment.Companion.FILTER_BOTTOM_SHEET_TAG
 import com.jslee.presentation.feature.bookmark.adapter.BookmarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -45,6 +46,7 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     }
 
     private fun showFilterBottomSheet() {
-        requireActivity().showToast("바텀시트")
+        val bottomSheet = FilterBottomSheetFragment()
+        bottomSheet.show(childFragmentManager, FILTER_BOTTOM_SHEET_TAG)
     }
 }

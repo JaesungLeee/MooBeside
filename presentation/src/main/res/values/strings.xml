@@ -18,7 +18,9 @@
     <string name="text_tmdb">TMDB</string>
     <string name="text_naver">NAVER</string>
     <string name="text_filter">필터</string>
+    <string name="text_filter_title">정렬 기준</string>
     <string name="home_popular_movie_title">인기 영화</string>
+    <string name="text_confirm">확인</string>
 
     <!-- description -->
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
