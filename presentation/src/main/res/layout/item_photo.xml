@@ -14,7 +14,7 @@
         android:id="@+id/iv_photo"
         android:layout_width="150dp"
         android:layout_height="215dp"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
         posterImage="@{gallery.galleryImageUrl}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
