@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.jslee.presentation.databinding.DialogFilterBottomSheetBinding
+import com.jslee.presentation.feature.bookmark.adapter.filter.FilterOptionsAdapter
+import com.jslee.presentation.feature.bookmark.model.provideFilterOptions
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -21,6 +24,10 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
     private var _binding: DialogFilterBottomSheetBinding? = null
     val binding: DialogFilterBottomSheetBinding get() = requireNotNull(_binding)
 
+    private val filterOptionsAdapter: FilterOptionsAdapter by lazy {
+        FilterOptionsAdapter(onChangeFilter = { Timber.e("$it") })
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,7 +40,15 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setBackgroundDimWindow()
+
+        binding.rvFilterOptions.adapter = filterOptionsAdapter
+        filterOptionsAdapter.submitList(provideFilterOptions())
+
+        binding.tvConfirmButton.setOnClickListener {
+            dialog?.dismiss()
+        }
     }
+
 
     private fun setBackgroundDimWindow() {
         dialog?.window?.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
