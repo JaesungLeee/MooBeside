@@ -9,6 +9,7 @@ import com.jslee.core.ui.model.ListItem
  */
 sealed class FilterOptionsListItem(override val viewType: Enum<*>) : ListItem {
     enum class FilterOptionsViewType {
+//        CHIP_OPTION,
         TEXT_OPTION;
     }
 
@@ -16,12 +17,4 @@ sealed class FilterOptionsListItem(override val viewType: Enum<*>) : ListItem {
         override val id: Long,
         val description: String,
     ) : FilterOptionsListItem(FilterOptionsViewType.TEXT_OPTION)
-
-//    data class Genre(
-//        override val id: Long,
-//    ) : FilterOptionsListItem(FilterOptionsViewType.CHIP_OPTION)
-//
-//    data class MovieStatus(
-//        override val id: Long,
-//    ) : FilterOptionsListItem(FilterOptionsViewType.CHIP_OPTION)
 }
