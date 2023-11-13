@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.youtube
+package com.jslee.data.network.dto.response.youtube
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

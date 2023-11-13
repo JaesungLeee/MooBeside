@@ -1,7 +1,7 @@
-package com.jslee.data.datasource.remote.source
+package com.jslee.data.datasource.remote
 
-import com.jslee.data.datasource.remote.dto.response.kobis.toDataModel
-import com.jslee.data.datasource.remote.service.KobisService
+import com.jslee.data.network.dto.response.kobis.toDataModel
+import com.jslee.data.network.service.KobisService
 import com.jslee.data.model.DailyBoxOfficeModel
 import javax.inject.Inject
 import javax.inject.Singleton

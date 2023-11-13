@@ -1,8 +1,8 @@
 package com.jslee.data.di
 
-import com.jslee.data.datasource.remote.service.KobisService
-import com.jslee.data.datasource.remote.service.TmdbService
-import com.jslee.data.datasource.remote.service.YoutubeService
+import com.jslee.data.network.service.KobisService
+import com.jslee.data.network.service.TmdbService
+import com.jslee.data.network.service.YoutubeService
 import com.jslee.data.di.qualifier.KobisQualifer
 import com.jslee.data.di.qualifier.TmdbQualifier
 import com.jslee.data.di.qualifier.YoutubeQualifier

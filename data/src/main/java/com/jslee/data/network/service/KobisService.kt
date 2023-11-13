@@ -1,7 +1,7 @@
-package com.jslee.data.datasource.remote.service
+package com.jslee.data.network.service
 
 import com.jslee.data.BuildConfig
-import com.jslee.data.datasource.remote.dto.response.kobis.KobisBoxOfficeResponse
+import com.jslee.data.network.dto.response.kobis.KobisBoxOfficeResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -3,8 +3,8 @@ package com.jslee.data.repository
 import androidx.paging.PagingData
 import com.jslee.domain.model.Country
 import com.jslee.data.TMDB_IMAGE_PREFIX
-import com.jslee.data.datasource.remote.source.KobisRemoteDataSource
-import com.jslee.data.datasource.remote.source.TmdbRemoteDataSource
+import com.jslee.data.datasource.remote.KobisRemoteDataSource
+import com.jslee.data.datasource.remote.TmdbRemoteDataSource
 import com.jslee.data.model.toDomain
 import com.jslee.data.paging.extension.createPager
 import com.jslee.data.suspendRunCatching

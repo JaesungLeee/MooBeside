@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.tmdb
+package com.jslee.data.network.dto.response.tmdb
 
 import com.jslee.data.model.ImageInfoModel
 import com.jslee.data.model.MovieImagesModel

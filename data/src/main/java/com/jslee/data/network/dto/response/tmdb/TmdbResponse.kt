@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.tmdb
+package com.jslee.data.network.dto.response.tmdb
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
