@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.bundles.kotlinx.coroutines)
 
     implementation(libs.material)
+    implementation(libs.flexbox)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)

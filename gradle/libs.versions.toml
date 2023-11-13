@@ -21,6 +21,7 @@ javax-inject = "1"
 # google
 hilt = "2.44"
 material = "1.9.0"
+flexbox = "3.0.0"
 
 # squareup
 retrofit = "2.9.0"
@@ -63,7 +64,7 @@ javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "j
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
+flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
 # squareup
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
