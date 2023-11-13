@@ -1,7 +1,7 @@
-package com.jslee.data.datasource.remote.service
+package com.jslee.data.network.service
 
 import com.jslee.data.BuildConfig
-import com.jslee.data.datasource.remote.dto.response.youtube.YoutubeSearchResponse
+import com.jslee.data.network.dto.response.youtube.YoutubeSearchResponse
 import com.jslee.domain.model.Country
 import retrofit2.Response
 import retrofit2.http.GET

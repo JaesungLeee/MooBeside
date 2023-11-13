@@ -1,13 +1,13 @@
-package com.jslee.data.datasource.remote.service
+package com.jslee.data.network.service
 
 import com.jslee.data.BuildConfig
 import com.jslee.domain.model.Country
 import com.jslee.data.SINGLE_PAGE
-import com.jslee.data.datasource.remote.dto.response.tmdb.CreditsResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.CommonMovieResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.ImagesResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbCommonResponse
-import com.jslee.data.datasource.remote.dto.response.tmdb.TmdbReleaseInfoResponse
+import com.jslee.data.network.dto.response.tmdb.CreditsResponse
+import com.jslee.data.network.dto.response.tmdb.CommonMovieResponse
+import com.jslee.data.network.dto.response.tmdb.ImagesResponse
+import com.jslee.data.network.dto.response.tmdb.TmdbCommonResponse
+import com.jslee.data.network.dto.response.tmdb.TmdbReleaseInfoResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -1,7 +1,7 @@
-package com.jslee.data.datasource.remote.source
+package com.jslee.data.datasource.remote
 
-import com.jslee.data.datasource.remote.dto.response.youtube.toDataModel
-import com.jslee.data.datasource.remote.service.YoutubeService
+import com.jslee.data.network.dto.response.youtube.toDataModel
+import com.jslee.data.network.service.YoutubeService
 import com.jslee.data.model.MovieTrailerModel
 import javax.inject.Inject
 import javax.inject.Singleton

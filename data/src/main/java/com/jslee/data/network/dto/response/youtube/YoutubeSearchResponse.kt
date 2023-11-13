@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.youtube
+package com.jslee.data.network.dto.response.youtube
 
 import com.jslee.data.model.MovieTrailerModel
 import com.jslee.data.model.MovieTrailerThumbnailModel

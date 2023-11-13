@@ -1,6 +1,6 @@
 package com.jslee.data.repository
 
-import com.jslee.data.datasource.remote.source.YoutubeRemoteDataSource
+import com.jslee.data.datasource.remote.YoutubeRemoteDataSource
 import com.jslee.data.model.toDomain
 import com.jslee.data.suspendRunCatching
 import com.jslee.domain.model.Trailer

@@ -1,8 +1,8 @@
-package com.jslee.data.datasource.remote.source
+package com.jslee.data.datasource.remote
 
 import com.jslee.data.UNKNOWN_EXCEPTION
-import com.jslee.data.datasource.remote.dto.response.tmdb.toDataModel
-import com.jslee.data.datasource.remote.service.TmdbService
+import com.jslee.data.network.dto.response.tmdb.toDataModel
+import com.jslee.data.network.service.TmdbService
 import com.jslee.data.model.MovieCreditsModel
 import com.jslee.data.model.MovieImagesModel
 import com.jslee.data.model.MovieReleaseInfoModel

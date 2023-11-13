@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.kobis
+package com.jslee.data.network.dto.response.kobis
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

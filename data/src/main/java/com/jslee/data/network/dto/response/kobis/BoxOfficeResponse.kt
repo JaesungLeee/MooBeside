@@ -1,4 +1,4 @@
-package com.jslee.data.datasource.remote.dto.response.kobis
+package com.jslee.data.network.dto.response.kobis
 
 import com.jslee.data.model.DailyBoxOfficeModel
 import kotlinx.serialization.SerialName
