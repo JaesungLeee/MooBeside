@@ -1,7 +1,9 @@
 package com.jslee.data.di
 
+import com.jslee.data.repository.BookmarkRepositoryImpl
 import com.jslee.data.repository.MovieRepositoryImpl
 import com.jslee.data.repository.TrailerRepositoryImpl
+import com.jslee.domain.repository.BookmarkRepository
 import com.jslee.domain.repository.MovieRepository
 import com.jslee.domain.repository.TrailerRepository
 import dagger.Binds
@@ -26,4 +28,10 @@ internal abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindTrailerRepository(trailerRepositoryImpl: TrailerRepositoryImpl): TrailerRepository
+
+
+    @Binds
+    @Singleton
+    abstract fun bindBookmarkRepository(bookmarkRepositoryImpl: BookmarkRepositoryImpl): BookmarkRepository
+
 }
