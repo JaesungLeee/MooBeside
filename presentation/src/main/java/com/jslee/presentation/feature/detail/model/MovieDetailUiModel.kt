@@ -8,6 +8,7 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  * @created 2023/10/21
  */
 data class MovieDetailUiModel(
+    val movieId: Long,
     val appBarModel: AppBarUiModel,
     val detailData: List<DetailListItem>,
 )
