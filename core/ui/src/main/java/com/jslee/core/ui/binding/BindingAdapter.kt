@@ -8,6 +8,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.jslee.core.designsystem.RateDesign
 import com.jslee.core.ui.R
+import com.jslee.core.ui.extension.makeSummaryInfo
 import com.jslee.core.designsystem.R as DR
 
 
@@ -82,5 +83,11 @@ object BindingAdapter {
     fun TextView.setRateStyle(style: RateDesign) {
         setTextColor(ContextCompat.getColor(context, style.textColor))
         setBackgroundColor(ContextCompat.getColor(context, style.backgroundColor))
+    }
+
+    @JvmStatic
+    @BindingAdapter("releaseDate", "movieStatus", "genres", requireAll = true)
+    fun TextView.setSummaryInfo(releaseDate: String, movieStatus: String, genres: List<String>) {
+        makeSummaryInfo(releaseDate, movieStatus, genres)
     }
 }
