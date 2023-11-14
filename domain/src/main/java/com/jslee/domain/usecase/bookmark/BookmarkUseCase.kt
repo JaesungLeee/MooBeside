@@ -1,4 +1,4 @@
-package com.jslee.domain.usecase
+package com.jslee.domain.usecase.bookmark
 
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.BookmarkRepository

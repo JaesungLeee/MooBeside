@@ -16,6 +16,7 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  */
 
 fun Movie.toMovieDetailUiModel(trailerTitle: String) = MovieDetailUiModel(
+    movieId = tmdbMovieId ?: -1,
     appBarModel = toAppBarModel(),
     detailData = toMovieDetailListItem(trailerTitle)
 )
