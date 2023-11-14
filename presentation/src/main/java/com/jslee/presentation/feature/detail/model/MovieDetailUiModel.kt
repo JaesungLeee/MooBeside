@@ -1,6 +1,5 @@
 package com.jslee.presentation.feature.detail.model
 
-import com.jslee.core.ui.extension.makeSummaryInfo
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
@@ -19,7 +18,11 @@ data class AppBarUiModel(
     val movieName: String,
     val posterImageUrl: String?,
     val backdropImageUrl: String?,
-    val summaryInfo: String,
+    val releaseDate: String,
+    val movieStatus: String,
+    val genres: List<String>,
+    val runtime: Int,
+    val certification: String,
 )
 
 fun Movie.toMovieDetailUiModel(trailerTitle: String) = MovieDetailUiModel(
@@ -31,11 +34,11 @@ fun Movie.toAppBarModel() = AppBarUiModel(
     movieName = localizedMovieName.orEmpty(),
     posterImageUrl = posterImageUrl,
     backdropImageUrl = backdropImageUrl,
-    summaryInfo = makeSummaryInfo(
-        localizedReleaseDate,
-        MovieStatus.getDescription(movieStatus),
-        genres
-    ),
+    releaseDate = localizedReleaseDate.orEmpty(),
+    movieStatus = MovieStatus.getDescription(movieStatus),
+    genres = genres.orEmpty(),
+    runtime = runtime ?: 0,
+    certification = Certification.getMeaning(certification)
 )
 
 const val SCREEN_SHOWN_LIMIT = 4
