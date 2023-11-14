@@ -69,8 +69,22 @@ class MovieDetailFragment :
         addItemDecoration(DividerViewItemDecoration(paddingValues))
     }
 
-    private fun initToolbar() {
-        binding.tbMovieDetail.setNavigationOnClickListener { findNavController().navigateUp() }
+    private fun initToolbar() = with(binding.tbMovieDetail) {
+        setNavigationOnClickListener { findNavController().navigateUp() }
+        setOnMenuItemClickListener { menu ->
+            when (menu.itemId) {
+                DR.id.option_bookmark -> {
+                    viewModel.toggleBookmark(movieId)
+                    true
+                }
+
+                DR.id.option_share -> {
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 
     override fun observeStates() {
