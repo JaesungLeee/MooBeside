@@ -2,8 +2,10 @@ package com.jslee.presentation.feature.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jslee.domain.usecase.BookmarkUseCase
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
+import com.jslee.presentation.feature.detail.model.toDomain
 import com.jslee.presentation.feature.detail.model.toMovieDetailUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,6 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase,
+    private val bookmarkUseCase: BookmarkUseCase
 ) : ViewModel() {
 
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
@@ -40,9 +43,28 @@ class MovieDetailViewModel @Inject constructor(
                 }
         }
     }
+
+    fun toggleBookmark(movieId: Long) {
+        val uiState = detailUiState.value
+        if (uiState !is MovieDetailUiState.Success) return
+
+        val uiModel = uiState.data
+
+        viewModelScope.launch {
+            val bookmark = uiState.isBookmarked
+            runCatching {
+                bookmarkUseCase.invoke(uiModel.toDomain(movieId), !bookmark)
+            }.onFailure {
+                Timber.e("$it")
+            }
+        }
+    }
 }
 
 sealed class MovieDetailUiState {
     object Loading : MovieDetailUiState()
-    data class Success(val data: MovieDetailUiModel) : MovieDetailUiState()
+    data class Success(
+        val data: MovieDetailUiModel,
+        val isBookmarked: Boolean = false,
+    ) : MovieDetailUiState()
 }
