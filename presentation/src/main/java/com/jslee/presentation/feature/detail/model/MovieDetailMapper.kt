@@ -171,3 +171,15 @@ fun Movie.mapToMovieTrailerUiModel(): List<MovieTrailerUiModel> = trailers?.map 
     )
 }.orEmpty()
 
+fun MovieDetailUiModel.toDomain(movieId: Long): Movie {
+    return Movie(
+        tmdbMovieId = movieId,
+        localizedMovieName = appBarModel.movieName,
+        runtime = appBarModel.runtime,
+        movieStatus = MovieStatus.fromDescription(appBarModel.movieStatus),
+        genres = appBarModel.genres,
+        localizedReleaseDate = appBarModel.releaseDate,
+        posterImageUrl = appBarModel.posterImageUrl,
+        certification = Certification.fromCode(appBarModel.certification)
+    )
+}
