@@ -48,8 +48,8 @@ fun String.toDisplayYear(): String {
     return outputFormat.format(date)
 }
 
-fun makeSummaryInfo(releaseDate: String?, movieStatus: String, genres: List<String>?): String {
-    val genre = genres?.joinToString("/")
-    val year = releaseDate?.toDisplayYear()
+fun makeSummaryInfo(releaseDate: String, movieStatus: String, genres: List<String>): String {
+    val genre = genres.joinToString("/")
+    val year = releaseDate.toDisplayYear()
     return "$year · $movieStatus · $genre"
 }

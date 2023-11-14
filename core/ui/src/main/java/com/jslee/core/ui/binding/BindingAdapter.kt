@@ -87,7 +87,9 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("releaseDate", "movieStatus", "genres", requireAll = true)
-    fun TextView.setSummaryInfo(releaseDate: String, movieStatus: String, genres: List<String>) {
-        makeSummaryInfo(releaseDate, movieStatus, genres)
+    fun TextView.setSummaryInfo(releaseDate: String?, movieStatus: String?, genres: List<String>?) {
+        if (releaseDate != null && movieStatus != null && genres != null) {
+            text = makeSummaryInfo(releaseDate, movieStatus, genres)
+        }
     }
 }
