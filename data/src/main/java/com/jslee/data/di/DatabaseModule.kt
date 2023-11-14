@@ -3,6 +3,7 @@ package com.jslee.data.di
 import android.content.Context
 import androidx.room.Room
 import com.jslee.data.database.MOOBESIDE_DATABASE
+import com.jslee.data.database.converter.StringListTypeConverter
 import com.jslee.data.database.dao.BookmarkDao
 import com.jslee.data.database.db.BookmarkDataBase
 import dagger.Module
@@ -25,11 +26,14 @@ internal class DatabaseModule {
     @Singleton
     fun provideBookmarkDatabase(
         @ApplicationContext context: Context,
-    ): BookmarkDataBase = Room.databaseBuilder(
-        context,
-        BookmarkDataBase::class.java,
-        MOOBESIDE_DATABASE
-    ).build()
+    ): BookmarkDataBase = Room
+        .databaseBuilder(
+            context,
+            BookmarkDataBase::class.java,
+            MOOBESIDE_DATABASE
+        )
+        .addTypeConverter(StringListTypeConverter())
+        .build()
 
     @Provides
     @Singleton

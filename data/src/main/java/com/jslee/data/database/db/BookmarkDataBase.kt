@@ -2,6 +2,8 @@ package com.jslee.data.database.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.jslee.data.database.converter.StringListTypeConverter
 import com.jslee.data.database.dao.BookmarkDao
 import com.jslee.data.database.entity.BookmarkEntity
 
@@ -15,6 +17,7 @@ import com.jslee.data.database.entity.BookmarkEntity
     version = 1,
     exportSchema = false,
 )
+@TypeConverters(StringListTypeConverter::class)
 internal abstract class BookmarkDataBase : RoomDatabase() {
     abstract fun bookmarkDao(): BookmarkDao
 }
