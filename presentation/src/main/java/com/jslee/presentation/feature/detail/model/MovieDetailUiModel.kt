@@ -1,7 +1,5 @@
 package com.jslee.presentation.feature.detail.model
 
-import com.jslee.domain.model.movie.Movie
-import com.jslee.domain.model.movie.MovieStatus
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 
 /**
@@ -25,59 +23,38 @@ data class AppBarUiModel(
     val certification: String,
 )
 
-fun Movie.toMovieDetailUiModel(trailerTitle: String) = MovieDetailUiModel(
-    appBarModel = toAppBarModel(),
-    detailData = toListItem(trailerTitle)
+data class MovieInfoUiModel(
+    val tagLine: String,
+    val overview: String,
+    val movieInfoData: List<MovieInfoItem>,
+    val isOverviewExpanded: Boolean = false,
 )
 
-fun Movie.toAppBarModel() = AppBarUiModel(
-    movieName = localizedMovieName.orEmpty(),
-    posterImageUrl = posterImageUrl,
-    backdropImageUrl = backdropImageUrl,
-    releaseDate = localizedReleaseDate.orEmpty(),
-    movieStatus = MovieStatus.getDescription(movieStatus),
-    genres = genres.orEmpty(),
-    runtime = runtime ?: 0,
-    certification = Certification.getMeaning(certification)
+data class MovieInfoItem(
+    val title: String,
+    val content: String,
 )
 
-const val SCREEN_SHOWN_LIMIT = 4
-fun Movie.toListItem(title: String) = listOf(
-    DetailListItem.MovieInfo(
-        id = 0,
-        movieInfoData = toMovieInfoUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 1,
-    ),
-    DetailListItem.Rate(
-        id = 2,
-        rateData = toRateUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 3,
-    ),
-    DetailListItem.Cast(
-        id = 4,
-        castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
-    ),
-    DetailListItem.Divider(
-        id = 5,
-    ),
-    DetailListItem.Gallery(
-        id = 6,
-        galleryData = mapToGalleryUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 7,
-    ),
-    DetailListItem.MovieTrailer(
-        id = 8,
-        title = title,
-        trailerData = mapToMovieTrailerUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 9,
-    ),
+data class CastInfoUiModel(
+    val profileImageUrl: String?,
+    val name: String,
+    val role: String,
 )
 
+data class GalleryUiModel(
+    val id: Long,
+    val galleryImageUrl: String?,
+)
+
+data class MovieTrailerUiModel(
+    val videoId: String,
+    val thumbnailUrl: String,
+    val contentTitle: String,
+    val description: String,
+    val publishedDate: String,
+)
+
+data class RateUiModel(
+    val tmdbRate: String,
+    val naverRate: String,
+)
