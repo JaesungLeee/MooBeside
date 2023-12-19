@@ -11,7 +11,7 @@ import androidx.databinding.ViewDataBinding
  * @author jaesung
  * @created 2023/08/08
  */
-open class BaseActivity<VB : ViewDataBinding>(@LayoutRes private val layoutId: Int) :
+abstract class BaseActivity<VB : ViewDataBinding>(@LayoutRes private val layoutId: Int) :
     AppCompatActivity() {
 
     lateinit var binding: VB
@@ -23,6 +23,5 @@ open class BaseActivity<VB : ViewDataBinding>(@LayoutRes private val layoutId: I
         initViews()
     }
 
-    /* must implement */
     open fun initViews() {}
 }
