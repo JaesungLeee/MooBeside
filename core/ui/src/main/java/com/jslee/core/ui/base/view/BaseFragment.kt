@@ -19,7 +19,9 @@ import kotlinx.coroutines.launch
  * @author jaesung
  * @created 2023/08/08
  */
-open class BaseFragment<VB : ViewDataBinding>(@LayoutRes private val layoutId: Int) : Fragment() {
+abstract class BaseFragment<VB : ViewDataBinding>(
+    @LayoutRes private val layoutId: Int,
+) : Fragment() {
 
     private var _binding: VB? = null
     val binding: VB get() = requireNotNull(_binding)
@@ -27,7 +29,7 @@ open class BaseFragment<VB : ViewDataBinding>(@LayoutRes private val layoutId: I
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = DataBindingUtil.inflate(inflater, layoutId, container, false)
         return binding.root
@@ -41,15 +43,13 @@ open class BaseFragment<VB : ViewDataBinding>(@LayoutRes private val layoutId: I
         observeStates()
     }
 
-    /* must implement */
     open fun initViews() {}
 
-    /* must implement */
     open fun observeStates() {}
 
     protected fun repeatOn(
         lifecycle: Lifecycle.State = Lifecycle.State.STARTED,
-        builder: suspend CoroutineScope.() -> Unit
+        builder: suspend CoroutineScope.() -> Unit,
     ) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(lifecycle, builder)
