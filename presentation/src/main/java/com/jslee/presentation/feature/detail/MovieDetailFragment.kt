@@ -15,6 +15,7 @@ import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import timber.log.Timber
 import javax.inject.Inject
 import com.jslee.core.designsystem.R as DR
 
@@ -56,10 +57,9 @@ class MovieDetailFragment :
 //            requireActivity().showToast("Error !!")
 //        }
         viewModel.getMovieDetails(movieId)
-        setActionBarCollapsedListener()
-        initToolbar()
         initRecyclerView()
-
+        initClickListener()
+        setActionBarCollapsedListener()
 
     }
 
@@ -69,40 +69,20 @@ class MovieDetailFragment :
         addItemDecoration(DividerViewItemDecoration(paddingValues))
     }
 
-    private fun initToolbar() = with(binding.tbMovieDetail) {
-        setNavigationOnClickListener { findNavController().navigateUp() }
-        setOnMenuItemClickListener { menu ->
-            when (menu.itemId) {
-                DR.id.option_bookmark -> {
-                    viewModel.toggleBookmark(movieId)
-                    true
-                }
+    private fun initClickListener() {
+        binding.tbMovieDetail.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
 
-                DR.id.option_share -> {
-                    true
-                }
+        binding.ivShare.setOnClickListener {
+            requireActivity().showToast("공유")
+        }
 
-                else -> false
-            }
+        binding.ivHeart.setOnClickListener {
+            viewModel.toggleBookmark(movieId)
         }
     }
 
-    override fun observeStates() {
-        repeatOn {
-            viewModel.detailUiState.collectLatest { handleUiState(it) }
-        }
-    }
-
-    private fun handleUiState(uiState: MovieDetailUiState) {
-        when (uiState) {
-            MovieDetailUiState.Loading -> {}
-
-            is MovieDetailUiState.Success -> {
-                binding.appBarModel = uiState.data.appBarModel
-                movieDetailAdapter.submitList(uiState.data.detailData)
-            }
-        }
-    }
 
     private fun setActionBarCollapsedListener() = with(binding) {
         ablMovieDetail.addOnOffsetChangedListener { _, verticalOffset ->
@@ -128,10 +108,28 @@ class MovieDetailFragment :
 
     private fun getIconColor(isCollapsed: Boolean): Int {
         val color = if (isCollapsed) {
-            ContextCompat.getColor(requireContext(), DR.color.Black)
+            ContextCompat.getColor(requireContext(), DR.color.Gray04)
         } else {
-            ContextCompat.getColor(requireContext(), DR.color.White)
+            ContextCompat.getColor(requireContext(), DR.color.Gray06)
         }
         return color
+    }
+
+    override fun observeStates() {
+        repeatOn {
+            viewModel.detailUiState.collectLatest { handleUiState(it) }
+        }
+    }
+
+    private fun handleUiState(uiState: MovieDetailUiState) {
+        when (uiState) {
+            MovieDetailUiState.Loading -> {}
+
+            is MovieDetailUiState.Success -> {
+                binding.appBarModel = uiState.data.appBarModel
+                binding.isBookmarked = uiState.isBookmarked
+                movieDetailAdapter.submitList(uiState.data.detailData)
+            }
+        }
     }
 }

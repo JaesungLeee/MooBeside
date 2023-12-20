@@ -1,7 +1,7 @@
 package com.jslee.core.ui.extension
 
+import com.jslee.core.ui.UNKNOWN_FIELD
 import java.text.DecimalFormat
-import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -40,7 +40,10 @@ fun String.toDisplayDateWithMillisFormat(): String {
     val date = inputFormat.parse(this) ?: throw Exception()
     return outputFormat.format(date)
 }
+
 fun String.toDisplayYear(): String {
+    if (this.isEmpty()) return UNKNOWN_FIELD
+
     val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.KOREA)
     val outputFormat = SimpleDateFormat("yyyy년", Locale.KOREA)
 
