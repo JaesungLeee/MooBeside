@@ -4,6 +4,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.CommonItemDecoration
 import com.jslee.core.ui.decoration.LayoutType
@@ -27,7 +28,7 @@ class NowPlayingFragment :
     private val nowPlayingAdapter: NowPlayingPagingAdapter by lazy {
         NowPlayingPagingAdapter(
             onPosterClick = {
-                val arguments = bundleOf(Pair("movieId", it.movieId))
+                val arguments = bundleOf(Pair(MOVIE_ID_KEY, it.movieId))
                 findNavController().navigate(R.id.action_to_movie_detail, arguments)
             }
         )

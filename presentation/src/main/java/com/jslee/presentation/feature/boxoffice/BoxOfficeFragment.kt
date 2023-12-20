@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.toDisplayedDateWithDay
 import com.jslee.core.ui.extension.toDisplayedPreviousDateWithDay
@@ -43,7 +44,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
     }
 
     private fun navigateToMovieDetail(movieId: Long) {
-        val argument = bundleOf(Pair("movieId", movieId))
+        val argument = bundleOf(Pair(MOVIE_ID_KEY, movieId))
         findNavController().navigate(R.id.action_to_movie_detail, argument)
     }
 

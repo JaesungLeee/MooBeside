@@ -5,6 +5,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
+import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.model.PaddingValues
@@ -115,7 +116,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
      * - 해결 시 navArgs로 전환
      */
     private fun navigateToMovieDetail(movieId: Long) {
-        val bundle = bundleOf("movieId" to movieId)
+        val bundle = bundleOf(MOVIE_ID_KEY to movieId)
         findNavController().navigate(R.id.action_to_movie_detail, bundle)
     }
 }
