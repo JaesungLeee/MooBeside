@@ -1,6 +1,8 @@
 package com.jslee.presentation.feature.bookmark
 
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
@@ -26,8 +28,9 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
 
     private val bookmarkAdapter by lazy {
         BookmarkAdapter(
-            onBookmarkClick = {
-                requireActivity().showToast("북마크 클릭")
+            onBookmarkClick = { movieId ->
+                val args = bundleOf(Pair("movieId", movieId))
+                findNavController().navigate(R.id.action_to_movie_detail, args)
             }
         )
     }
