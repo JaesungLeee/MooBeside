@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
@@ -35,7 +36,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     }
 
     private fun navigateToDetail(movieId: Long) {
-        val argument = bundleOf(Pair("movieId", movieId))
+        val argument = bundleOf(Pair(MOVIE_ID_KEY, movieId))
         findNavController().navigate(R.id.action_to_movie_detail, argument)
     }
 
