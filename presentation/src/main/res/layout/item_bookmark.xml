@@ -34,7 +34,7 @@
 
         <TextView
             android:id="@+id/tv_movie_title"
-            style="@style/MooBesideTextAppearance.Caption1"
+            style="@style/MooBesideTextAppearance.Body1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -50,13 +50,71 @@
             style="@style/MooBesideTextAppearance.Caption2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@{bookmark.summaryInfo}"
             android:textColor="@color/Gray06"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/tv_movie_title"
             app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
             tools:text="2023년·개봉·호러/코미디" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tv_runtime_title, tv_release_date_title" />
+
+        <TextView
+            android:id="@+id/tv_runtime_title"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/text_runtime_title"
+            android:textColor="@color/Gray03"
+            app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_summary_info" />
+
+        <TextView
+            android:id="@+id/tv_runtime"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{bookmark.summaryInfo}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toBottomOf="@id/tv_runtime_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="@id/tv_runtime_title"
+            tools:text="2시간 37분" />
+
+        <TextView
+            android:id="@+id/tv_release_date_title"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/text_release_date_title"
+            android:textColor="@color/Gray03"
+            app:layout_constraintStart_toStartOf="@id/tv_runtime_title"
+            app:layout_constraintBottom_toBottomOf="@id/iv_poster"
+            app:layout_constraintTop_toBottomOf="@id/tv_runtime_title" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{bookmark.summaryInfo}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toBottomOf="@id/tv_release_date_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="@id/tv_release_date_title"
+            tools:text="2023년 12월 20일" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
