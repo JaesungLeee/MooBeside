@@ -70,7 +70,7 @@ class MovieDetailViewModel @Inject constructor(
     }
 
     fun toggleBookmark(movieId: Long) {
-        val uiState = detailUiState.value
+        val uiState = _detailUiState.value
         if (uiState !is MovieDetailUiState.Success) return
 
         val uiModel = uiState.data
