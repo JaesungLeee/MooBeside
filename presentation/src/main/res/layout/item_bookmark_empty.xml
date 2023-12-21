@@ -5,9 +5,41 @@
 
     </data>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Empty" />
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            style="@style/MooBesideTextAppearance.Body1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text="@string/text_bookmark_empty_title" />
+
+        <TextView
+            style="@style/MooBesideTextAppearance.Body2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/text_bookmark_empty_sub_title"
+            android:textColor="@color/Gray06" />
+
+        <TextView
+            android:id="@+id/btn_navigate_home"
+            style="@style/MooBesideTextAppearance.Caption1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/bg_blurple100_radius_8"
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="8dp"
+            android:text="@string/text_home_button"
+            android:textColor="@color/Blurple900" />
+
+    </LinearLayout>
 </layout>
