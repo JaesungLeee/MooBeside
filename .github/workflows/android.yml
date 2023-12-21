@@ -41,7 +41,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Generate local.properties
-        run: |
+        run:
           echo KOBIS_API_KEY=\"$KOBIS_API_KEY\" >> local.properties
           echo TMDB_API_KEY=\"$TMDB_API_KEY\" >> local.properties
           echo YOUTUBE_API_KEY=\"$YOUTUBE_API_KEY\" >> local.properties
@@ -50,6 +50,10 @@ jobs:
           KOBIS_API_KEY: ${{ secrets.KOBIS_API_KEY }}
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+      - name: Set google-services.json
+        run:
+          echo "${{ secrets.GOOGLE_SERVICE_JSON }}" > ./app/google-services.json
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
