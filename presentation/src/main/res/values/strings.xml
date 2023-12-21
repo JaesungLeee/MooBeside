@@ -23,6 +23,9 @@
     <string name="text_confirm">확인</string>
     <string name="text_runtime_title">상영 시간</string>
     <string name="text_release_date_title">국내 개봉일</string>
+    <string name="text_bookmark_empty_title">저장한 영화가 없어요.</string>
+    <string name="text_bookmark_empty_sub_title">영화 상세페이지의 ♡를 눌러서 관심있는 영화를 저장해보세요.</string>
+    <string name="text_home_button">홈으로 이동하기</string>
 
     <!-- description -->
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
