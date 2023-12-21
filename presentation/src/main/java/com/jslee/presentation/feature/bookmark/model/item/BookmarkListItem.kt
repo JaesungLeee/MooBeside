@@ -10,7 +10,9 @@ import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
  */
 sealed class BookmarkListItem(override val viewType: BookmarkViewType) : ListItem {
     enum class BookmarkViewType {
-        BOOKMARK, TOTAL_COUNT;
+        TOTAL_COUNT,
+        BOOKMARK,
+        EMPTY;
     }
 
     data class TotalCount(
@@ -22,4 +24,8 @@ sealed class BookmarkListItem(override val viewType: BookmarkViewType) : ListIte
         override val id: Long,
         val bookmarkData: List<BookmarkUiModel>,
     ) : BookmarkListItem(BookmarkViewType.BOOKMARK)
+
+    data class EmptyBookmark(
+        override val id: Long,
+    ) : BookmarkListItem(BookmarkViewType.EMPTY)
 }
