@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.bookmark
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
+import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
 import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem
 import com.jslee.presentation.feature.bookmark.model.toBookmarkUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -29,7 +29,8 @@ class BookmarkViewModel @Inject constructor(
     val errorFlow = _errorFlow.asSharedFlow()
 
     val bookmarks = getBookmarkUseCase().map { bookmarkMovies ->
-        mapToBookmarkListItem(bookmarkMovies)
+        val bookmarks = bookmarkMovies.map { it.toBookmarkUiModel() }
+        mapToBookmarkListItems(bookmarks)
     }.catch {
         _errorFlow.emit(it)
     }.stateIn(
@@ -38,23 +39,29 @@ class BookmarkViewModel @Inject constructor(
         initialValue = emptyList()
     )
 
-    private fun mapToBookmarkListItem(fetchedBookmarks: List<Movie>): List<BookmarkListItem> {
-        val bookmarks = fetchedBookmarks.map { it.toBookmarkUiModel() }
-        val bookmarkScreenItems = mutableListOf<BookmarkListItem>()
-        bookmarkScreenItems.apply {
+    private fun mapToBookmarkListItems(bookmarks: List<BookmarkUiModel>): List<BookmarkListItem> {
+        val bookmarkListItems = mutableListOf<BookmarkListItem>()
+        bookmarkListItems.apply {
             add(
                 BookmarkListItem.TotalCount(
                     id = 0,
                     count = "총 ${bookmarks.size}개"
                 )
             )
+            if (bookmarks.isEmpty()) {
+                add(
+                    BookmarkListItem.EmptyBookmark(
+                        id = 1
+                    )
+                )
+            }
             add(
                 BookmarkListItem.Bookmark(
-                    id = 1,
+                    id = 2,
                     bookmarkData = bookmarks
                 )
             )
         }
-        return bookmarkScreenItems
+        return bookmarkListItems
     }
 }

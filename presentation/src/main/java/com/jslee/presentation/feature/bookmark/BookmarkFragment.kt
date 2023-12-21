@@ -5,7 +5,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
-import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBookmarkBinding
 import com.jslee.presentation.feature.bookmark.FilterBottomSheetFragment.Companion.FILTER_BOTTOM_SHEET_TAG
