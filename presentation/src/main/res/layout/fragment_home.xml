@@ -25,7 +25,7 @@
                 app:menu="@menu/menu_screening"
                 app:title="무비사이드"
                 app:titleMarginStart="28dp"
-                app:titleTextColor="@color/Blurple" />
+                app:titleTextColor="@color/Blurple900" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
