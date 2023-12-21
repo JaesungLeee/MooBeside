@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_blurple_radius_4"
+            android:background="@drawable/bg_blurple900_radius_4"
             android:paddingHorizontal="12dp"
             android:paddingVertical="8dp"
             app:layout_constraintEnd_toEndOf="parent"

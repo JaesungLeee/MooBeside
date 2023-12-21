@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:text="@{boxOffice.averageAudienceGrowth}"
-                android:textColor="@color/Blurple"
+                android:textColor="@color/Blurple900"
                 app:layout_constraintBaseline_toBaselineOf="@id/tv_audience_amount"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tv_audience_amount"
