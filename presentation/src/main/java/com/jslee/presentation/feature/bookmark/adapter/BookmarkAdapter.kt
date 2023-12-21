@@ -19,6 +19,7 @@ import com.jslee.presentation.feature.bookmark.viewholder.EmptyBookmarkViewHolde
  */
 class BookmarkAdapter(
     private val onBookmarkClick: (Long) -> Unit,
+    private val onNavigateHome: () -> Unit,
 ) : MultiViewTypeListAdapter<BookmarkListItem, BookmarkListItem.BookmarkViewType>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -37,7 +38,8 @@ class BookmarkAdapter(
             )
 
             BookmarkListItem.BookmarkViewType.EMPTY -> EmptyBookmarkViewHolder(
-                ItemBookmarkEmptyBinding.inflate(inflater, parent, false)
+                ItemBookmarkEmptyBinding.inflate(inflater, parent, false),
+                onNavigateHome = onNavigateHome
             )
         }
     }

@@ -11,9 +11,12 @@ import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem
  */
 class EmptyBookmarkViewHolder(
     private val binding: ItemBookmarkEmptyBinding,
+    onNavigateHome: () -> Unit,
 ) : BaseViewHolder<BookmarkListItem.EmptyBookmark>(binding) {
 
-    override fun bindItems(item: BookmarkListItem.EmptyBookmark) {
-
+    init {
+        binding.btnNavigateHome.setOnClickListener {
+            onNavigateHome()
+        }
     }
 }

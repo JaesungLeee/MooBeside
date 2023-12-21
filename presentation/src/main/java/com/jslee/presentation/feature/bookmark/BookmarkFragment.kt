@@ -31,6 +31,9 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
             onBookmarkClick = { movieId ->
                 val args = bundleOf(Pair(MOVIE_ID_KEY, movieId))
                 findNavController().navigate(R.id.action_to_movie_detail, args)
+            },
+            onNavigateHome = {
+                findNavController().popBackStack()
             }
         )
     }
