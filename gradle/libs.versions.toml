@@ -23,6 +23,7 @@ javax-inject = "1"
 hilt = "2.44"
 material = "1.9.0"
 flexbox = "3.0.0"
+firebase-bom = "32.3.1"
 
 # squareup
 retrofit = "2.9.0"
@@ -70,6 +71,9 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-dynaimc-link = { group = "com.google.firebase", name = "firebase-dynamic-links-ktx" }
+
 # squareup
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
