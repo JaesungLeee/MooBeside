@@ -15,7 +15,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KOBIS_API_KEY", getApiKey("KOBIS_API_KEY"))
