@@ -59,9 +59,6 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.dynaimc.link)
     
     implementation(libs.timber)
     testImplementation(libs.junit)
