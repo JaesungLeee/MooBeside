@@ -13,7 +13,7 @@ interface DeepLinkLauncher {
     fun extractMovieIdFromFirebaseLink(
         intent: Intent?,
         onSuccess: (String?) -> Unit,
-        fallback: (Throwable) -> Unit,
+        onFailure: (Throwable) -> Unit,
     )
 
     fun createDetailFirebaseLink(
@@ -22,6 +22,6 @@ interface DeepLinkLauncher {
         metaTagTitle: String,
         metaTagDescription: String,
         onSuccess: (Uri) -> Unit,
-        fallback: (Throwable) -> Unit,
+        onFailure: (Throwable) -> Unit,
     )
 }

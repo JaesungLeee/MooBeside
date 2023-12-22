@@ -20,7 +20,7 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
     override fun extractMovieIdFromFirebaseLink(
         intent: Intent?,
         onSuccess: (String?) -> Unit,
-        fallback: (Throwable) -> Unit,
+        onFailure: (Throwable) -> Unit,
     ) {
         deepLinkDelegate.getDynamicLink(intent).addOnSuccessListener { pendingLinkData ->
             val deepLink = pendingLinkData?.link
@@ -32,7 +32,7 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
                 onSuccess(null)
             }
         }.addOnFailureListener {
-            fallback(it)
+            onFailure(it)
         }
     }
 
@@ -42,10 +42,10 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
         metaTagTitle: String,
         metaTagDescription: String,
         onSuccess: (Uri) -> Unit,
-        fallback: (Throwable) -> Unit,
+        onFailure: (Throwable) -> Unit,
     ) {
         val firebaseLink = deepLinkDelegate.createDynamicLink()
-            .setLink(Uri.parse("$MOOBESIDE_DEEP_LINK_URI/$MOVIE_DETAIL_PATH?$MOVIE_ID=$movieId"))
+            .setLink(Uri.parse("$MOOBESIDE_DEEP_LINK_URI$MOVIE_DETAIL_PATH?$MOVIE_ID=$movieId"))
             .setDomainUriPrefix(MOOBESIDE_DOMAIN_URI_PREFIX)
             .setAndroidParameters(
                 DynamicLink.AndroidParameters.Builder(MOOBESIDE_ANDROID_PACKAGE)
@@ -65,7 +65,7 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
         firebaseLink.addOnSuccessListener {
             it.shortLink?.let { uri -> onSuccess(uri) }
         }.addOnFailureListener {
-            fallback(it)
+            onFailure(it)
         }
     }
 }
