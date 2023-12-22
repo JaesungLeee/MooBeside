@@ -1,5 +1,6 @@
 package com.jslee.presentation.feature.detail
 
+import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,7 +17,6 @@ import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import timber.log.Timber
 import javax.inject.Inject
 import com.jslee.core.designsystem.R as DR
 
@@ -68,7 +68,23 @@ class MovieDetailFragment :
         }
 
         binding.ivShare.setOnClickListener {
-            requireActivity().showToast("공유")
+            viewModel.createDynamicLink(movieId) { uri ->
+                ShareCompat.IntentBuilder(requireContext())
+                    .setType("text/plain")
+                    .setChooserTitle(
+                        requireContext().getString(
+                            R.string.action_share_chooser_title,
+                            viewModel.movieName.value
+                        )
+                    )
+                    .setText(
+                        requireContext().getString(
+                            R.string.action_movie_detail_deep_link,
+                            uri
+                        )
+                    )
+                    .startChooser()
+            }
         }
 
         binding.ivHeart.setOnClickListener {

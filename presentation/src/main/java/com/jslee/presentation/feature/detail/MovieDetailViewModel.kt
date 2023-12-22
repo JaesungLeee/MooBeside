@@ -1,7 +1,9 @@
 package com.jslee.presentation.feature.detail
 
+import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jslee.core.deeplink.DeepLinkLauncher
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.domain.usecase.bookmark.BookmarkUseCase
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
@@ -27,6 +29,7 @@ class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase,
     private val bookmarkUseCase: BookmarkUseCase,
     private val getAllBookmarkUseCase: GetBookmarkUseCase,
+    private val deepLinkLauncher: DeepLinkLauncher,
 ) : ViewModel() {
 
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
@@ -83,6 +86,29 @@ class MovieDetailViewModel @Inject constructor(
                 Timber.e("$it")
             }
         }
+    }
+
+    fun createDynamicLink(
+        movieId: Long,
+        onSuccess: (Uri) -> Unit,
+    ) {
+        val uiState = _detailUiState.value
+        if (uiState !is MovieDetailUiState.Success) return
+
+        val movieName = uiState.data.appBarModel.movieName
+        val movieImageUrl = uiState.data.appBarModel.posterImageUrl
+        val genres = uiState.data.appBarModel.genres.joinToString(", ")
+
+        deepLinkLauncher.createDetailFirebaseLink(
+            movieId = movieId.toString(),
+            metaTagImageUrl = movieImageUrl ?: "",
+            metaTagTitle = movieName,
+            metaTagDescription = genres,
+            onSuccess = onSuccess,
+            onFailure = {
+                Timber.e(it)
+            }
+        )
     }
 }
 
