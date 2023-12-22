@@ -20,6 +20,7 @@ kotlinx-serialization-json = "1.4.0"
 javax-inject = "1"
 
 # google
+google_services = "4.3.15"
 hilt = "2.44"
 material = "1.9.0"
 flexbox = "3.0.0"
@@ -100,6 +101,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google_services" }
 
 [bundles]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
