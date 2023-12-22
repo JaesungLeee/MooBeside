@@ -74,6 +74,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 flexbox = { group = "com.google.android.flexbox", name = "flexbox", version.ref = "flexbox" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
 firebase-dynaimc-link = { group = "com.google.firebase", name = "firebase-dynamic-links-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 
 # squareup
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
