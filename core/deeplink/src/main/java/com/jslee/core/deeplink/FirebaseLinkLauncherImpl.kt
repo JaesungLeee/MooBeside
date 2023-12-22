@@ -17,7 +17,7 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
 
     private val deepLinkDelegate by lazy { Firebase.dynamicLinks }
 
-    override fun getMovieIdFromFirebaseLink(
+    override fun extractMovieIdFromFirebaseLink(
         intent: Intent?,
         onSuccess: (String?) -> Unit,
         fallback: (Throwable) -> Unit,
