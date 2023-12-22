@@ -49,8 +49,8 @@ internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher
             .setDomainUriPrefix(MOOBESIDE_DOMAIN_URI_PREFIX)
             .setAndroidParameters(
                 DynamicLink.AndroidParameters.Builder(MOOBESIDE_ANDROID_PACKAGE)
-                    .setMinimumVersion(24)
-                    .setFallbackUrl(Uri.parse(""))
+                    .setMinimumVersion(1)
+                    .setFallbackUrl(Uri.parse(PLAY_STORE_URL))
                     .build()
             )
             .setSocialMetaTagParameters(

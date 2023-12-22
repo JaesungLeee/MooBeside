@@ -12,3 +12,5 @@ internal const val MOVIE_ID = "movieId"
 internal const val MOOBESIDE_ANDROID_PACKAGE = "com.jslee.moobeside"
 internal const val MOOBESIDE_DOMAIN_URI_PREFIX = "https://moobeside.page.link"
 internal const val MOOBESIDE_DEEP_LINK_URI = "https://moobeside.link/"
+
+internal const val PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.jslee.moobeside"
