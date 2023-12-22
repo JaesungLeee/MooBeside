@@ -10,7 +10,7 @@ import android.net.Uri
  */
 interface DeepLinkLauncher {
 
-    fun getMovieIdFromFirebaseLink(
+    fun extractMovieIdFromFirebaseLink(
         intent: Intent?,
         onSuccess: (String?) -> Unit,
         fallback: (Throwable) -> Unit,
