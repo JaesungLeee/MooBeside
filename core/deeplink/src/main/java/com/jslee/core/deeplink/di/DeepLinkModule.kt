@@ -5,8 +5,8 @@ import com.jslee.core.deeplink.FirebaseLinkLauncherImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.FragmentComponent
-import dagger.hilt.android.scopes.FragmentScoped
+import dagger.hilt.android.components.ViewModelComponent
+import dagger.hilt.android.scopes.ViewModelScoped
 
 /**
  * MooBeside
@@ -14,10 +14,10 @@ import dagger.hilt.android.scopes.FragmentScoped
  * @created 2023/12/22
  */
 @Module
-@InstallIn(FragmentComponent::class)
+@InstallIn(ViewModelComponent::class)
 internal abstract class DeepLinkModule {
 
     @Binds
-    @FragmentScoped
+    @ViewModelScoped
     abstract fun bindDeepLinkLauncher(deepLinkLauncherImpl: FirebaseLinkLauncherImpl): DeepLinkLauncher
 }
