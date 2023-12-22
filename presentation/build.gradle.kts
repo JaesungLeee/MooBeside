@@ -44,6 +44,7 @@ dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
     implementation(project(":core:external"))
+    implementation(project(":core:deeplink"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
