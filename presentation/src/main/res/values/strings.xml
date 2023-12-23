@@ -1,4 +1,5 @@
 <resources>
+    <string name="kakao_scheme">kakaoa96b48a3aba5a417baf369ce5f8f5117</string>
     <!-- toolbar title -->
     <string name="toolbar_search">검색</string>
     <string name="toolbar_now_playing">현재 상영중</string>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application>
         <activity
             android:name=".feature.MainActivity"
             android:exported="true">
 
-            <nav-graph android:value="@navigation/navigation_bottom_bar"  />
+            <nav-graph android:value="@navigation/navigation_bottom_bar" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -14,13 +15,18 @@
             </intent-filter>
 
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
                     android:host="moobeside.link"
                     android:scheme="https" />
+
+                <data
+                    android:host="kakaolink"
+                    android:scheme="@string/kakao_scheme" />
             </intent-filter>
         </activity>
     </application>
