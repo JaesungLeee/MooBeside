@@ -68,7 +68,7 @@ class MovieDetailFragment :
         }
 
         binding.ivShare.setOnClickListener {
-            viewModel.createDynamicLink(movieId) { uri ->
+            viewModel.createDynamicLink(safeArgs.movieId) { uri ->
                 ShareCompat.IntentBuilder(requireContext())
                     .setType("text/plain")
                     .setChooserTitle(
