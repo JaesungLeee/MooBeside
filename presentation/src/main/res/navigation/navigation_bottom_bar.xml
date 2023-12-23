@@ -15,7 +15,11 @@
         android:label="MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
 
-        <argument android:name="movieId"
+        <deepLink android:autoVerify="true"
+            app:uri="https://moobeside.link/detail?movieId={movieId}" />
+
+        <argument
+            android:name="movieId"
             app:argType="long" />
     </fragment>
 
