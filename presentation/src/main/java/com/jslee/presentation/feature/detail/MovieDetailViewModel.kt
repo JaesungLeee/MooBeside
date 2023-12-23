@@ -35,6 +35,9 @@ class MovieDetailViewModel @Inject constructor(
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
     val movieName = _movieName.asStateFlow()
 
+    private val _movieId: MutableStateFlow<Long> = MutableStateFlow(0)
+    val movieId = _movieId.asStateFlow()
+
     private val _detailUiState: MutableStateFlow<MovieDetailUiState> =
         MutableStateFlow(MovieDetailUiState.Loading)
     val detailUiState = _detailUiState.asStateFlow()
@@ -57,6 +60,10 @@ class MovieDetailViewModel @Inject constructor(
                 _detailUiState.value = it
             }
         }
+    }
+
+    fun setMovieId(movieId: Long) {
+        _movieId.value = movieId
     }
 
     fun getMovieDetails(movieId: Long) {
@@ -109,6 +116,10 @@ class MovieDetailViewModel @Inject constructor(
                 Timber.e(it)
             }
         )
+    }
+
+    fun shareKakaoLink() {
+        Timber.e("Share Kakao")
     }
 }
 
