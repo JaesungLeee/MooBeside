@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "337555925686",
+    "project_id": "moobeside-403609",
+    "storage_bucket": "moobeside-403609.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:337555925686:android:53d6ef65999510643c1417",
+        "android_client_info": {
+          "package_name": "com.jslee.moobeside"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIU4IZjgXNH3X1HhyDooe69e2M9TqfG7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

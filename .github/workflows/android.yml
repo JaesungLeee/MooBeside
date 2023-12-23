@@ -51,9 +51,9 @@ jobs:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
-      - name: Set google-services.json
-        run:
-          echo "${{ secrets.GOOGLE_SERVICE_JSON }}" > ./app/google-services.json
+#      - name: Set google-services.json
+#        run:
+#          echo "${{ secrets.GOOGLE_SERVICE_JSON }}" > ./app/google-services.json
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
