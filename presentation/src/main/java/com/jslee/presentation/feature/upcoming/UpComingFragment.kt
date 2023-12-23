@@ -1,15 +1,14 @@
 package com.jslee.presentation.feature.upcoming
 
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.CommonItemDecoration
 import com.jslee.core.ui.decoration.LayoutType
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentUpComingBinding
+import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -26,8 +25,8 @@ class UpComingFragment : BaseFragment<FragmentUpComingBinding>(R.layout.fragment
     private val upComingPagingAdapter: UpComingPagingAdapter by lazy {
         UpComingPagingAdapter(
             onPosterClick = {
-                val argument = bundleOf(Pair(MOVIE_ID_KEY, it.movieId))
-                findNavController().navigate(R.id.action_to_movie_detail, argument)
+                val action = MovieDetailFragmentDirections.actionToMovieDetail(it.movieId)
+                findNavController().navigate(action)
             }
         )
     }

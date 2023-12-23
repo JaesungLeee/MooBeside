@@ -13,7 +13,11 @@
         android:id="@+id/movieDetailFragment"
         android:name="com.jslee.presentation.feature.detail.MovieDetailFragment"
         android:label="MovieDetailFragment"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
+
+        <argument android:name="movieId"
+            app:argType="long" />
+    </fragment>
 
     <action
         android:id="@+id/action_to_movie_detail"

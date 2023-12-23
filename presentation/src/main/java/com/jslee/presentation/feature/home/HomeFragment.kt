@@ -1,16 +1,15 @@
 package com.jslee.presentation.feature.home
 
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
-import com.jslee.core.ui.MOVIE_ID_KEY
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
+import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import com.jslee.presentation.feature.home.adapter.HomeAdapter
 import com.jslee.presentation.feature.home.model.BannerUiModel
 import com.jslee.presentation.feature.home.model.NowPlayingUiModel
@@ -107,16 +106,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         6 -> findNavController().navigate(R.id.action_home_to_upComing)
         else -> Unit
     }
-
-
-    /**
-     * Android Studio Giraffe에서 발생중인 이슈
-     * - navArgs 사용 시 argument name에서 에러 발생
-     * - https://issuetracker.google.com/issues/293665984
-     * - 해결 시 navArgs로 전환
-     */
+    
     private fun navigateToMovieDetail(movieId: Long) {
-        val bundle = bundleOf(MOVIE_ID_KEY to movieId)
-        findNavController().navigate(R.id.action_to_movie_detail, bundle)
+        val action = MovieDetailFragmentDirections.actionToMovieDetail(movieId)
+        findNavController().navigate(action)
     }
 }
