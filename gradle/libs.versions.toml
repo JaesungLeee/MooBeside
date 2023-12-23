@@ -40,6 +40,7 @@ glide = "4.13.2"
 timber = "5.0.1"
 retrofit2-kotlinx-serialization-conveter = "0.8.0"
 balloon = "1.5.4"
+kakao-share = "2.19.0"
 
 [libraries]
 # androidx
@@ -86,12 +87,21 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 
-# 3rd party
+# glide
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
 glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+
+# logger
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+
+# converter
 retrofit-kotlinx-serialization-conveter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2-kotlinx-serialization-conveter" }
+
+# balloon
 balloon = { group = "com.github.skydoves", name = "balloon", version.ref = "balloon" }
+
+# kakao
+kakao-share = { group = "com.kakao.sdk", name = "v2-share", version.ref = "kakao-share" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
