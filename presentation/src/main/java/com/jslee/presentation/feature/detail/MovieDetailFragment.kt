@@ -1,8 +1,7 @@
 package com.jslee.presentation.feature.detail
 
-import androidx.core.app.ShareCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.jslee.core.external.ExternalLauncher
@@ -14,6 +13,7 @@ import com.jslee.core.ui.extension.showToast
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
+import com.jslee.presentation.feature.detail.ShareBottomSheetFragment.Companion.SHARE_BOTTOM_SHEET_TAG
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -32,7 +32,7 @@ class MovieDetailFragment :
     @Inject
     lateinit var externalLauncher: ExternalLauncher
 
-    private val viewModel: MovieDetailViewModel by viewModels()
+    private val viewModel: MovieDetailViewModel by activityViewModels()
     private val safeArgs: MovieDetailFragmentArgs by navArgs()
     private val movieDetailAdapter by lazy {
         MovieDetailAdapter(
@@ -50,7 +50,9 @@ class MovieDetailFragment :
     }
 
     override fun initViews() {
+        viewModel.setMovieId(safeArgs.movieId)
         viewModel.getMovieDetails(safeArgs.movieId)
+
         initRecyclerView()
         initClickListener()
         setActionBarCollapsedListener()
@@ -68,23 +70,8 @@ class MovieDetailFragment :
         }
 
         binding.ivShare.setOnClickListener {
-            viewModel.createDynamicLink(safeArgs.movieId) { uri ->
-                ShareCompat.IntentBuilder(requireContext())
-                    .setType("text/plain")
-                    .setChooserTitle(
-                        requireContext().getString(
-                            R.string.action_share_chooser_title,
-                            viewModel.movieName.value
-                        )
-                    )
-                    .setText(
-                        requireContext().getString(
-                            R.string.action_movie_detail_deep_link,
-                            uri
-                        )
-                    )
-                    .startChooser()
-            }
+            val bottomSheet = ShareBottomSheetFragment()
+            bottomSheet.show(childFragmentManager, SHARE_BOTTOM_SHEET_TAG)
         }
 
         binding.ivHeart.setOnClickListener {
