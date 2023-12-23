@@ -7,5 +7,3 @@ package com.jslee.core.ui
  */
 
 const val UNKNOWN_FIELD = "확인불가"
-
-const val MOVIE_ID_KEY = "movieId"

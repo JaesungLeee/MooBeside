@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.detail
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.jslee.core.external.ExternalLauncher
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
@@ -32,7 +33,7 @@ class MovieDetailFragment :
     lateinit var externalLauncher: ExternalLauncher
 
     private val viewModel: MovieDetailViewModel by viewModels()
-    private val movieId: Long by lazy { arguments?.getLong("movieId") ?: 0L }
+    private val safeArgs: MovieDetailFragmentArgs by navArgs()
     private val movieDetailAdapter by lazy {
         MovieDetailAdapter(
             onTrailerClick = { videoId ->
@@ -49,18 +50,10 @@ class MovieDetailFragment :
     }
 
     override fun initViews() {
-//        runCatching {
-//            requireArguments().getLong("movieId")
-//        }.onSuccess {
-//            viewModel.getMovieDetails(it)
-//        }.getOrElse {
-//            requireActivity().showToast("Error !!")
-//        }
-        viewModel.getMovieDetails(movieId)
+        viewModel.getMovieDetails(safeArgs.movieId)
         initRecyclerView()
         initClickListener()
         setActionBarCollapsedListener()
-
     }
 
     private fun initRecyclerView() = with(binding.rvMovieDetail) {
@@ -79,7 +72,7 @@ class MovieDetailFragment :
         }
 
         binding.ivHeart.setOnClickListener {
-            viewModel.toggleBookmark(movieId)
+            viewModel.toggleBookmark(safeArgs.movieId)
         }
     }
 
