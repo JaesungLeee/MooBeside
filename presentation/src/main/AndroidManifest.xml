@@ -5,6 +5,8 @@
             android:name=".feature.MainActivity"
             android:exported="true">
 
+            <nav-graph android:value="@navigation/navigation_bottom_bar"  />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
