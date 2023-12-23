@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MooBeside</string>
+    <string name="kakao_native_key">a96b48a3aba5a417baf369ce5f8f5117</string>
 </resources>
