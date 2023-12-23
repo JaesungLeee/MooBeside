@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     alias(libs.plugins.android.application)
@@ -53,6 +55,7 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.timber)
+    implementation(libs.kakao.share)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
