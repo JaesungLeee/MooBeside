@@ -1,15 +1,17 @@
+# ⚙️ In Progress
+
 <h1 align="center">MooBeside</h1>
 
 <p align="center">
 <a href="[https://kotlinlang.org](https://kotlinlang.org/)"><img alt="Kotlin Version" src="https://img.shields.io/badge/Kotlin-1.8.0-blueviolet.svg?style=flat"/></a>
 <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-24%2B-brightgreen.svg?style=flat"/></a>
-<a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="AGP" src="https://img.shields.io/badge/AGP-8.1.0-blue?style=flat"/></a>
+<a href="https://developer.android.com/studio/releases/gradle-plugin"><img alt="AGP" src="https://img.shields.io/badge/AGP-8.2.0-blue?style=flat"/></a>
 <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 </p>
 
-Description
+<!--Description-->
 
-<img src="" />
+<!--<img src="" />-->
 
 ## App Download
 
@@ -21,21 +23,30 @@ Description
 
 ### Android
 
-- Minimum SDK level 23
-- [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
-- JetPack
-    - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Create a UI that automatically responds to lifecycle events.
-    - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Build data objects that notify views when the underlying database changes.
-    - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Store UI related data that isn't destroyed on app rotations.
-    - [Room](https://developer.android.com/training/data-storage/room) - Constructs Database by providing an abstraction layer over SQLite to allow fluent database access.
-    - [DataBinding](https://developer.android.com/topic/libraries/data-binding) - Useful to bind data directly through layouts xml file, so no `findViewById()` anymore.
-    - [Navigation](https://developer.android.com/guide/navigation) - Handles navigating between your app's destinations.
-    - [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) - Data storage solution that uses Kotlin coroutines and Flow to store data asynchronously, consistently, and transactionally.
-- [Hilt](https://dagger.dev/hilt/) - Dependency injection.
-- [Coil](https://coil-kt.github.io/coil/) - An image loading library for Android backed by Kotlin Coroutines.
-- [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - Construct the REST APIs.
-  
+- Minimum SDK level 24
+- Target SDK level 33
+- [Kotlin](https://kotlinlang.org/)
+- [Android View System](https://developer.android.com/guide/topics/ui/declaring-layout?hl=ko)
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) 기반 비동기 처리
+- Jetpack
+    - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - 구성 변경에도 UI 데이터를 보존할 수 있는 StateHolder를 제공하는 라이브러리
+    - [Navigation](https://developer.android.com/guide/navigation) - 화면(with Composable) 간의 이동을 지원하는 라이브러리
+    - [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview) - 대량의 데이터 로드 시, 네트워크 대역폭과 시스템 리소스를 효율적으로 사용할 수 있도록 Page 단위 로딩을 지원하는 라이브러리
+    - [DataBinding](https://developer.android.com/topic/libraries/data-binding) for XML - 데이터를 레이아웃에 직접 바인딩 가능하게 함으로서 기존 `findViewById`를 대체하는 라이브러리
+- [Hilt](https://dagger.dev/hilt/) - Dagger 기반의 Android 의존성 주입 라이브러리
+- [Glide](https://bumptech.github.io/glide/) - 빠르고 효율적인 Android 이미지 로딩 라이브러리
+- [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - REST API 통신을 구축하는 라이브러리
+- Firebase
+    - [Firebase Dynamic Links](https://firebase.google.com/docs/dynamic-links?hl=ko) - 앱 설치 여부에 관계없이 여러 플랫폼에서 원하는 대로 작동하는 링크
+- Kakao
+    - [Kakao Share](https://developers.kakao.com/docs/latest/ko/message/android-link) - 사용자가 카카오톡 친구에게 카카오톡 메시지를 통해 공유할 수 있는 기능 지원
 
+### Gradle
+
+- Version Catalog 를 활용하여 의존성 라이브러리들과 플러그인을 관리합니다.
+
+  
+<!--
 ## Features
 
 > feature 1
@@ -96,29 +107,5 @@ Description
 <img width = '900' src = ''>
 </p>
 
-
-## License
-``` xml
-MIT License
-
-Copyright (c) 2023 Jaesung Lee
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
 ```
+-->
