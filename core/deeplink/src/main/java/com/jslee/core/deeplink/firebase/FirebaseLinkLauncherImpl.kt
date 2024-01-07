@@ -1,4 +1,4 @@
-package com.jslee.core.deeplink
+package com.jslee.core.deeplink.firebase
 
 import android.content.Intent
 import android.net.Uri
@@ -6,6 +6,13 @@ import com.google.firebase.dynamiclinks.DynamicLink
 import com.google.firebase.dynamiclinks.ShortDynamicLink
 import com.google.firebase.dynamiclinks.ktx.dynamicLinks
 import com.google.firebase.ktx.Firebase
+import com.jslee.core.deeplink.DeepLinkLauncher
+import com.jslee.core.deeplink.MOOBESIDE_ANDROID_PACKAGE
+import com.jslee.core.deeplink.MOOBESIDE_DEEP_LINK_URI
+import com.jslee.core.deeplink.MOOBESIDE_DOMAIN_URI_PREFIX
+import com.jslee.core.deeplink.MOVIE_DETAIL_PATH
+import com.jslee.core.deeplink.MOVIE_ID
+import com.jslee.core.deeplink.PLAY_STORE_URL
 import javax.inject.Inject
 
 /**
@@ -13,7 +20,7 @@ import javax.inject.Inject
  * @author jaesung
  * @created 2023/12/22
  */
-internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher {
+internal class FirebaseLinkLauncherImpl @Inject constructor() : DeepLinkLauncher() {
 
     private val deepLinkDelegate by lazy { Firebase.dynamicLinks }
 

@@ -1,7 +1,8 @@
 package com.jslee.core.deeplink.di
 
 import com.jslee.core.deeplink.DeepLinkLauncher
-import com.jslee.core.deeplink.FirebaseLinkLauncherImpl
+import com.jslee.core.deeplink.firebase.FirebaseLinkLauncherImpl
+import com.jslee.core.deeplink.kakao.KakaoLinkLauncherImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -19,5 +20,11 @@ internal abstract class DeepLinkModule {
 
     @Binds
     @ViewModelScoped
-    abstract fun bindDeepLinkLauncher(deepLinkLauncherImpl: FirebaseLinkLauncherImpl): DeepLinkLauncher
+    @Firebase
+    abstract fun bindFirebaseLinkLauncher(linkLauncherImpl: FirebaseLinkLauncherImpl): DeepLinkLauncher
+
+    @Binds
+    @ViewModelScoped
+    @Kakao
+    abstract fun bindKakaoLinkLauncher(linkLauncherImpl: KakaoLinkLauncherImpl): DeepLinkLauncher
 }

@@ -42,4 +42,5 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.dynaimc.link)
     implementation(libs.firebase.analytics)
+    implementation(libs.kakao.share)
 }
