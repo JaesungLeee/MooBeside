@@ -1,9 +1,12 @@
 package com.jslee.presentation.feature.detail
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.core.deeplink.DeepLinkLauncher
+import com.jslee.core.deeplink.di.Kakao
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.domain.usecase.bookmark.BookmarkUseCase
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
@@ -29,7 +32,7 @@ class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase,
     private val bookmarkUseCase: BookmarkUseCase,
     private val getAllBookmarkUseCase: GetBookmarkUseCase,
-    private val deepLinkLauncher: DeepLinkLauncher,
+    @Kakao private val deepLinkLauncher: DeepLinkLauncher,
 ) : ViewModel() {
 
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
@@ -108,7 +111,7 @@ class MovieDetailViewModel @Inject constructor(
 
         deepLinkLauncher.createDetailFirebaseLink(
             movieId = movieId.toString(),
-            metaTagImageUrl = movieImageUrl ?: "",
+            metaTagImageUrl = movieImageUrl.orEmpty(),
             metaTagTitle = movieName,
             metaTagDescription = genres,
             onSuccess = onSuccess,
@@ -118,8 +121,28 @@ class MovieDetailViewModel @Inject constructor(
         )
     }
 
-    fun shareKakaoLink() {
-        Timber.e("Share Kakao")
+    fun shareKakaoLink(
+        context: Context,
+        movieId: Long,
+        onSuccess: (Intent) -> Unit,
+        onFailure: (String?) -> Unit,
+    ) {
+        val uiState = _detailUiState.value
+        if (uiState !is MovieDetailUiState.Success) return
+
+        val movieName = uiState.data.appBarModel.movieName
+        val movieImageUrl = uiState.data.appBarModel.posterImageUrl
+        val genres = uiState.data.appBarModel.genres.joinToString(", ")
+
+        deepLinkLauncher.shareDetailKakaoLink(
+            context = context,
+            movieId = movieId.toString(),
+            movieTitle = movieName,
+            movieImageUrl = movieImageUrl.orEmpty(),
+            movieDescription = genres,
+            onSuccess = onSuccess,
+            onFailure = onFailure
+        )
     }
 }
 

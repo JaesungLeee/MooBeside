@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import com.jslee.core.deeplink.DeepLinkLauncher
+import com.jslee.core.deeplink.di.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 import javax.inject.Inject
@@ -15,7 +16,7 @@ import javax.inject.Inject
  */
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val deepLinkLauncher: DeepLinkLauncher,
+    @Firebase private val deepLinkLauncher: DeepLinkLauncher,
 ) : ViewModel() {
 
     fun extractMovieIdFromDeepLink(
