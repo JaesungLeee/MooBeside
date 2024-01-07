@@ -2,7 +2,6 @@ package com.jslee.core.deeplink.kakao
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import com.jslee.core.deeplink.DeepLinkLauncher
 import com.jslee.core.deeplink.MOVIE_ID
 import com.kakao.sdk.share.ShareClient
@@ -19,8 +18,16 @@ import javax.inject.Inject
  */
 internal class KakaoLinkLauncherImpl @Inject constructor() : DeepLinkLauncher() {
 
-    override fun extractMovieIdFromKakaoLink() {
-
+    override fun extractMovieIdFromKakaoLink(
+        intent: Intent,
+        onSuccess: (String?) -> Unit,
+        onFailure: (Throwable?) -> Unit,
+    ) {
+        if (intent.action == Intent.ACTION_VIEW) {
+            onSuccess(intent.data?.getQueryParameter(MOVIE_ID))
+        } else {
+            onFailure(null)
+        }
     }
 
     override fun shareDetailKakaoLink(

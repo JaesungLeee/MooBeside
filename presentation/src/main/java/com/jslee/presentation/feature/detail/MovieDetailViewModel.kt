@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.core.deeplink.DeepLinkLauncher
+import com.jslee.core.deeplink.di.Firebase
 import com.jslee.core.deeplink.di.Kakao
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.domain.usecase.bookmark.BookmarkUseCase
@@ -32,7 +33,8 @@ class MovieDetailViewModel @Inject constructor(
     private val getMovieDetailUseCase: GetMovieDetailUseCase,
     private val bookmarkUseCase: BookmarkUseCase,
     private val getAllBookmarkUseCase: GetBookmarkUseCase,
-    @Kakao private val deepLinkLauncher: DeepLinkLauncher,
+    @Kakao private val kakaoLinkLauncher: DeepLinkLauncher,
+    @Firebase private val firebaseLinkLauncher: DeepLinkLauncher
 ) : ViewModel() {
 
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
@@ -109,7 +111,8 @@ class MovieDetailViewModel @Inject constructor(
         val movieImageUrl = uiState.data.appBarModel.posterImageUrl
         val genres = uiState.data.appBarModel.genres.joinToString(", ")
 
-        deepLinkLauncher.createDetailFirebaseLink(
+        Timber.e("Click")
+        firebaseLinkLauncher.createDetailFirebaseLink(
             movieId = movieId.toString(),
             metaTagImageUrl = movieImageUrl.orEmpty(),
             metaTagTitle = movieName,
@@ -134,7 +137,7 @@ class MovieDetailViewModel @Inject constructor(
         val movieImageUrl = uiState.data.appBarModel.posterImageUrl
         val genres = uiState.data.appBarModel.genres.joinToString(", ")
 
-        deepLinkLauncher.shareDetailKakaoLink(
+        kakaoLinkLauncher.shareDetailKakaoLink(
             context = context,
             movieId = movieId.toString(),
             movieTitle = movieName,

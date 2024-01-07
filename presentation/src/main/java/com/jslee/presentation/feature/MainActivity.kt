@@ -2,7 +2,6 @@ package com.jslee.presentation.feature
 
 import android.view.View
 import androidx.activity.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.jslee.core.ui.base.view.BaseActivity
@@ -10,6 +9,7 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ActivityMainBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -39,11 +39,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     }
 
     private fun handleDeepLinkNavigation() {
-        viewModel.extractMovieIdFromDeepLink(intent) { movieId ->
-            if (movieId != null) {
+        viewModel.extractMovieIdFromDeepLink(
+            intent = intent,
+            onSuccess = { movieId ->
                 val action = MovieDetailFragmentDirections.actionToMovieDetail(movieId.toLong())
                 navController.navigate(action)
+            },
+            onFailure = {
+                Timber.e("$it")
             }
-        }
+        )
     }
 }
