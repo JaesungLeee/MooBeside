@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.DialogShareBottomSheetBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,7 +44,21 @@ class ShareBottomSheetFragment : BottomSheetDialogFragment() {
             requireContext().getString(R.string.text_share_title, viewModel.movieName.value)
 
         binding.clShareKakao.setOnClickListener {
-            viewModel.shareKakaoLink()
+            dismiss()
+            viewModel.shareKakaoLink(
+                context = requireActivity(),
+                movieId = viewModel.movieId.value,
+                onSuccess = { intent ->
+                    requireActivity().startActivity(intent)
+                },
+                onFailure = {
+                    if (it.isNullOrBlank()) {
+                        requireActivity().showToast(getString(R.string.action_kakao_share_not_install))
+                    } else {
+                        requireActivity().showToast(getString(R.string.action_kakao_share_common_error))
+                    }
+                }
+            )
         }
 
         binding.clShareOther.setOnClickListener {
