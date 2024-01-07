@@ -26,7 +26,11 @@ abstract class DeepLinkLauncher {
         onFailure: (Throwable) -> Unit,
     ) {}
 
-    open fun extractMovieIdFromKakaoLink() {}
+    open fun extractMovieIdFromKakaoLink(
+        intent: Intent,
+        onSuccess: (String?) -> Unit,
+        onFailure: (Throwable?) -> Unit,
+    ) {}
 
     open fun shareDetailKakaoLink(
         context: Context,

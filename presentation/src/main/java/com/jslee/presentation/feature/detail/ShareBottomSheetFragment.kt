@@ -44,7 +44,6 @@ class ShareBottomSheetFragment : BottomSheetDialogFragment() {
             requireContext().getString(R.string.text_share_title, viewModel.movieName.value)
 
         binding.clShareKakao.setOnClickListener {
-            dismiss()
             viewModel.shareKakaoLink(
                 context = requireActivity(),
                 movieId = viewModel.movieId.value,
@@ -62,7 +61,6 @@ class ShareBottomSheetFragment : BottomSheetDialogFragment() {
         }
 
         binding.clShareOther.setOnClickListener {
-            dismiss()
             viewModel.createDynamicLink(viewModel.movieId.value) { uri ->
                 ShareCompat.IntentBuilder(requireContext())
                     .setType("text/plain")
