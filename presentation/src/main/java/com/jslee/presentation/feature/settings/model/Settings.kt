@@ -1,11 +1,15 @@
 package com.jslee.presentation.feature.settings.model
 
+import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
+
 /**
  * MooBeside
  * @author jaesung
  * @created 2024/01/08
  */
-object Settings {
+class Settings(private val context: Context) {
 
     fun provideOptions(): List<SettingsListItem> {
         val options = mutableListOf<SettingsListItem>().apply {
@@ -57,12 +61,25 @@ object Settings {
                 )
             )
             add(
-                SettingsListItem.Option(
+                SettingsListItem.AppVersion(
                     id = 8,
-                    description = "버전정보"
+                    description = "버전정보",
+                    appVersion = getVersionName()
                 )
             )
         }
         return options
+    }
+
+    private fun getVersionName(): String {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.applicationContext.packageManager.getPackageInfo(
+                context.packageName, PackageManager.PackageInfoFlags.of(0L)
+            ).versionName
+        } else {
+            context.applicationContext.packageManager.getPackageInfo(
+                context.packageName, 0
+            ).versionName
+        }
     }
 }

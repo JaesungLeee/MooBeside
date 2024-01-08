@@ -12,6 +12,7 @@ sealed class SettingsListItem(override val viewType: SettingsViewType) : ListIte
     enum class SettingsViewType {
         HEADER,
         OPTION,
+        APP_VERSION,
         DIVIDER;
     }
 
@@ -24,6 +25,12 @@ sealed class SettingsListItem(override val viewType: SettingsViewType) : ListIte
         override val id: Long,
         val description: String,
     ) : SettingsListItem(SettingsViewType.OPTION)
+
+    data class AppVersion(
+        override val id: Long,
+        val description: String,
+        val appVersion: String,
+    ) : SettingsListItem(SettingsViewType.APP_VERSION)
 
     data class Divider(
         override val id: Long,

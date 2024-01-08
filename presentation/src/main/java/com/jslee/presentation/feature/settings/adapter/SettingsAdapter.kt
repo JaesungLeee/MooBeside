@@ -7,8 +7,10 @@ import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.databinding.ItemSettingsHeaderBinding
 import com.jslee.presentation.databinding.ItemSettingsOptionBinding
+import com.jslee.presentation.databinding.ItemSettingsVersionBinding
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
 import com.jslee.presentation.feature.settings.model.SettingsListItem
+import com.jslee.presentation.feature.settings.viewholder.SettingsAppVersionViewHolder
 import com.jslee.presentation.feature.settings.viewholder.SettingsHeaderViewHolder
 import com.jslee.presentation.feature.settings.viewholder.SettingsOptionViewHolder
 
@@ -17,8 +19,9 @@ import com.jslee.presentation.feature.settings.viewholder.SettingsOptionViewHold
  * @author jaesung
  * @created 2024/01/08
  */
-class SettingsAdapter :
-    MultiViewTypeListAdapter<SettingsListItem, SettingsListItem.SettingsViewType>() {
+class SettingsAdapter(
+    private val onOptionClick: (action: Int) -> Unit,
+) : MultiViewTypeListAdapter<SettingsListItem, SettingsListItem.SettingsViewType>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -34,7 +37,12 @@ class SettingsAdapter :
 
             SettingsListItem.SettingsViewType.OPTION -> {
                 val binding = ItemSettingsOptionBinding.inflate(inflater, parent, false)
-                SettingsOptionViewHolder(binding)
+                SettingsOptionViewHolder(binding, onOptionClick)
+            }
+
+            SettingsListItem.SettingsViewType.APP_VERSION -> {
+                val binding = ItemSettingsVersionBinding.inflate(inflater, parent, false)
+                SettingsAppVersionViewHolder(binding)
             }
 
             SettingsListItem.SettingsViewType.DIVIDER -> {

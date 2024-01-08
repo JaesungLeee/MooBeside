@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment_settings) {
 
     private val settingsAdapter by lazy { SettingsAdapter() }
-    private val optionsList by lazy { Settings.provideOptions() }
+    private val optionsList by lazy { Settings(requireContext()).provideOptions() }
     override fun initViews() {
         binding.tbSettings.setNavigationOnClickListener {
             findNavController().navigateUp()
