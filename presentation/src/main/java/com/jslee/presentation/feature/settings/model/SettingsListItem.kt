@@ -24,6 +24,7 @@ sealed class SettingsListItem(override val viewType: SettingsViewType) : ListIte
     data class Option(
         override val id: Long,
         val description: String,
+        val action: Int,
     ) : SettingsListItem(SettingsViewType.OPTION)
 
     data class AppVersion(

@@ -11,7 +11,16 @@ import com.jslee.presentation.feature.settings.model.SettingsListItem
  */
 class SettingsOptionViewHolder(
     private val binding: ItemSettingsOptionBinding,
+    private val onOptionClick: (action: Int) -> Unit,
 ) : BaseViewHolder<SettingsListItem.Option>(binding) {
+
+    init {
+        binding.root.setOnClickListener {
+            getItem { item ->
+                onOptionClick(item.action)
+            }
+        }
+    }
 
     override fun bindItems(item: SettingsListItem.Option) {
         binding.tvOptionContent.text = item.description
