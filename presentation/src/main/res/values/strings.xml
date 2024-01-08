@@ -35,6 +35,7 @@
     <string name="tooltip_banner_description">TMDB API 서비스를 통해 수집된 정보입니다.</string>
     <string name="description_date_picker">날짜를 선택하는 영역입니다.</string>
     <string name="description_rate">영화 평점을 나타내는 아이콘입니다.</string>
+    <string name="description_settings_options">상세 설정으로 진입합니다.</string>
 
     <!-- action -->
     <string name="action_share_chooser_title">[무비사이드] %s 링크</string>
