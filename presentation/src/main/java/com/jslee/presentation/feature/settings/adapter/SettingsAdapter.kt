@@ -9,6 +9,7 @@ import com.jslee.presentation.databinding.ItemSettingsHeaderBinding
 import com.jslee.presentation.databinding.ItemSettingsOptionBinding
 import com.jslee.presentation.databinding.ItemSettingsVersionBinding
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
+import com.jslee.presentation.feature.settings.model.navigation.NavigationOption
 import com.jslee.presentation.feature.settings.model.SettingsListItem
 import com.jslee.presentation.feature.settings.viewholder.SettingsAppVersionViewHolder
 import com.jslee.presentation.feature.settings.viewholder.SettingsHeaderViewHolder
@@ -20,7 +21,7 @@ import com.jslee.presentation.feature.settings.viewholder.SettingsOptionViewHold
  * @created 2024/01/08
  */
 class SettingsAdapter(
-    private val onOptionClick: (action: Int) -> Unit,
+    private val onOptionClick: (NavigationOption) -> Unit,
 ) : MultiViewTypeListAdapter<SettingsListItem, SettingsListItem.SettingsViewType>() {
 
     override fun onCreateViewHolder(

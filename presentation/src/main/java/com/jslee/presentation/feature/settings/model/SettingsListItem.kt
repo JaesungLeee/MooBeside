@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.settings.model
 
 import com.jslee.core.ui.model.ListItem
+import com.jslee.presentation.feature.settings.model.navigation.NavigationOption
 
 /**
  * MooBeside
@@ -23,8 +24,7 @@ sealed class SettingsListItem(override val viewType: SettingsViewType) : ListIte
 
     data class Option(
         override val id: Long,
-        val description: String,
-        val action: Int,
+        val navigationOption: NavigationOption,
     ) : SettingsListItem(SettingsViewType.OPTION)
 
     data class AppVersion(

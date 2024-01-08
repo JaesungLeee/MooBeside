@@ -3,6 +3,9 @@ package com.jslee.presentation.feature.settings.model
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
+import com.jslee.presentation.feature.settings.model.navigation.NavigationOption
+import com.jslee.presentation.feature.settings.model.navigation.NavigationPath
+import com.jslee.presentation.feature.settings.model.navigation.NavigationType
 
 /**
  * MooBeside
@@ -22,8 +25,10 @@ class Settings(private val context: Context) {
             add(
                 SettingsListItem.Option(
                     id = 1,
-                    description = "알림설정",
-                    action = 0,
+                    navigationOption = NavigationOption(
+                        navigationType = NavigationType.NOTIFICATION,
+                        navigationPath = NavigationPath.DETAIL,
+                    )
                 )
             )
             add(
@@ -40,29 +45,37 @@ class Settings(private val context: Context) {
             add(
                 SettingsListItem.Option(
                     id = 4,
-                    description = "공지사항",
-                    action = 1,
+                    navigationOption = NavigationOption(
+                        navigationType = NavigationType.NOTICE,
+                        navigationPath = NavigationPath.DETAIL,
+                    )
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 5,
-                    description = "서비스 이용약관",
-                    action = 2,
+                    navigationOption = NavigationOption(
+                        navigationType = NavigationType.TERMS_OF_SERVICE,
+                        navigationPath = NavigationPath.WEB_VIEW,
+                    )
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 6,
-                    description = "개발자 문의하기",
-                    action = 3,
+                    navigationOption = NavigationOption(
+                        navigationType = NavigationType.CONTACT,
+                        navigationPath = NavigationPath.WEB_VIEW,
+                    )
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 7,
-                    description = "오픈소스",
-                    action = 4,
+                    navigationOption = NavigationOption(
+                        navigationType = NavigationType.OPEN_SOURCE,
+                        navigationPath = NavigationPath.DETAIL,
+                    )
                 )
             )
             add(
