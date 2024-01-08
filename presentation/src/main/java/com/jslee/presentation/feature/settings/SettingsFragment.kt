@@ -6,8 +6,9 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentSettingsBinding
 import com.jslee.presentation.feature.settings.adapter.SettingsAdapter
 import com.jslee.presentation.feature.settings.model.Settings
+import com.jslee.presentation.feature.settings.model.navigation.NavigationOption
+import com.jslee.presentation.feature.settings.model.navigation.NavigationPath
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 /**
  * MooBeside
@@ -29,8 +30,15 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment
         }
     }
 
-    private fun navigateToOptionDetail(action: Int) {
-        Timber.e("$action")
-//        findNavController().navigate(action)
+    private fun navigateToOptionDetail(navigationOption: NavigationOption) {
+        val action = when (navigationOption.navigationPath) {
+            NavigationPath.DETAIL -> SettingsFragmentDirections
+                .actionSettingsToSettingsDetail(navigationOption)
+
+            NavigationPath.WEB_VIEW -> SettingsFragmentDirections
+                .actionSettingsToSettingsWebView(navigationOption)
+        }
+
+        findNavController().navigate(action)
     }
 }
