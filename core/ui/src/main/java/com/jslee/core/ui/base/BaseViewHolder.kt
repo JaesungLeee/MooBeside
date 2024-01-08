@@ -17,7 +17,8 @@ abstract class BaseViewHolder<out T>(
     /* must implement */
     open fun bindItems(item: @UnsafeVariance T) {}
 
-    private fun getItem(position: Int): Any? {
+    @PublishedApi
+    internal fun getItem(position: Int): Any? {
         return when (val adapter = bindingAdapter) {
             is ListAdapter<*, *> -> {
                 adapter.currentList[position]
@@ -34,7 +35,7 @@ abstract class BaseViewHolder<out T>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    protected fun getItem(
+    inline fun getItem(
         position: Int = bindingAdapterPosition,
         action: (item: T) -> Unit,
     ) {
