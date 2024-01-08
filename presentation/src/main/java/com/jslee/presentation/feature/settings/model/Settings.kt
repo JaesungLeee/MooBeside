@@ -22,7 +22,8 @@ class Settings(private val context: Context) {
             add(
                 SettingsListItem.Option(
                     id = 1,
-                    description = "알림설정"
+                    description = "알림설정",
+                    action = 0,
                 )
             )
             add(
@@ -39,25 +40,29 @@ class Settings(private val context: Context) {
             add(
                 SettingsListItem.Option(
                     id = 4,
-                    description = "공지사항"
+                    description = "공지사항",
+                    action = 1,
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 5,
-                    description = "서비스 이용약관"
+                    description = "서비스 이용약관",
+                    action = 2,
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 6,
-                    description = "개발자 문의하기"
+                    description = "개발자 문의하기",
+                    action = 3,
                 )
             )
             add(
                 SettingsListItem.Option(
                     id = 7,
-                    description = "오픈소스"
+                    description = "오픈소스",
+                    action = 4,
                 )
             )
             add(
