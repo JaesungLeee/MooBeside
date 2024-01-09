@@ -54,7 +54,7 @@ class Settings(private val context: Context) {
                     id = 7,
                     navigationOption = NavigationOption(
                         navigationType = NavigationType.OPEN_SOURCE,
-                        navigationPath = NavigationPath.DETAIL,
+                        navigationPath = NavigationPath.EXTERNAL,
                     )
                 )
             )
