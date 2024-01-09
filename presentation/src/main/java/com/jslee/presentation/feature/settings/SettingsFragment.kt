@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.settings
 
 import android.content.Intent
+import android.net.Uri
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import com.jslee.core.ui.base.view.BaseFragment
@@ -47,6 +48,8 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment
                 findNavController().navigate(action)
             }
 
+            NavigationPath.MAIL -> sendMail()
+
             NavigationPath.EXTERNAL -> {
                 if (navigationOption.navigationType == NavigationType.OPEN_SOURCE) {
                     OssLicensesMenuActivity.setActivityTitle("오픈소스 라이센스")
@@ -54,5 +57,13 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment
                 }
             }
         }
+    }
+
+    private fun sendMail() {
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("biki0114@gmail.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.action_send_mail_title))
+        startActivity(intent)
     }
 }
