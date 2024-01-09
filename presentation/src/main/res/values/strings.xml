@@ -42,4 +42,5 @@
     <string name="action_movie_detail_deep_link">[무비사이드] 에서 공유받은 영화를 확인해보세요!\n👉 아래 링크를 클릭하면 해당 영화 상세페이지로 이동합니다.\n%s</string>
     <string name="action_kakao_share_common_error">잠시 후에 다시 시도해주세요.</string>
     <string name="action_kakao_share_not_install">카카오톡 앱을 설치해주세요.</string>
+    <string name="action_send_mail_title">무비사이드 개발자 문의하기</string>
 </resources>
