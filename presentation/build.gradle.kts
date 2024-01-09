@@ -58,6 +58,7 @@ dependencies {
 
     implementation(libs.material)
     implementation(libs.flexbox)
+    implementation(libs.oss.license)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
