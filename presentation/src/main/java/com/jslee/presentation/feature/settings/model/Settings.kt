@@ -18,26 +18,6 @@ class Settings(private val context: Context) {
         val options = mutableListOf<SettingsListItem>().apply {
             add(
                 SettingsListItem.Header(
-                    id = 0,
-                    description = "서비스 이용"
-                )
-            )
-            add(
-                SettingsListItem.Option(
-                    id = 1,
-                    navigationOption = NavigationOption(
-                        navigationType = NavigationType.NOTIFICATION,
-                        navigationPath = NavigationPath.DETAIL,
-                    )
-                )
-            )
-            add(
-                SettingsListItem.Divider(
-                    id = 2,
-                )
-            )
-            add(
-                SettingsListItem.Header(
                     id = 3,
                     description = "정보"
                 )
