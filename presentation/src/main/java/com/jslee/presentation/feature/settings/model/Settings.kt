@@ -27,15 +27,6 @@ class Settings(private val context: Context) {
                     id = 4,
                     navigationOption = NavigationOption(
                         navigationType = NavigationType.NOTICE,
-                        navigationPath = NavigationPath.DETAIL,
-                    )
-                )
-            )
-            add(
-                SettingsListItem.Option(
-                    id = 5,
-                    navigationOption = NavigationOption(
-                        navigationType = NavigationType.TERMS_OF_SERVICE,
                         navigationPath = NavigationPath.WEB_VIEW,
                     )
                 )
@@ -45,7 +36,7 @@ class Settings(private val context: Context) {
                     id = 6,
                     navigationOption = NavigationOption(
                         navigationType = NavigationType.CONTACT,
-                        navigationPath = NavigationPath.WEB_VIEW,
+                        navigationPath = NavigationPath.MAIL,
                     )
                 )
             )
