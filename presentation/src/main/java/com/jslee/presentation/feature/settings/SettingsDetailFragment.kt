@@ -21,7 +21,7 @@ class SettingsDetailFragment :
         val type = navArgs.navigationOption.navigationType
         binding.toolbarTitle = NavigationType.getDescription(type)
 
-        binding.tbSettingsWebView.setNavigationOnClickListener {
+        binding.tbSettingsDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
     }
