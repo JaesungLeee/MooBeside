@@ -9,22 +9,37 @@
     <include app:graph="@navigation/navigation_home" />
     <include app:graph="@navigation/navigation_bookmark" />
 
+    <action
+        android:id="@+id/action_to_movie_detail"
+        app:destination="@id/movieDetailFragment" />
+
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.jslee.presentation.feature.detail.MovieDetailFragment"
         android:label="MovieDetailFragment"
         tools:layout="@layout/fragment_movie_detail">
 
-        <deepLink android:autoVerify="true"
+        <deepLink
+            android:autoVerify="true"
             app:uri="https://moobeside.link/detail?movieId={movieId}" />
 
         <argument
             android:name="movieId"
             app:argType="long" />
+
+        <action
+            android:id="@+id/action_movieDetail_to_cast"
+            app:destination="@id/castFragment" />
     </fragment>
 
-    <action
-        android:id="@+id/action_to_movie_detail"
-        app:destination="@id/movieDetailFragment" />
+    <fragment
+        android:id="@+id/castFragment"
+        android:name="com.jslee.presentation.feature.cast.CastFragment"
+        android:label="CastFragment"
+        tools:layout="@layout/fragment_cast" >
+        <argument
+            android:name="casts"
+            app:argType="com.jslee.presentation.feature.detail.model.CastInfoUiModel[]" />
+    </fragment>
 
 </navigation>
