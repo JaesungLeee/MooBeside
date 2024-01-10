@@ -36,6 +36,11 @@ class MovieDetailFragment :
     private val safeArgs: MovieDetailFragmentArgs by navArgs()
     private val movieDetailAdapter by lazy {
         MovieDetailAdapter(
+            onCastLoadMoreClick = {
+                val cast = viewModel.getMovieCasts().toTypedArray()
+                val action = MovieDetailFragmentDirections.actionMovieDetailToCast(cast)
+                findNavController().navigate(action)
+            },
             onTrailerClick = { videoId ->
                 externalLauncher.launchTrailer(requireActivity(), videoId) {
                     requireActivity().showToast("앱을 실행시킬 수 없습니다.")

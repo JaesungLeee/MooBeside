@@ -11,7 +11,9 @@ import com.jslee.core.deeplink.di.Kakao
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.domain.usecase.bookmark.BookmarkUseCase
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
+import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
+import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import com.jslee.presentation.feature.detail.model.toDomain
 import com.jslee.presentation.feature.detail.model.toMovieDetailUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -34,7 +36,7 @@ class MovieDetailViewModel @Inject constructor(
     private val bookmarkUseCase: BookmarkUseCase,
     private val getAllBookmarkUseCase: GetBookmarkUseCase,
     @Kakao private val kakaoLinkLauncher: DeepLinkLauncher,
-    @Firebase private val firebaseLinkLauncher: DeepLinkLauncher
+    @Firebase private val firebaseLinkLauncher: DeepLinkLauncher,
 ) : ViewModel() {
 
     private val _movieName: MutableStateFlow<String> = MutableStateFlow("")
@@ -82,6 +84,17 @@ class MovieDetailViewModel @Inject constructor(
                         MovieDetailUiState.Success(it.toMovieDetailUiModel(it.localizedMovieName.orEmpty()))
                 }
         }
+    }
+
+    fun getMovieCasts(): List<CastInfoUiModel> {
+        val uiState = _detailUiState.value
+        if (uiState !is MovieDetailUiState.Success) return emptyList()
+
+        val casts = uiState.data.detailData.find {
+            it.viewType == DetailListItem.DetailViewType.CAST
+        } as? DetailListItem.Cast
+
+        return casts?.castInfoData.orEmpty()
     }
 
     fun toggleBookmark(movieId: Long) {
