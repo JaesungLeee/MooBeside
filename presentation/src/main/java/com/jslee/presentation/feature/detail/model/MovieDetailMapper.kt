@@ -50,7 +50,7 @@ fun Movie.toMovieDetailListItem(title: String) = listOf(
     ),
     DetailListItem.Cast(
         id = 4,
-        castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
+        castInfoData = mapToCastInfoUiModel()
     ),
     DetailListItem.Divider(
         id = 5,
