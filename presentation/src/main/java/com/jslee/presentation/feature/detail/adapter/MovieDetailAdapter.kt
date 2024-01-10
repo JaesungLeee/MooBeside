@@ -25,6 +25,7 @@ import timber.log.Timber
  * @created 2023/10/21
  */
 class MovieDetailAdapter(
+    private val onCastLoadMoreClick: () -> Unit,
     private val onTrailerLoadMoreClick: (String) -> Unit,
     private val onTrailerClick: (String) -> Unit,
 ) : MultiViewTypeListAdapter<DetailListItem, DetailListItem.DetailViewType>() {
@@ -41,9 +42,7 @@ class MovieDetailAdapter(
 
             DetailListItem.DetailViewType.CAST -> CastInfoViewHolder(
                 ItemDetailCastBinding.inflate(inflater, parent, false),
-                onLoadMoreClick = {
-                    Timber.e("LoadMore")
-                },
+                onLoadMoreClick = { onCastLoadMoreClick() },
                 onCastItemClick = {
                     Timber.e(it)
                 }
