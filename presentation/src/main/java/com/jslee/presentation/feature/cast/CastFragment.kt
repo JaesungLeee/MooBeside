@@ -6,7 +6,6 @@ import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentCastBinding
 import com.jslee.presentation.feature.cast.adapter.CastAdapter
-import timber.log.Timber
 
 /**
  * MooBeside
@@ -18,8 +17,9 @@ class CastFragment : BaseFragment<FragmentCastBinding>(R.layout.fragment_cast) {
     private val navArgs by navArgs<CastFragmentArgs>()
     private val castAdapter by lazy {
         CastAdapter(
-            onCastClick = {
-                Timber.e("$it")
+            onCastClick = { personId ->
+                val action = CastFragmentDirections.actionCastToCastDetail(personId)
+                findNavController().navigate(action)
             }
         )
     }
