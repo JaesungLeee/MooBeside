@@ -40,6 +40,7 @@ data class MovieInfoItem(
 
 @Parcelize
 data class CastInfoUiModel(
+    val personId: Long,
     val profileImageUrl: String?,
     val name: String,
     val role: String,

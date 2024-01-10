@@ -14,7 +14,7 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
 class CastInfoViewHolder(
     private val binding: ItemDetailCastBinding,
     onLoadMoreClick: () -> Unit,
-    onCastItemClick: (String) -> Unit,
+    onCastItemClick: (Long) -> Unit,
 ) : BaseViewHolder<DetailListItem.Cast>(binding) {
 
     private val castInfoListAdapter = CastInfoListAdapter(onCastItemClick)

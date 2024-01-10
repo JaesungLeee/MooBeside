@@ -133,6 +133,7 @@ private fun MutableList<CastInfoUiModel>.addDirector(movie: Movie) {
     add(
         movie.staffs?.find { it.isDirector }?.run {
             CastInfoUiModel(
+                personId = personId,
                 profileImageUrl = profileImageUrl,
                 name = originalName,
                 role = job
@@ -145,6 +146,7 @@ private fun MutableList<CastInfoUiModel>.addActors(movie: Movie) {
     movie.casts?.forEach { cast ->
         add(
             CastInfoUiModel(
+                personId = cast.personId,
                 profileImageUrl = cast.profileImageUrl,
                 name = cast.originalName,
                 role = cast.character
