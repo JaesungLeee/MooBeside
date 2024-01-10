@@ -1,8 +1,8 @@
 package com.jslee.data.model
 
 import com.jslee.data.TMDB_IMAGE_PREFIX
+import com.jslee.domain.model.Gender
 import com.jslee.domain.model.movie.Cast
-import com.jslee.domain.model.movie.Gender
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.Staff
 
