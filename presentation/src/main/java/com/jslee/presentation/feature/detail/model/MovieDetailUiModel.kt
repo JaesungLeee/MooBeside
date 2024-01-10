@@ -1,6 +1,8 @@
 package com.jslee.presentation.feature.detail.model
 
+import android.os.Parcelable
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
+import kotlinx.parcelize.Parcelize
 
 /**
  * MooBeside
@@ -36,11 +38,12 @@ data class MovieInfoItem(
     val content: String,
 )
 
+@Parcelize
 data class CastInfoUiModel(
     val profileImageUrl: String?,
     val name: String,
     val role: String,
-)
+) : Parcelable
 
 data class GalleryUiModel(
     val id: Long,
