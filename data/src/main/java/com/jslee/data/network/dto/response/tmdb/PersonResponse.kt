@@ -1,5 +1,6 @@
 package com.jslee.data.network.dto.response.tmdb
 
+import com.jslee.data.model.PersonInfoModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -27,3 +28,12 @@ internal data class PersonResponse(
     @SerialName("profile_path") val profilePath: String?,
 )
 
+internal fun PersonResponse.toDataModel() = PersonInfoModel(
+    biography = biography,
+    dateOfBirth = dateOfBirth,
+    dateOfDeath = dateOfDeath,
+    gender = gender,
+    personId = personId,
+    name = name,
+    profilePath = profilePath,
+)
