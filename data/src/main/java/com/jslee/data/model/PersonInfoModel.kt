@@ -1,5 +1,8 @@
 package com.jslee.data.model
 
+import com.jslee.data.TMDB_IMAGE_PREFIX
+import com.jslee.domain.model.Gender
+import com.jslee.domain.model.Person
 
 /**
  * MooBeside
@@ -16,3 +19,12 @@ internal data class PersonInfoModel(
     val profilePath: String?,
 )
 
+internal fun PersonInfoModel.toDomain() = Person(
+    personId = personId,
+    name = name,
+    profileUrl = profilePath?.let { TMDB_IMAGE_PREFIX + it },
+    gender = Gender.fromCode(gender),
+    dateOfBirth = dateOfBirth,
+    dateOfDeath = dateOfDeath,
+    biography = biography
+)
