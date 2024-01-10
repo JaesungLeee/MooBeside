@@ -1,5 +1,7 @@
 package com.jslee.domain.model.movie
 
+import com.jslee.domain.model.Gender
+
 /**
  * MooBeside
  * @author jaesung
@@ -21,21 +23,4 @@ data class Staff(
     val job: String,
 ) {
     val isDirector = job == "Director"
-}
-
-enum class Gender(val code: Int) {
-    NOT_SPECIFIED(0),
-    FEMALE(1),
-    MALE(2);
-
-    companion object {
-        fun fromCode(code: Int): Gender {
-            return when (code) {
-                NOT_SPECIFIED.code -> NOT_SPECIFIED
-                FEMALE.code -> FEMALE
-                MALE.code -> MALE
-                else -> NOT_SPECIFIED
-            }
-        }
-    }
 }
