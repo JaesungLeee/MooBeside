@@ -1,12 +1,13 @@
 package com.jslee.data.datasource.remote
 
 import com.jslee.data.UNKNOWN_EXCEPTION
-import com.jslee.data.network.dto.response.tmdb.toDataModel
-import com.jslee.data.network.service.TmdbService
 import com.jslee.data.model.MovieCreditsModel
 import com.jslee.data.model.MovieImagesModel
 import com.jslee.data.model.MovieReleaseInfoModel
+import com.jslee.data.model.PersonInfoModel
 import com.jslee.data.model.TmdbCommonMovieModel
+import com.jslee.data.network.dto.response.tmdb.toDataModel
+import com.jslee.data.network.service.TmdbService
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -80,6 +81,14 @@ internal class TmdbRemoteDataSource @Inject constructor(
         }.getOrElse {
             throw Exception(it)
         }
+
+        return response.toDataModel()
+    }
+
+    suspend fun getPerson(personId: Long): PersonInfoModel {
+        val response = runCatching {
+            tmdbService.getPerson(personId)
+        }.getOrElse { throw Exception(it) }
 
         return response.toDataModel()
     }
