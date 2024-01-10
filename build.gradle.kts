@@ -3,9 +3,8 @@ buildscript {
     dependencies {
         val catalog = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
         val navigationVersion = catalog.findVersion("navigation").get()
-        val ossVersion = catalog.findVersion("google-oss-plugin").get()
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
-        classpath("com.google.android.gms:oss-licenses-plugin:$ossVersion")
+        classpath(libs.oss.license.plugin)
     }
 }
 
