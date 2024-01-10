@@ -17,6 +17,7 @@ import com.jslee.presentation.feature.detail.ShareBottomSheetFragment.Companion.
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import timber.log.Timber
 import javax.inject.Inject
 import com.jslee.core.designsystem.R as DR
 
@@ -40,6 +41,9 @@ class MovieDetailFragment :
                 val cast = viewModel.getMovieCasts().toTypedArray()
                 val action = MovieDetailFragmentDirections.actionMovieDetailToCast(cast)
                 findNavController().navigate(action)
+            },
+            onCastClick = {
+                Timber.e("$it")
             },
             onTrailerClick = { videoId ->
                 externalLauncher.launchTrailer(requireActivity(), videoId) {

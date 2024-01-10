@@ -11,13 +11,13 @@ import com.jslee.presentation.feature.detail.model.CastInfoUiModel
  */
 class CastInfoItemViewHolder(
     private val binding: ItemCastBinding,
-    onCastItemClick: (String) -> Unit,
+    onCastItemClick: (Long) -> Unit,
 ) : BaseViewHolder<CastInfoUiModel>(binding) {
 
     init {
         binding.root.setOnClickListener {
             getItem {
-                onCastItemClick(it.name)
+                onCastItemClick(it.personId)
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.jslee.presentation.feature.detail.adapter.cast
+package com.jslee.presentation.feature.cast.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -11,19 +11,15 @@ import com.jslee.presentation.feature.detail.viewholder.cast.CastInfoItemViewHol
 /**
  * MooBeside
  * @author jaesung
- * @created 2023/10/28
+ * @created 2024/01/10
  */
-class CastInfoListAdapter(
-    private val onCastItemClick: (Long) -> Unit,
-) : SingleViewTypeListAdapter<CastInfoUiModel>({ it.name }) {
+class CastAdapter(
+    private val onCastClick: (Long) -> Unit,
+) : SingleViewTypeListAdapter<CastInfoUiModel>({ it.personId }) {
+
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<CastInfoUiModel> {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemCastBinding.inflate(inflater, parent, false)
-        return CastInfoItemViewHolder(binding, onCastItemClick)
-    }
-
-    override fun onBindViewHolder(holder: BaseViewHolder<CastInfoUiModel>, position: Int) {
-        val item = currentList[position] ?: return
-        holder.bindItems(item)
+        return CastInfoItemViewHolder(binding, onCastItemClick = onCastClick)
     }
 }
