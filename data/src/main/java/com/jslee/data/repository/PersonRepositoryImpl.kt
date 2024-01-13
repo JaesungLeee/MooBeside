@@ -25,4 +25,12 @@ internal class PersonRepositoryImpl @Inject constructor(
 
         emit(person)
     }
+
+    override fun getParticipateMovie(personId: Long): Flow<Person> = flow {
+        val movies = suspendRunCatching {
+            tmdbRemoteDataSource.getParticipateMovie(personId).toDomain()
+        }.getOrThrow()
+
+        emit(movies)
+    }
 }

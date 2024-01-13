@@ -10,4 +10,5 @@ import kotlinx.coroutines.flow.Flow
  */
 interface PersonRepository {
     fun getPerson(personId: Long): Flow<Person>
+    fun getParticipateMovie(personId: Long): Flow<Person>
 }
