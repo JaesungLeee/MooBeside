@@ -1,14 +1,15 @@
 package com.jslee.data.network.service
 
 import com.jslee.data.BuildConfig
-import com.jslee.domain.model.Country
 import com.jslee.data.SINGLE_PAGE
-import com.jslee.data.network.dto.response.tmdb.CreditsResponse
 import com.jslee.data.network.dto.response.tmdb.CommonMovieResponse
+import com.jslee.data.network.dto.response.tmdb.CreditsResponse
 import com.jslee.data.network.dto.response.tmdb.ImagesResponse
+import com.jslee.data.network.dto.response.tmdb.ParticipateCreditsResponse
 import com.jslee.data.network.dto.response.tmdb.PersonResponse
 import com.jslee.data.network.dto.response.tmdb.TmdbCommonResponse
 import com.jslee.data.network.dto.response.tmdb.TmdbReleaseInfoResponse
+import com.jslee.domain.model.Country
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -86,4 +87,11 @@ internal interface TmdbService {
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
     ): PersonResponse
+
+    @GET("person/{personId}/movie_credits")
+    suspend fun getParticipateMovie(
+        @Path("personId") personId: Long,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+        @Query("language") language: String = Country.KOREA.languageCode,
+    ): ParticipateCreditsResponse
 }
