@@ -1,5 +1,8 @@
 package com.jslee.data.network.dto.response.tmdb
 
+import com.jslee.data.model.ParticipateAsCastModel
+import com.jslee.data.model.ParticipateAsCrewModel
+import com.jslee.data.model.ParticipateCreditsModel
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -58,3 +61,25 @@ internal data class ParticipateAsCrewResponse(
     @SerialName("job") val job: String,
 )
 
+internal fun ParticipateCreditsResponse.toDataModel() = ParticipateCreditsModel(
+    casts = castData.map {
+        ParticipateAsCastModel(
+            movieId = it.movieId,
+            localizedMovieName = it.localizedMovieName,
+            releaseDate = it.originalReleaseDate,
+            posterPath = it.posterPath,
+            voteAverage = it.voteAverage,
+            character = it.characterName
+        )
+    },
+    crews = staffData.map {
+        ParticipateAsCrewModel(
+            movieId = it.movieId,
+            localizedMovieName = it.localizedMovieName,
+            releaseDate = it.originalReleaseDate,
+            posterPath = it.posterPath,
+            voteAverage = it.voteAverage,
+            job = it.job
+        )
+    }
+)
