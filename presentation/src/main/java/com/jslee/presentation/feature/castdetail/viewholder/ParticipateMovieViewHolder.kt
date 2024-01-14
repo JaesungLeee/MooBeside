@@ -10,8 +10,17 @@ import com.jslee.presentation.feature.castdetail.model.ParticipateMovieUiModel
  * @created 2024/01/14
  */
 class ParticipateMovieViewHolder(
-    private val binding: ItemParticipateMovieBinding
+    private val binding: ItemParticipateMovieBinding,
+    onMovieClick: (Long) -> Unit,
 ) : BaseViewHolder<ParticipateMovieUiModel>(binding) {
+
+    init {
+        binding.root.setOnClickListener {
+            getItem {
+                onMovieClick(it.movieId)
+            }
+        }
+    }
 
     override fun bindItems(item: ParticipateMovieUiModel) {
         with(binding) {

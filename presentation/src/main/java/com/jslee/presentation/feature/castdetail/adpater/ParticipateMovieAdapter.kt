@@ -13,12 +13,13 @@ import com.jslee.presentation.feature.castdetail.viewholder.ParticipateMovieView
  * @author jaesung
  * @created 2024/01/14
  */
-class ParticipateMovieAdapter :
-    SingleViewTypeListAdapter<ParticipateMovieUiModel>({ it.movieId }) {
+class ParticipateMovieAdapter(
+    private val onMovieClick: (Long) -> Unit,
+) : SingleViewTypeListAdapter<ParticipateMovieUiModel>({ it.movieId }) {
 
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<ParticipateMovieUiModel> {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemParticipateMovieBinding.inflate(inflater, parent, false)
-        return ParticipateMovieViewHolder(binding)
+        return ParticipateMovieViewHolder(binding, onMovieClick)
     }
 }

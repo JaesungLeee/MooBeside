@@ -21,7 +21,14 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(R.layout.frag
 
     private val viewModel: CastDetailViewModel by viewModels()
     private val navArgs by navArgs<CastDetailFragmentArgs>()
-    private val movieAdapter by lazy { ParticipateMovieAdapter() }
+    private val movieAdapter by lazy {
+        ParticipateMovieAdapter(
+            onMovieClick = {
+                val action = CastDetailFragmentDirections.actionCastDetailToMovieDetail(it)
+                findNavController().navigate(action)
+            }
+        )
+    }
 
     override fun initViews() {
         viewModel.getPerson(navArgs.personId)

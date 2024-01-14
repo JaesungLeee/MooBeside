@@ -39,7 +39,7 @@
         android:id="@+id/castFragment"
         android:name="com.jslee.presentation.feature.cast.CastFragment"
         android:label="CastFragment"
-        tools:layout="@layout/fragment_cast" >
+        tools:layout="@layout/fragment_cast">
         <argument
             android:name="casts"
             app:argType="com.jslee.presentation.feature.detail.model.CastInfoUiModel[]" />
@@ -50,10 +50,15 @@
     <fragment
         android:id="@+id/castDetailFragment"
         android:name="com.jslee.presentation.feature.castdetail.CastDetailFragment"
-        android:label="CastDetailFragment" >
+        android:label="CastDetailFragment">
         <argument
             android:name="personId"
             app:argType="long" />
+        <action
+            android:id="@+id/action_castDetail_to_movieDetail"
+            app:destination="@id/movieDetailFragment"
+            app:popUpTo="@id/movieDetailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>
