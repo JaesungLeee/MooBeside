@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="personInfo"
+            type="com.jslee.presentation.feature.castdetail.model.PersonInfoUiModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,6 +49,7 @@
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/iv_cast"
+                            posterImage="@{personInfo.profileUrl}"
                             android:layout_width="98dp"
                             android:layout_height="0dp"
                             android:scaleType="centerCrop"
@@ -60,6 +65,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
+                            android:text="@{personInfo.name}"
                             android:textColor="@color/Gray03"
                             app:layout_constraintBottom_toTopOf="@id/tv_cast_role"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +81,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="4dp"
+                            android:text="@{personInfo.gender}"
                             android:textColor="@color/Gray05"
                             app:layout_constraintBottom_toBottomOf="@id/iv_cast"
                             app:layout_constraintEnd_toEndOf="parent"

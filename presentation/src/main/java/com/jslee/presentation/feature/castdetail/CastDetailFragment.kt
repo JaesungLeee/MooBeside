@@ -10,7 +10,6 @@ import com.jslee.presentation.feature.castdetail.adpater.ParticipateMovieAdapter
 import com.jslee.presentation.feature.castdetail.model.ParticipationTab
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import timber.log.Timber
 
 /**
  * MooBeside
@@ -58,7 +57,8 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(R.layout.frag
             }
 
             is CastDetailUiState.Success -> {
-                Timber.e("${uiState.uiModel.participateAsCast}")
+                movieAdapter.submitList(uiState.uiModel.participateAsCast)
+                binding.personInfo = uiState.uiModel.personInfo
             }
         }
     }
