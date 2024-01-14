@@ -33,7 +33,7 @@ data class ParticipateMovieUiModel(
     val role: String,
 ) {
     private val displayYear =
-        releaseDate.transformDate(DateFormat.YEAR_MONTH_DAY_HYPHEN, DateFormat.DISP_YEAR)
+        releaseDate.transformDate(DateFormat.DISP_YEAR_MONTH_DAY, DateFormat.DISP_YEAR)
     val movieSummary = "$displayYear  · ${role}역"
 }
 
@@ -48,7 +48,10 @@ fun Person.toUiModel() = CastDetailUiModel(
         ParticipateMovieUiModel(
             movieId = it.movieId,
             localizedMovieName = it.localizedMovieName,
-            releaseDate = it.releaseDate,
+            releaseDate = it.releaseDate.transformDate(
+                DateFormat.YEAR_MONTH_DAY_HYPHEN,
+                DateFormat.DISP_YEAR_MONTH_DAY
+            ),
             posterUrl = it.posterUrl,
             voteAverage = roundVoteRate(it.voteAverage),
             role = it.character.orEmpty()
@@ -58,7 +61,10 @@ fun Person.toUiModel() = CastDetailUiModel(
         ParticipateMovieUiModel(
             movieId = it.movieId,
             localizedMovieName = it.localizedMovieName,
-            releaseDate = it.releaseDate,
+            releaseDate = it.releaseDate.transformDate(
+                DateFormat.YEAR_MONTH_DAY_HYPHEN,
+                DateFormat.DISP_YEAR_MONTH_DAY
+            ),
             posterUrl = it.posterUrl,
             voteAverage = roundVoteRate(it.voteAverage),
             role = it.job.orEmpty()
