@@ -2,7 +2,7 @@ package com.jslee.presentation.feature.detail.model
 
 import android.os.Parcelable
 import com.jslee.core.date.DateFormat
-import com.jslee.core.date.toDisplayDate
+import com.jslee.core.date.transformDate
 import com.jslee.core.ui.extension.getSummaryInfo
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import kotlinx.parcelize.Parcelize
@@ -29,7 +29,7 @@ data class AppBarUiModel(
     val certification: String,
 ) {
     private val displayYear =
-        releaseDate.toDisplayDate(DateFormat.YEAR_MONTH_DAY_MILLIS, DateFormat.DISP_YEAR)
+        releaseDate.transformDate(DateFormat.YEAR_MONTH_DAY_MILLIS, DateFormat.DISP_YEAR)
     val movieSummary = getSummaryInfo(displayYear, movieStatus, genres)
 }
 

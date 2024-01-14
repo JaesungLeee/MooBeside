@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.detail.model
 
 import com.jslee.core.date.DateFormat
-import com.jslee.core.date.toDisplayDate
+import com.jslee.core.date.transformDate
 import com.jslee.core.ui.UNKNOWN_FIELD
 import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
@@ -87,7 +87,7 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
         ),
         MovieInfoItem(
             title = "국내 개봉일",
-            content = localizedReleaseDate?.toDisplayDate(
+            content = localizedReleaseDate?.transformDate(
                 DateFormat.YEAR_MONTH_DAY_MILLIS,
                 DateFormat.DISP_YEAR_MONTH_DAY
             ) ?: UNKNOWN_FIELD
@@ -173,7 +173,7 @@ fun Movie.mapToMovieTrailerUiModel(): List<MovieTrailerUiModel> = trailers?.map 
         thumbnailUrl = it.thumbnailUrl,
         contentTitle = it.contentTitle,
         description = it.description,
-        publishedDate = it.publishedDate.toDisplayDate(
+        publishedDate = it.publishedDate.transformDate(
             DateFormat.YEAR_MONTH_DAY_SEC,
             DateFormat.DISP_YEAR_MONTH_DAY
         )

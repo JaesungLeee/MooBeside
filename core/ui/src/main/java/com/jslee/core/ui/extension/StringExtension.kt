@@ -1,8 +1,6 @@
 package com.jslee.core.ui.extension
 
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 /**
  * MooBeside
@@ -11,11 +9,6 @@ import java.util.Locale
  */
 val emptyString: String
     get() = ""
-
-fun String.toDisplayedDate(): String {
-    val splitDate = this.split("-")
-    return "${splitDate[0]}년 ${splitDate[1]}월 ${splitDate[2]}일"
-}
 
 fun String.toDecimalFormat(): String {
     val decimalFormat = DecimalFormat("#,###명")
