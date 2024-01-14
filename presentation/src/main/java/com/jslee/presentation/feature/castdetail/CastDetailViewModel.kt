@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.castdetail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.domain.usecase.PersonInformationUseCase
+import com.jslee.presentation.feature.castdetail.model.ParticipationTab
 import com.jslee.presentation.feature.castdetail.model.toUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -31,6 +32,9 @@ class CastDetailViewModel @Inject constructor(
         MutableStateFlow(CastDetailUiState.Loading)
     val uiState = _uiState.asStateFlow()
 
+    private val _tab: MutableStateFlow<ParticipationTab> = MutableStateFlow(ParticipationTab.CAST)
+    val tab = _tab.asStateFlow()
+
     fun getPerson(personId: Long) {
         viewModelScope.launch {
             personInfoUseCase.loadPersonInfo(personId)
@@ -40,5 +44,11 @@ class CastDetailViewModel @Inject constructor(
                     _uiState.value = CastDetailUiState.Success(it.toUiModel())
                 }
         }
+    }
+
+    fun setParticipationTab(tabPosition: Int?) {
+        tabPosition ?: return
+
+        _tab.value = ParticipationTab.values()[tabPosition]
     }
 }

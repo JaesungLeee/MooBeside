@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.castdetail
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.tabs.TabLayout
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentCastDetailBinding
@@ -10,6 +11,7 @@ import com.jslee.presentation.feature.castdetail.adpater.ParticipateMovieAdapter
 import com.jslee.presentation.feature.castdetail.model.ParticipationTab
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 /**
  * MooBeside
@@ -32,12 +34,29 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(R.layout.frag
 
     override fun initViews() {
         viewModel.getPerson(navArgs.personId)
-
         setParticipationTabs()
+        setTabSelectedListener()
+
         binding.tbCastDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
         binding.rvParticipation.adapter = movieAdapter
+    }
+
+    private fun setTabSelectedListener() {
+        binding.tlParticipation.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                viewModel.setParticipationTab(tab?.position)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+        })
     }
 
     private fun setParticipationTabs() {
@@ -51,8 +70,16 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(R.layout.frag
 
     override fun observeStates() {
         repeatOn {
-            viewModel.uiState.collectLatest { uiState ->
-                handleUiState(uiState)
+            launch {
+                viewModel.uiState.collectLatest { uiState ->
+                    handleUiState(uiState)
+                }
+            }
+
+            launch {
+                viewModel.tab.collect {
+                    submitParticipationData(it)
+                }
             }
         }
     }
@@ -67,6 +94,16 @@ class CastDetailFragment : BaseFragment<FragmentCastDetailBinding>(R.layout.frag
                 movieAdapter.submitList(uiState.uiModel.participateAsCast)
                 binding.personInfo = uiState.uiModel.personInfo
             }
+        }
+    }
+
+    private fun submitParticipationData(tab: ParticipationTab) {
+        val uiState = viewModel.uiState.value
+        if (uiState !is CastDetailUiState.Success) return
+
+        when (tab) {
+            ParticipationTab.CAST -> movieAdapter.submitList(uiState.uiModel.participateAsCast)
+            ParticipationTab.CREW -> movieAdapter.submitList(uiState.uiModel.participateAsCrew)
         }
     }
 }
