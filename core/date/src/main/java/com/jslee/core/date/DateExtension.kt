@@ -9,12 +9,15 @@ import java.util.Locale
  * @created 2024/01/14
  */
 
-fun String?.toDisplayDate(from: DateFormat, to: DateFormat): String {
+fun String?.transformDate(from: DateFormat, to: DateFormat): String {
     if (this.isNullOrBlank()) return "알수없음"
 
     val inputFormat = SimpleDateFormat(DateFormat.getFormat(from), Locale.getDefault())
     val outputFormat = SimpleDateFormat(DateFormat.getFormat(to), Locale.getDefault())
 
-    val date = inputFormat.parse(this) ?: throw Exception()
+    val date = runCatching {
+        inputFormat.parse(this)
+    }.getOrNull() ?: return "알수없음"
+
     return outputFormat.format(date)
 }

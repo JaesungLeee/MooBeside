@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.bookmark.model
 
 import com.jslee.core.date.DateFormat
-import com.jslee.core.date.toDisplayDate
+import com.jslee.core.date.transformDate
 import com.jslee.core.ui.UNKNOWN_FIELD
 import com.jslee.core.ui.extension.getSummaryInfo
 import com.jslee.core.ui.extension.toDisplayRunTime
@@ -23,7 +23,7 @@ data class BookmarkUiModel(
     val runtime: String,
 ) {
     private val displayYear =
-        localizedReleaseDate.toDisplayDate(DateFormat.DISP_YEAR_MONTH_DAY, DateFormat.DISP_YEAR)
+        localizedReleaseDate.transformDate(DateFormat.DISP_YEAR_MONTH_DAY, DateFormat.DISP_YEAR)
     val movieSummary = getSummaryInfo(displayYear, movieStatus, genres)
 }
 
@@ -31,7 +31,7 @@ fun Movie.toBookmarkUiModel() = BookmarkUiModel(
     movieId = tmdbMovieId ?: -1,
     movieName = localizedMovieName.orEmpty(),
     posterImageUrl = posterImageUrl,
-    localizedReleaseDate = localizedReleaseDate.toDisplayDate(
+    localizedReleaseDate = localizedReleaseDate.transformDate(
         DateFormat.YEAR_MONTH_DAY_MILLIS,
         DateFormat.DISP_YEAR_MONTH_DAY
     ),
