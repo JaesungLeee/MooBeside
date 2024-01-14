@@ -21,3 +21,8 @@ fun getSummaryInfo(releaseYear: String, movieStatus: String, genres: List<String
     val genre = genres.joinToString("/")
     return "$releaseYear · $movieStatus · $genre"
 }
+
+fun roundVoteRate(voteRate: Double): String {
+    val roundedRate = "%.1f".format(voteRate)
+    return "${roundedRate}점"
+}

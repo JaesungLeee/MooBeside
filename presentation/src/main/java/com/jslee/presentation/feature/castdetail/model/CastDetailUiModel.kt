@@ -2,6 +2,7 @@ package com.jslee.presentation.feature.castdetail.model
 
 import com.jslee.core.date.DateFormat
 import com.jslee.core.date.transformDate
+import com.jslee.core.ui.extension.roundVoteRate
 import com.jslee.domain.model.Gender
 import com.jslee.domain.model.Person
 
@@ -49,7 +50,7 @@ fun Person.toUiModel() = CastDetailUiModel(
             localizedMovieName = it.localizedMovieName,
             releaseDate = it.releaseDate,
             posterUrl = it.posterUrl,
-            voteAverage = it.voteAverage.toString(),
+            voteAverage = roundVoteRate(it.voteAverage),
             role = it.character.orEmpty()
         )
     }.orEmpty(),
@@ -59,7 +60,7 @@ fun Person.toUiModel() = CastDetailUiModel(
             localizedMovieName = it.localizedMovieName,
             releaseDate = it.releaseDate,
             posterUrl = it.posterUrl,
-            voteAverage = it.voteAverage.toString(),
+            voteAverage = roundVoteRate(it.voteAverage),
             role = it.job.orEmpty()
         )
     }.orEmpty()
