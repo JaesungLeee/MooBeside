@@ -8,10 +8,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.jslee.core.designsystem.RateDesign
 import com.jslee.core.ui.R
-import com.jslee.core.ui.extension.makeSummaryInfo
-import com.jslee.core.ui.extension.showToast
-import com.jslee.core.ui.extension.toDisplayDateWithMillisFormat
-import com.jslee.core.ui.extension.toDisplayedDate
 import com.jslee.core.designsystem.R as DR
 
 
@@ -81,20 +77,6 @@ fun ImageView.setPosterImage(imageUrl: String?) {
 fun TextView.setRateStyle(style: RateDesign) {
     setTextColor(ContextCompat.getColor(context, style.textColor))
     setBackgroundColor(ContextCompat.getColor(context, style.backgroundColor))
-}
-
-@BindingAdapter("releaseDate", "movieStatus", "genres", requireAll = true)
-fun TextView.setSummaryInfo(releaseDate: String?, movieStatus: String?, genres: List<String>?) {
-    if (releaseDate != null && movieStatus != null && genres != null) {
-        text = makeSummaryInfo(releaseDate, movieStatus, genres)
-    }
-}
-
-@BindingAdapter("releaseDate")
-fun TextView.setReleaseDate(releaseDate: String?) {
-    releaseDate?.let {
-        text = it.toDisplayDateWithMillisFormat()
-    }
 }
 
 @BindingAdapter("bookmark")
