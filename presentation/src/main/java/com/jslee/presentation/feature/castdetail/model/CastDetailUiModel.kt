@@ -1,5 +1,7 @@
 package com.jslee.presentation.feature.castdetail.model
 
+import com.jslee.core.date.DateFormat
+import com.jslee.core.date.transformDate
 import com.jslee.domain.model.Gender
 import com.jslee.domain.model.Person
 
@@ -28,7 +30,11 @@ data class ParticipateMovieUiModel(
     val posterUrl: String?,
     val voteAverage: String,
     val role: String,
-)
+) {
+    private val displayYear =
+        releaseDate.transformDate(DateFormat.YEAR_MONTH_DAY_HYPHEN, DateFormat.DISP_YEAR)
+    val movieSummary = "$displayYear  · ${role}역"
+}
 
 fun Person.toUiModel() = CastDetailUiModel(
     personInfo = PersonInfoUiModel(
