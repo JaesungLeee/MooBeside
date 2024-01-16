@@ -6,10 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.jslee.presentation.databinding.DialogFilterBottomSheetBinding
 import com.jslee.presentation.feature.bookmark.adapter.filter.FilterOptionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -42,11 +46,22 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setBackgroundDimWindow()
 
+        observeStates()
         binding.rvFilterOptions.adapter = filterOptionsAdapter
         filterOptionsAdapter.submitList(viewModel.getFilterOptions())
 
         binding.tvConfirmButton.setOnClickListener {
             dialog?.dismiss()
+        }
+    }
+
+    private fun observeStates() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.filterOption.collect {
+                    filterOptionsAdapter.updateFilter(it)
+                }
+            }
         }
     }
 
