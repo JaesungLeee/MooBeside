@@ -18,6 +18,15 @@ internal interface BookmarkDao {
     @Query("SELECT * FROM `moobeside_bookmark.db`")
     fun getAllBookmarks(): Flow<List<BookmarkEntity>>
 
+    @Query(
+        """SELECT * FROM `moobeside_bookmark.db` ORDER BY
+        CASE WHEN :filter = 0 THEN released_date END DESC,
+        CASE WHEN :filter = 1 THEN bookmarked_at END DESC,
+        CASE WHEN :filter = 2 THEN runtime END ASC
+    """
+    )
+    fun getBookmarksByOrder(filter: Int): Flow<List<BookmarkEntity>>
+
     @Query("DELETE FROM `moobeside_bookmark.db` WHERE movie_id = :movieId")
     suspend fun deleteBookmark(movieId: Long)
 

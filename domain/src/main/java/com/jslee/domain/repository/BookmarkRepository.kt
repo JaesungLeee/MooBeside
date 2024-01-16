@@ -1,5 +1,6 @@
 package com.jslee.domain.repository
 
+import com.jslee.domain.model.BookmarkFilter
 import com.jslee.domain.model.movie.Movie
 import kotlinx.coroutines.flow.Flow
 
@@ -10,6 +11,8 @@ import kotlinx.coroutines.flow.Flow
  */
 interface BookmarkRepository {
     fun getAllBookmarks(): Flow<List<Movie>>
+
+    fun getBookmarksByOrder(filter: BookmarkFilter): Flow<List<Movie>>
 
     suspend fun bookmarkMovie(movie: Movie, bookmark: Boolean)
 
