@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
@@ -37,11 +38,12 @@ class BookmarkViewModel @Inject constructor(
 
     val bookmarks: StateFlow<List<BookmarkListItem>>
 
-    private val filterOption: MutableStateFlow<BookmarkFilter> =
+    private val _filterOption: MutableStateFlow<BookmarkFilter> =
         MutableStateFlow(BookmarkFilter.LATEST_RELEASE)
+    val filterOption: StateFlow<BookmarkFilter> = _filterOption.asStateFlow()
 
     init {
-        bookmarks = filterOption.flatMapLatest { filter ->
+        bookmarks = _filterOption.flatMapLatest { filter ->
             getBookmarks(filter)
         }.stateIn(
             scope = viewModelScope,
@@ -86,7 +88,7 @@ class BookmarkViewModel @Inject constructor(
     }
 
     fun setBookmarkFilter(filter: BookmarkFilter) {
-        filterOption.update { filter }
+        _filterOption.update { filter }
     }
 
     fun getFilterOptions(): List<FilterOptionsListItem> = listOf(

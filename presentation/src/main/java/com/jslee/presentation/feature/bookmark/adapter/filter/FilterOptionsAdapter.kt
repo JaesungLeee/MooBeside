@@ -33,7 +33,7 @@ class FilterOptionsAdapter(
         }
     }
 
-    private fun updateFilter(filter: BookmarkFilter) {
+    fun updateFilter(filter: BookmarkFilter) {
         if (filter.ordinal != selectedFilter.ordinal) {
             val previousFilter = selectedFilter
             selectedFilter = filter
