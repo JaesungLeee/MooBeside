@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import com.jslee.core.ui.adapter.MultiViewTypeListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemFilterOptionTextBinding
+import com.jslee.domain.model.BookmarkFilter
 import com.jslee.presentation.feature.bookmark.model.item.FilterOptionsListItem
 
 /**
@@ -13,10 +14,10 @@ import com.jslee.presentation.feature.bookmark.model.item.FilterOptionsListItem
  * @created 2023/11/10
  */
 class FilterOptionsAdapter(
-    private val onChangeFilter: (Long) -> Unit,
+    private val onFilterClick: (BookmarkFilter) -> Unit,
 ) : MultiViewTypeListAdapter<FilterOptionsListItem, FilterOptionsListItem.FilterOptionsViewType>() {
 
-    private var selectedTextFilterPosition: Int = -1
+    private var selectedFilter: BookmarkFilter = BookmarkFilter.LATEST_RELEASE
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -27,37 +28,37 @@ class FilterOptionsAdapter(
         return when (viewType) {
             FilterOptionsListItem.FilterOptionsViewType.TEXT_OPTION -> {
                 val binding = ItemFilterOptionTextBinding.inflate(inflater)
-                TextFilterOptionViewHolder(binding, onChangeFilter)
+                TextFilterOptionViewHolder(binding, onFilterClick)
             }
         }
     }
 
-    private fun selectTextFilter(position: Long) {
-        if (position.toInt() != selectedTextFilterPosition) {
-            val previousPosition = selectedTextFilterPosition
-            selectedTextFilterPosition = position.toInt()
-            notifyItemChanged(previousPosition)
-            notifyItemChanged(selectedTextFilterPosition)
+    private fun updateFilter(filter: BookmarkFilter) {
+        if (filter.ordinal != selectedFilter.ordinal) {
+            val previousFilter = selectedFilter
+            selectedFilter = filter
+            notifyItemChanged(previousFilter.ordinal)
+            notifyItemChanged(selectedFilter.ordinal)
         }
     }
 
     inner class TextFilterOptionViewHolder(
         private val binding: ItemFilterOptionTextBinding,
-        onChangeFilter: (Long) -> Unit,
+        onFilterClick: (BookmarkFilter) -> Unit,
     ) : BaseViewHolder<FilterOptionsListItem.TextOption>(binding) {
 
         init {
             binding.tvOption.setOnClickListener {
                 getItem { textOption ->
-                    onChangeFilter(textOption.id)
-                    selectTextFilter(textOption.id)
+                    updateFilter(textOption.filter)
+                    onFilterClick(textOption.filter)
                 }
             }
         }
 
         override fun bindItems(item: FilterOptionsListItem.TextOption) = with(binding) {
-            tvOption.text = item.description
-            tvOption.isSelected = bindingAdapterPosition == selectedTextFilterPosition
+            tvOption.text = item.filter.description
+            tvOption.isSelected = bindingAdapterPosition == selectedFilter.ordinal
             executePendingBindings()
         }
     }

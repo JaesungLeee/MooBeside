@@ -24,8 +24,9 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
     val binding: DialogFilterBottomSheetBinding get() = requireNotNull(_binding)
 
     private val viewModel: BookmarkViewModel by activityViewModels()
+
     private val filterOptionsAdapter: FilterOptionsAdapter by lazy {
-        FilterOptionsAdapter(onChangeFilter = { Timber.e("$it") })
+        FilterOptionsAdapter(onFilterClick = viewModel::setBookmarkFilter)
     }
 
     override fun onCreateView(
@@ -48,7 +49,6 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
             dialog?.dismiss()
         }
     }
-
 
     private fun setBackgroundDimWindow() {
         dialog?.window?.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
