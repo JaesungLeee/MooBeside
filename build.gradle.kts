@@ -1,9 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     dependencies {
-        val libs = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
-        val navigationVersion = libs.findVersion("navigation").get()
+        val catalog = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
+        val navigationVersion = catalog.findVersion("navigation").get()
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion")
+        classpath(libs.oss.license.plugin)
     }
 }
 
@@ -15,6 +16,5 @@ plugins {
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.hilt.plugin) apply false
     alias(libs.plugins.kotlin.kapt) apply false
-
 }
 true

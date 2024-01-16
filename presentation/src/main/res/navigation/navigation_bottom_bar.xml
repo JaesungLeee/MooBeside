@@ -9,14 +9,56 @@
     <include app:graph="@navigation/navigation_home" />
     <include app:graph="@navigation/navigation_bookmark" />
 
+    <action
+        android:id="@+id/action_to_movie_detail"
+        app:destination="@id/movieDetailFragment" />
+
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.jslee.presentation.feature.detail.MovieDetailFragment"
         android:label="MovieDetailFragment"
-        tools:layout="@layout/fragment_movie_detail" />
+        tools:layout="@layout/fragment_movie_detail">
 
-    <action
-        android:id="@+id/action_to_movie_detail"
-        app:destination="@id/movieDetailFragment" />
+        <deepLink
+            android:autoVerify="true"
+            app:uri="https://moobeside.link/detail?movieId={movieId}" />
+
+        <argument
+            android:name="movieId"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_movieDetail_to_cast"
+            app:destination="@id/castFragment" />
+        <action
+            android:id="@+id/action_movieDetail_to_castDetail"
+            app:destination="@id/castDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/castFragment"
+        android:name="com.jslee.presentation.feature.cast.CastFragment"
+        android:label="CastFragment"
+        tools:layout="@layout/fragment_cast">
+        <argument
+            android:name="casts"
+            app:argType="com.jslee.presentation.feature.detail.model.CastInfoUiModel[]" />
+        <action
+            android:id="@+id/action_cast_to_castDetail"
+            app:destination="@id/castDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/castDetailFragment"
+        android:name="com.jslee.presentation.feature.castdetail.CastDetailFragment"
+        android:label="CastDetailFragment">
+        <argument
+            android:name="personId"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_castDetail_to_movieDetail"
+            app:destination="@id/movieDetailFragment"
+            app:popUpTo="@id/movieDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

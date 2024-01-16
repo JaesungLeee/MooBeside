@@ -17,11 +17,6 @@ abstract class BaseViewHolder<out T>(
     /* must implement */
     open fun bindItems(item: @UnsafeVariance T) {}
 
-    /**
-     * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-published-api/
-     *
-     * internal에 의한 non-public api를 public api inline에서 사용 가능하도록 허용
-     */
     @PublishedApi
     internal fun getItem(position: Int): Any? {
         return when (val adapter = bindingAdapter) {

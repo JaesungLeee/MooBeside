@@ -14,7 +14,7 @@ import com.jslee.presentation.feature.detail.viewholder.cast.CastInfoItemViewHol
  * @created 2023/10/28
  */
 class CastInfoListAdapter(
-    private val onCastItemClick: (String) -> Unit,
+    private val onCastItemClick: (Long) -> Unit,
 ) : SingleViewTypeListAdapter<CastInfoUiModel>({ it.name }) {
     override fun onCreateViewHolder(parent: ViewGroup): BaseViewHolder<CastInfoUiModel> {
         val inflater = LayoutInflater.from(parent.context)

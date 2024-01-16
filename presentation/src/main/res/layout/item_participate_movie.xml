@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="participateMovie"
+            type="com.jslee.presentation.feature.castdetail.model.ParticipateMovieUiModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="8dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_poster"
+            posterImage="@{participateMovie.posterUrl}"
+            android:layout_width="80dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/MooBeside.Shape.Radius4"
+            app:strokeColor="@color/Gray10"
+            app:strokeWidth="1dp"
+            tools:src="@drawable/img_sample" />
+
+        <TextView
+            android:id="@+id/tv_movie_title"
+            style="@style/MooBesideTextAppearance.Body1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{participateMovie.localizedMovieName}"
+            android:textColor="@color/Gray02"
+            app:layout_constraintBottom_toTopOf="@id/tv_summary_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_poster"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="오펜하이머" />
+
+        <TextView
+            android:id="@+id/tv_summary_info"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{participateMovie.movieSummary}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toTopOf="@id/tv_runtime_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_movie_title"
+            tools:text="2023년·ㅁㅁㅁ역" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="tv_runtime_title, tv_release_date_title" />
+
+        <TextView
+            android:id="@+id/tv_runtime_title"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/text_vote_average_title"
+            android:textColor="@color/Gray03"
+            app:layout_constraintBottom_toTopOf="@id/tv_release_date_title"
+            app:layout_constraintStart_toStartOf="@id/tv_movie_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_summary_info" />
+
+        <TextView
+            android:id="@+id/tv_vote_rate"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{participateMovie.voteAverage}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toBottomOf="@id/tv_runtime_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="@id/tv_runtime_title"
+            tools:text="6.4" />
+
+        <TextView
+            android:id="@+id/tv_release_date_title"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_release_date_title"
+            android:textColor="@color/Gray03"
+            app:layout_constraintBottom_toBottomOf="@id/iv_poster"
+            app:layout_constraintStart_toStartOf="@id/tv_runtime_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_runtime_title" />
+
+        <TextView
+            android:id="@+id/tv_release_date"
+            style="@style/MooBesideTextAppearance.Caption2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{participateMovie.releaseDate}"
+            android:textColor="@color/Gray06"
+            app:layout_constraintBottom_toBottomOf="@id/tv_release_date_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/barrier"
+            app:layout_constraintTop_toTopOf="@id/tv_release_date_title"
+            tools:text="2023년 12월 20일" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

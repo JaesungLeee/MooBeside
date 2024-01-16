@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
+    id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
 
@@ -43,6 +44,8 @@ dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:ui"))
     implementation(project(":core:external"))
+    implementation(project(":core:deeplink"))
+    implementation(project(":core:date"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -55,10 +58,12 @@ dependencies {
     implementation(libs.bundles.kotlinx.coroutines)
 
     implementation(libs.material)
+    implementation(libs.flexbox)
+    implementation(libs.oss.license)
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
-
+    
     implementation(libs.timber)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

@@ -7,9 +7,14 @@ pluginManagement {
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+    dependencyResolutionManagement {
+        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+        repositories {
+            google()
+            mavenCentral()
+            gradlePluginPortal()
+            maven(url = "https://devrepo.kakao.com/nexus/content/groups/public/")
+        }
     }
 }
 
@@ -22,3 +27,5 @@ include(":core:common")
 include(":core:designsystem")
 include(":core:ui")
 include(":core:external")
+include(":core:deeplink")
+include(":core:date")

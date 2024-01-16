@@ -15,7 +15,6 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KOBIS_API_KEY", getApiKey("KOBIS_API_KEY"))
@@ -57,6 +56,8 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.bundles.androidx.room)
+    kapt(libs.androidx.room.compiler)  // migrate to ksp
 
     implementation(libs.bundles.kotlinx.coroutines)
     implementation(libs.kotlinx.serialization.json)

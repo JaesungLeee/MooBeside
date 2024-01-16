@@ -1,6 +1,5 @@
 package com.jslee.presentation.feature.boxoffice
 
-import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +16,7 @@ import com.jslee.core.ui.extension.toShortenDate
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBoxOfficeBinding
 import com.jslee.presentation.feature.boxoffice.adapter.BoxOfficeAdapter
+import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -43,8 +43,8 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
     }
 
     private fun navigateToMovieDetail(movieId: Long) {
-        val argument = bundleOf(Pair("movieId", movieId))
-        findNavController().navigate(R.id.action_to_movie_detail, argument)
+        val action = MovieDetailFragmentDirections.actionToMovieDetail(movieId)
+        findNavController().navigate(action)
     }
 
     override fun initViews() {

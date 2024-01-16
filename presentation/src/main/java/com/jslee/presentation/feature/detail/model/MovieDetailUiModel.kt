@@ -1,9 +1,11 @@
 package com.jslee.presentation.feature.detail.model
 
-import com.jslee.core.ui.extension.makeSummaryInfo
-import com.jslee.domain.model.movie.Movie
-import com.jslee.domain.model.movie.MovieStatus
+import android.os.Parcelable
+import com.jslee.core.date.DateFormat
+import com.jslee.core.date.transformDate
+import com.jslee.core.ui.extension.getSummaryInfo
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
+import kotlinx.parcelize.Parcelize
 
 /**
  * MooBeside
@@ -11,6 +13,7 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  * @created 2023/10/21
  */
 data class MovieDetailUiModel(
+    val movieId: Long,
     val appBarModel: AppBarUiModel,
     val detailData: List<DetailListItem>,
 )
@@ -19,62 +22,51 @@ data class AppBarUiModel(
     val movieName: String,
     val posterImageUrl: String?,
     val backdropImageUrl: String?,
-    val summaryInfo: String,
+    val releaseDate: String,
+    val movieStatus: String,
+    val genres: List<String>,
+    val runtime: Int,
+    val certification: String,
+) {
+    private val displayYear =
+        releaseDate.transformDate(DateFormat.YEAR_MONTH_DAY_MILLIS, DateFormat.DISP_YEAR)
+    val movieSummary = getSummaryInfo(displayYear, movieStatus, genres)
+}
+
+data class MovieInfoUiModel(
+    val tagLine: String,
+    val overview: String,
+    val movieInfoData: List<MovieInfoItem>,
+    val isOverviewExpanded: Boolean = false,
 )
 
-fun Movie.toMovieDetailUiModel(trailerTitle: String) = MovieDetailUiModel(
-    appBarModel = toAppBarModel(),
-    detailData = toListItem(trailerTitle)
+data class MovieInfoItem(
+    val title: String,
+    val content: String,
 )
 
-fun Movie.toAppBarModel() = AppBarUiModel(
-    movieName = localizedMovieName.orEmpty(),
-    posterImageUrl = posterImageUrl,
-    backdropImageUrl = backdropImageUrl,
-    summaryInfo = makeSummaryInfo(
-        localizedReleaseDate,
-        MovieStatus.getDescription(movieStatus),
-        genres
-    ),
+@Parcelize
+data class CastInfoUiModel(
+    val personId: Long,
+    val profileImageUrl: String?,
+    val name: String,
+    val role: String,
+) : Parcelable
+
+data class GalleryUiModel(
+    val id: Long,
+    val galleryImageUrl: String?,
 )
 
-const val SCREEN_SHOWN_LIMIT = 4
-fun Movie.toListItem(title: String) = listOf(
-    DetailListItem.MovieInfo(
-        id = 0,
-        movieInfoData = toMovieInfoUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 1,
-    ),
-    DetailListItem.Rate(
-        id = 2,
-        rateData = toRateUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 3,
-    ),
-    DetailListItem.Cast(
-        id = 4,
-        castInfoData = mapToCastInfoUiModel().take(SCREEN_SHOWN_LIMIT)
-    ),
-    DetailListItem.Divider(
-        id = 5,
-    ),
-    DetailListItem.Gallery(
-        id = 6,
-        galleryData = mapToGalleryUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 7,
-    ),
-    DetailListItem.MovieTrailer(
-        id = 8,
-        title = title,
-        trailerData = mapToMovieTrailerUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 9,
-    ),
+data class MovieTrailerUiModel(
+    val videoId: String,
+    val thumbnailUrl: String,
+    val contentTitle: String,
+    val description: String,
+    val publishedDate: String,
 )
 
+data class RateUiModel(
+    val tmdbRate: String,
+    val naverRate: String,
+)

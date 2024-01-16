@@ -26,6 +26,18 @@ enum class MovieStatus(val status: String, val description: String) {
             }
         }
 
+        fun fromDescription(status: String): MovieStatus {
+            return when (status) {
+                CANCELED.description -> CANCELED
+                IN_PRODUCTION.description -> IN_PRODUCTION
+                PLANNED.description -> PLANNED
+                POST_PRODUCTION.description -> POST_PRODUCTION
+                RELEASED.description -> RELEASED
+                RUMORED.description -> RUMORED
+                else -> throw IllegalArgumentException()
+            }
+        }
+
         fun getDescription(status: MovieStatus?): String {
             return when (status) {
                 CANCELED -> CANCELED.description

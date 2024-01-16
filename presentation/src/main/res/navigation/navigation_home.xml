@@ -29,7 +29,14 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.jslee.presentation.feature.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="SettingsFragment">
+        <action
+            android:id="@+id/action_settings_to_settingsDetail"
+            app:destination="@id/settingsDetailFragment" />
+        <action
+            android:id="@+id/action_settings_to_settingsWebView"
+            app:destination="@id/settingsWebViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nowPlayingFragment"
         android:name="com.jslee.presentation.feature.now.NowPlayingFragment"
@@ -38,5 +45,21 @@
         android:id="@+id/upComingFragment"
         android:name="com.jslee.presentation.feature.upcoming.UpComingFragment"
         android:label="UpComingFragment" />
+    <fragment
+        android:id="@+id/settingsDetailFragment"
+        android:name="com.jslee.presentation.feature.settings.SettingsDetailFragment"
+        android:label="SettingsDetailFragment">
+        <argument
+            android:name="navigationOption"
+            app:argType="com.jslee.presentation.feature.settings.model.navigation.NavigationOption" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsWebViewFragment"
+        android:name="com.jslee.presentation.feature.settings.SettingsWebViewFragment"
+        android:label="SettingsWebViewFragment">
+        <argument
+            android:name="navigationOption"
+            app:argType="com.jslee.presentation.feature.settings.model.navigation.NavigationOption" />
+    </fragment>
 
 </navigation>

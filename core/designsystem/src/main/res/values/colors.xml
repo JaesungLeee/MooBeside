@@ -3,6 +3,18 @@
     <color name="Black">#FF0A0C10</color>
     <color name="White">#FFFFFFFF</color>
 
+    <!-- Primary -->
+    <color name="Blurple900">#FF5865F2</color>
+    <color name="Blurple800">#FF6974F3</color>
+    <color name="Blurple700">#FF7984F5</color>
+    <color name="Blurple600">#FF8A93F6</color>
+    <color name="Blurple500">#FF9BA3F7</color>
+    <color name="Blurple400">#FFACB2F9</color>
+    <color name="Blurple300">#FFBCC1FA</color>
+    <color name="Blurple200">#FFCDD1FB</color>
+    <color name="Blurple100">#FFDEE0FC</color>
+    <color name="Blurple50">#FFEEF0FE</color>
+
     <!-- Gray Scale -->
     <color name="Gray01">#FF17171B</color>
     <color name="Gray02">#FF2C2C34</color>
@@ -15,11 +27,11 @@
     <color name="Gray09">#FFC3C3C6</color>
     <color name="Gray10">#FFE4E4E5</color>
 
+
     <color name="BackgroundGray">#FFF5F5F5</color>
 
     <color name="BlackAlpha35">#59000000</color>
     <color name="Purple">#FF4D36DA</color>
-    <color name="Blurple">#FF5865F2</color>
     <color name="Mint">#FF9CFFE1</color>
 
     <color name="Green">#329B00</color>

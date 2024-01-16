@@ -28,7 +28,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:hint">@string/search_bar_hint</item>
-        <item name="hintTextColor">@color/Blurple</item>
+        <item name="hintTextColor">@color/Blurple900</item>
         <item name="boxStrokeColor">@drawable/selector_text_input_layer_indicator</item>
         <item name="boxStrokeErrorColor">@color/Red</item>
         <item name="boxStrokeWidth">1dp</item>
@@ -42,6 +42,17 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:maxLines">1</item>
         <item name="android:inputType">text</item>
+    </style>
+
+    <!-- BottomSheet -->
+    <style name="MooBeside.BottomSheet" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MooBeside.BottomSheet.ShapeAppearanceOverlay</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="MooBeside.BottomSheet.ShapeAppearanceOverlay" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="shapeAppearanceOverlay">@style/MooBeside.Shape.BottomSheet.TopRadius14</item>
     </style>
 
 </resources>

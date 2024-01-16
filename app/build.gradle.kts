@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -44,11 +45,15 @@ dependencies {
     implementation(project(":presentation"))
     implementation(project(":core:designsystem"))
     implementation(project(":core:common"))
+    implementation(project(":core:deeplink"))
+    implementation(project(":core:external"))
+    implementation(project(":core:ui"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 
     implementation(libs.timber)
+    implementation(libs.kakao.share)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

@@ -4,11 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.jslee.core.ui.adapter.MultiViewTypeListAdapter
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.presentation.databinding.ItemBookmarkEmptyBinding
 import com.jslee.presentation.databinding.ItemBookmarkListBinding
 import com.jslee.presentation.databinding.ItemListCountBinding
 import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem
 import com.jslee.presentation.feature.bookmark.viewholder.BookmarkCountViewHolder
 import com.jslee.presentation.feature.bookmark.viewholder.BookmarkInfoViewHolder
+import com.jslee.presentation.feature.bookmark.viewholder.EmptyBookmarkViewHolder
 
 /**
  * MooBeside
@@ -17,6 +19,7 @@ import com.jslee.presentation.feature.bookmark.viewholder.BookmarkInfoViewHolder
  */
 class BookmarkAdapter(
     private val onBookmarkClick: (Long) -> Unit,
+    private val onNavigateHome: () -> Unit,
 ) : MultiViewTypeListAdapter<BookmarkListItem, BookmarkListItem.BookmarkViewType>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -32,6 +35,11 @@ class BookmarkAdapter(
             BookmarkListItem.BookmarkViewType.BOOKMARK -> BookmarkInfoViewHolder(
                 ItemBookmarkListBinding.inflate(inflater, parent, false),
                 onBookmarkClick = onBookmarkClick
+            )
+
+            BookmarkListItem.BookmarkViewType.EMPTY -> EmptyBookmarkViewHolder(
+                ItemBookmarkEmptyBinding.inflate(inflater, parent, false),
+                onNavigateHome = onNavigateHome
             )
         }
     }
