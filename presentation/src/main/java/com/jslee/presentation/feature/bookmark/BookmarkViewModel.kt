@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.bookmark
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
+import com.jslee.domain.model.BookmarkFilter
 import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
 import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem
 import com.jslee.presentation.feature.bookmark.model.toBookmarkUiModel
@@ -64,6 +65,11 @@ class BookmarkViewModel @Inject constructor(
         }
         return bookmarkListItems
     }
+
+    fun setBookmarkFilter(filter: BookmarkFilter) {
+        filterOption.update { filter }
+    }
+
     fun getFilterOptions(): List<FilterOptionsListItem> = listOf(
         FilterOptionsListItem.TextOption(
             id = BookmarkFilter.LATEST_RELEASE.ordinal.toLong(),
@@ -74,8 +80,8 @@ class BookmarkViewModel @Inject constructor(
             filter = BookmarkFilter.LATEST_BOOKMARK,
         ),
         FilterOptionsListItem.TextOption(
-            id = BookmarkFilter.SHORTEST_MOVIE.ordinal.toLong(),
-            filter = BookmarkFilter.SHORTEST_MOVIE,
+            id = BookmarkFilter.SHORTEST_RUNTIME.ordinal.toLong(),
+            filter = BookmarkFilter.SHORTEST_RUNTIME,
         ),
     )
 }
