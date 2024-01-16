@@ -1,6 +1,7 @@
 package com.jslee.presentation.feature.bookmark
 
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
@@ -58,7 +59,7 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     }
 
     override fun observeStates() {
-        repeatOn {
+        repeatOn(lifecycle = Lifecycle.State.RESUMED) {
             viewModel.bookmarks.collectLatest {
                 bookmarkAdapter.submitList(it)
             }

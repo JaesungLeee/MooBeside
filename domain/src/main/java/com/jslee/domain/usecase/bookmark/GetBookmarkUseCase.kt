@@ -1,5 +1,6 @@
 package com.jslee.domain.usecase.bookmark
 
+import com.jslee.domain.model.BookmarkFilter
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.BookmarkRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,5 +16,9 @@ class GetBookmarkUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<List<Movie>> {
         return bookmarkRepository.getAllBookmarks()
+    }
+
+    fun byOrder(filter: BookmarkFilter): Flow<List<Movie>> {
+        return bookmarkRepository.getBookmarksByOrder(filter)
     }
 }

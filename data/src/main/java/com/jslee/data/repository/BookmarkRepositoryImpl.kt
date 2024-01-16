@@ -4,6 +4,7 @@ import com.jslee.data.database.entity.toBookmarkEntity
 import com.jslee.data.database.entity.toDomain
 import com.jslee.data.datasource.local.BookmarkLocalDataSource
 import com.jslee.data.suspendRunCatching
+import com.jslee.domain.model.BookmarkFilter
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.repository.BookmarkRepository
 import kotlinx.coroutines.flow.Flow
@@ -22,6 +23,17 @@ internal class BookmarkRepositoryImpl @Inject constructor(
     override fun getAllBookmarks(): Flow<List<Movie>> = flow {
         suspendRunCatching {
             bookmarkLocalDataSource.getAllBookmarks()
+                .map { cachedBookmark ->
+                    cachedBookmark.map { it.toDomain() }
+                }
+        }.getOrThrow().collect {
+            emit(it)
+        }
+    }
+
+    override fun getBookmarksByOrder(filter: BookmarkFilter): Flow<List<Movie>> = flow {
+        suspendRunCatching {
+            bookmarkLocalDataSource.getBookmarksByOrder(filter)
                 .map { cachedBookmark ->
                     cachedBookmark.map { it.toDomain() }
                 }
