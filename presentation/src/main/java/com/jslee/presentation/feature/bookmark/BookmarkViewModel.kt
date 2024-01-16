@@ -64,4 +64,18 @@ class BookmarkViewModel @Inject constructor(
         }
         return bookmarkListItems
     }
+    fun getFilterOptions(): List<FilterOptionsListItem> = listOf(
+        FilterOptionsListItem.TextOption(
+            id = BookmarkFilter.LATEST_RELEASE.ordinal.toLong(),
+            filter = BookmarkFilter.LATEST_RELEASE,
+        ),
+        FilterOptionsListItem.TextOption(
+            id = BookmarkFilter.LATEST_BOOKMARK.ordinal.toLong(),
+            filter = BookmarkFilter.LATEST_BOOKMARK,
+        ),
+        FilterOptionsListItem.TextOption(
+            id = BookmarkFilter.SHORTEST_MOVIE.ordinal.toLong(),
+            filter = BookmarkFilter.SHORTEST_MOVIE,
+        ),
+    )
 }

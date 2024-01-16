@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.jslee.presentation.databinding.DialogFilterBottomSheetBinding
 import com.jslee.presentation.feature.bookmark.adapter.filter.FilterOptionsAdapter
-import com.jslee.presentation.feature.bookmark.model.provideFilterOptions
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 import com.jslee.core.designsystem.R as DR
 
 /**
@@ -24,6 +23,7 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
     private var _binding: DialogFilterBottomSheetBinding? = null
     val binding: DialogFilterBottomSheetBinding get() = requireNotNull(_binding)
 
+    private val viewModel: BookmarkViewModel by activityViewModels()
     private val filterOptionsAdapter: FilterOptionsAdapter by lazy {
         FilterOptionsAdapter(onChangeFilter = { Timber.e("$it") })
     }
@@ -42,7 +42,7 @@ class FilterBottomSheetFragment : BottomSheetDialogFragment() {
         setBackgroundDimWindow()
 
         binding.rvFilterOptions.adapter = filterOptionsAdapter
-        filterOptionsAdapter.submitList(provideFilterOptions())
+        filterOptionsAdapter.submitList(viewModel.getFilterOptions())
 
         binding.tvConfirmButton.setOnClickListener {
             dialog?.dismiss()
