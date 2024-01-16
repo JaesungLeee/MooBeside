@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.bookmark
 
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.presentation.R
@@ -23,7 +23,7 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     @Inject
     lateinit var fakeBookmarkData: FakeBookmarkData
 
-    private val viewModel: BookmarkViewModel by viewModels()
+    private val viewModel: BookmarkViewModel by activityViewModels()
 
     private val bookmarkAdapter by lazy {
         BookmarkAdapter(
