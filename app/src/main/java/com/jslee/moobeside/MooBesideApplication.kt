@@ -1,6 +1,9 @@
 package com.jslee.moobeside
 
 import android.app.Application
+import com.jslee.core.logger.Logger
+import com.jslee.core.logger.Logger.asTimberTree
+import com.jslee.moobeside.crashlytics.CrashlyticsLoggerTree
 import com.jslee.moobeside.util.LifecycleLogger
 import com.kakao.sdk.common.KakaoSdk
 import dagger.hilt.android.HiltAndroidApp
@@ -20,9 +23,12 @@ class MooBesideApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Timber.plant(Timber.DebugTree())
-        lifecycleLogger.initialize(this)
-
+        if (BuildConfig.DEBUG) {
+            Logger.initialize(Timber.DebugTree())
+            lifecycleLogger.initialize(this)
+        } else {
+            Logger.initialize(CrashlyticsLoggerTree().asTimberTree())
+        }
         KakaoSdk.init(applicationContext, applicationContext.getString(R.string.kakao_native_key))
     }
 }
