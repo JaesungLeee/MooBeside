@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":core:external"))
     implementation(project(":core:deeplink"))
     implementation(project(":core:date"))
+    implementation(project(":core:logger"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
