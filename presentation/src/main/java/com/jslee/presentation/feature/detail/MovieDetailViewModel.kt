@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.jslee.core.deeplink.DeepLinkLauncher
 import com.jslee.core.deeplink.di.Firebase
 import com.jslee.core.deeplink.di.Kakao
+import com.jslee.core.logger.Logger
 import com.jslee.domain.usecase.GetMovieDetailUseCase
 import com.jslee.domain.usecase.bookmark.BookmarkUseCase
 import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
@@ -22,7 +23,6 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -77,7 +77,7 @@ class MovieDetailViewModel @Inject constructor(
         viewModelScope.launch {
             getMovieDetailUseCase.invoke(movieId)
                 .catch {
-                    Timber.e(it)
+                    Logger.e(it)
                 }.collect {
                     _movieName.value = it.localizedMovieName.orEmpty()
                     _detailUiState.value =
@@ -108,7 +108,7 @@ class MovieDetailViewModel @Inject constructor(
             runCatching {
                 bookmarkUseCase.invoke(uiModel.toDomain(movieId), !bookmark)
             }.onFailure {
-                Timber.e("$it")
+                Logger.e("$it")
             }
         }
     }
@@ -124,7 +124,6 @@ class MovieDetailViewModel @Inject constructor(
         val movieImageUrl = uiState.data.appBarModel.posterImageUrl
         val genres = uiState.data.appBarModel.genres.joinToString(", ")
 
-        Timber.e("Click")
         firebaseLinkLauncher.createDetailFirebaseLink(
             movieId = movieId.toString(),
             metaTagImageUrl = movieImageUrl.orEmpty(),
@@ -132,7 +131,7 @@ class MovieDetailViewModel @Inject constructor(
             metaTagDescription = genres,
             onSuccess = onSuccess,
             onFailure = {
-                Timber.e(it)
+                Logger.e(it)
             }
         )
     }

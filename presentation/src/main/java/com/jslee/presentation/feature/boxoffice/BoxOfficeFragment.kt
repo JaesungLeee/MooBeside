@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.jslee.core.logger.Logger
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.toDisplayedDateWithDay
 import com.jslee.core.ui.extension.toDisplayedPreviousDateWithDay
@@ -20,7 +21,6 @@ import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -67,7 +67,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
                 viewModel.boxOfficeUiState.collectLatest { state ->
                     when (state) {
                         Loading -> {
-                            Timber.e("Loading")
+                            Logger.e("Loading")
                         }
 
                         is Success -> {
@@ -75,7 +75,7 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
                         }
 
                         Failure -> {
-                            Timber.e("Error")
+                            Logger.e("Error")
                         }
                     }
                 }

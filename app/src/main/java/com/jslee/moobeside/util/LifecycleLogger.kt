@@ -8,6 +8,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import com.jslee.core.logger.Logger
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -16,17 +17,15 @@ import javax.inject.Inject
  * @author jaesung
  * @created 2023/12/23
  */
-private const val TAG = "Logger"
-
 private inline val <T : Any> T.className: String
     get() = javaClass.name
 
 private fun Fragment.printLifecycle(lifecycleEvent: String) {
-    Timber.tag(TAG).w("[Fragment] $lifecycleEvent - $className(${hashCode()})")
+    Logger.w("[Fragment] $lifecycleEvent - $className(${hashCode()})")
 }
 
 private fun Activity.printLifecycle(lifecycleEvent: String) {
-    Timber.tag(TAG).w("[Activity] $lifecycleEvent - $className(${hashCode()})")
+    Logger.w("[Activity] $lifecycleEvent - $className(${hashCode()})")
 }
 
 class LifecycleLogger @Inject constructor() {
