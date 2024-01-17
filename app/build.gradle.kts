@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.google.services)
+    alias(libs.plugins.firebase.crashlytics.plugin)
 }
 
 android {
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
 }
 
@@ -56,6 +58,7 @@ dependencies {
 
     implementation(libs.timber)
     implementation(libs.kakao.share)
+    implementation(libs.firebase.crashlytics)
 
     testImplementation(libs.junit)
 }
