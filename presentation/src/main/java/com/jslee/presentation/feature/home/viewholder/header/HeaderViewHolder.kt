@@ -4,7 +4,6 @@ import androidx.core.view.isVisible
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.feature.home.model.item.HomeListItem
-import timber.log.Timber
 
 /**
  * MooBeside
@@ -13,7 +12,7 @@ import timber.log.Timber
  */
 class HeaderViewHolder(
     onLoadMoreClick: (Int) -> Unit,
-    private val binding: ItemHomeHeaderBinding
+    private val binding: ItemHomeHeaderBinding,
 ) : BaseViewHolder<HomeListItem.Header>(binding) {
     init {
         binding.tvLoadMore.setOnClickListener {

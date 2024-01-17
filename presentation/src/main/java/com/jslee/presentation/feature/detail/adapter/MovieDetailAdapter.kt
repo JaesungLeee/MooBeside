@@ -17,7 +17,6 @@ import com.jslee.presentation.feature.detail.viewholder.info.MovieInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.rate.RateInfoViewHolder
 import com.jslee.presentation.feature.detail.viewholder.trailer.TrailerInfoViewHolder
 import com.jslee.presentation.feature.home.viewholder.divider.DividerViewHolder
-import timber.log.Timber
 
 /**
  * MooBeside

@@ -4,12 +4,12 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.jslee.core.logger.Logger
 import com.jslee.core.ui.base.view.BaseActivity
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ActivityMainBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -46,7 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 navController.navigate(action)
             },
             onFailure = {
-                Timber.e("$it")
+                Logger.e(it)
             }
         )
     }

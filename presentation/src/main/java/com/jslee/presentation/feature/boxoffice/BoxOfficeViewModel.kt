@@ -2,6 +2,7 @@ package com.jslee.presentation.feature.boxoffice
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jslee.core.logger.Logger
 import com.jslee.core.ui.extension.toShortenPreviousDate
 import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 /**
@@ -33,7 +33,7 @@ class BoxOfficeViewModel @Inject constructor(
         viewModelScope.launch {
             getDailyBoxOfficeUseCase(targetDate)
                 .catch {
-                    Timber.e(it.message)
+                    Logger.e(it.message)
                     _boxOfficeUiState.value = Failure
                 }.collect { remoteBoxOffice ->
                     val dailyBoxOffice = remoteBoxOffice.map { it.toPresentation() }

@@ -6,6 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.jslee.core.logger.Logger
 import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
@@ -15,7 +16,6 @@ import com.jslee.presentation.feature.search.adapter.SearchAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 /**
  * MooBeside
@@ -68,21 +68,21 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                             when (uiState) {
                                 Idle -> Unit
                                 EmptyResult -> {
-                                    Timber.e("EmptyResult")
+                                    Logger.e("EmptyResult")
                                 }
 
                                 Loading -> {
-                                    Timber.e("Loading")
+                                    Logger.e("Loading")
                                     requireContext().showToast("로딩중")
                                 }
 
                                 is Success -> {
-                                    Timber.e("Success")
+                                    Logger.e("Success")
                                     searchAdapter.submitData(uiState.data)
                                 }
 
                                 is Failure -> {
-                                    Timber.e("Failure")
+                                    Logger.e("Failure")
                                     requireContext().showToast(uiState.message.orEmpty())
                                 }
                             }
