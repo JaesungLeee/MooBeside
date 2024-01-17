@@ -48,6 +48,8 @@ dependencies {
     implementation(project(":core:deeplink"))
     implementation(project(":core:external"))
     implementation(project(":core:ui"))
+    implementation(project(":core:date"))
+    implementation(project(":core:logger"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
@@ -56,6 +58,4 @@ dependencies {
     implementation(libs.kakao.share)
 
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
 }
