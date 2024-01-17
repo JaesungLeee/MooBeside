@@ -1,4 +1,4 @@
-package com.jslee.moobeside.util
+package com.jslee.moobeside.logger
 
 import android.app.Activity
 import android.app.Application
@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.jslee.core.logger.Logger
-import timber.log.Timber
 import javax.inject.Inject
 
 /**

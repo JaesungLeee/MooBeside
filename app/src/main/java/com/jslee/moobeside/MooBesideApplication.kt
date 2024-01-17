@@ -3,8 +3,8 @@ package com.jslee.moobeside
 import android.app.Application
 import com.jslee.core.logger.Logger
 import com.jslee.core.logger.Logger.asTimberTree
-import com.jslee.moobeside.crashlytics.CrashlyticsLoggerTree
-import com.jslee.moobeside.util.LifecycleLogger
+import com.jslee.moobeside.logger.crashlytics.CrashlyticsLoggerTree
+import com.jslee.moobeside.logger.LifecycleLogger
 import com.kakao.sdk.common.KakaoSdk
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber

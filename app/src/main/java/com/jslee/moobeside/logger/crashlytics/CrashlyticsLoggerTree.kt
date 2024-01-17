@@ -1,4 +1,4 @@
-package com.jslee.moobeside.crashlytics
+package com.jslee.moobeside.logger.crashlytics
 
 import android.util.Log
 import com.google.firebase.crashlytics.FirebaseCrashlytics
