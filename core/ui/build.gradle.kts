@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
 
     implementation(libs.material)
+    implementation(libs.facebook.shimmer)
     implementation(libs.glide)
     kapt(libs.glide.compiler)
 
