@@ -22,9 +22,9 @@ data class BoxOfficeUiModel(
     val isNewEntry: Boolean,
 )
 
-fun Movie.toPresentation() = BoxOfficeUiModel(
+fun Movie.toPresentation(rank: Int) = BoxOfficeUiModel(
     movieId = tmdbMovieId ?: -1,
-    rank = boxOffice?.rank.orEmpty(),
+    rank = rank.toString(),
     movieTitle = localizedMovieName.orEmpty(),
     openingDate = localizedReleaseDate?.transformDate(
         DateFormat.YEAR_MONTH_DAY_HYPHEN,
