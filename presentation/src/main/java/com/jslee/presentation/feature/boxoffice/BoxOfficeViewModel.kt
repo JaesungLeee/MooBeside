@@ -36,7 +36,9 @@ class BoxOfficeViewModel @Inject constructor(
                     Logger.e(it.message)
                     _boxOfficeUiState.value = Failure
                 }.collect { remoteBoxOffice ->
-                    val dailyBoxOffice = remoteBoxOffice.map { it.toPresentation() }
+                    val dailyBoxOffice = remoteBoxOffice.mapIndexed { index, movie ->
+                        movie.toPresentation(rank = index + 1)
+                    }
                     _boxOfficeUiState.value = Success(dailyBoxOffice)
                 }
         }
