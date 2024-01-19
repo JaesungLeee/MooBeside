@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.detail
 
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.jslee.core.external.ExternalLauncher
@@ -32,7 +32,7 @@ class MovieDetailFragment :
     @Inject
     lateinit var externalLauncher: ExternalLauncher
 
-    private val viewModel: MovieDetailViewModel by activityViewModels()
+    private val viewModel: MovieDetailViewModel by viewModels()
     private val safeArgs: MovieDetailFragmentArgs by navArgs()
     private val movieDetailAdapter by lazy {
         MovieDetailAdapter(

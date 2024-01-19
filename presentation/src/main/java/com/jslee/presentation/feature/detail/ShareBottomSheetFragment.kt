@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.core.app.ShareCompat
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.jslee.core.ui.extension.showToast
 import com.jslee.presentation.R
@@ -25,7 +25,7 @@ class ShareBottomSheetFragment : BottomSheetDialogFragment() {
     private var _binding: DialogShareBottomSheetBinding? = null
     val binding: DialogShareBottomSheetBinding get() = requireNotNull(_binding)
 
-    private val viewModel: MovieDetailViewModel by activityViewModels()
+    private val viewModel: MovieDetailViewModel by viewModels(ownerProducer = { requireParentFragment() })
 
     override fun onCreateView(
         inflater: LayoutInflater,
