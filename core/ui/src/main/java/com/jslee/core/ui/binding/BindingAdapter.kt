@@ -71,6 +71,14 @@ fun ImageView.setPosterImage(imageUrl: String?) {
             .into(this)
     } else {
     }
+
+@BindingAdapter("profileImage")
+fun ImageView.setProfileImage(imageUrl: String?) {
+    Glide.with(this.context)
+        .load(imageUrl)
+        .centerCrop()
+        .error(DR.drawable.ic_person_24)
+        .into(this)
 }
 
 @BindingAdapter("rateStyle")
