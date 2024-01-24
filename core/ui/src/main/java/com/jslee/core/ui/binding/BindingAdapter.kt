@@ -1,11 +1,15 @@
 package com.jslee.core.ui.binding
 
+import android.content.Context
+import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerDrawable
 import com.jslee.core.designsystem.RateDesign
 import com.jslee.core.ui.R
 import com.jslee.core.designsystem.R as DR
@@ -61,16 +65,27 @@ fun ImageView.setRankIncrementDrawable(rankIncrement: String?) {
     } else setImageDrawable(null)
 }
 
+fun getShimmerEffectDrawable(context: Context): Drawable {
+    val shimmer = Shimmer.ColorHighlightBuilder()
+        .setBaseColor(ContextCompat.getColor(context, DR.color.Gray09))
+        .setHighlightColor(ContextCompat.getColor(context, DR.color.Gray06))
+        .setDuration(1800)
+        .setDirection(Shimmer.Direction.LEFT_TO_RIGHT)
+        .setAutoStart(true)
+        .build()
+
+    return ShimmerDrawable().apply {
+        setShimmer(shimmer)
+    }
+}
+
 @BindingAdapter("posterImage")
 fun ImageView.setPosterImage(imageUrl: String?) {
-    if (!imageUrl.isNullOrEmpty()) {
-        Glide.with(this.context)
-            .load(imageUrl)
-            .fitCenter()
-            .override(400, 600)
-            .into(this)
-    } else {
-    }
+    Glide.with(this.context)
+        .load(imageUrl)
+        .placeholder(getShimmerEffectDrawable(this.context))
+        .into(this)
+}
 
 @BindingAdapter("profileImage")
 fun ImageView.setProfileImage(imageUrl: String?) {
