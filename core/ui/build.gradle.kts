@@ -40,6 +40,7 @@ android {
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:date"))
+    implementation(project(":core:image"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

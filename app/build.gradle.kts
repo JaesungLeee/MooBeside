@@ -52,6 +52,7 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:date"))
     implementation(project(":core:logger"))
+    implementation(project(":core:image"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
