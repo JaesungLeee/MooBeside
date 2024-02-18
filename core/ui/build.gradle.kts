@@ -40,7 +40,6 @@ android {
 dependencies {
     implementation(project(":core:designsystem"))
     implementation(project(":core:date"))
-    implementation(project(":core:image"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -48,10 +47,6 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
 
     implementation(libs.material)
-    implementation(libs.facebook.shimmer)
-    implementation(libs.glide)
-    kapt(libs.glide.compiler)
-
     implementation(libs.bundles.kotlinx.coroutines)
 
     testImplementation(libs.junit)
