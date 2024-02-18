@@ -8,6 +8,6 @@ import android.content.Context
  * @created 2023/11/01
  */
 interface ExternalLauncher {
-    fun launchTrailer(context: Context, id: String, fallback: () -> Unit)
+    fun launchTrailer(context: Context, videoId: String, fallback: () -> Unit)
     fun launchSearch(context: Context, query: String, fallback: () -> Unit)
 }

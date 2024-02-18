@@ -15,7 +15,7 @@ import dagger.hilt.android.scopes.FragmentScoped
  */
 @Module
 @InstallIn(FragmentComponent::class)
-abstract class ExternalLauncherModule {
+internal abstract class ExternalLauncherModule {
 
     @Binds
     @FragmentScoped
