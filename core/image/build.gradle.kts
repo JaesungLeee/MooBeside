@@ -27,9 +27,16 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
+    implementation(project(":core:designsystem"))
+
     implementation(libs.glide)
     kapt(libs.glide.compiler)
+
+    implementation(libs.facebook.shimmer)
 }
