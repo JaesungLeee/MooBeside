@@ -15,11 +15,11 @@ import android.net.Uri
  * 1. AppIntent로 시도
  * 2. WebIntent로 시도
  */
-object Youtube {
-    private const val PACKAGE_NAME_SPACE = "com.google.android.youtube"
-    private const val WEB_WATCH_URL = "https://www.youtube.com/watch?v="
-    private const val WEB_SEARCH_URL = "https://www.youtube.com/results?search_query="
+internal const val PACKAGE_NAME_SPACE = "com.google.android.youtube"
+internal const val WEB_WATCH_URL = "https://www.youtube.com/watch?v="
+internal const val WEB_SEARCH_URL = "https://www.youtube.com/results?search_query="
 
+internal object Youtube {
     object Trailer {
         private fun createAppIntent(videoId: String): Intent = Intent(
             Intent.ACTION_VIEW,

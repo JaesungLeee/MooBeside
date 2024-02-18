@@ -10,10 +10,10 @@ import javax.inject.Inject
  * @created 2023/11/01
  */
 
-class ExternalLauncherImpl @Inject constructor() : ExternalLauncher {
+internal class ExternalLauncherImpl @Inject constructor() : ExternalLauncher {
 
-    override fun launchTrailer(context: Context, id: String, fallback: () -> Unit) {
-        Youtube.Trailer.launchYoutubeTrailer(context, id, fallback)
+    override fun launchTrailer(context: Context, videoId: String, fallback: () -> Unit) {
+        Youtube.Trailer.launchYoutubeTrailer(context, videoId, fallback)
     }
 
     override fun launchSearch(context: Context, query: String, fallback: () -> Unit) {
