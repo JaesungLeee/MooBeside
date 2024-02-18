@@ -17,30 +17,26 @@ import com.jslee.core.designsystem.R as DR
 
 @BindingAdapter("newEntry")
 fun TextView.setNewEntry(isNewEntry: Boolean) {
-    if (isNewEntry) {
-        isVisible = true
-        text = resources.getString(R.string.box_office_is_new)
-        setTextColor(ContextCompat.getColor(context, DR.color.Amber))
-    } else {
-        isVisible = false
-    }
+    if (!isNewEntry) return
+
+    isVisible = true
+    text = resources.getString(R.string.box_office_is_new)
+    setTextColor(ContextCompat.getColor(context, DR.color.Amber))
 }
 
 @BindingAdapter("rankIncrementText")
 fun TextView.setRankIncrementText(rankIncrement: String?) {
-    if (!rankIncrement.isNullOrEmpty()) {
-        if (rankIncrement.toInt() == 0) return
-        isVisible = true
-        text = rankIncrement
-        setTextColor(ContextCompat.getColor(context, DR.color.Gray03))
-    } else {
-        isVisible = false
-    }
+    if (rankIncrement == null || rankIncrement.toInt() == 0) return
+
+    isVisible = true
+    text = rankIncrement
+    setTextColor(ContextCompat.getColor(context, DR.color.Gray03))
 }
 
 @BindingAdapter("rankIncrementDrawable")
 fun ImageView.setRankIncrementDrawable(rankIncrement: String?) {
     if (rankIncrement == null) return
+
     when {
         rankIncrement.toInt() > 0 -> {
             setRankDrawable(this, DR.drawable.ic_arrow_up_14, DR.color.Blue)
