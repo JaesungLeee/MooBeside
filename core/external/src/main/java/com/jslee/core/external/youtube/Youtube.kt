@@ -25,7 +25,7 @@ object Youtube {
             Intent.ACTION_VIEW,
             Uri.parse("vnd.youtube:$videoId")
         ).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
         }
 
         private fun createWebIntent(videoId: String): Intent = Intent(
@@ -62,7 +62,7 @@ object Youtube {
             .apply {
                 `package` = PACKAGE_NAME_SPACE
                 putExtra("query", query)
-                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_MULTIPLE_TASK
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
 
         private fun createWebIntent(query: String): Intent = Intent(
