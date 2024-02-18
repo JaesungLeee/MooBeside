@@ -20,7 +20,7 @@ fun TextView.setNewEntry(isNewEntry: Boolean) {
     if (isNewEntry) {
         isVisible = true
         text = resources.getString(R.string.box_office_is_new)
-        setTextColor(ContextCompat.getColor(this.context, DR.color.Amber))
+        setTextColor(ContextCompat.getColor(context, DR.color.Amber))
     } else {
         isVisible = false
     }
@@ -32,7 +32,7 @@ fun TextView.setRankIncrementText(rankIncrement: String?) {
         if (rankIncrement.toInt() == 0) return
         isVisible = true
         text = rankIncrement
-        setTextColor(ContextCompat.getColor(this.context, DR.color.Gray03))
+        setTextColor(ContextCompat.getColor(context, DR.color.Gray03))
     } else {
         isVisible = false
     }
@@ -40,22 +40,28 @@ fun TextView.setRankIncrementText(rankIncrement: String?) {
 
 @BindingAdapter("rankIncrementDrawable")
 fun ImageView.setRankIncrementDrawable(rankIncrement: String?) {
-    if (!rankIncrement.isNullOrEmpty()) {
-        if (rankIncrement.toInt() == 0) return
-        if (rankIncrement.toInt() > 0) {
-            isVisible = true
-            setImageDrawable(
-                ContextCompat.getDrawable(this.context, DR.drawable.ic_arrow_up_14)
-            )
-            setColorFilter(ContextCompat.getColor(this.context, DR.color.Blue))
-        } else {
-            isVisible = true
-            setImageDrawable(
-                ContextCompat.getDrawable(this.context, DR.drawable.ic_arrow_down_14)
-            )
-            setColorFilter(ContextCompat.getColor(this.context, DR.color.Green))
+    if (rankIncrement == null) return
+    when {
+        rankIncrement.toInt() > 0 -> {
+            setRankDrawable(this, DR.drawable.ic_arrow_up_14, DR.color.Blue)
         }
-    } else setImageDrawable(null)
+
+        rankIncrement.toInt() < 0 -> {
+            setRankDrawable(this, DR.drawable.ic_arrow_down_14, DR.color.Green)
+        }
+
+        else -> return
+    }
+}
+
+fun setRankDrawable(view: ImageView, drawableId: Int, colorId: Int) {
+    view.apply {
+        isVisible = true
+        setImageDrawable(
+            ContextCompat.getDrawable(context, drawableId)
+        )
+        setColorFilter(ContextCompat.getColor(context, colorId))
+    }
 }
 
 @BindingAdapter("rateStyle")
