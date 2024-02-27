@@ -77,6 +77,6 @@ fun ImageView.setBookmark(isBookmark: Boolean) {
 }
 
 @BindingAdapter("layoutVisibility")
-fun View.setLayoutVisibility(hasContent: Boolean) {
-    isVisible = hasContent
+fun View.setLayoutVisibility(isEmptyContent: Boolean) {
+    isVisible = !isEmptyContent
 }
