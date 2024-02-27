@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.detail.model
 import android.os.Parcelable
 import com.jslee.core.date.DateFormat
 import com.jslee.core.date.transformDate
+import com.jslee.core.ui.extension.emptyString
 import com.jslee.core.ui.extension.getSummaryInfo
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import kotlinx.parcelize.Parcelize
@@ -64,7 +65,9 @@ data class MovieTrailerUiModel(
     val contentTitle: String,
     val description: String,
     val publishedDate: String,
-)
+) {
+    val isEmptyDescription = description == emptyString
+}
 
 data class RateUiModel(
     val tmdbRate: String,
