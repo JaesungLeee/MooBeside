@@ -1,5 +1,6 @@
 package com.jslee.core.ui.binding
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -73,4 +74,9 @@ fun ImageView.setBookmark(isBookmark: Boolean) {
     } else {
         setImageResource(DR.drawable.ic_heart_24)
     }
+}
+
+@BindingAdapter("layoutVisibility")
+fun View.setLayoutVisibility(hasContent: Boolean) {
+    isVisible = hasContent
 }
