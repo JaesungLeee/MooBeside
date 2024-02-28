@@ -9,6 +9,17 @@ import com.jslee.presentation.feature.detail.model.item.DetailListItem
  * @created 2024/02/28
  */
 
+fun Movie.toMovieDetailListItem(title: String): List<DetailListItem> {
+    val movieDetailContents = mutableListOf<DetailListItem>()
+
+    return movieDetailContents.apply {
+        addMovieInfoContents(this@toMovieDetailListItem)
+        addRateInfoContents(this@toMovieDetailListItem)
+        addCastInfoContents(this@toMovieDetailListItem)
+        if (!isEmptyImages) addGalleryContents(this@toMovieDetailListItem)
+        addTrailerContents(title, this@toMovieDetailListItem)
+    }
+}
 
 private fun MutableList<DetailListItem>.addMovieInfoContents(movie: Movie) {
     add(

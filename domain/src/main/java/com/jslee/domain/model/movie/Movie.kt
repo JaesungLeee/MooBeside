@@ -30,4 +30,6 @@ data class Movie(
     val casts: List<Cast>? = null,
     val staffs: List<Staff>? = null,
     val trailers: List<Trailer>? = null
-)
+) {
+    val isEmptyImages = images == emptyList<String>()
+}
