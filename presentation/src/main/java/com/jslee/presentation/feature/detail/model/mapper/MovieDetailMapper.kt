@@ -1,4 +1,4 @@
-package com.jslee.presentation.feature.detail.model
+package com.jslee.presentation.feature.detail.model.mapper
 
 import com.jslee.core.date.DateFormat
 import com.jslee.core.date.transformDate
@@ -7,7 +7,14 @@ import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
-import com.jslee.presentation.feature.detail.model.item.DetailListItem
+import com.jslee.presentation.feature.detail.model.AppBarUiModel
+import com.jslee.presentation.feature.detail.model.CastInfoUiModel
+import com.jslee.presentation.feature.detail.model.GalleryUiModel
+import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
+import com.jslee.presentation.feature.detail.model.MovieInfoItem
+import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
+import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
+import com.jslee.presentation.feature.detail.model.RateUiModel
 
 /**
  * MooBeside
@@ -33,45 +40,6 @@ fun Movie.toAppBarModel() = AppBarUiModel(
 )
 
 const val SCREEN_SHOWN_LIMIT = 4
-fun Movie.toMovieDetailListItem(title: String) = listOf(
-    DetailListItem.MovieInfo(
-        id = 0,
-        movieInfoData = toMovieInfoUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 1,
-    ),
-    DetailListItem.Rate(
-        id = 2,
-        rateData = toRateUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 3,
-    ),
-    DetailListItem.Cast(
-        id = 4,
-        castInfoData = mapToCastInfoUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 5,
-    ),
-    DetailListItem.Gallery(
-        id = 6,
-        galleryData = mapToGalleryUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 7,
-    ),
-    DetailListItem.MovieTrailer(
-        id = 8,
-        title = title,
-        trailerData = mapToMovieTrailerUiModel()
-    ),
-    DetailListItem.Divider(
-        id = 9,
-    ),
-)
-
 fun Movie.toMovieInfoUiModel() = MovieInfoUiModel(
     tagLine = tagline.orEmpty(),
     overview = overview.orEmpty(),
