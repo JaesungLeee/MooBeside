@@ -21,6 +21,7 @@ class GalleryItemListAdapter : SingleViewTypeListAdapter<GalleryUiModel>({ it.id
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<GalleryUiModel>, position: Int) {
-        super.onBindViewHolder(holder, position)
+        val item = getItem(position) ?: return
+        holder.bindItems(item)
     }
 }
