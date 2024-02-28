@@ -30,6 +30,7 @@
 
         <TextView
             android:id="@+id/tv_movie_tag"
+            layoutVisibility="@{movieInfo.isTagLineEmpty}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -44,6 +45,7 @@
 
         <TextView
             android:id="@+id/tv_movie_overview"
+            layoutVisibility="@{movieInfo.isOverViewEmpty}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -54,6 +56,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_movie_tag"
+            app:layout_goneMarginTop="12dp"
             tools:text="컴공과 아싸 추상우의 완벽하게 짜인 일상에 에러처럼 나타난 안하무인 디자인과 인싸 장재영, 극과 극 청춘들의 캠퍼스 로맨스가 스크린으로 펼쳐진다!" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -69,6 +72,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_movie_overview"
+            app:layout_goneMarginTop="12dp"
             tools:listitem="@layout/item_movie_info" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
