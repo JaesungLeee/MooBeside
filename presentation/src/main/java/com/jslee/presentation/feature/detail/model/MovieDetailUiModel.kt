@@ -39,7 +39,10 @@ data class MovieInfoUiModel(
     val overview: String,
     val movieInfoData: List<MovieInfoItem>,
     val isOverviewExpanded: Boolean = false,
-)
+) {
+    val isTagLineEmpty = tagLine == emptyString
+    val isOverViewEmpty = overview == emptyString
+}
 
 data class MovieInfoItem(
     val title: String,
