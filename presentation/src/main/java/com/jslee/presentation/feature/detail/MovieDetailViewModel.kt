@@ -15,8 +15,8 @@ import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
 import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
-import com.jslee.presentation.feature.detail.model.toDomain
-import com.jslee.presentation.feature.detail.model.toMovieDetailUiModel
+import com.jslee.presentation.feature.detail.model.mapper.toDomain
+import com.jslee.presentation.feature.detail.model.mapper.toMovieDetailUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

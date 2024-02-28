@@ -3,7 +3,7 @@ package com.jslee.presentation.feature.detail.viewholder.cast
 import com.jslee.core.ui.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDetailCastBinding
 import com.jslee.presentation.feature.detail.adapter.cast.CastInfoListAdapter
-import com.jslee.presentation.feature.detail.model.SCREEN_SHOWN_LIMIT
+import com.jslee.presentation.feature.detail.model.mapper.SCREEN_SHOWN_LIMIT
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 
 /**
