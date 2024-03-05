@@ -1,7 +1,10 @@
 package com.jslee.presentation.feature
 
-import android.view.View
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.jslee.core.logger.Logger
@@ -10,6 +13,8 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ActivityMainBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
@@ -23,14 +28,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         setDestinationChangeListener()
         initBottomNavigationView()
         handleDeepLinkNavigation()
+        observeStates()
     }
 
     private fun setDestinationChangeListener() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            binding.bnvMain.visibility = when (destination.id) {
-                R.id.homeFragment, R.id.boxOfficeFragment, R.id.bookmarkFragment -> View.VISIBLE
-                else -> View.GONE
-            }
+            viewModel.setCurrentDestination("${destination.label}")
         }
     }
 
@@ -49,5 +52,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 Logger.e(it)
             }
         )
+    }
+
+    private fun observeStates() {
+        lifecycleScope.launch {
+            lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.navBarVisibility.collectLatest { isVisible ->
+                    binding.bnvMain.isVisible = isVisible
+                }
+            }
+        }
     }
 }
