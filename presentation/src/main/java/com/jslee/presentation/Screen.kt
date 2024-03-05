@@ -22,4 +22,17 @@ enum class Screen(@LayoutRes layoutId: Int, isNavigationBarVisible: Boolean) {
     SETTINGS_WEB_VIEW(R.layout.fragment_settings_web_view, false),
     SHARE_BOTTOM_SHEET(R.layout.dialog_share_bottom_sheet, false),
     FILTER_BOTTOM_SHEET(R.layout.dialog_filter_bottom_sheet, false);
+enum class Screen(val label: String, val isNavigationBarVisible: Boolean) {
+    HOME("HomeScreen", true),
+    BOX_OFFICE("BoxOfficeScreen", true),
+    BOOKMARK("BookmarkScreen", true),
+    UP_COMING("UpComingScreen", false),
+    NOW_PLAYING("NowPlayingScreen", false),
+    MOVIE_DETAIL("MovieDetailScreen", false),
+    CAST("CastScreen", false),
+    CAST_DETAIL("CastDetailScreen", false),
+    SEARCH("SearchScreen", false),
+    SETTINGS("SettingsScreen", false),
+    SETTINGS_DETAIL("SettingsDetailScreen", false),
+    SETTINGS_WEB_VIEW("SettingsWebViewScreen", false);
 }
