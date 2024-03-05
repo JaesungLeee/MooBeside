@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/movieDetailFragment"
         android:name="com.jslee.presentation.feature.detail.MovieDetailFragment"
-        android:label="MovieDetailFragment"
+        android:label="MovieDetailScreen"
         tools:layout="@layout/fragment_movie_detail">
 
         <deepLink
@@ -38,7 +38,7 @@
     <fragment
         android:id="@+id/castFragment"
         android:name="com.jslee.presentation.feature.cast.CastFragment"
-        android:label="CastFragment"
+        android:label="CastScreen"
         tools:layout="@layout/fragment_cast">
         <argument
             android:name="casts"
@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/castDetailFragment"
         android:name="com.jslee.presentation.feature.castdetail.CastDetailFragment"
-        android:label="CastDetailFragment">
+        android:label="CastDetailScreen">
         <argument
             android:name="personId"
             app:argType="long" />

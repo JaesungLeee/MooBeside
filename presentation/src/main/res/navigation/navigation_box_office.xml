@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/boxOfficeFragment"
         android:name="com.jslee.presentation.feature.boxoffice.BoxOfficeFragment"
-        android:label="BoxOfficeFragment"
+        android:label="BoxOfficeScreen"
         tools:layout="@layout/fragment_box_office" />
 </navigation>
