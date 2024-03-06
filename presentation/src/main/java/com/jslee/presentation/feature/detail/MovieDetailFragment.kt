@@ -2,6 +2,7 @@ package com.jslee.presentation.feature.detail
 
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.jslee.core.external.ExternalLauncher
@@ -9,6 +10,7 @@ import com.jslee.core.ui.base.view.BaseFragment
 import com.jslee.core.ui.decoration.DividerViewItemDecoration
 import com.jslee.core.ui.extension.dp
 import com.jslee.core.ui.extension.emptyString
+import com.jslee.core.ui.extension.setOnSingleClickListener
 import com.jslee.core.ui.extension.showToast
 import com.jslee.core.ui.model.PaddingValues
 import com.jslee.presentation.R
@@ -78,12 +80,12 @@ class MovieDetailFragment :
             findNavController().navigateUp()
         }
 
-        binding.ivShare.setOnClickListener {
+        binding.ivShare.setOnSingleClickListener(viewLifecycleOwner.lifecycleScope) {
             val bottomSheet = ShareBottomSheetFragment()
             bottomSheet.show(childFragmentManager, SHARE_BOTTOM_SHEET_TAG)
         }
 
-        binding.ivHeart.setOnClickListener {
+        binding.ivHeart.setOnSingleClickListener(viewLifecycleOwner.lifecycleScope) {
             viewModel.toggleBookmark(safeArgs.movieId)
         }
     }
