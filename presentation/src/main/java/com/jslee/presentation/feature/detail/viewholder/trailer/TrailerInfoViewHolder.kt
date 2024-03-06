@@ -1,6 +1,11 @@
 package com.jslee.presentation.feature.detail.viewholder.trailer
 
+import androidx.core.view.doOnAttach
+import androidx.core.view.doOnDetach
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.core.ui.extension.setOnSingleClickListener
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ItemDetailTrailerBinding
 import com.jslee.presentation.feature.detail.adapter.trailer.MovieTrailerListAdapter
@@ -18,23 +23,42 @@ class TrailerInfoViewHolder(
 ) : BaseViewHolder<DetailListItem.MovieTrailer>(binding) {
 
     private val movieTrailerListAdapter: MovieTrailerListAdapter by lazy {
-        MovieTrailerListAdapter(
-            onTrailerClick
-        )
+        MovieTrailerListAdapter(onTrailerClick)
     }
 
     init {
+        initLifecycleOwner()
         initMovieTrailerAdapter()
+        setTrailerLoadMoreClickListener(onLoadMoreClick)
+    }
 
-        binding.btnLoadMore.setOnClickListener {
-            getItem {
-                onLoadMoreClick(it.title)
+    private fun initLifecycleOwner() {
+        itemView.apply {
+            doOnAttach {
+                itemView.findViewTreeLifecycleOwner()?.let {
+                    binding.lifecycleOwner = it
+                }
+            }
+            doOnDetach {
+                binding.lifecycleOwner = null
             }
         }
     }
 
     private fun initMovieTrailerAdapter() = with(binding) {
         rvTrailer.adapter = movieTrailerListAdapter
+    }
+
+    private fun setTrailerLoadMoreClickListener(onLoadMoreClick: (String) -> Unit) {
+        binding.apply {
+            lifecycleOwner?.let { lifecycleOwner ->
+                btnLoadMore.setOnSingleClickListener(lifecycleOwner.lifecycleScope) {
+                    getItem {
+                        onLoadMoreClick(it.title)
+                    }
+                }
+            }
+        }
     }
 
     override fun bindItems(item: DetailListItem.MovieTrailer) = with(binding) {
