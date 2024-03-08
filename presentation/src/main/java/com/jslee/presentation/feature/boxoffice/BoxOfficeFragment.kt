@@ -10,6 +10,7 @@ import com.google.android.material.datepicker.DateValidatorPointBackward
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.jslee.core.logger.Logger
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.setOnSingleClickListener
 import com.jslee.core.ui.extension.toDisplayedDateWithDay
 import com.jslee.core.ui.extension.toDisplayedPreviousDateWithDay
 import com.jslee.core.ui.extension.toMillisOfPreviousDay
@@ -49,9 +50,8 @@ class BoxOfficeFragment : BaseFragment<FragmentBoxOfficeBinding>(R.layout.fragme
 
     override fun initViews() {
         with(binding) {
-            tvDate.text =
-                System.currentTimeMillis().toDisplayedPreviousDateWithDay()
-            ivCalendar.setOnClickListener {
+            tvDate.text = System.currentTimeMillis().toDisplayedPreviousDateWithDay()
+            clDatePicker.setOnSingleClickListener(viewLifecycleOwner.lifecycleScope) {
                 showDatePickerDialog()
             }
             rvBoxOffice.apply {
