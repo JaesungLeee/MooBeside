@@ -27,16 +27,21 @@ class TrailerInfoViewHolder(
     }
 
     init {
-        initLifecycleOwner()
+        initLifecycleOwner(onLoadMoreClick)
         initMovieTrailerAdapter()
-        setTrailerLoadMoreClickListener(onLoadMoreClick)
     }
 
-    private fun initLifecycleOwner() {
+    /**
+     * 왜 뷰가 보여질때 doOnDetach -> doOnAttach가 되는거지
+     *
+     * 코루틴으로 바꾸는거 가능할지??
+     */
+    private fun initLifecycleOwner(onLoadMoreClick: (String) -> Unit) {
         itemView.apply {
             doOnAttach {
-                itemView.findViewTreeLifecycleOwner()?.let {
-                    binding.lifecycleOwner = it
+                it.findViewTreeLifecycleOwner()?.let { owner ->
+                    binding.lifecycleOwner = owner
+                    setTrailerLoadMoreClickListener(onLoadMoreClick)
                 }
             }
             doOnDetach {
@@ -50,12 +55,10 @@ class TrailerInfoViewHolder(
     }
 
     private fun setTrailerLoadMoreClickListener(onLoadMoreClick: (String) -> Unit) {
-        binding.apply {
-            lifecycleOwner?.let { lifecycleOwner ->
-                btnLoadMore.setOnSingleClickListener(lifecycleOwner.lifecycleScope) {
-                    getItem {
-                        onLoadMoreClick(it.title)
-                    }
+        binding.lifecycleOwner?.let { lifecycleOwner ->
+            binding.btnLoadMore.setOnSingleClickListener(lifecycleOwner.lifecycleScope) {
+                getItem {
+                    onLoadMoreClick(it.title)
                 }
             }
         }
