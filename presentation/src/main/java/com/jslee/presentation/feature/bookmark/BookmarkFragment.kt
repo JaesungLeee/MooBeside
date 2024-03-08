@@ -2,8 +2,10 @@ package com.jslee.presentation.feature.bookmark
 
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.ui.base.view.BaseFragment
+import com.jslee.core.ui.extension.setOnSingleClickListener
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentBookmarkBinding
 import com.jslee.presentation.feature.bookmark.FilterBottomSheetFragment.Companion.FILTER_BOTTOM_SHEET_TAG
@@ -44,7 +46,7 @@ class BookmarkFragment : BaseFragment<FragmentBookmarkBinding>(R.layout.fragment
     }
 
     private fun initFilterView() {
-        binding.ivFilter.setOnClickListener {
+        binding.ivFilter.setOnSingleClickListener(viewLifecycleOwner.lifecycleScope) {
             showFilterBottomSheet()
         }
     }
