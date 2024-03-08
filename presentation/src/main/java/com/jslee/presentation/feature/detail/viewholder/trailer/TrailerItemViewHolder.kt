@@ -1,6 +1,11 @@
 package com.jslee.presentation.feature.detail.viewholder.trailer
 
+import androidx.core.view.doOnAttach
+import androidx.core.view.doOnDetach
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.jslee.core.ui.base.BaseViewHolder
+import com.jslee.core.ui.extension.setOnSingleClickListener
 import com.jslee.presentation.databinding.ItemTrailerBinding
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
 
@@ -15,9 +20,30 @@ class TrailerItemViewHolder(
 ) : BaseViewHolder<MovieTrailerUiModel>(binding) {
 
     init {
-        binding.root.setOnClickListener {
-            getItem {
-                onTrailerClick(it.videoId)
+        initLifecycleOwner(onTrailerClick)
+    }
+
+    private fun initLifecycleOwner(onTrailerClick: (String) -> Unit) {
+        itemView.apply {
+            doOnAttach {
+                it.findViewTreeLifecycleOwner()?.let { lifecycleOwner ->
+                    binding.lifecycleOwner = lifecycleOwner
+                    setTrailerClickListener(onTrailerClick)
+                }
+            }
+            doOnDetach {
+                binding.lifecycleOwner = null
+            }
+        }
+
+    }
+
+    private fun setTrailerClickListener(onTrailerClick: (String) -> Unit) {
+        binding.lifecycleOwner?.let { lifecycleOwner ->
+            binding.root.setOnSingleClickListener(lifecycleOwner.lifecycleScope) {
+                getItem {
+                    onTrailerClick(it.videoId)
+                }
             }
         }
     }
