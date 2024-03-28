@@ -12,12 +12,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -26,24 +28,50 @@ import javax.inject.Singleton
  * @author jaesung
  * @created 2023/08/07
  */
+
 @Module
 @InstallIn(SingletonComponent::class)
 internal class NetworkModule {
+
     @Provides
     @Singleton
-    fun provideLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
+    fun provideJson(): Json {
+        return Json {
+            prettyPrint = true
+            ignoreUnknownKeys = true
+            coerceInputValues = true
+        }
+    }
+
+    @Provides
+    @Singleton
+    fun provideHttpLoggingInterceptor(
+        json: Json,
+    ): HttpLoggingInterceptor {
+        val loggingInterceptor = HttpLoggingInterceptor { message ->
+            when {
+                !message.isJsonObject() && !message.isJsonArray() ->
+                    Timber.tag(RETROFIT_DEBUG_TAG).d("CONNECTION INFO => $message")
+
+                else -> kotlin.runCatching {
+                    json.encodeToString(Json.parseToJsonElement(message))
+                }.onSuccess {
+                    Timber.tag(RETROFIT_DEBUG_TAG).d(it)
+                }.onFailure {
+                    Timber.tag(RETROFIT_DEBUG_TAG).d(message)
+                }
+            }
+        }
+        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        return loggingInterceptor
     }
 
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
     @Singleton
-    fun provideJsonConverterFactory(): Converter.Factory {
-        val json = Json {
-            isLenient = true
-            ignoreUnknownKeys = true
-            coerceInputValues = true
-        }
+    fun provideJsonConverterFactory(
+        json: Json,
+    ): Converter.Factory {
         return json.asConverterFactory("application/json".toMediaType())
     }
 
@@ -63,7 +91,7 @@ internal class NetworkModule {
     @TmdbOkHttpClient
     fun provideTmdbOkHttpClient(
         httpLoggingInterceptor: HttpLoggingInterceptor,
-        authInterceptor: TmdbAuthorizationInterceptor
+        authInterceptor: TmdbAuthorizationInterceptor,
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(authInterceptor)
         .addNetworkInterceptor(httpLoggingInterceptor)
@@ -108,8 +136,13 @@ internal class NetworkModule {
         .build()
 
     companion object {
+        private const val RETROFIT_DEBUG_TAG = "Retrofit2"
         private const val KOBIS_BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/"
         private const val TMDB_BASE_URL = "https://api.themoviedb.org/3/"
         private const val YOUTUBE_BASE_URL = "https://www.googleapis.com/youtube/v3/"
     }
 }
+
+
+private fun String?.isJsonObject(): Boolean = this?.startsWith("{") == true && this.endsWith("}")
+private fun String?.isJsonArray(): Boolean = this?.startsWith("[") == true && this.endsWith("]")
