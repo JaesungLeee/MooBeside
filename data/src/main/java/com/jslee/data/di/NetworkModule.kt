@@ -7,6 +7,7 @@ import com.jslee.data.di.qualifier.TmdbOkHttpClient
 import com.jslee.data.di.qualifier.TmdbQualifier
 import com.jslee.data.di.qualifier.YoutubeQualifier
 import com.jslee.data.network.TmdbAuthorizationInterceptor
+import com.jslee.data.network.adapter.NetworkCallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -53,7 +54,7 @@ internal class NetworkModule {
                 !message.isJsonObject() && !message.isJsonArray() ->
                     Timber.tag(RETROFIT_DEBUG_TAG).d("CONNECTION INFO => $message")
 
-                else -> kotlin.runCatching {
+                else -> runCatching {
                     json.encodeToString(Json.parseToJsonElement(message))
                 }.onSuccess {
                     Timber.tag(RETROFIT_DEBUG_TAG).d(it)
@@ -108,6 +109,7 @@ internal class NetworkModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(KOBIS_BASE_URL)
         .client(okHttpClient)
+        .addCallAdapterFactory(NetworkCallAdapterFactory())
         .addConverterFactory(converterFactory)
         .build()
 
@@ -120,6 +122,7 @@ internal class NetworkModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(TMDB_BASE_URL)
         .client(okHttpClient)
+        .addCallAdapterFactory(NetworkCallAdapterFactory())
         .addConverterFactory(converterFactory)
         .build()
 
@@ -132,6 +135,7 @@ internal class NetworkModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(YOUTUBE_BASE_URL)
         .client(okHttpClient)
+        .addCallAdapterFactory(NetworkCallAdapterFactory())
         .addConverterFactory(converterFactory)
         .build()
 
