@@ -78,7 +78,7 @@ internal fun ApiResult<*>.throwOnFailure() {
     }
 }
 
-fun handleHttpException(code: Int, message: String?): Exception {
+private fun handleHttpException(code: Int, message: String?): Exception {
     return when (code) {
         400 -> BadRequestException(originMessage = message)
         403 -> ForbiddenException(originMessage = message)
