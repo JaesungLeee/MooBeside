@@ -19,6 +19,6 @@ internal data class YoutubeThumbnailResponse(
 @Serializable
 internal data class YoutubeThumbnailSizeResponse(
     @SerialName("url") val thumbnailUrl: String,
-    @SerialName("width") val width: String? = null,
-    @SerialName("height") val height: String? = null,
+    @SerialName("width") val width: Int? = null,
+    @SerialName("height") val height: Int? = null,
 )
