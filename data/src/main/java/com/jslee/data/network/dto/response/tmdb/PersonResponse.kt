@@ -20,7 +20,7 @@ internal data class PersonResponse(
     @SerialName("gender") val gender: Int,
     @SerialName("homepage") val homepage: String?,
     @SerialName("id") val personId: Long,
-    @SerialName("imdb_id") val imdbId: String,
+    @SerialName("imdb_id") val imdbId: String?,
     @SerialName("known_for_department") val knownForDepartment: String,
     @SerialName("name") val name: String,
     @SerialName("place_of_birth") val placeOfBirth: String?,
