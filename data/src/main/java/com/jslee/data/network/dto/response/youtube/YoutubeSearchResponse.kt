@@ -63,7 +63,7 @@ internal fun YoutubeSearchItemsResponse.toDataModel() = MovieTrailerModel(
     description = item.description,
     thumbnail = MovieTrailerThumbnailModel(
         thumbnailUrl = item.thumbnails.highSize.thumbnailUrl,
-        width = item.thumbnails.highSize.width.orEmpty(),
-        height = item.thumbnails.highSize.height.orEmpty(),
+        width = item.thumbnails.highSize.width.toString(),
+        height = item.thumbnails.highSize.height.toString(),
     ),
 )
