@@ -1,8 +1,8 @@
 package com.jslee.data.datasource.remote
 
+import com.jslee.data.model.MovieTrailerModel
 import com.jslee.data.network.dto.response.youtube.toDataModel
 import com.jslee.data.network.service.YoutubeService
-import com.jslee.data.model.MovieTrailerModel
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,16 +18,7 @@ internal class YoutubeRemoteDataSource @Inject constructor(
 ) {
 
     suspend fun getRelatedVideo(query: String): List<MovieTrailerModel> {
-        val responseData = runCatching {
-            youtubeService.getVideoList(query = query)
-        }.onSuccess { response ->
-            if (!response.isSuccessful) {
-                throw Exception(response.errorBody()?.string())
-            }
-        }.getOrElse {
-            throw Exception(it.message)
-        }
-
-        return responseData.body()?.responseItem?.map { it.toDataModel() }.orEmpty()
+        val response = youtubeService.getVideoList(query = query).getOrThrow()
+        return response.responseItem.map { it.toDataModel() }
     }
 }
