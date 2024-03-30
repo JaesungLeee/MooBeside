@@ -2,6 +2,7 @@ package com.jslee.data.network.service
 
 import com.jslee.data.BuildConfig
 import com.jslee.data.SINGLE_PAGE
+import com.jslee.data.network.ApiResult
 import com.jslee.data.network.dto.response.tmdb.CommonMovieResponse
 import com.jslee.data.network.dto.response.tmdb.CreditsResponse
 import com.jslee.data.network.dto.response.tmdb.ImagesResponse
@@ -29,7 +30,7 @@ internal interface TmdbService {
         @Query("include_adult") includeAdultMovie: Boolean = false,
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
-    ): TmdbCommonResponse<CommonMovieResponse>
+    ): ApiResult<TmdbCommonResponse<CommonMovieResponse>>
 
     @GET("movie/popular")
     suspend fun getPopularMovie(
@@ -37,7 +38,7 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("page") page: Int = SINGLE_PAGE,
         @Query("region") region: String = Country.KOREA.regionCode,
-    ): TmdbCommonResponse<CommonMovieResponse>
+    ): ApiResult<TmdbCommonResponse<CommonMovieResponse>>
 
     @GET("movie/now_playing")
     suspend fun getNowPlayingMovie(
@@ -45,7 +46,7 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
-    ): TmdbCommonResponse<CommonMovieResponse>
+    ): ApiResult<TmdbCommonResponse<CommonMovieResponse>>
 
     @GET("movie/upcoming")
     suspend fun getUpcomingMovie(
@@ -53,45 +54,45 @@ internal interface TmdbService {
         @Query("language") language: String = Country.KOREA.languageCode,
         @Query("region") region: String = Country.KOREA.regionCode,
         @Query("page") page: Int,
-    ): TmdbCommonResponse<CommonMovieResponse>
+    ): ApiResult<TmdbCommonResponse<CommonMovieResponse>>
 
     @GET("movie/{movieId}/release_dates")
     suspend fun getMovieReleaseInfo(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-    ): TmdbCommonResponse<TmdbReleaseInfoResponse>
+    ): ApiResult<TmdbCommonResponse<TmdbReleaseInfoResponse>>
 
     @GET("movie/{movieId}/credits")
     suspend fun getMovieCredits(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
-    ): CreditsResponse
+    ): ApiResult<CreditsResponse>
 
     @GET("movie/{movieId}")
     suspend fun getMovieDetail(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
-    ): CommonMovieResponse
+    ): ApiResult<CommonMovieResponse>
 
     @GET("movie/{movieId}/images")
     suspend fun getMovieImages(
         @Path("movieId") movieId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
-    ): ImagesResponse
+    ): ApiResult<ImagesResponse>
 
     @GET("person/{personId}")
     suspend fun getPerson(
         @Path("personId") personId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
-    ): PersonResponse
+    ): ApiResult<PersonResponse>
 
     @GET("person/{personId}/movie_credits")
     suspend fun getParticipateMovie(
         @Path("personId") personId: Long,
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = Country.KOREA.languageCode,
-    ): ParticipateCreditsResponse
+    ): ApiResult<ParticipateCreditsResponse>
 }
