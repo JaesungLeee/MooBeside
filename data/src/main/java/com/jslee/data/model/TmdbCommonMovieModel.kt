@@ -5,7 +5,6 @@ import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
 import com.jslee.domain.model.movie.ProductionCompany
 import com.jslee.domain.model.movie.Rate
-import com.jslee.domain.model.movie.TmdbRate
 
 /**
  * MooBeside
@@ -61,10 +60,8 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
     overview = overview,
     originalReleaseDate = originalReleaseDate,
     rateInfo = Rate(
-        tmdbRate = TmdbRate(
-            averageVoteRate = averageVoteRate,
-            voteCount = voteCount
-        )
+        averageVoteRate = averageVoteRate,
+        voteCount = voteCount
     ),
     isAdultMovie = isAdultMovie,
     posterImageUrl = posterPath?.let { TMDB_IMAGE_PREFIX + it },
