@@ -14,7 +14,6 @@ fun Movie.toMovieDetailListItem(title: String): List<DetailListItem> {
 
     return movieDetailContents.apply {
         addMovieInfoContents(this@toMovieDetailListItem)
-        addRateInfoContents(this@toMovieDetailListItem)
         addCastInfoContents(this@toMovieDetailListItem)
         if (!isEmptyImages) addGalleryContents(this@toMovieDetailListItem)
         addTrailerContents(title, this@toMovieDetailListItem)
@@ -35,11 +34,13 @@ private fun MutableList<DetailListItem>.addMovieInfoContents(movie: Movie) {
     )
 }
 
-private fun MutableList<DetailListItem>.addRateInfoContents(movie: Movie) {
+private fun MutableList<DetailListItem>.addCastInfoContents(
+    movie: Movie,
+) {
     add(
-        DetailListItem.Rate(
+        DetailListItem.Cast(
             id = 2,
-            rateData = movie.toRateUiModel()
+            castInfoData = movie.mapToCastInfoUiModel()
         )
     )
     add(
@@ -49,13 +50,11 @@ private fun MutableList<DetailListItem>.addRateInfoContents(movie: Movie) {
     )
 }
 
-private fun MutableList<DetailListItem>.addCastInfoContents(
-    movie: Movie,
-) {
+private fun MutableList<DetailListItem>.addGalleryContents(movie: Movie) {
     add(
-        DetailListItem.Cast(
+        DetailListItem.Gallery(
             id = 4,
-            castInfoData = movie.mapToCastInfoUiModel()
+            galleryData = movie.mapToGalleryUiModel()
         )
     )
     add(
@@ -65,24 +64,10 @@ private fun MutableList<DetailListItem>.addCastInfoContents(
     )
 }
 
-private fun MutableList<DetailListItem>.addGalleryContents(movie: Movie) {
-    add(
-        DetailListItem.Gallery(
-            id = 6,
-            galleryData = movie.mapToGalleryUiModel()
-        )
-    )
-    add(
-        DetailListItem.Divider(
-            id = 7,
-        )
-    )
-}
-
 private fun MutableList<DetailListItem>.addTrailerContents(title: String, movie: Movie) {
     add(
         DetailListItem.MovieTrailer(
-            id = 8,
+            id = 6,
             title = title,
             trailerData = movie.mapToMovieTrailerUiModel()
         )
