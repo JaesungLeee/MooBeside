@@ -67,7 +67,7 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
         )
     ),
     isAdultMovie = isAdultMovie,
-    posterImageUrl = TMDB_IMAGE_PREFIX + posterPath,
+    posterImageUrl = posterPath?.let { TMDB_IMAGE_PREFIX + it },
     backdropImageUrl = backdropPath?.let { TMDB_IMAGE_PREFIX + it },
     kobisMovieCode = null,
     tagline = tagline,
@@ -76,7 +76,7 @@ internal fun TmdbCommonMovieModel.toDomain() = Movie(
     genres = genreList,
     productionCompanies = productionCompanies?.map {
         ProductionCompany(
-            companyLogoImageUrl = TMDB_IMAGE_PREFIX + it.companyLogoPath,
+            companyLogoImageUrl = it.companyLogoPath?.let { path -> TMDB_IMAGE_PREFIX + path },
             companyName = it.companyName
         )
     },

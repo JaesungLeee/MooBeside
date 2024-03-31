@@ -100,10 +100,10 @@ internal class MovieRepositoryImpl @Inject constructor(
         emit(movieDetailInfo)
     }
 
-    override fun getMovieImages(movieId: Long): Flow<List<String>> = flow {
+    override fun getMovieImages(movieId: Long): Flow<List<String?>> = flow {
         val posterImages = suspendRunCatching {
             tmdbRemoteDataSource.getMovieImages(movieId).posterImages.map {
-                TMDB_IMAGE_PREFIX + it.imageFilePath
+                it.imageFilePath?.let { path -> TMDB_IMAGE_PREFIX + path }
             }
         }.getOrThrow()
         emit(posterImages)

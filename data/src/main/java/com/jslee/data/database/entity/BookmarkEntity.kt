@@ -28,7 +28,7 @@ internal data class BookmarkEntity(
 internal fun BookmarkEntity.toDomain() = Movie(
     tmdbMovieId = movieId,
     localizedMovieName = movieName,
-    posterImageUrl = TMDB_IMAGE_PREFIX + posterImageUrl,
+    posterImageUrl = posterImageUrl?.let { TMDB_IMAGE_PREFIX + it },
     runtime = runtime,
     localizedReleaseDate = releasedDate,
     genres = genres,
