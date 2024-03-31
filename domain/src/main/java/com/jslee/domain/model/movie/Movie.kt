@@ -25,7 +25,7 @@ data class Movie(
     val isAdultMovie: Boolean? = null,
     val rateInfo: Rate? = null,
     val boxOffice: BoxOffice? = null,
-    val images: List<String>? = null,
+    val images: List<String?>? = null,
     val productionCompanies: List<ProductionCompany>? = null,
     val casts: List<Cast>? = null,
     val staffs: List<Staff>? = null,

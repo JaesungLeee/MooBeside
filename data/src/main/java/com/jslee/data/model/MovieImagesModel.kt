@@ -17,7 +17,7 @@ internal data class ImageInfoModel(
     val height: Int,
     val width: Int,
     val languageCode: String,
-    val imageFilePath: String,
+    val imageFilePath: String?,
     val averageVoteRate: Double,
     val voteCount: Int,
 )
