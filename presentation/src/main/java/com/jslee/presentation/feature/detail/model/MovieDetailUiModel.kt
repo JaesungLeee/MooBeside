@@ -4,7 +4,8 @@ import android.os.Parcelable
 import com.jslee.core.date.DateFormat
 import com.jslee.core.date.transformDate
 import com.jslee.core.ui.extension.emptyString
-import com.jslee.core.ui.extension.getSummaryInfo
+import com.jslee.core.ui.extension.getMovieSummaryInfo
+import com.jslee.core.ui.extension.getRateInfo
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 import kotlinx.parcelize.Parcelize
 
@@ -28,10 +29,13 @@ data class AppBarUiModel(
     val genres: List<String>,
     val runtime: Int,
     val certification: String,
+    val rate: Double?,
+    val voteCount: Int,
 ) {
     private val displayYear =
         releaseDate.transformDate(DateFormat.YEAR_MONTH_DAY_MILLIS, DateFormat.DISP_YEAR)
-    val movieSummary = getSummaryInfo(displayYear, movieStatus, genres)
+    val movieSummary = getMovieSummaryInfo(displayYear, movieStatus, genres)
+    val rateSummary = getRateInfo(rate, voteCount)
 }
 
 data class MovieInfoUiModel(

@@ -3,6 +3,7 @@ package com.jslee.presentation.feature.detail.model.mapper
 import com.jslee.core.date.DateFormat
 import com.jslee.core.date.transformDate
 import com.jslee.core.ui.UNKNOWN_FIELD
+import com.jslee.core.ui.extension.roundVoteRate
 import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
@@ -35,7 +36,9 @@ fun Movie.toAppBarModel() = AppBarUiModel(
     movieStatus = MovieStatus.getDescription(movieStatus),
     genres = genres.orEmpty(),
     runtime = runtime ?: 0,
-    certification = Certification.getMeaning(certification)
+    certification = Certification.getMeaning(certification),
+    rate = rateInfo?.averageVoteRate,
+    voteCount = rateInfo?.voteCount ?: 0
 )
 
 const val SCREEN_SHOWN_LIMIT = 4
@@ -76,13 +79,6 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
             content = productionCompanies?.joinToString { it.companyName } ?: UNKNOWN_FIELD
         ),
     )
-}
-
-fun roundWithSingleDecimal(value: Double?): String {
-    requireNotNull(value) {
-        "Value cannot be null"
-    }
-    return String.format("%.1f", value)
 }
 
 fun Movie.mapToCastInfoUiModel(): List<CastInfoUiModel> {
