@@ -53,7 +53,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="16dp">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/iv_poster_image"
@@ -74,7 +74,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="8dp"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="@{appBarModel.movieName}"
@@ -90,15 +90,28 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
-                        android:layout_marginBottom="12dp"
+                        android:layout_marginBottom="4dp"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="@{appBarModel.movieSummary}"
                         android:textColor="@color/Gray10"
-                        app:layout_constraintBottom_toBottomOf="@id/iv_poster_image"
+                        app:layout_constraintBottom_toTopOf="@id/tv_tmdb_rate"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/iv_poster_image"
                         tools:text="2023년·개봉·호러/코미디" />
+
+                    <TextView
+                        android:id="@+id/tv_tmdb_rate"
+                        style="@style/MooBesideTextAppearance.Body3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="@{appBarModel.rateSummary}"
+                        android:textColor="@color/Gray10"
+                        app:layout_constraintBottom_toBottomOf="@id/iv_poster_image"
+                        app:layout_constraintStart_toEndOf="@id/iv_poster_image"
+                        tools:text="8.8" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.appbar.MaterialToolbar
