@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
-import com.jslee.core.designsystem.RateDesign
 import com.jslee.core.ui.R
 import com.jslee.core.designsystem.R as DR
 
@@ -59,12 +58,6 @@ fun setRankDrawable(view: ImageView, drawableId: Int, colorId: Int) {
         )
         setColorFilter(ContextCompat.getColor(context, colorId))
     }
-}
-
-@BindingAdapter("rateStyle")
-fun TextView.setRateStyle(style: RateDesign) {
-    setTextColor(ContextCompat.getColor(context, style.textColor))
-    setBackgroundColor(ContextCompat.getColor(context, style.backgroundColor))
 }
 
 @BindingAdapter("bookmark")
