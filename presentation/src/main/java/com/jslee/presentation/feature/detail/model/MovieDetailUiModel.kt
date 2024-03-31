@@ -71,8 +71,3 @@ data class MovieTrailerUiModel(
 ) {
     val isEmptyDescription = description == emptyString
 }
-
-data class RateUiModel(
-    val tmdbRate: String,
-    val naverRate: String,
-)

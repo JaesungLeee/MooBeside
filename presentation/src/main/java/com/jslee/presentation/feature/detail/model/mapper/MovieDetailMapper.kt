@@ -14,7 +14,6 @@ import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.MovieInfoItem
 import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
-import com.jslee.presentation.feature.detail.model.RateUiModel
 
 /**
  * MooBeside
@@ -78,11 +77,6 @@ fun Movie.mapToMovieInfoItem(): List<MovieInfoItem> {
         ),
     )
 }
-
-fun Movie.toRateUiModel() = RateUiModel(
-    tmdbRate = roundWithSingleDecimal(rateInfo?.tmdbRate?.averageVoteRate),
-    naverRate = "0.0"
-)
 
 fun roundWithSingleDecimal(value: Double?): String {
     requireNotNull(value) {
