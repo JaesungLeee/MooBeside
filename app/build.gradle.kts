@@ -47,7 +47,6 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
-    implementation(project(":presentation"))
     implementation(project(":core:designsystem"))
     implementation(project(":core:common"))
     implementation(project(":core:deeplink"))
@@ -56,6 +55,14 @@ dependencies {
     implementation(project(":core:date"))
     implementation(project(":core:logger"))
     implementation(project(":core:image"))
+    implementation(project(":presentation"))
+    implementation(project(":feature:bookmark"))
+    implementation(project(":feature:boxoffice"))
+    implementation(project(":feature:cast"))
+    implementation(project(":feature:detail"))
+    implementation(project(":feature:home"))
+    implementation(project(":feature:search"))
+    implementation(project(":feature:settings"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
