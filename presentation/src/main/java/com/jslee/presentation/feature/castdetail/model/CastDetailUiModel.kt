@@ -1,10 +1,10 @@
 package com.jslee.presentation.feature.castdetail.model
 
-import com.jslee.core.ui.extension.roundVoteRate
+import com.moobeside.core.common.kotlin.extension.roundVoteRate
 import com.jslee.domain.model.Gender
 import com.jslee.domain.model.Person
-import com.moobeside.core.common.kotlin.extensions.DateFormat
-import com.moobeside.core.common.kotlin.extensions.transformDate
+import com.moobeside.core.common.kotlin.extension.DateFormat
+import com.moobeside.core.common.kotlin.extension.transformDate
 
 /**
  * MooBeside

@@ -2,10 +2,10 @@ package com.jslee.presentation.feature.upcoming
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.jslee.core.ui.base.view.BaseFragment
-import com.jslee.core.ui.decoration.CommonItemDecoration
-import com.jslee.core.ui.decoration.LayoutType
-import com.jslee.core.ui.model.PaddingValues
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
+import com.moobeside.core.common.ui.recyclerview.decoration.CommonItemDecoration
+import com.moobeside.core.common.ui.recyclerview.decoration.LayoutType
+import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentUpComingBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections

@@ -10,7 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeBannerBinding
 import com.jslee.presentation.feature.home.adapter.PopularMovieBannerAdapter
 import com.jslee.presentation.feature.home.model.BannerUiModel

@@ -3,7 +3,7 @@ package com.jslee.presentation.feature.boxoffice
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.core.logger.Logger
-import com.jslee.core.ui.extension.toShortenPreviousDate
+import com.moobeside.core.common.kotlin.extension.toShortenPreviousDate
 import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

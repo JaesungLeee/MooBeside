@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.home.viewholder.banner
 
 import androidx.recyclerview.widget.ListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemPopularPosterBinding
 import com.jslee.presentation.feature.home.model.BannerUiModel
 

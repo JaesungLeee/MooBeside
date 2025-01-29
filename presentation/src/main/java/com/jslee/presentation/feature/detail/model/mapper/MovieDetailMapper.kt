@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.detail.model.mapper
 
-import com.jslee.core.ui.UNKNOWN_FIELD
-import com.jslee.core.ui.extension.toDisplayRunTime
+import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
+import com.moobeside.core.common.kotlin.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
@@ -12,8 +12,8 @@ import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.MovieInfoItem
 import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
-import com.moobeside.core.common.kotlin.extensions.DateFormat
-import com.moobeside.core.common.kotlin.extensions.transformDate
+import com.moobeside.core.common.kotlin.extension.DateFormat
+import com.moobeside.core.common.kotlin.extension.transformDate
 
 /**
  * MooBeside

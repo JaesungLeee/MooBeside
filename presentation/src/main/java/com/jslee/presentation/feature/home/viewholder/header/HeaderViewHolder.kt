@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.home.viewholder.header
 
 import androidx.core.view.isVisible
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemHomeHeaderBinding
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 

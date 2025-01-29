@@ -4,9 +4,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
-import com.jslee.core.ui.base.view.BaseFragment
-import com.jslee.core.ui.decoration.DividerViewItemDecoration
-import com.jslee.core.ui.model.PaddingValues
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
+import com.moobeside.core.common.ui.recyclerview.decoration.DividerViewItemDecoration
+import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentHomeBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections

@@ -7,8 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.jslee.core.logger.Logger
-import com.jslee.core.ui.base.view.BaseFragment
-import com.jslee.core.ui.extension.showToast
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
+import com.moobeside.core.common.android.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentSearchBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections

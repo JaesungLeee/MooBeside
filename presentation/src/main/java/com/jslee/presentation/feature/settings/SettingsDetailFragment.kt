@@ -2,7 +2,7 @@ package com.jslee.presentation.feature.settings
 
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.jslee.core.ui.base.view.BaseFragment
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentSettingsDetailBinding
 import com.jslee.presentation.feature.settings.model.navigation.NavigationType

@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.castdetail.adpater
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.SingleViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemParticipateMovieBinding
 import com.jslee.presentation.feature.castdetail.model.ParticipateMovieUiModel
 import com.jslee.presentation.feature.castdetail.viewholder.ParticipateMovieViewHolder

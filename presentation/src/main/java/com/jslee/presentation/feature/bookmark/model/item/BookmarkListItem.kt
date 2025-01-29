@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.bookmark.model.item
 
-import com.jslee.core.ui.model.ListItem
+import com.moobeside.core.common.ui.recyclerview.model.ListItem
 import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
 
 /**

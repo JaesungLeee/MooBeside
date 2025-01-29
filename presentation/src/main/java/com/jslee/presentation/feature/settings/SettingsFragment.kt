@@ -4,7 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import com.jslee.core.ui.base.view.BaseFragment
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentSettingsBinding
 import com.jslee.presentation.feature.settings.adapter.SettingsAdapter

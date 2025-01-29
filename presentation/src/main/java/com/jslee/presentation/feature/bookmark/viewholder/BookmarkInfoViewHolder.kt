@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.bookmark.viewholder
 
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemBookmarkListBinding
 import com.jslee.presentation.feature.bookmark.adapter.BookmarkListAdapter
 import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem

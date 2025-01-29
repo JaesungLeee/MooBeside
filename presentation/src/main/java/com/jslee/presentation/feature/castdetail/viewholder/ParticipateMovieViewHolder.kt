@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.castdetail.viewholder
 
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemParticipateMovieBinding
 import com.jslee.presentation.feature.castdetail.model.ParticipateMovieUiModel
 

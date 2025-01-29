@@ -4,8 +4,8 @@ import androidx.core.view.doOnAttach
 import androidx.core.view.doOnDetach
 import androidx.lifecycle.findViewTreeLifecycleOwner
 import androidx.lifecycle.lifecycleScope
-import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.extension.setOnSingleClickListener
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
+import com.moobeside.core.common.android.extension.setOnSingleClickListener
 import com.jslee.presentation.databinding.ItemTrailerBinding
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
 

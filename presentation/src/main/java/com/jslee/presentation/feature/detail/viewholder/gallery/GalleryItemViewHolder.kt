@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.detail.viewholder.gallery
 
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemPhotoBinding
 import com.jslee.presentation.feature.detail.model.GalleryUiModel
 

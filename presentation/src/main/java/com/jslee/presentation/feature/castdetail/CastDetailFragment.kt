@@ -4,7 +4,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.tabs.TabLayout
-import com.jslee.core.ui.base.view.BaseFragment
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentCastDetailBinding
 import com.jslee.presentation.feature.castdetail.adpater.ParticipateMovieAdapter
