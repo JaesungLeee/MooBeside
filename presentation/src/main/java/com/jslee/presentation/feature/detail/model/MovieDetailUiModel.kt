@@ -1,12 +1,12 @@
 package com.jslee.presentation.feature.detail.model
 
 import android.os.Parcelable
-import com.jslee.core.date.DateFormat
-import com.jslee.core.date.transformDate
 import com.jslee.core.ui.extension.emptyString
 import com.jslee.core.ui.extension.getMovieSummaryInfo
 import com.jslee.core.ui.extension.getRateInfo
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
+import com.moobeside.core.common.kotlin.extensions.DateFormat
+import com.moobeside.core.common.kotlin.extensions.transformDate
 import kotlinx.parcelize.Parcelize
 
 /**

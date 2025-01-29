@@ -53,7 +53,6 @@ dependencies {
     implementation(project(":core:deeplink"))
     implementation(project(":core:external"))
     implementation(project(":core:ui"))
-    implementation(project(":core:date"))
     implementation(project(":core:logger"))
     implementation(project(":core:image"))
     implementation(project(":presentation"))

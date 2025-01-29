@@ -1,12 +1,12 @@
 package com.jslee.presentation.feature.bookmark.model
 
-import com.jslee.core.date.DateFormat
-import com.jslee.core.date.transformDate
 import com.jslee.core.ui.UNKNOWN_FIELD
 import com.jslee.core.ui.extension.getMovieSummaryInfo
 import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Movie
 import com.jslee.domain.model.movie.MovieStatus
+import com.moobeside.core.common.kotlin.extensions.DateFormat
+import com.moobeside.core.common.kotlin.extensions.transformDate
 
 /**
  * MooBeside
