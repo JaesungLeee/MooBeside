@@ -24,6 +24,10 @@ android {
             isMinifyEnabled = false
         }
     }
+    composeOptions {
+        val libs = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
+        kotlinCompilerExtensionVersion = libs.findVersion("compose-compiler").get().toString()
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -33,6 +37,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        compose = true
     }
 }
 
@@ -65,4 +70,9 @@ dependencies {
 
     implementation(libs.facebook.shimmer)
     implementation(libs.timber)
+
+    implementation(platform(libs.compose.bom))
+    androidTestImplementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose)
+    debugImplementation(libs.compose.ui.tooling)
 }
