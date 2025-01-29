@@ -63,6 +63,4 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.kakao.share)
     implementation(libs.firebase.crashlytics)
-
-    testImplementation(libs.junit)
 }
