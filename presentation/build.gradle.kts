@@ -8,9 +8,10 @@ plugins {
     id("kotlin-parcelize")
 }
 
+
 android {
     namespace = "com.jslee.presentation"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
