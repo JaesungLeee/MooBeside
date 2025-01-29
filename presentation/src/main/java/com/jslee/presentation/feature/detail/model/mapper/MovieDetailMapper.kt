@@ -1,9 +1,6 @@
 package com.jslee.presentation.feature.detail.model.mapper
 
-import com.jslee.core.date.DateFormat
-import com.jslee.core.date.transformDate
 import com.jslee.core.ui.UNKNOWN_FIELD
-import com.jslee.core.ui.extension.roundVoteRate
 import com.jslee.core.ui.extension.toDisplayRunTime
 import com.jslee.domain.model.movie.Certification
 import com.jslee.domain.model.movie.Movie
@@ -15,6 +12,8 @@ import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.MovieInfoItem
 import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
+import com.moobeside.core.common.kotlin.extensions.DateFormat
+import com.moobeside.core.common.kotlin.extensions.transformDate
 
 /**
  * MooBeside

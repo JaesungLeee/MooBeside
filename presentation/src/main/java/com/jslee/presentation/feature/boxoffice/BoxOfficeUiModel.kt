@@ -1,10 +1,10 @@
 package com.jslee.presentation.feature.boxoffice
 
-import com.jslee.core.date.DateFormat
-import com.jslee.core.date.transformDate
 import com.jslee.core.ui.extension.toDecimalFormat
 import com.jslee.core.ui.extension.toPercentage
 import com.jslee.domain.model.movie.Movie
+import com.moobeside.core.common.kotlin.extensions.DateFormat
+import com.moobeside.core.common.kotlin.extensions.transformDate
 
 /**
  * MooBeside

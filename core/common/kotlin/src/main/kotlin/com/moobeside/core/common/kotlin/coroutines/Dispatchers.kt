@@ -1,4 +1,4 @@
-package com.moobeside.core.common.kotlin
+package com.moobeside.core.common.kotlin.coroutines
 
 import javax.inject.Qualifier
 
