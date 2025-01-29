@@ -1,8 +1,8 @@
-package com.jslee.core.common.di
+package com.moobeside.core.common.kotlin.di
 
-import com.jslee.core.common.DefaultDispatcher
-import com.jslee.core.common.IoDispatcher
-import com.jslee.core.common.MainDispatcher
+import com.moobeside.core.common.kotlin.DefaultDispatcher
+import com.moobeside.core.common.kotlin.IoDispatcher
+import com.moobeside.core.common.kotlin.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
