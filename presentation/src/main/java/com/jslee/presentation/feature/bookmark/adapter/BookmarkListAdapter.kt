@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.bookmark.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.SingleViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemBookmarkBinding
 import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
 import com.jslee.presentation.feature.bookmark.viewholder.BookmarkItemViewHolder

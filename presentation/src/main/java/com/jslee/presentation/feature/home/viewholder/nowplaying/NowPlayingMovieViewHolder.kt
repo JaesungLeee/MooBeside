@@ -1,9 +1,9 @@
 package com.jslee.presentation.feature.home.viewholder.nowplaying
 
-import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.decoration.CommonItemDecoration
-import com.jslee.core.ui.decoration.LayoutType
-import com.jslee.core.ui.model.PaddingValues
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.decoration.CommonItemDecoration
+import com.moobeside.core.common.ui.recyclerview.decoration.LayoutType
+import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 import com.jslee.presentation.databinding.ItemHomeMovieBinding
 import com.jslee.presentation.feature.home.adapter.NowPlayingMovieAdapter
 import com.jslee.presentation.feature.home.model.NowPlayingUiModel

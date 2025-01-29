@@ -1,9 +1,9 @@
 package com.jslee.presentation.feature.detail.viewholder.gallery
 
-import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.decoration.CommonItemDecoration
-import com.jslee.core.ui.decoration.LayoutType
-import com.jslee.core.ui.model.PaddingValues
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.decoration.CommonItemDecoration
+import com.moobeside.core.common.ui.recyclerview.decoration.LayoutType
+import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 import com.jslee.presentation.databinding.ItemDetailGalleryBinding
 import com.jslee.presentation.feature.detail.adapter.gallery.GalleryItemListAdapter
 import com.jslee.presentation.feature.detail.model.item.DetailListItem

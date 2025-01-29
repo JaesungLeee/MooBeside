@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.SingleViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemBoxOfficeRankBinding
 import com.jslee.presentation.feature.boxoffice.BoxOfficeUiModel
 

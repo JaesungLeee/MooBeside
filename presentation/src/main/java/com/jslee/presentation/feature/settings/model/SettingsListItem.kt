@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.settings.model
 
-import com.jslee.core.ui.model.ListItem
+import com.moobeside.core.common.ui.recyclerview.model.ListItem
 import com.jslee.presentation.feature.settings.model.navigation.NavigationOption
 
 /**

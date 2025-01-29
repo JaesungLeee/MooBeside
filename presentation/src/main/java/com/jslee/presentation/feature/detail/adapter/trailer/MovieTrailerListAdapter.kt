@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.detail.adapter.trailer
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.SingleViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemTrailerBinding
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
 import com.jslee.presentation.feature.detail.viewholder.trailer.TrailerItemViewHolder

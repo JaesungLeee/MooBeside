@@ -8,10 +8,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.jslee.core.logger.Logger
-import com.jslee.core.ui.base.view.BaseActivity
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.ActivityMainBinding
 import com.jslee.presentation.feature.detail.MovieDetailFragmentDirections
+import com.moobeside.core.common.ui.recyclerview.base.view.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch

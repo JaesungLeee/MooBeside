@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.home.viewholder.divider
 
-import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.model.ListItem
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.model.ListItem
 import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 

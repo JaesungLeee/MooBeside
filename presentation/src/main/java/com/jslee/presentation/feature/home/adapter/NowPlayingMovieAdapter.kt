@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.jslee.core.ui.adapter.SingleViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.SingleViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemNowPlayingPosterBinding
 import com.jslee.presentation.feature.home.model.NowPlayingUiModel
 import com.jslee.presentation.feature.home.viewholder.nowplaying.NowPlayingPosterViewHolder

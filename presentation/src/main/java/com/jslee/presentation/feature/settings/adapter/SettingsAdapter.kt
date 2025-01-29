@@ -2,8 +2,8 @@ package com.jslee.presentation.feature.settings.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.jslee.core.ui.adapter.MultiViewTypeListAdapter
-import com.jslee.core.ui.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.adapter.MultiViewTypeListAdapter
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemDividerBinding
 import com.jslee.presentation.databinding.ItemSettingsHeaderBinding
 import com.jslee.presentation.databinding.ItemSettingsOptionBinding

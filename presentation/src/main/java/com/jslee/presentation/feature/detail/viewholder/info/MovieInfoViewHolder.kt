@@ -3,10 +3,10 @@ package com.jslee.presentation.feature.detail.viewholder.info
 import android.text.TextUtils
 import androidx.core.view.doOnPreDraw
 import androidx.core.view.isVisible
-import com.jslee.core.ui.base.BaseViewHolder
-import com.jslee.core.ui.decoration.CommonItemDecoration
-import com.jslee.core.ui.decoration.LayoutType
-import com.jslee.core.ui.model.PaddingValues
+import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
+import com.moobeside.core.common.ui.recyclerview.decoration.CommonItemDecoration
+import com.moobeside.core.common.ui.recyclerview.decoration.LayoutType
+import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 import com.jslee.presentation.databinding.ItemDetailInfoBinding
 import com.jslee.presentation.feature.detail.adapter.info.MovieInfoListAdapter
 import com.jslee.presentation.feature.detail.model.item.DetailListItem

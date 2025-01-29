@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.jslee.core.ui.extension.showToast
+import com.moobeside.core.common.android.extension.showToast
 import com.jslee.presentation.R
 import com.jslee.presentation.databinding.DialogShareBottomSheetBinding
 import dagger.hilt.android.AndroidEntryPoint
