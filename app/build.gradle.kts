@@ -47,8 +47,9 @@ android {
 dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":core:common:android"))
+    implementation(project(":core:common:kotlin"))
     implementation(project(":core:designsystem"))
-    implementation(project(":core:common"))
     implementation(project(":core:deeplink"))
     implementation(project(":core:external"))
     implementation(project(":core:ui"))

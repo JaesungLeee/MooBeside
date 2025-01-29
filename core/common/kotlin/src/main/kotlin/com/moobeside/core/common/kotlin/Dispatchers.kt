@@ -1,4 +1,4 @@
-package com.jslee.core.common
+package com.moobeside.core.common.kotlin
 
 import javax.inject.Qualifier
 
