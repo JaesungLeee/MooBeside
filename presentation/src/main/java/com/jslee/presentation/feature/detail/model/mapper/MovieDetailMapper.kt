@@ -2,9 +2,9 @@ package com.jslee.presentation.feature.detail.model.mapper
 
 import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
 import com.moobeside.core.common.kotlin.extension.toDisplayRunTime
-import com.jslee.domain.model.movie.Certification
-import com.jslee.domain.model.movie.Movie
-import com.jslee.domain.model.movie.MovieStatus
+import com.moobeside.core.model.movie.Certification
+import com.moobeside.core.model.movie.Movie
+import com.moobeside.core.model.movie.MovieStatus
 import com.jslee.presentation.feature.detail.model.AppBarUiModel
 import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.GalleryUiModel

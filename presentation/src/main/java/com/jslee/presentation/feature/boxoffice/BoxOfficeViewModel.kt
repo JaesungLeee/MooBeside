@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jslee.core.logger.Logger
 import com.moobeside.core.common.kotlin.extension.toShortenPreviousDate
-import com.jslee.domain.usecase.GetDailyBoxOfficeUseCase
+import com.moobeside.core.domain.usecase.GetDailyBoxOfficeUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

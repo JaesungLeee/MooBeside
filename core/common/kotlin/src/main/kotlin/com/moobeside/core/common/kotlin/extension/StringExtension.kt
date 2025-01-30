@@ -31,3 +31,6 @@ fun roundVoteRate(voteRate: Double?): String {
     val roundedRate = "%.1f".format(voteRate)
     return "${roundedRate}점"
 }
+
+fun String?.isJsonObject(): Boolean = this?.startsWith("{") == true && this.endsWith("}")
+fun String?.isJsonArray(): Boolean = this?.startsWith("[") == true && this.endsWith("]")

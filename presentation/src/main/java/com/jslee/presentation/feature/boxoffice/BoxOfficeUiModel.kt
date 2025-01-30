@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.boxoffice
 
-import com.jslee.domain.model.movie.Movie
+import com.moobeside.core.model.movie.Movie
 import com.moobeside.core.common.kotlin.extension.DateFormat
 import com.moobeside.core.common.kotlin.extension.toDecimalFormat
 import com.moobeside.core.common.kotlin.extension.toPercentage

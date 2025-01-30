@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.bookmark.model
 
-import com.jslee.domain.model.movie.Movie
-import com.jslee.domain.model.movie.MovieStatus
+import com.moobeside.core.model.movie.Movie
+import com.moobeside.core.model.movie.MovieStatus
 import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
 import com.moobeside.core.common.kotlin.extension.DateFormat
 import com.moobeside.core.common.kotlin.extension.getMovieSummaryInfo
