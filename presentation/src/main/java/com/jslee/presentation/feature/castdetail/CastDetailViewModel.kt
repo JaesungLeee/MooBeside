@@ -2,7 +2,7 @@ package com.jslee.presentation.feature.castdetail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jslee.domain.usecase.PersonInformationUseCase
+import com.moobeside.core.domain.usecase.PersonInformationUseCase
 import com.jslee.presentation.feature.castdetail.model.ParticipationTab
 import com.jslee.presentation.feature.castdetail.model.toUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel

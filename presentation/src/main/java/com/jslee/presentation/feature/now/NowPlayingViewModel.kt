@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.jslee.domain.usecase.GetNowPlayingMovieUseCase
+import com.moobeside.core.domain.usecase.GetNowPlayingMovieUseCase
 import com.jslee.presentation.feature.home.model.NowPlayingUiModel
 import com.jslee.presentation.feature.home.model.toNowPlayingUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel

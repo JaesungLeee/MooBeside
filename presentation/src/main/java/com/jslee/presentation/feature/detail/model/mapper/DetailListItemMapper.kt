@@ -1,6 +1,6 @@
 package com.jslee.presentation.feature.detail.model.mapper
 
-import com.jslee.domain.model.movie.Movie
+import com.moobeside.core.model.movie.Movie
 import com.jslee.presentation.feature.detail.model.item.DetailListItem
 
 /**

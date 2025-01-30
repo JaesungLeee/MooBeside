@@ -2,12 +2,12 @@ package com.jslee.presentation.feature.bookmark
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jslee.domain.model.BookmarkFilter
-import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
 import com.jslee.presentation.feature.bookmark.model.BookmarkUiModel
 import com.jslee.presentation.feature.bookmark.model.item.BookmarkListItem
 import com.jslee.presentation.feature.bookmark.model.item.FilterOptionsListItem
 import com.jslee.presentation.feature.bookmark.model.toBookmarkUiModel
+import com.moobeside.core.domain.usecase.bookmark.GetBookmarkUseCase
+import com.moobeside.core.model.BookmarkFilter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow

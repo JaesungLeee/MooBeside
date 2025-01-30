@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
-import com.jslee.domain.usecase.GetUpComingMovieUseCase
+import com.moobeside.core.domain.usecase.GetUpComingMovieUseCase
 import com.jslee.presentation.feature.home.model.UpComingUiModel
 import com.jslee.presentation.feature.home.model.toUpComingUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel

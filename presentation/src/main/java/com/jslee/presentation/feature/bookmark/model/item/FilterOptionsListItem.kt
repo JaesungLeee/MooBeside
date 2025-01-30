@@ -1,7 +1,7 @@
 package com.jslee.presentation.feature.bookmark.model.item
 
 import com.moobeside.core.common.ui.recyclerview.model.ListItem
-import com.jslee.domain.model.BookmarkFilter
+import com.moobeside.core.model.BookmarkFilter
 
 /**
  * MooBeside

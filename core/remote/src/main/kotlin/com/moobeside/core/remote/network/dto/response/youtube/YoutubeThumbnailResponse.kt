@@ -1,0 +1,24 @@
+package com.moobeside.core.remote.network.dto.response.youtube
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+/**
+ * MooBeside
+ * @author jaesung
+ * @created 2023/10/30
+ */
+
+@Serializable
+data class YoutubeThumbnailResponse(
+    @SerialName("default") val defaultSize: YoutubeThumbnailSizeResponse,
+    @SerialName("medium") val mediumSize: YoutubeThumbnailSizeResponse,
+    @SerialName("high") val highSize: YoutubeThumbnailSizeResponse,
+)
+
+@Serializable
+data class YoutubeThumbnailSizeResponse(
+    @SerialName("url") val thumbnailUrl: String,
+    @SerialName("width") val width: Int? = null,
+    @SerialName("height") val height: Int? = null,
+)

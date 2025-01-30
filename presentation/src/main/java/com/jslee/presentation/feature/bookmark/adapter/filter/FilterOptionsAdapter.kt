@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.moobeside.core.common.ui.recyclerview.adapter.MultiViewTypeListAdapter
 import com.moobeside.core.common.ui.recyclerview.base.BaseViewHolder
 import com.jslee.presentation.databinding.ItemFilterOptionTextBinding
-import com.jslee.domain.model.BookmarkFilter
+import com.moobeside.core.model.BookmarkFilter
 import com.jslee.presentation.feature.bookmark.model.item.FilterOptionsListItem
 
 /**

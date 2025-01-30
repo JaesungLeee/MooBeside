@@ -9,9 +9,9 @@ import com.jslee.core.deeplink.DeepLinkLauncher
 import com.jslee.core.deeplink.di.Firebase
 import com.jslee.core.deeplink.di.Kakao
 import com.jslee.core.logger.Logger
-import com.jslee.domain.usecase.GetMovieDetailUseCase
-import com.jslee.domain.usecase.bookmark.BookmarkUseCase
-import com.jslee.domain.usecase.bookmark.GetBookmarkUseCase
+import com.moobeside.core.domain.usecase.GetMovieDetailUseCase
+import com.moobeside.core.domain.usecase.bookmark.BookmarkUseCase
+import com.moobeside.core.domain.usecase.bookmark.GetBookmarkUseCase
 import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.item.DetailListItem

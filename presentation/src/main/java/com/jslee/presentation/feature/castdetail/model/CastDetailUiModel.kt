@@ -1,8 +1,8 @@
 package com.jslee.presentation.feature.castdetail.model
 
 import com.moobeside.core.common.kotlin.extension.roundVoteRate
-import com.jslee.domain.model.Gender
-import com.jslee.domain.model.Person
+import com.moobeside.core.model.Gender
+import com.moobeside.core.model.Person
 import com.moobeside.core.common.kotlin.extension.DateFormat
 import com.moobeside.core.common.kotlin.extension.transformDate
 

@@ -2,9 +2,9 @@ package com.jslee.presentation.feature.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jslee.domain.usecase.GetNowPlayingMovieUseCase
-import com.jslee.domain.usecase.GetPopularMovieUseCase
-import com.jslee.domain.usecase.GetUpComingMovieUseCase
+import com.moobeside.core.domain.usecase.GetNowPlayingMovieUseCase
+import com.moobeside.core.domain.usecase.GetPopularMovieUseCase
+import com.moobeside.core.domain.usecase.GetUpComingMovieUseCase
 import com.jslee.presentation.feature.home.model.item.HomeListItem
 import com.jslee.presentation.feature.home.model.mapToBannerUiModel
 import com.jslee.presentation.feature.home.model.mapToNowPlayingUiModel
