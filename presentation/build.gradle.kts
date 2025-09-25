@@ -43,16 +43,16 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common:android"))
-    implementation(project(":core:common:kotlin"))
-    implementation(project(":core:common:ui"))
-    implementation(project(":core:domain"))
-    implementation(project(":core:designsystem"))
-    implementation(project(":core:external"))
-    implementation(project(":core:deeplink"))
-    implementation(project(":core:logger"))
-    implementation(project(":core:model"))
-    implementation(project(":core:image"))
+    implementation(projects.core.common.android)
+    implementation(projects.core.common.kotlin)
+    implementation(projects.core.common.ui)
+    implementation(projects.core.domain)
+    implementation(projects.core.designsystem)
+    implementation(projects.core.external)
+    implementation(projects.core.deeplink)
+    implementation(projects.core.logger)
+    implementation(projects.core.model)
+    implementation(projects.core.image)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

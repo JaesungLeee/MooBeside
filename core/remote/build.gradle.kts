@@ -42,9 +42,9 @@ fun getApiKey(propertyKey: String): String {
 }
 
 dependencies {
-    implementation(project(":core:common:kotlin"))
-    implementation(project(":core:exception"))
-    implementation(project(":core:model"))
+    implementation(projects.core.common.kotlin)
+    implementation(projects.core.exception)
+    implementation(projects.core.model)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization.conveter)

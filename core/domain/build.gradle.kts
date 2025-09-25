@@ -9,7 +9,7 @@ java {
 }
 
 dependencies {
-    implementation(project(":core:model"))
+    implementation(projects.core.model)
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.javax.inject)

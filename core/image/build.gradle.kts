@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:designsystem"))
+    implementation(projects.core.designsystem)
 
     implementation(libs.glide)
     kapt(libs.glide.compiler)
