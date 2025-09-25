@@ -29,11 +29,11 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:domain"))
-    implementation(project(":core:remote"))
-    implementation(project(":core:local"))
-    implementation(project(":core:model"))
-    implementation(project(":core:common:kotlin"))
+    implementation(projects.core.domain)
+    implementation(projects.core.remote)
+    implementation(projects.core.local)
+    implementation(projects.core.model)
+    implementation(projects.core.common.kotlin)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.kotlinx.serialization.conveter)

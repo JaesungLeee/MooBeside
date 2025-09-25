@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:common:kotlin"))
-    implementation(project(":core:model"))
+    implementation(projects.core.common.kotlin)
+    implementation(projects.core.model)
 
     implementation(libs.bundles.kotlinx.coroutines)
     implementation(libs.kotlinx.serialization.json)

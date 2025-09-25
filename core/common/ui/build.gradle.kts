@@ -30,8 +30,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:designsystem"))
-    implementation(project(":core:common:kotlin"))
+    implementation(projects.core.designsystem)
+    implementation(projects.core.common.kotlin)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
