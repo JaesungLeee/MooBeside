@@ -18,6 +18,8 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 rootProject.name = "MooBeside"
 include(":app")
 include(":core:common:android")
@@ -42,3 +44,4 @@ include(":feature:settings")
 include(":feature:cast")
 include(":feature:search")
 include(":presentation")
+include(":build-logic:convention")
