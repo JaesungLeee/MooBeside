@@ -1,4 +1,6 @@
 pluginManagement {
+    includeBuild("build-logic")
+
     repositories {
         google()
         mavenCentral()
@@ -8,7 +10,6 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
         repositories {
             google()
             mavenCentral()
@@ -44,4 +45,3 @@ include(":feature:settings")
 include(":feature:cast")
 include(":feature:search")
 include(":presentation")
-include(":build-logic:convention")
