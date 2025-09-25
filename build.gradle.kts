@@ -17,5 +17,6 @@ plugins {
     alias(libs.plugins.hilt.plugin) apply false
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.firebase.crashlytics.plugin) apply false
+    alias(libs.plugins.kotlin.compose) apply false
 }
 true

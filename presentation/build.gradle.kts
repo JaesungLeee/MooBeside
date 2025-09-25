@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.kotlin.compose)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
