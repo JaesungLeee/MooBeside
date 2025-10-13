@@ -25,6 +25,9 @@ dependencies {
 
 gradlePlugin {
     plugins {
-
+        register("androidApplication") {
+            id = "com.jslee.moobeside.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
     }
 }
