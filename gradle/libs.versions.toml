@@ -155,6 +155,7 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 
 # Convention Plugin
 moobeside-android-application = { id = "com.jslee.moobeside.android.application"}
+moobeside-android-library = { id = "com.jslee.moobeside.android.library"}
 
 [bundles]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
