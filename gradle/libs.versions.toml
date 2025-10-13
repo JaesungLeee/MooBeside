@@ -1,4 +1,11 @@
 [versions]
+applicationId = "com.jslee.moobeside"
+targetSdk = "34"
+compileSdk = "34"
+minSdk = "24"
+versionCode = "1"
+versionName = "0.0.1" # X.Y.Z; X = Major, Y = minor, Z = Patch level
+
 agp = "8.11.1"
 kotlin = "2.0.21"
 ksp = "2.0.0-1.0.21"
@@ -145,6 +152,9 @@ hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google_services" }
 firebase-crashlytics-plugin = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-plugin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+# Convention Plugin
+moobeside-android-application = { id = "com.jslee.moobeside.android.application"}
 
 [bundles]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
