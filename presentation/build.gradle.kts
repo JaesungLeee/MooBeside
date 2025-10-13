@@ -1,7 +1,5 @@
-@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.moobeside.android.library)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.kotlin.compose)
@@ -12,32 +10,13 @@ plugins {
 
 android {
     namespace = "com.jslee.presentation"
-    compileSdk = 34
 
-    defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-        }
-    }
     composeOptions {
         val libs = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
         kotlinCompilerExtensionVersion = libs.findVersion("compose-compiler").get().toString()
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
+    
     buildFeatures {
-        dataBinding = true
         compose = true
     }
 }
