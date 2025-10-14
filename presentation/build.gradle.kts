@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.moobeside.android.library)
+    alias(libs.plugins.moobeside.android.library.compose)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.kotlin.compose)
@@ -10,15 +10,6 @@ plugins {
 
 android {
     namespace = "com.jslee.presentation"
-
-    composeOptions {
-        val libs = project.extensions.getByType<VersionCatalogsExtension>().named("libs")
-        kotlinCompilerExtensionVersion = libs.findVersion("compose-compiler").get().toString()
-    }
-    
-    buildFeatures {
-        compose = true
-    }
 }
 
 dependencies {
@@ -52,9 +43,4 @@ dependencies {
 
     implementation(libs.facebook.shimmer)
     implementation(libs.timber)
-
-    implementation(platform(libs.compose.bom))
-    androidTestImplementation(platform(libs.compose.bom))
-    implementation(libs.bundles.compose)
-    debugImplementation(libs.compose.ui.tooling)
 }

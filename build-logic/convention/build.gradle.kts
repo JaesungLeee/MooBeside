@@ -39,5 +39,10 @@ gradlePlugin {
             id = "com.jslee.moobeside.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+
+        register("androidLibraryCompose") {
+            id = "com.jslee.moobeside.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
     }
 }
