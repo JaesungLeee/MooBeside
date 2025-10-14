@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.moobeside.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.moobeside.android.application.compose)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.google.services)
@@ -19,10 +18,10 @@ android {
             )
         }
     }
-    buildFeatures {
-        dataBinding = true
-        buildConfig = true
-    }
+//    buildFeatures {
+//        dataBinding = true
+//        buildConfig = true
+//    }
 }
 
 dependencies {

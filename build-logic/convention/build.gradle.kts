@@ -30,6 +30,11 @@ gradlePlugin {
             implementationClass = "AndroidApplicationConventionPlugin"
         }
 
+        register("androidApplicationCompose") {
+            id = "com.jslee.moobeside.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+
         register("androidLibrary") {
             id = "com.jslee.moobeside.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"

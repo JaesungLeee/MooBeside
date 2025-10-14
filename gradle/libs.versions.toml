@@ -77,17 +77,20 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 # compose
-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
-compose-foundation = { module = "androidx.compose.foundation:foundation" }
-compose-material3 = { module = "androidx.compose.material3:material3" }
-compose-ui = { module = "androidx.compose.ui:ui" }
-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 
 # compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
-compose-hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "dagger-hilt-navigation-compose" }
-compose-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+androidx-compose-hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "dagger-hilt-navigation-compose" }
+androidx-compose-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
 
 # kotlinx
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
@@ -155,7 +158,9 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 
 # Convention Plugin
 moobeside-android-application = { id = "com.jslee.moobeside.android.application"}
+moobeside-android-application-compose = { id = "com.jslee.moobeside.android.application.compose"}
 moobeside-android-library = { id = "com.jslee.moobeside.android.library"}
+moobeside-android-library-compose = { id = "com.jslee.moobeside.android.library.compose"}
 
 [bundles]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
@@ -163,8 +168,8 @@ androidx-navigation = ["androidx-navigation-fragment-ktx", "androidx-navigation-
 androidx-lifecycle = ["androidx-lifecycle-viewmodel-ktx", "androidx-lifecycle-viewmodel-savedstate"]
 androidx-room = ["androidx-room-runtime", "androidx-room-paging", "androidx-room-ktx"]
 compose = [
-    "compose-ui",
-    "compose-foundation",
-    "compose-material3",
-    "compose-ui-tooling-preview",
+    "androidx-compose-ui",
+    "androidx-compose-foundation",
+    "androidx-compose-material3",
+    "androidx-compose-ui-tooling-preview",
 ]
