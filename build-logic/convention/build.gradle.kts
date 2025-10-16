@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.compiler.plugin.registerExtensionsForTest
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -48,6 +49,11 @@ gradlePlugin {
         register("androidHilt") {
             id = "com.jslee.moobeside.android.hilt"
             implementationClass = "AndroidHiltConventionPlugin"
+        }
+
+        register("jvmLibrary") {
+            id = "com.jslee.moobeside.jvm.library"
+            implementationClass = "JVMLibraryConvention"
         }
     }
 }

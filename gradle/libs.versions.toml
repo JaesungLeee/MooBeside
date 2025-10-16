@@ -164,6 +164,7 @@ moobeside-android-application-compose = { id = "com.jslee.moobeside.android.appl
 moobeside-android-library = { id = "com.jslee.moobeside.android.library" }
 moobeside-android-library-compose = { id = "com.jslee.moobeside.android.library.compose" }
 moobeside-android-hilt = { id = "com.jslee.moobeside.android.hilt" }
+moobeside-jvm-library = { id = "com.jslee.moobeside.jvm.library" }
 
 [bundles]
 kotlinx-coroutines = ["kotlinx-coroutines-core", "kotlinx-coroutines-android"]
