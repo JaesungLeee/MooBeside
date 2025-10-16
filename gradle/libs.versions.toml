@@ -8,7 +8,7 @@ versionName = "0.0.1" # X.Y.Z; X = Major, Y = minor, Z = Patch level
 
 agp = "8.11.1"
 kotlin = "2.0.21"
-ksp = "2.0.0-1.0.21"
+ksp = "2.0.21-1.0.27"
 
 # androidx
 core-ktx = "1.9.0"
@@ -150,6 +150,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-gradle-plugin = { id = "org.jetbrains.kotlin:kotlin-gradle-plugin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 google-services = { id = "com.google.gms.google-services", version.ref = "google_services" }
