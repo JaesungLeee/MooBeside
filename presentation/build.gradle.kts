@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.moobeside.android.library.compose)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt.plugin)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.moobeside.android.hilt)
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
@@ -37,9 +35,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.flexbox)
     implementation(libs.oss.license)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 
     implementation(libs.facebook.shimmer)
     implementation(libs.timber)

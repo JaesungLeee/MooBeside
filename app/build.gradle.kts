@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.moobeside.android.application.compose)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.moobeside.android.hilt)
     alias(libs.plugins.google.services)
     alias(libs.plugins.firebase.crashlytics.plugin)
 }
@@ -47,9 +46,6 @@ dependencies {
     implementation(projects.feature.search)
     implementation(projects.feature.settings)
     implementation(projects.presentation)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 
     implementation(libs.timber)
     implementation(libs.kakao.share)
