@@ -1,5 +1,6 @@
 plugins {
-    alias(libs.plugins.moobeside.android.library)
+    alias(libs.plugins.moobeside.android.library.compose)
+    alias(libs.plugins.moobeside.android.hilt)
 }
 
 android {

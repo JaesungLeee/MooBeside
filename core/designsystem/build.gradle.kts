@@ -1,7 +1,6 @@
 plugins {
-    alias(libs.plugins.moobeside.android.library)
-    alias(libs.plugins.kotlin.kapt)
-    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.moobeside.android.library.compose)
+    alias(libs.plugins.moobeside.android.hilt)
 }
 
 android {
@@ -14,6 +13,4 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     api(libs.balloon)
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 }
