@@ -1,8 +1,8 @@
-package com.moobeside.core.common.kotlin.coroutine.di
+package com.moobeside.core.common.android.coroutine.di
 
-import com.moobeside.core.common.kotlin.coroutine.DefaultDispatcher
-import com.moobeside.core.common.kotlin.coroutine.IoDispatcher
-import com.moobeside.core.common.kotlin.coroutine.MainDispatcher
+import com.moobeside.core.common.android.coroutine.DefaultDispatcher
+import com.moobeside.core.common.android.coroutine.IoDispatcher
+import com.moobeside.core.common.android.coroutine.MainDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
