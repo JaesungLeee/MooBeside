@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.jslee.convention.configureBuildType
 import com.jslee.convention.configureDefaultConfig
 import com.jslee.convention.configureKotlinAndroid
 import org.gradle.api.Plugin
@@ -16,6 +17,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             extensions.configure<ApplicationExtension> {
                 configureDefaultConfig(this@with)
                 configureKotlinAndroid(this)
+                configureBuildType()
             }
         }
     }

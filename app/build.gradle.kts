@@ -8,15 +8,6 @@ plugins {
 android {
     namespace = "com.jslee.moobeside"
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
 //    buildFeatures {
 //        dataBinding = true
 //        buildConfig = true
