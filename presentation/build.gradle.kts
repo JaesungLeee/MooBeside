@@ -8,6 +8,10 @@ plugins {
 
 android {
     namespace = "com.jslee.presentation"
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {

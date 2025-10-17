@@ -1,12 +1,12 @@
 package com.jslee.presentation.feature.bookmark.model
 
-import com.moobeside.core.model.movie.Movie
-import com.moobeside.core.model.movie.MovieStatus
+import com.moobeside.core.common.android.extension.toDisplayRunTime
 import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
 import com.moobeside.core.common.kotlin.extension.DateFormat
 import com.moobeside.core.common.kotlin.extension.getMovieSummaryInfo
-import com.moobeside.core.common.kotlin.extension.toDisplayRunTime
 import com.moobeside.core.common.kotlin.extension.transformDate
+import com.moobeside.core.model.movie.Movie
+import com.moobeside.core.model.movie.MovieStatus
 
 /**
  * MooBeside

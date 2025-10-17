@@ -3,7 +3,7 @@ package com.moobeside.core.common.ui.recyclerview.decoration
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.moobeside.core.common.kotlin.extension.dp
+import com.moobeside.core.common.android.extension.dp
 import com.moobeside.core.common.ui.recyclerview.model.PaddingValues
 
 /**

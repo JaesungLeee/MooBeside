@@ -10,9 +10,9 @@ import com.jslee.presentation.R
 import com.jslee.presentation.databinding.FragmentMovieDetailBinding
 import com.jslee.presentation.feature.detail.ShareBottomSheetFragment.Companion.SHARE_BOTTOM_SHEET_TAG
 import com.jslee.presentation.feature.detail.adapter.MovieDetailAdapter
+import com.moobeside.core.common.android.extension.dp
 import com.moobeside.core.common.android.extension.setOnSingleClickListener
 import com.moobeside.core.common.android.extension.showToast
-import com.moobeside.core.common.kotlin.extension.dp
 import com.moobeside.core.common.kotlin.extension.emptyString
 import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
 import com.moobeside.core.common.ui.recyclerview.decoration.DividerViewItemDecoration
