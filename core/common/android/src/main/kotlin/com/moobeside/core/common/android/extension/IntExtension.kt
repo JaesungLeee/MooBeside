@@ -1,4 +1,4 @@
-package com.moobeside.core.common.kotlin.extension
+package com.moobeside.core.common.android.extension
 
 import android.content.res.Resources
 import android.util.TypedValue

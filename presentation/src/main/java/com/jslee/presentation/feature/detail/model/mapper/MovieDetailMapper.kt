@@ -1,10 +1,5 @@
 package com.jslee.presentation.feature.detail.model.mapper
 
-import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
-import com.moobeside.core.common.kotlin.extension.toDisplayRunTime
-import com.moobeside.core.model.movie.Certification
-import com.moobeside.core.model.movie.Movie
-import com.moobeside.core.model.movie.MovieStatus
 import com.jslee.presentation.feature.detail.model.AppBarUiModel
 import com.jslee.presentation.feature.detail.model.CastInfoUiModel
 import com.jslee.presentation.feature.detail.model.GalleryUiModel
@@ -12,8 +7,13 @@ import com.jslee.presentation.feature.detail.model.MovieDetailUiModel
 import com.jslee.presentation.feature.detail.model.MovieInfoItem
 import com.jslee.presentation.feature.detail.model.MovieInfoUiModel
 import com.jslee.presentation.feature.detail.model.MovieTrailerUiModel
+import com.moobeside.core.common.android.extension.toDisplayRunTime
+import com.moobeside.core.common.kotlin.UNKNOWN_FIELD
 import com.moobeside.core.common.kotlin.extension.DateFormat
 import com.moobeside.core.common.kotlin.extension.transformDate
+import com.moobeside.core.model.movie.Certification
+import com.moobeside.core.model.movie.Movie
+import com.moobeside.core.model.movie.MovieStatus
 
 /**
  * MooBeside
