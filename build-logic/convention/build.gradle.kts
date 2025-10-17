@@ -53,7 +53,7 @@ gradlePlugin {
 
         register("jvmLibrary") {
             id = "com.jslee.moobeside.jvm.library"
-            implementationClass = "JVMLibraryConvention"
+            implementationClass = "JVMLibraryConventionPlugin"
         }
     }
 }

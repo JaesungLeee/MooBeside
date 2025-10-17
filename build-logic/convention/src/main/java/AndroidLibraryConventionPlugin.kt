@@ -1,5 +1,7 @@
 import com.android.build.api.dsl.LibraryExtension
+import com.jslee.convention.configureBuildFlavors
 import com.jslee.convention.configureKotlinAndroid
+import com.jslee.convention.configureSigningKeystore
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -14,6 +16,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
+                configureSigningKeystore(this)
+                configureBuildFlavors(this@with)
             }
         }
     }

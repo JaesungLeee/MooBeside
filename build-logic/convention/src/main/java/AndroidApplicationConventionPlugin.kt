@@ -1,7 +1,9 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.jslee.convention.configureBuildFlavors
 import com.jslee.convention.configureBuildType
 import com.jslee.convention.configureDefaultConfig
 import com.jslee.convention.configureKotlinAndroid
+import com.jslee.convention.configureSigningKeystore
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
@@ -17,7 +19,9 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
             extensions.configure<ApplicationExtension> {
                 configureDefaultConfig(this@with)
                 configureKotlinAndroid(this)
+                configureSigningKeystore(this)
                 configureBuildType()
+                configureBuildFlavors(this@with)
             }
         }
     }
