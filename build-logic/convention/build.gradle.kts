@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.compiler.plugin.registerExtensionsForTest
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
