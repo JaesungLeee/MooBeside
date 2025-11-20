@@ -19,7 +19,7 @@ internal fun ApplicationExtension.configureBuildFlavors(project: Project) {
             signingConfig = signingConfigs.getByName("dev")
 
             buildConfigField("int", "VERSION_CODE", "${project.findVersion("versionCode").toInt()}")
-            buildConfigField("String", "VERSION_NAME", project.findVersion("versionName"))
+            buildConfigField("String", "VERSION_NAME", "\"${project.findVersion("versionName")}\"")
             resValue("string", "app_name", "무비사이드DEV")
         }
 
@@ -27,7 +27,7 @@ internal fun ApplicationExtension.configureBuildFlavors(project: Project) {
             signingConfig = signingConfigs.getByName("prod")
 
             buildConfigField("int", "VERSION_CODE", "${project.findVersion("versionCode").toInt()}")
-            buildConfigField("String", "VERSION_NAME", project.findVersion("versionName"))
+            buildConfigField("String", "VERSION_NAME", "\"${project.findVersion("versionName")}\"")
             resValue("string", "app_name", "무비사이드")
         }
     }
@@ -43,14 +43,14 @@ internal fun LibraryExtension.configureBuildFlavors(project: Project) {
             dimension = "version"
 
             buildConfigField("int", "VERSION_CODE", "${project.findVersion("versionCode").toInt()}")
-            buildConfigField("String", "VERSION_NAME", project.findVersion("versionName"))
+            buildConfigField("String", "VERSION_NAME", "\"${project.findVersion("versionName")}\"")
         }
 
         create("prod") {
             dimension = "version"
 
             buildConfigField("int", "VERSION_CODE", "${project.findVersion("versionCode").toInt()}")
-            buildConfigField("String", "VERSION_NAME", project.findVersion("versionName"))
+            buildConfigField("String", "VERSION_NAME", "\"${project.findVersion("versionName")}\"")
         }
     }
 }
