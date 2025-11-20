@@ -1,11 +1,9 @@
 name: Moobeside CI
 
 on:
-  workflow_dispatch:
-  on:
-    pull_request:
-      # feature/foo, feature/foo/bar/* 까지 대응
-      branches: [ "feature/**", "hotfix/**", "release/**", "develop", "main" ]
+  pull_request:
+    # feature/foo, feature/foo/bar/* 까지 대응
+    branches: [ "feature/**", "hotfix/**", "release/**", "develop", "main" ]
 
 jobs:
   build:
