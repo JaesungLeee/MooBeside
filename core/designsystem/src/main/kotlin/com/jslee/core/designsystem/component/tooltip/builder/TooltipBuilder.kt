@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.tooltip.builder
+package com.jslee.core.designsystem.component.tooltip.builder
 
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner

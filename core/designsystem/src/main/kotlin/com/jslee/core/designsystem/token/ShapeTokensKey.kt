@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.core.token
+package com.jslee.core.designsystem.token
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable

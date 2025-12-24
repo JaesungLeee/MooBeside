@@ -4,7 +4,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Shape
-import com.jslee.core.designsystem.core.token.ShapeTokenKey
+import com.jslee.core.designsystem.token.ShapeTokenKey
 
 @Immutable
 class Shapes(

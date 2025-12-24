@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.tooltip
+package com.jslee.core.designsystem.component.tooltip
 
 import android.content.Context
 import com.skydoves.balloon.Balloon
