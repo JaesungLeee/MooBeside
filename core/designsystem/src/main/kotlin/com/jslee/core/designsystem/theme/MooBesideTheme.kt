@@ -12,6 +12,8 @@ import com.jslee.core.designsystem.foundation.color.darkColorScheme
 import com.jslee.core.designsystem.foundation.color.lightColorScheme
 import com.jslee.core.designsystem.foundation.shape.LocalShapes
 import com.jslee.core.designsystem.foundation.shape.Shapes
+import com.jslee.core.designsystem.foundation.typography.LocalTypography
+import com.jslee.core.designsystem.foundation.typography.Typography
 
 @Composable
 fun MooBesideAppTheme(
@@ -27,11 +29,13 @@ fun MooBesideAppTheme(
 @Composable
 private fun MooBesideTheme(
     colors: ColorScheme = MooBesideTheme.colors,
+    typography: Typography = MooBesideTheme.typography,
     shapes: Shapes = MooBesideTheme.shapes,
     content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
         LocalColorScheme provides colors,
+        LocalTypography provides typography,
         LocalShapes provides shapes
     ) {
         ProvideTextStyle(value = TextStyle(), content = content)
@@ -39,11 +43,15 @@ private fun MooBesideTheme(
 }
 
 object MooBesideTheme {
-    // TODO : Should be update
     val colors: ColorScheme
         @Composable
         @ReadOnlyComposable
         get() = LocalColorScheme.current
+
+    val typography: Typography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTypography.current
 
     val shapes: Shapes
         @Composable
