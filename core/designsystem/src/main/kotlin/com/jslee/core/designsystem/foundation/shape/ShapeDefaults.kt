@@ -2,7 +2,7 @@ package com.jslee.core.designsystem.foundation.shape
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.ui.graphics.Shape
-import com.jslee.core.designsystem.core.token.ShapeTokens
+import com.jslee.core.designsystem.token.ShapeTokens
 
 object ShapeDefaults {
     val ExtraSmall: CornerBasedShape = ShapeTokens.CornerExtraSmall

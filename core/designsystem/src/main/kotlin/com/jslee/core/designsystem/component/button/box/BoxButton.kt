@@ -11,6 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.jslee.core.designsystem.component.button.core.Button
 import com.jslee.core.designsystem.component.button.core.ButtonColors
 import com.jslee.core.designsystem.component.button.core.ButtonDefaults
+import com.jslee.core.designsystem.component.button.core.ButtonDefaults.defaultButtonColors
+import com.jslee.core.designsystem.theme.MooBesideTheme
 
 @Composable
 internal fun MooBesideBoxButton(
@@ -19,7 +21,7 @@ internal fun MooBesideBoxButton(
     enabled: Boolean = true,
     boxButtonSizeType: BoxButtonSizeType,
     boxButtonColorType: ButtonColors = ButtonColors(
-        containerColor = Color.White,
+        containerColor = MooBesideTheme.colors.defaultButtonColors.containerColor,
         contentColor = Color.Black,
         disabledContainerColor = Color.Gray,
         disabledContentColor = Color.Black

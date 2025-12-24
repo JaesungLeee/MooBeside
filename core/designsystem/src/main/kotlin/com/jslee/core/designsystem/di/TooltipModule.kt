@@ -1,7 +1,7 @@
 package com.jslee.core.designsystem.di
 
-import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
-import com.jslee.core.designsystem.tooltip.builder.TooltipBuilderImpl
+import com.jslee.core.designsystem.component.tooltip.builder.TooltipBuilder
+import com.jslee.core.designsystem.component.tooltip.builder.TooltipBuilderImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
