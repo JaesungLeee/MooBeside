@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.moobeside.android.hilt)
 }
 
-android {
-    namespace = "com.jslee.core.designsystem"
-}
+android.namespace = "com.jslee.core.designsystem"
 
 dependencies {
     implementation(libs.androidx.core.ktx)

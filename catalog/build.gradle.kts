@@ -2,9 +2,7 @@ plugins {
     alias(libs.plugins.moobeside.android.application.compose)
 }
 
-android {
-    namespace = "com.moobeside.catalog"
-}
+android.namespace = "com.moobeside.catalog"
 
 dependencies {
     implementation(projects.core.designsystem)

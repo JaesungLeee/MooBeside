@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
 }
 
-android{
+android {
     namespace = "com.moobeside.core.common.ui"
 
     buildFeatures {

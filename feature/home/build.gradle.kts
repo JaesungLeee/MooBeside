@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.moobeside.android.hilt)
 }
 
-android {
-    namespace = "com.moobeside.feature.home"
-}
+android.namespace = "com.moobeside.feature.home"
 
 dependencies {
     implementation(libs.androidx.core.ktx)
