@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
 }
 
-android {
-    namespace = "com.jslee.core.image"
-}
+android.namespace = "com.jslee.core.image"
 
 dependencies {
     implementation(projects.core.designsystem)

@@ -4,9 +4,7 @@ plugins {
     alias(libs.plugins.hilt.plugin)
 }
 
-android {
-    namespace = "com.jslee.core.deeplink"
-}
+android.namespace = "com.jslee.core.deeplink"
 
 dependencies {
     implementation(libs.hilt.android)

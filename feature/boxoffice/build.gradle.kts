@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.moobeside.android.hilt)
 }
 
-android {
-    namespace = "com.moobeside.feature.boxoffice"
-}
+android.namespace = "com.moobeside.feature.boxoffice"
 
 dependencies {
     implementation(libs.androidx.core.ktx)

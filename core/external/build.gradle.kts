@@ -4,9 +4,7 @@ plugins {
     alias(libs.plugins.hilt.plugin)
 }
 
-android {
-    namespace = "com.jslee.core.external"
-}
+android.namespace = "com.jslee.core.external"
 
 dependencies {
     implementation(libs.hilt.android)

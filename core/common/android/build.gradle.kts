@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.moobeside.android.hilt)
 }
 
-android {
-    namespace = "com.moobeside.core.common.android"
-}
+android.namespace = "com.moobeside.core.common.android"
 
 dependencies {
     implementation(libs.androidx.core.ktx)

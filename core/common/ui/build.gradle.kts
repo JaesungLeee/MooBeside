@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
 }
 
-android {
-    namespace = "com.moobeside.core.common.ui"
-}
+android.namespace = "com.moobeside.core.common.ui"
 
 dependencies {
     implementation(projects.core.designsystem)

@@ -5,14 +5,12 @@ plugins {
     alias(libs.plugins.firebase.crashlytics.plugin)
 }
 
-android {
-    namespace = "com.jslee.moobeside"
+android.namespace = "com.jslee.moobeside"
 
 //    buildFeatures {
 //        dataBinding = true
 //        buildConfig = true
 //    }
-}
 
 dependencies {
     implementation(projects.core.common.android)

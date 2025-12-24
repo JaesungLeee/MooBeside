@@ -5,9 +5,7 @@ plugins {
     alias(libs.plugins.hilt.plugin)
 }
 
-android {
-    namespace = "com.moobeside.core.local"
-}
+android.namespace = "com.moobeside.core.local"
 
 dependencies {
     implementation(projects.core.common.kotlin)
