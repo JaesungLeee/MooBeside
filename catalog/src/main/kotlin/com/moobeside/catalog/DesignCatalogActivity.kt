@@ -49,7 +49,9 @@ private fun Test(
         modifier = modifier.background(
             color = MooBesideTheme.colors.primary,
         ),
-        text = if (isDarkMode) "DarkMode" else "LightMode",
-        color = MooBesideTheme.colors.onPrimary
+        text = if (isDarkMode) "다크모드" else "라이트모드",
+        style = MooBesideTheme.typography.baseNormal.copy(
+            color = MooBesideTheme.colors.onPrimary,
+        )
     )
 }
