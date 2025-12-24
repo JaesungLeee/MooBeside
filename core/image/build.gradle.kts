@@ -4,7 +4,7 @@ plugins {
     id("org.jetbrains.kotlin.kapt")
 }
 
-android{
+android {
     namespace = "com.jslee.core.image"
 
     buildFeatures {

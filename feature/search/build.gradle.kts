@@ -3,9 +3,7 @@ plugins {
     alias(libs.plugins.moobeside.android.hilt)
 }
 
-android {
-    namespace = "com.moobeside.feature.search"
-}
+android.namespace = "com.moobeside.feature.search"
 
 dependencies {
     implementation(libs.androidx.core.ktx)
