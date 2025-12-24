@@ -3,7 +3,7 @@ package com.jslee.presentation.feature.home
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
-import com.jslee.core.designsystem.tooltip.builder.TooltipBuilder
+import com.jslee.core.designsystem.component.tooltip.builder.TooltipBuilder
 import com.moobeside.core.common.ui.recyclerview.base.view.BaseFragment
 import com.moobeside.core.common.ui.recyclerview.decoration.DividerViewItemDecoration
 import com.moobeside.core.common.ui.recyclerview.model.PaddingValues

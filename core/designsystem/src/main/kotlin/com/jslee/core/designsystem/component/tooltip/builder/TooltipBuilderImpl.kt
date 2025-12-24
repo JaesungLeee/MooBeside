@@ -1,17 +1,15 @@
-package com.jslee.core.designsystem.tooltip.builder
+package com.jslee.core.designsystem.component.tooltip.builder
 
 import android.content.Context
-import android.util.Log
 import android.view.Gravity
 import androidx.lifecycle.LifecycleOwner
 import com.jslee.core.designsystem.R
-import com.jslee.core.designsystem.tooltip.TooltipConfig
+import com.jslee.core.designsystem.component.tooltip.TooltipConfig
 import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.ArrowPositionRules
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.BalloonSizeSpec
-import com.skydoves.balloon.TextForm
 import javax.inject.Inject
 
 

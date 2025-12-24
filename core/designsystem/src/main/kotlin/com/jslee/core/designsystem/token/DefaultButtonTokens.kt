@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.core.token
+package com.jslee.core.designsystem.token
 
 /**
  * package androidx.compose.material3.tokens.FilledButtonTokens

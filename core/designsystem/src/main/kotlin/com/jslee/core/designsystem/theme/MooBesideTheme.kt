@@ -12,10 +12,12 @@ import com.jslee.core.designsystem.foundation.shape.Shapes
 
 @Composable
 fun MooBesideTheme(
+    colors: ColorScheme = MooBesideTheme.colors,
     shapes: Shapes = MooBesideTheme.shapes,
     content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
+        LocalColorScheme provides colors,
         LocalShapes provides shapes
     ) {
         ProvideTextStyle(value = TextStyle(), content = content)
@@ -23,15 +25,14 @@ fun MooBesideTheme(
 }
 
 object MooBesideTheme {
+    // TODO : Should be update
+    val colors: ColorScheme
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalColorScheme.current
 
     val shapes: Shapes
         @Composable
         @ReadOnlyComposable
         get() = LocalShapes.current
-
-    // TODO : Should be update
-    val colorScheme: ColorScheme
-        @Composable
-        @ReadOnlyComposable
-        get() = LocalColorScheme.current
 }

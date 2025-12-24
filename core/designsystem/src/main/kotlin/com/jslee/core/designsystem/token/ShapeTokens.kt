@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.core.token
+package com.jslee.core.designsystem.token
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.RectangleShape
