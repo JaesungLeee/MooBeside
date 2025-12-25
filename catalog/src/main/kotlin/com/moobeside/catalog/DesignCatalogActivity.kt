@@ -7,14 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.jslee.core.designsystem.component.divider.Divider
+import com.jslee.core.designsystem.component.divider.DividerVariant
 import com.jslee.core.designsystem.theme.MooBesideAppTheme
 import com.jslee.core.designsystem.theme.MooBesideTheme
 
@@ -27,12 +27,18 @@ class CatalogActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     containerColor = MooBesideTheme.colors.background
-                ) {
+                ) { paddingValues ->
 
-                    Test(
-                        modifier = Modifier.padding(it)
-                            .widthIn(min = 100.dp)
-                            .height(48.dp)
+//                    Test(
+//                        modifier = Modifier.padding(it)
+//                            .widthIn(min = 100.dp)
+//                            .height(48.dp)
+//                    )
+                    Divider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(paddingValues),
+                        variant = DividerVariant.Thick
                     )
                 }
             }

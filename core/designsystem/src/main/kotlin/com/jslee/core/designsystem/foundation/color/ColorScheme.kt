@@ -1,8 +1,12 @@
 package com.jslee.core.designsystem.foundation.color
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import com.jslee.core.designsystem.theme.MooBesideTheme
+import com.jslee.core.designsystem.token.ColorAccessKeyToken
 import com.jslee.core.designsystem.token.ColorDarkTokens
 import com.jslee.core.designsystem.token.ColorLightTokens
 
@@ -341,5 +345,45 @@ fun darkColorScheme(
     surfaceContainer = surfaceContainer,
     surfaceDim = surfaceDim,
 )
+
+internal fun ColorScheme.fromToken(value: ColorAccessKeyToken): Color {
+    return when (value) {
+        ColorAccessKeyToken.Primary -> primary
+        ColorAccessKeyToken.OnPrimary -> onPrimary
+        ColorAccessKeyToken.PrimaryContainer -> primaryContainer
+        ColorAccessKeyToken.OnPrimaryContainer -> onPrimaryContainer
+        ColorAccessKeyToken.Secondary -> secondary
+        ColorAccessKeyToken.OnSecondary -> onSecondary
+        ColorAccessKeyToken.SecondaryContainer -> secondaryContainer
+        ColorAccessKeyToken.OnSecondaryContainer -> onSecondaryContainer
+        ColorAccessKeyToken.Tertiary -> tertiary
+        ColorAccessKeyToken.OnTertiary -> onTertiary
+        ColorAccessKeyToken.TertiaryContainer -> tertiaryContainer
+        ColorAccessKeyToken.OnTertiaryContainer -> onTertiaryContainer
+        ColorAccessKeyToken.Background -> background
+        ColorAccessKeyToken.OnBackground -> onBackground
+        ColorAccessKeyToken.Surface -> surface
+        ColorAccessKeyToken.OnSurface -> onSurface
+        ColorAccessKeyToken.SurfaceVariant -> surfaceVariant
+        ColorAccessKeyToken.OnSurfaceVariant -> onSurfaceVariant
+        ColorAccessKeyToken.SurfaceTint -> surfaceTint
+        ColorAccessKeyToken.InverseSurface -> inverseSurface
+        ColorAccessKeyToken.InverseOnSurface -> inverseOnSurface
+        ColorAccessKeyToken.Error -> error
+        ColorAccessKeyToken.OnError -> onError
+        ColorAccessKeyToken.ErrorContainer -> errorContainer
+        ColorAccessKeyToken.OnErrorContainer -> onErrorContainer
+        ColorAccessKeyToken.Outline -> outline
+        ColorAccessKeyToken.OutlineVariant -> outlineVariant
+        ColorAccessKeyToken.Scrim -> scrim
+        ColorAccessKeyToken.SurfaceContainer -> surfaceContainer
+        ColorAccessKeyToken.SurfaceDim -> surfaceDim
+    }
+}
+
+internal val ColorAccessKeyToken.value: Color
+    @Composable
+    @ReadOnlyComposable
+    get() = MooBesideTheme.colors.fromToken(this)
 
 internal val LocalColorScheme = staticCompositionLocalOf { lightColorScheme() }
