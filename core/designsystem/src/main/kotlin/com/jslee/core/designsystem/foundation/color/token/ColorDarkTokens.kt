@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.foundation.color.token
 
 import com.jslee.core.designsystem.foundation.color.Background
 import com.jslee.core.designsystem.foundation.color.BackgroundNeutral

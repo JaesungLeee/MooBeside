@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.di
+package com.jslee.core.designsystem.component.tooltip.di
 
 import com.jslee.core.designsystem.component.tooltip.builder.TooltipBuilder
 import com.jslee.core.designsystem.component.tooltip.builder.TooltipBuilderImpl

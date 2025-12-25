@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.foundation.color.token
 
 import com.jslee.core.designsystem.foundation.color.Background
 import com.jslee.core.designsystem.foundation.color.BackgroundNeutral
@@ -10,6 +10,7 @@ import com.jslee.core.designsystem.foundation.color.BorderTint
 import com.jslee.core.designsystem.foundation.color.Foreground
 import com.jslee.core.designsystem.foundation.color.ForegroundNeutral
 import com.jslee.core.designsystem.foundation.color.ForegroundTint
+import com.jslee.core.designsystem.foundation.color.token.PrimitiveColorToken
 
 internal object ColorLightTokens {
     val foreground: Foreground = Foreground(
