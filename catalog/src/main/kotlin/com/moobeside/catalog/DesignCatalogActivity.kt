@@ -26,7 +26,7 @@ class CatalogActivity : ComponentActivity() {
             MooBesideAppTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    containerColor = MooBesideTheme.colors.background
+                    containerColor = MooBesideTheme.colors.semantic.background.normal.normal
                 ) { paddingValues ->
 
 //                    Test(
@@ -53,11 +53,11 @@ private fun Test(
     val isDarkMode = isSystemInDarkTheme()
     Text(
         modifier = modifier.background(
-            color = MooBesideTheme.colors.primary,
+            color = MooBesideTheme.colors.semantic.background.normal.normal,
         ),
         text = if (isDarkMode) "다크모드" else "라이트모드",
-        style = MooBesideTheme.typography.baseNormal.copy(
-            color = MooBesideTheme.colors.onPrimary,
+        style = MooBesideTheme.typography.body1NormalMedium.copy(
+            color = MooBesideTheme.colors.semantic.label.normal
         )
     )
 }
