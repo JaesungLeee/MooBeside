@@ -1,5 +1,16 @@
 package com.jslee.core.designsystem.token
 
+import com.jslee.core.designsystem.foundation.color.Background
+import com.jslee.core.designsystem.foundation.color.BackgroundNeutral
+import com.jslee.core.designsystem.foundation.color.BackgroundTint
+import com.jslee.core.designsystem.foundation.color.Bg
+import com.jslee.core.designsystem.foundation.color.Border
+import com.jslee.core.designsystem.foundation.color.BorderNeutral
+import com.jslee.core.designsystem.foundation.color.BorderTint
+import com.jslee.core.designsystem.foundation.color.Foreground
+import com.jslee.core.designsystem.foundation.color.ForegroundNeutral
+import com.jslee.core.designsystem.foundation.color.ForegroundTint
+
 internal object ColorDarkTokens {
     val foreground: Foreground = Foreground(
         neutral = ForegroundNeutral(
