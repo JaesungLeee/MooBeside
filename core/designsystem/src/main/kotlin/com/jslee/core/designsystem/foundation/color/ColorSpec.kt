@@ -2,73 +2,123 @@ package com.jslee.core.designsystem.foundation.color
 
 import androidx.compose.ui.graphics.Color
 
-internal data class Foreground(
-    val neutral: ForegroundNeutral,
-    val tint: ForegroundTint,
+data class SemanticColorSpec(
+    val static: StaticColorSpec,
+    val primary: PrimaryColorSpec,
+    val label: LabelColorSpec,
+    val background: BackgroundColorSpec,
+    val interaction: InteractionColorSpec,
+    val line: LineColorSpec,
+    val status: StatusColorSpec,
+    val accent: AccentColorSpec,
+    val inverse: InverseColorSpec,
 )
 
-internal data class ForegroundNeutral(
+data class StaticColorSpec(
+    val white: Color,
+    val black: Color,
+)
+
+data class PrimaryColorSpec(
+    val normal: Color,
+    val strong: Color,
+    val heavy: Color,
+)
+
+data class LabelColorSpec(
+    val normal: Color,
+    val strong: Color,
+    val neutral: Color,
+    val alternative: Color,
+    val assistive: Color,
+    val disable: Color,
+)
+
+data class BackgroundColorSpec(
+    val normal: Normal,
+    val elevated: Elevated,
+) {
+    data class Normal(
+        val normal: Color,
+        val alternative: Color,
+    )
+    data class Elevated(
+        val normal: Color,
+        val alternative: Color,
+    )
+}
+
+data class InteractionColorSpec(
+    val inactive: Color,
+    val disable: Color,
+)
+
+data class LineColorSpec(
+    val normal: Normal,
+    val solid: Solid
+) {
+    data class Normal(
+        val normal: Color,
+        val neutral: Color,
+        val alternative: Color
+    )
+    data class Solid(
+        val normal: Color,
+        val neutral: Color,
+        val alternative: Color
+    )
+}
+
+data class StatusColorSpec(
+    val positive: Color,
+    val cautionary: Color,
+    val negative: Color,
+)
+
+data class AccentColorSpec(
+    val background: Background,
+    val foreground: Foreground,
+) {
+    data class Background(
+        val redOrange: Color,
+        val lime: Color,
+        val cyan: Color,
+        val lightBlue: Color,
+        val violet: Color,
+        val purple: Color,
+        val pink: Color,
+    )
+    data class Foreground(
+        val red: Color,
+        val redOrange: Color,
+        val orange: Color,
+        val lime: Color,
+        val green: Color,
+        val cyan: Color,
+        val lightBlue: Color,
+        val blue: Color,
+        val violet: Color,
+        val purple: Color,
+        val pink: Color,
+    )
+}
+
+data class InverseColorSpec(
     val primary: Color,
-    val secondary: Color,
-    val tertiary: Color,
-    val inverse: Color,
-    val static: Color,
+    val background: Color,
+    val label: Color,
 )
 
-internal data class ForegroundTint(
-    val red: Color,
-    val orange: Color,
-    val green: Color,
-    val blue: Color,
+data class ComponentColorSpec(
+    val fill: FillColorSpec,
+    val material: MaterialColorSpec,
+)
+data class FillColorSpec(
+    val normal: Color,
+    val strong: Color,
+    val alternative: Color,
 )
 
-internal data class Border(
-    val neutral: BorderNeutral,
-    val tint: BorderTint,
-)
-
-internal data class BorderNeutral(
-    val primary: Color,
-    val secondary: Color,
-    val tertiary: Color,
-    val transparent: Color,
-)
-
-internal data class BorderTint(
-    val red: Color,
-    val orange: Color,
-    val green: Color,
-    val blue: Color,
-)
-
-internal data class Background(
-    val bg: Bg,
-    val neutral: BackgroundNeutral,
-    val tint: BackgroundTint,
-)
-
-internal data class Bg(
-    val primary: Color,
-    val secondary: Color,
-    val tertiary: Color,
-    val dim: Color,
-)
-
-internal data class BackgroundNeutral(
-    val primary: Color,
-    val secondary: Color,
-    val tertiary: Color,
-    val inverse: Color,
-    val transparent: Color,
-)
-
-internal data class BackgroundTint(
-    val redBold: Color,
-    val redSubtle: Color,
-    val orangeBold: Color,
-    val orangeSubtle: Color,
-    val greenBold: Color,
-    val greenSubtle: Color,
-    val blueBold: Color,
-    val blueSubtle: Color,
+data class MaterialColorSpec(
+    val dimmer: Color,
 )

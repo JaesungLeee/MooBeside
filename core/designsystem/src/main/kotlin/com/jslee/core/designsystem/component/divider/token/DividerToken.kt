@@ -5,7 +5,7 @@ import androidx.compose.ui.unit.dp
 import com.jslee.core.designsystem.foundation.color.token.ColorAccessKeyToken
 
 internal object DividerToken {
-    val DividerColor = ColorAccessKeyToken.OutlineVariant
+    val DividerColor = ColorAccessKeyToken.SemanticLineNormalNormal
     val NormalThickness: Dp = 1.dp
     val ThickThickness: Dp = 12.dp
 }
