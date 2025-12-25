@@ -1,7 +1,8 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.component.divider.token
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.jslee.core.designsystem.foundation.color.token.ColorAccessKeyToken
 
 internal object DividerToken {
     val DividerColor = ColorAccessKeyToken.OutlineVariant

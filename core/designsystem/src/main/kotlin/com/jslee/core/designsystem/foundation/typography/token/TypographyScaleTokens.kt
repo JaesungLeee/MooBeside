@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.foundation.typography.token
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily

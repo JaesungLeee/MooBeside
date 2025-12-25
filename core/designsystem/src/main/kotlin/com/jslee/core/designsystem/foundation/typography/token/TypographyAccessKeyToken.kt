@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.foundation.typography.token
 
 internal enum class TypographyAccessKeyToken {
     SmallNormal,

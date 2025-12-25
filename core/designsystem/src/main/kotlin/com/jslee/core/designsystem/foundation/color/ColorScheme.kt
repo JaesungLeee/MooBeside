@@ -6,9 +6,9 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import com.jslee.core.designsystem.theme.MooBesideTheme
-import com.jslee.core.designsystem.token.ColorAccessKeyToken
-import com.jslee.core.designsystem.token.ColorDarkTokens
-import com.jslee.core.designsystem.token.ColorLightTokens
+import com.jslee.core.designsystem.foundation.color.token.ColorAccessKeyToken
+import com.jslee.core.designsystem.foundation.color.token.ColorDarkTokens
+import com.jslee.core.designsystem.foundation.color.token.ColorLightTokens
 
 @Immutable
 class ColorScheme(

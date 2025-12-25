@@ -3,8 +3,8 @@ package com.jslee.core.designsystem.component.button.core
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import com.jslee.core.designsystem.token.DefaultButtonTokens
-import com.jslee.core.designsystem.token.value
+import com.jslee.core.designsystem.component.button.token.DefaultButtonTokens
+import com.jslee.core.designsystem.foundation.shape.token.value
 import com.jslee.core.designsystem.foundation.color.ColorScheme
 import com.jslee.core.designsystem.theme.MooBesideTheme
 

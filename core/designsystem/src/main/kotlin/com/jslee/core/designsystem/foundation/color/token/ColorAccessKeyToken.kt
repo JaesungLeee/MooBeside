@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.token
+package com.jslee.core.designsystem.foundation.color.token
 
 internal enum class ColorAccessKeyToken {
     Primary,

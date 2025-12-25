@@ -6,8 +6,8 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import com.jslee.core.designsystem.theme.MooBesideTheme
-import com.jslee.core.designsystem.token.TypographyAccessKeyToken
-import com.jslee.core.designsystem.token.TypographyTokens
+import com.jslee.core.designsystem.foundation.typography.token.TypographyAccessKeyToken
+import com.jslee.core.designsystem.foundation.typography.token.TypographyTokens
 
 @Immutable
 class Typography(

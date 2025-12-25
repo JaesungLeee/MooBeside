@@ -4,7 +4,7 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Shape
-import com.jslee.core.designsystem.token.ShapeTokenKey
+import com.jslee.core.designsystem.foundation.shape.token.ShapeAccessKeyToken
 
 @Immutable
 class Shapes(
@@ -51,15 +51,15 @@ class Shapes(
     }
 }
 
-internal fun Shapes.fromToken(token: ShapeTokenKey): Shape {
-    return when (token) {
-        ShapeTokenKey.CornerExtraLarge -> extraLarge
-        ShapeTokenKey.CornerLarge -> large
-        ShapeTokenKey.CornerMedium -> medium
-        ShapeTokenKey.CornerSmall -> small
-        ShapeTokenKey.CornerExtraSmall -> extraSmall
-        ShapeTokenKey.CornerFull -> full
-        ShapeTokenKey.CornerNone -> none
+internal fun Shapes.fromToken(value: ShapeAccessKeyToken): Shape {
+    return when (value) {
+        ShapeAccessKeyToken.CornerExtraLarge -> extraLarge
+        ShapeAccessKeyToken.CornerLarge -> large
+        ShapeAccessKeyToken.CornerMedium -> medium
+        ShapeAccessKeyToken.CornerSmall -> small
+        ShapeAccessKeyToken.CornerExtraSmall -> extraSmall
+        ShapeAccessKeyToken.CornerFull -> full
+        ShapeAccessKeyToken.CornerNone -> none
     }
 }
 
