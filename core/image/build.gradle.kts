@@ -1,17 +1,22 @@
 plugins {
     alias(libs.plugins.moobeside.android.library)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp)
+    id("org.jetbrains.kotlin.kapt")
 }
 
-android {
+android{
     namespace = "com.jslee.core.image"
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
     implementation(projects.core.designsystem)
 
     implementation(libs.glide)
-    kapt(libs.glide.compiler)
+    ksp(libs.glide.ksp)
 
     implementation(libs.facebook.shimmer)
 }

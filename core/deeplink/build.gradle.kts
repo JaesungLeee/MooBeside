@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.moobeside.android.library)
-    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.hilt.plugin)
 }
 
@@ -10,7 +10,7 @@ android {
 
 dependencies {
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.dynaimc.link)

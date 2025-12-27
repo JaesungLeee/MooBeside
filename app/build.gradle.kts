@@ -8,10 +8,10 @@ plugins {
 android {
     namespace = "com.jslee.moobeside"
 
-//    buildFeatures {
-//        dataBinding = true
-//        buildConfig = true
-//    }
+    buildFeatures {
+        dataBinding = true
+        buildConfig = true
+    }
 }
 
 dependencies {
