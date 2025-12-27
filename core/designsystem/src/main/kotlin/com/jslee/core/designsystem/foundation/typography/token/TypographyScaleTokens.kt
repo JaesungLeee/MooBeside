@@ -8,13 +8,12 @@ import androidx.compose.ui.unit.sp
 import com.jslee.core.designsystem.R
 
 internal object TypographyScaleTokens {
-    val Nanum: FontFamily =
-        FontFamily(
-            Font(R.font.nanum_400, FontWeight.W400),
-            Font(R.font.nanum_500, FontWeight.W500),
-            Font(R.font.nanum_700, FontWeight.W700),
-        )
-    
+    val PretendardJP = FontFamily(
+        Font(R.font.pretendard_jp_bold, FontWeight.Bold),
+        Font(R.font.pretendard_jp_medium, FontWeight.Medium),
+        Font(R.font.pretendard_jp_regular, FontWeight.Normal),
+    )
+
     val WeightBold: FontWeight = FontWeight.Bold
     val WeightMedium: FontWeight = FontWeight.Medium
     val WeightRegular: FontWeight = FontWeight.Normal

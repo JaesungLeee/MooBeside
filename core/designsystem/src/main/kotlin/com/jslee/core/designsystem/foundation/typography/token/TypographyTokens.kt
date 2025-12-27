@@ -179,5 +179,5 @@ internal val DefaultTextStyle: TextStyle =
     TextStyle.Default.copy(
         platformStyle = DefaultPlatformStyle,
         lineHeightStyle = DefaultLineHeightStyle,
-        fontFamily = TypographyScaleTokens.Nanum,
+        fontFamily = TypographyScaleTokens.PretendardJP,
     )
