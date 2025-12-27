@@ -1,10 +1,14 @@
 plugins {
     alias(libs.plugins.moobeside.android.library.compose)
-    alias(libs.plugins.kotlin.kapt)
+    id("org.jetbrains.kotlin.kapt")
 }
 
-android {
+android{
     namespace = "com.moobeside.core.common.ui"
+
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {

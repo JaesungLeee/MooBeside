@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.moobeside.android.library.compose)
     alias(libs.plugins.moobeside.android.hilt)
+    id("org.jetbrains.kotlin.kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
 }
