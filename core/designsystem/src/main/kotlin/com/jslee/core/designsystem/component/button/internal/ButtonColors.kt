@@ -15,3 +15,7 @@ internal sealed interface ButtonColors {
 }
 
 internal interface SolidButtonColors : ButtonColors
+internal interface OutlinedButtonColors : ButtonColors {
+    @Stable
+    fun borderColor(enabled: Boolean): Color
+}
