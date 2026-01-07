@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.outlined.internal
+package com.jslee.core.designsystem.component.button.outlined
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color

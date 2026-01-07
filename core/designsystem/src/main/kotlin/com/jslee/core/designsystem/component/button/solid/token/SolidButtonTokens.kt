@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.solid.internal.token
+package com.jslee.core.designsystem.component.button.solid.token
 
 import androidx.compose.ui.unit.dp
 import com.jslee.core.designsystem.foundation.color.token.ColorAccessKeyToken

@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.chip.filter.internal
+package com.jslee.core.designsystem.component.chip.filter
 
 import androidx.compose.ui.graphics.Color
 import com.jslee.core.designsystem.component.chip.internal.FilterChipColors

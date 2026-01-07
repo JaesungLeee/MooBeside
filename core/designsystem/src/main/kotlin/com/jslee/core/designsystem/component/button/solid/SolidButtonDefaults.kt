@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.solid.internal
+package com.jslee.core.designsystem.component.button.solid
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
@@ -6,9 +6,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.jslee.core.designsystem.component.button.internal.SolidButtonColors
-import com.jslee.core.designsystem.component.button.solid.SolidButtonSize
-import com.jslee.core.designsystem.component.button.solid.SolidButtonVariant
-import com.jslee.core.designsystem.component.button.solid.internal.token.SolidButtonTokens
+import com.jslee.core.designsystem.component.button.solid.token.SolidButtonTokens
 import com.jslee.core.designsystem.foundation.color.value
 import com.jslee.core.designsystem.foundation.shape.token.value
 import com.jslee.core.designsystem.theme.MooBesideTheme

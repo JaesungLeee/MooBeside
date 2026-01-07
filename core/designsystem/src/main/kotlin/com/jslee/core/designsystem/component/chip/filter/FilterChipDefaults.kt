@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.chip.filter.internal
+package com.jslee.core.designsystem.component.chip.filter
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
@@ -6,9 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
-import com.jslee.core.designsystem.component.chip.filter.FilterChipSize
-import com.jslee.core.designsystem.component.chip.filter.FilterChipVariant
-import com.jslee.core.designsystem.component.chip.filter.internal.token.FilterChipTokens
+import com.jslee.core.designsystem.component.chip.filter.token.FilterChipTokens
 import com.jslee.core.designsystem.component.chip.internal.FilterChipColors
 import com.jslee.core.designsystem.foundation.color.value
 import com.jslee.core.designsystem.foundation.shape.token.value
