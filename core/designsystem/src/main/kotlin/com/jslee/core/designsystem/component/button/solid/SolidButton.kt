@@ -29,8 +29,8 @@ fun SolidButton(
     size: SolidButtonSize = SolidButtonSize.Large,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource? = null,
-    leadingIconRes: Int? = null,
-    trailingIconRes: Int? = null,
+    leadingIcon: Int? = null,
+    trailingIcon: Int? = null,
 ) {
     val colors: SolidButtonColors = SolidButtonDefaults.colors(variant)
     Button(
@@ -47,10 +47,10 @@ fun SolidButton(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            leadingIconRes?.let { resource ->
+            leadingIcon?.let { iconVector ->
                 Icon(
                     modifier = Modifier.size(SolidButtonDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(ImageVector.vectorResource(id = resource)),
+                    painter = rememberVectorPainter(ImageVector.vectorResource(id = iconVector)),
                     contentDescription = null,
                     tint = colors.iconColor(enabled),
                 )
@@ -61,11 +61,11 @@ fun SolidButton(
                 text = label,
                 style = SolidButtonDefaults.labelTextStyle(variant),
             )
-            trailingIconRes?.let { resource ->
+            trailingIcon?.let { iconVector ->
                 Spacer(modifier = Modifier.size(SolidButtonDefaults.iconSpacing))
                 Icon(
                     modifier = Modifier.size(SolidButtonDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(ImageVector.vectorResource(id = resource)),
+                    painter = rememberVectorPainter(ImageVector.vectorResource(id = iconVector)),
                     contentDescription = null,
                     tint = colors.iconColor(enabled),
                 )
@@ -76,7 +76,7 @@ fun SolidButton(
 
 @Composable
 fun SolidIconButton(
-    iconRes: Int,
+    icon: ImageVector,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     variant: SolidButtonVariant = SolidButtonVariant.Primary,
@@ -97,7 +97,7 @@ fun SolidIconButton(
             modifier = Modifier
                 .padding(SolidButtonDefaults.iconButtonContentPadding(size))
                 .size(SolidButtonDefaults.iconSize(size)),
-            painter = rememberVectorPainter(ImageVector.vectorResource(id = iconRes)),
+            painter = rememberVectorPainter(icon),
             contentDescription = null,
             tint = colors.iconColor(enabled),
         )

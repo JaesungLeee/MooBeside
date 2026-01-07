@@ -29,8 +29,8 @@ fun OutlinedButton(
     size: OutlinedButtonSize = OutlinedButtonSize.Large,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource? = null,
-    leadingIconRes: Int? = null,
-    trailingIconRes: Int? = null,
+    leadingIcon: Int? = null,
+    trailingIcon: Int? = null,
 ) {
     val colors: OutlinedButtonColors = OutlinedButtonDefaults.colors(variant)
     Button(
@@ -47,10 +47,10 @@ fun OutlinedButton(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            leadingIconRes?.let { resource ->
+            leadingIcon?.let { iconVector ->
                 Icon(
                     modifier = Modifier.size(OutlinedButtonDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(ImageVector.vectorResource(id = resource)),
+                    painter = rememberVectorPainter(ImageVector.vectorResource(id = iconVector)),
                     contentDescription = null,
                     tint = colors.iconColor(enabled),
                 )
@@ -61,11 +61,11 @@ fun OutlinedButton(
                 text = label,
                 style = OutlinedButtonDefaults.labelTextStyle(variant),
             )
-            trailingIconRes?.let { resource ->
+            trailingIcon?.let { iconVector ->
                 Spacer(modifier = Modifier.size(OutlinedButtonDefaults.iconSpacing))
                 Icon(
                     modifier = Modifier.size(OutlinedButtonDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(ImageVector.vectorResource(id = resource)),
+                    painter = rememberVectorPainter(ImageVector.vectorResource(id = iconVector)),
                     contentDescription = null,
                     tint = colors.iconColor(enabled),
                 )
@@ -76,7 +76,7 @@ fun OutlinedButton(
 
 @Composable
 fun OutlinedIconButton(
-    iconRes: Int,
+    icon: ImageVector,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     variant: OutlinedButtonVariant = OutlinedButtonVariant.Primary,
@@ -98,7 +98,7 @@ fun OutlinedIconButton(
             modifier = Modifier
                 .padding(OutlinedButtonDefaults.iconButtonContentPadding(size))
                 .size(OutlinedButtonDefaults.iconSize(size)),
-            painter = rememberVectorPainter(ImageVector.vectorResource(id = iconRes)),
+            painter = rememberVectorPainter(icon),
             contentDescription = null,
             tint = colors.iconColor(enabled),
         )
