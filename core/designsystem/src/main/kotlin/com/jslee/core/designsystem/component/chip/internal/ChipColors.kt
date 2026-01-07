@@ -15,3 +15,4 @@ internal sealed interface ChipColors {
 }
 
 internal interface ActionChipColors : ChipColors
+internal interface FilterChipColors : ChipColors
