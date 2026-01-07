@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.res.vectorResource
 import com.jslee.core.designsystem.component.chip.action.internal.ActionChipDefaults
 import com.jslee.core.designsystem.component.chip.internal.ActionChipColors
 import com.jslee.core.designsystem.component.chip.internal.Chip
@@ -29,8 +28,8 @@ fun ActionChip(
     selected: Boolean = false,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource? = null,
-    leadingIconRes: ImageVector? = null,
-    trailingIconRes: Int? = null,
+    leadingIcon: ImageVector? = null,
+    trailingIcon: ImageVector? = null,
 ) {
     val colors: ActionChipColors = ActionChipDefaults.colors(variant)
     Chip(
@@ -48,10 +47,10 @@ fun ActionChip(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            leadingIconRes?.let { resource ->
+            leadingIcon?.let { iconVector ->
                 Icon(
                     modifier = Modifier.size(ActionChipDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(resource),
+                    painter = rememberVectorPainter(iconVector),
                     contentDescription = null,
                     tint = colors.iconColor(enabled, selected),
                 )
@@ -62,11 +61,11 @@ fun ActionChip(
                 text = label,
                 style = ActionChipDefaults.labelTextStyle(size),
             )
-            trailingIconRes?.let { resource ->
+            trailingIcon?.let { iconVector ->
                 Spacer(modifier = Modifier.size(ActionChipDefaults.iconSpacing(size)))
                 Icon(
                     modifier = Modifier.size(ActionChipDefaults.iconSize(size)),
-                    painter = rememberVectorPainter(ImageVector.vectorResource(id = resource)),
+                    painter = rememberVectorPainter(iconVector),
                     contentDescription = null,
                     tint = colors.iconColor(enabled, selected),
                 )
