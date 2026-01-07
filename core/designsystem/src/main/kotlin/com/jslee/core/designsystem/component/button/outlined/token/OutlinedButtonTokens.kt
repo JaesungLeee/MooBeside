@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.outlined.internal.token
+package com.jslee.core.designsystem.component.button.outlined.token
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.ui.graphics.Color

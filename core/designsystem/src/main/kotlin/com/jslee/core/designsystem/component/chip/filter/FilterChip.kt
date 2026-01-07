@@ -24,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jslee.core.designsystem.component.chip.filter.internal.FilterChipDefaults
 import com.jslee.core.designsystem.component.chip.internal.Chip
 import com.jslee.core.designsystem.component.chip.internal.FilterChipColors
 import com.jslee.core.designsystem.foundation.icons.MooBesideIconPack

@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import com.jslee.core.designsystem.component.chip.action.internal.ActionChipDefaults
 import com.jslee.core.designsystem.component.chip.internal.ActionChipColors
 import com.jslee.core.designsystem.component.chip.internal.Chip
 

@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.solid.internal
+package com.jslee.core.designsystem.component.button.solid
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable

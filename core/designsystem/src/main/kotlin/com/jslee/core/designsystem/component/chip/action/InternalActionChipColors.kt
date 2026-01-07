@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.chip.action.internal
+package com.jslee.core.designsystem.component.chip.action
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color

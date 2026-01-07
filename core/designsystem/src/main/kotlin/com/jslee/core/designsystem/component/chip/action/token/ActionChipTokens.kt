@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.chip.action.internal.token
+package com.jslee.core.designsystem.component.chip.action.token
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp

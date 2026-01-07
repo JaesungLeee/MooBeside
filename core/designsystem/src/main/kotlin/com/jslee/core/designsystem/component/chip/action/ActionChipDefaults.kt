@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.chip.action.internal
+package com.jslee.core.designsystem.component.chip.action
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
@@ -7,9 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
-import com.jslee.core.designsystem.component.chip.action.ActionChipSize
-import com.jslee.core.designsystem.component.chip.action.ActionChipVariant
-import com.jslee.core.designsystem.component.chip.action.internal.token.ActionChipTokens
+import com.jslee.core.designsystem.component.chip.action.token.ActionChipTokens
 import com.jslee.core.designsystem.component.chip.internal.ActionChipColors
 import com.jslee.core.designsystem.foundation.color.value
 import com.jslee.core.designsystem.foundation.shape.token.value

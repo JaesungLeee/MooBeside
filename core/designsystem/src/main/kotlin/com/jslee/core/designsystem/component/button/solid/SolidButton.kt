@@ -18,7 +18,6 @@ import androidx.compose.ui.res.vectorResource
 import com.jslee.core.designsystem.component.button.internal.Button
 import com.jslee.core.designsystem.component.button.internal.ButtonColors
 import com.jslee.core.designsystem.component.button.internal.SolidButtonColors
-import com.jslee.core.designsystem.component.button.solid.internal.SolidButtonDefaults
 
 @Composable
 fun SolidButton(

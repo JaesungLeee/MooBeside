@@ -1,4 +1,4 @@
-package com.jslee.core.designsystem.component.button.outlined.internal
+package com.jslee.core.designsystem.component.button.outlined
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
@@ -7,9 +7,7 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.jslee.core.designsystem.component.button.internal.OutlinedButtonColors
-import com.jslee.core.designsystem.component.button.outlined.OutlinedButtonSize
-import com.jslee.core.designsystem.component.button.outlined.OutlinedButtonVariant
-import com.jslee.core.designsystem.component.button.outlined.internal.token.OutlinedButtonTokens
+import com.jslee.core.designsystem.component.button.outlined.token.OutlinedButtonTokens
 import com.jslee.core.designsystem.foundation.color.value
 import com.jslee.core.designsystem.foundation.shape.token.value
 import com.jslee.core.designsystem.foundation.typography.value
