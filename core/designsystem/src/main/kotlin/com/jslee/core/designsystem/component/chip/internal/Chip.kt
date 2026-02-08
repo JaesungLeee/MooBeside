@@ -9,11 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
+import com.jslee.core.designsystem.util.extension.singleClickable
 
 @Composable
 internal fun Chip(
@@ -36,13 +38,17 @@ internal fun Chip(
         LocalMinimumInteractiveComponentSize providesDefault Dp.Unspecified,
     ) {
         Surface(
-            modifier = modifier.semantics { role = Role.Checkbox },
-            onClick = onClick,
-            enabled = enabled,
+            modifier = modifier
+                .clip(shape)
+                .singleClickable(
+                    interactionSource = interactionSource,
+                    enabled = enabled,
+                    onClick = onClick,
+                )
+                .semantics { role = Role.Checkbox },
             shape = shape,
             color = colors.containerColor(enabled, selected),
             border = border,
-            interactionSource = interactionSource,
         ) {
             CompositionLocalProvider(
                 LocalContentColor provides colors.labelColor(enabled, selected),
