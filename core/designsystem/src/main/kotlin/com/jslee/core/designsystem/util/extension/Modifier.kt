@@ -2,6 +2,7 @@ package com.jslee.core.designsystem.util.extension
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
@@ -13,9 +14,25 @@ fun Modifier.noRippleClickable(
     onClickLabel: String? = null,
     role: Role? = null,
     onClick: () -> Unit,
-) = this.clickable(
+): Modifier = this.clickable(
     indication = null,
     interactionSource = null,
+    enabled = enabled,
+    onClickLabel = onClickLabel,
+    role = role,
+    onClick = onClick,
+)
+
+@Composable
+fun Modifier.noRippleSingleClickable(
+    interactionSource: MutableInteractionSource? = null,
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    role: Role? = null,
+    onClick: () -> Unit,
+): Modifier = this then SingleClickableElement(
+    indicationNodeFactory = null,
+    interactionSource = interactionSource,
     enabled = enabled,
     onClickLabel = onClickLabel,
     role = role,
@@ -30,6 +47,7 @@ fun Modifier.singleClickable(
     role: Role? = null,
     onClick: () -> Unit,
 ): Modifier = this then SingleClickableElement(
+    indicationNodeFactory = ripple(),
     interactionSource = interactionSource,
     enabled = enabled,
     onClickLabel = onClickLabel,

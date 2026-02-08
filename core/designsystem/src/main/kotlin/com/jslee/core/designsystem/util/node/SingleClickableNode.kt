@@ -1,10 +1,11 @@
 package com.jslee.core.designsystem.util.node
 
+import androidx.compose.foundation.IndicationNodeFactory
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.PressInteraction
-import androidx.compose.material3.ripple
 import androidx.compose.ui.input.pointer.SuspendingPointerInputModifierNode
+import androidx.compose.ui.node.DelegatableNode
 import androidx.compose.ui.node.DelegatingNode
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.node.PointerInputModifierNode
@@ -18,6 +19,7 @@ import com.jslee.core.designsystem.util.MultipleEventsCutter
 import com.jslee.core.designsystem.util.create
 
 data class SingleClickableElement(
+    private val indicationNodeFactory: IndicationNodeFactory?,
     private val interactionSource: MutableInteractionSource?,
     private val enabled: Boolean,
     private val onClickLabel: String?,
@@ -27,6 +29,7 @@ data class SingleClickableElement(
     // Modifier 최초 적용
     override fun create(): SingleClickableNode {
         return SingleClickableNode(
+            indicationNodeFactory = indicationNodeFactory,
             interactionSource = interactionSource,
             enabled = enabled,
             onClickLabel = onClickLabel,
@@ -37,11 +40,12 @@ data class SingleClickableElement(
 
     // recomposition 시 Modifier 재생성이 아닌 기존 Node에 값만 변경하도록
     override fun update(node: SingleClickableNode) {
-        node.update(interactionSource, enabled, onClickLabel, role, onClick)
+        node.update(indicationNodeFactory, interactionSource, enabled, onClickLabel, role, onClick)
     }
 }
 
 class SingleClickableNode(
+    private var indicationNodeFactory: IndicationNodeFactory?,
     private var interactionSource: MutableInteractionSource?,
     private var enabled: Boolean,
     private var onClickLabel: String?,
@@ -50,9 +54,15 @@ class SingleClickableNode(
 ) : DelegatingNode(), SemanticsModifierNode {
     private val cutter = MultipleEventsCutter.create()
 
+    private val internalInteractionSource = MutableInteractionSource()
+    private var resolvedInteractionSource: MutableInteractionSource =
+        interactionSource ?: internalInteractionSource
+
     // Ripple indication을 위한 Node
-    private var indicationNodeDelegate =
-        delegate(ripple().create(interactionSource ?: MutableInteractionSource()))
+    private var indicationNodeDelegate: DelegatableNode? =
+        indicationNodeFactory?.let { factory ->
+            delegate(factory.create(resolvedInteractionSource))
+        }
 
     // Pointer Input을 위한 Node
     private var pointerInputNode: PointerInputModifierNode? = null
@@ -60,11 +70,12 @@ class SingleClickableNode(
     // Node 활성화 시
     override fun onAttach() {
         super.onAttach()
+        updateIndicationNode()
         updatePointerInputNode()
     }
 
     override fun SemanticsPropertyReceiver.applySemantics() {
-        this.role = role
+        role?.let { this.role = it }
 
         onClick(
             label = onClickLabel,
@@ -82,31 +93,42 @@ class SingleClickableNode(
     }
 
     fun update(
+        indicationNodeFactory: IndicationNodeFactory?,
         interactionSource: MutableInteractionSource?,
         enabled: Boolean,
         onClickLabel: String?,
         role: Role?,
         onClick: () -> Unit,
     ) {
-        val interactionSourceChanged = this.interactionSource != interactionSource
+        val newResolved = interactionSource ?: internalInteractionSource
+        val resolvedChanged = resolvedInteractionSource !== newResolved
+        val indicationChanged = this.indicationNodeFactory !== indicationNodeFactory
         val enabledChanged = this.enabled != enabled
 
+        this.indicationNodeFactory = indicationNodeFactory
         this.interactionSource = interactionSource
         this.enabled = enabled
         this.onClickLabel = onClickLabel
         this.role = role
         this.onClick = onClick
 
-        if (interactionSourceChanged) {
-            undelegate(indicationNodeDelegate)
-            indicationNodeDelegate = delegate(
-                ripple().create(interactionSource ?: MutableInteractionSource())
-            )
+        resolvedInteractionSource = newResolved
+
+        if (resolvedChanged || indicationChanged) {
+            updateIndicationNode()
         }
 
-        if (enabledChanged || interactionSourceChanged) {
+        if (enabledChanged || resolvedChanged) {
             updatePointerInputNode()
         }
+    }
+
+    private fun updateIndicationNode() {
+        indicationNodeDelegate?.let { undelegate(it) }
+        indicationNodeDelegate = null
+
+        val factory = indicationNodeFactory ?: return
+        indicationNodeDelegate = delegate(factory.create(resolvedInteractionSource))
     }
 
     private fun updatePointerInputNode() {
@@ -118,12 +140,12 @@ class SingleClickableNode(
                     onPress = { offset ->
                         if (enabled) {
                             val press = PressInteraction.Press(offset)
-                            interactionSource?.emit(press)
+                            resolvedInteractionSource.emit(press)
                             val isReleased = tryAwaitRelease()
                             if (isReleased) {
-                                interactionSource?.emit(PressInteraction.Release(press))
+                                resolvedInteractionSource.emit(PressInteraction.Release(press))
                             } else {
-                                interactionSource?.emit(PressInteraction.Cancel(press))
+                                resolvedInteractionSource.emit(PressInteraction.Cancel(press))
                             }
                         }
                     },
