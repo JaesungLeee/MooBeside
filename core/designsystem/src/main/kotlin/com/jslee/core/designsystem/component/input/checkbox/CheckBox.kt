@@ -11,6 +11,10 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -21,10 +25,12 @@ import com.jslee.core.designsystem.foundation.icons.MooBesideIconPack
 import com.jslee.core.designsystem.foundation.icons.iconpack.Checkthick
 import com.jslee.core.designsystem.foundation.icons.iconpack.Linehorizontalthick
 import com.jslee.core.designsystem.theme.MooBesideAppTheme
+import com.jslee.core.designsystem.util.extension.singleClickable
 
 @Composable
 fun CheckBox(
     label: String,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     size: CheckBoxSize = CheckBoxSize.Medium,
     status: CheckBoxStatus = CheckBoxStatus.Unchecked,
@@ -39,6 +45,8 @@ fun CheckBox(
             modifier = Modifier.padding(CheckBoxDefaults.iconContentPadding(size)),
             status = status,
             size = size,
+            onClick = onClick,
+            enabled = enabled,
         )
         Text(
             text = label,
@@ -53,12 +61,18 @@ fun CheckBox(
 private fun CheckBoxIconContent(
     status: CheckBoxStatus,
     size: CheckBoxSize,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
 ) {
     Box(
         modifier = modifier
             .size(CheckBoxDefaults.iconContainerSize(size))
             .clip(CheckBoxDefaults.shape)
+            .singleClickable(
+                enabled = enabled,
+                onClick = onClick,
+            )
             .border(CheckBoxDefaults.borderStroke(status), CheckBoxDefaults.shape)
             .background(CheckBoxDefaults.iconBackgroundColor(status))
     ) {
@@ -89,12 +103,21 @@ private fun CheckBoxIconContent(
 @Preview
 @Composable
 private fun CheckBoxIconPreview() {
+    var status by remember { mutableStateOf(CheckBoxStatus.Unchecked) }
+
     MooBesideAppTheme {
         Box(modifier = Modifier.background(color = Color.White)) {
             CheckBox(
                 size = CheckBoxSize.Medium,
-                status = CheckBoxStatus.Checked,
+                status = status,
                 label = "텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍스트",
+                onClick = {
+                    status = when (status) {
+                        CheckBoxStatus.Unchecked -> CheckBoxStatus.Checked
+                        CheckBoxStatus.Checked -> CheckBoxStatus.Unchecked
+                        CheckBoxStatus.Indeterminate -> CheckBoxStatus.Unchecked
+                    }
+                }
             )
         }
     }

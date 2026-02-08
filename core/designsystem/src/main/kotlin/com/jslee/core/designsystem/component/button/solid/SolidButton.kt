@@ -2,6 +2,7 @@ package com.jslee.core.designsystem.component.button.solid
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.heightIn
@@ -15,9 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.jslee.core.designsystem.component.button.internal.Button
 import com.jslee.core.designsystem.component.button.internal.ButtonColors
 import com.jslee.core.designsystem.component.button.internal.SolidButtonColors
+import com.jslee.core.designsystem.theme.MooBesideAppTheme
 
 @Composable
 fun SolidButton(
@@ -100,6 +103,21 @@ fun SolidIconButton(
             contentDescription = null,
             tint = colors.iconColor(enabled),
         )
+    }
+}
+
+@Preview
+@Composable
+private fun SolidButtonPreview() {
+    MooBesideAppTheme {
+        Column {
+            SolidButton(
+                variant = SolidButtonVariant.Primary,
+                size = SolidButtonSize.Large,
+                label = "Label",
+                onClick = {},
+            )
+        }
     }
 }
 

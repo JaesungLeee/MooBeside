@@ -10,13 +10,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
+import com.jslee.core.designsystem.util.extension.singleClickable
 
 @Composable
 internal fun Button(
@@ -40,14 +41,17 @@ internal fun Button(
         LocalMinimumInteractiveComponentSize providesDefault Dp.Unspecified,
     ) {
         Surface(
-            onClick = onClick,
-            modifier = modifier.semantics { role = Role.Button },
-            enabled = enabled,
+            modifier = modifier
+                .clip(shape)
+                .singleClickable(
+                    interactionSource = interactionSource,
+                    enabled = enabled,
+                    onClick = onClick,
+                )
+                .semantics { role = Role.Button },
             shape = shape,
             color = containerColor,
-            shadowElevation = 0.dp,
             border = border,
-            interactionSource = interactionSource,
         ) {
             CompositionLocalProvider(
                 LocalContentColor provides contentColor
