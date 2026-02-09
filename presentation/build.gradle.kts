@@ -43,4 +43,7 @@ dependencies {
 
     implementation(libs.facebook.shimmer)
     implementation(libs.timber)
+
+    implementation(libs.androidx.compose.activity)
+    implementation(libs.androidx.compose.hilt.navigation)
 }
