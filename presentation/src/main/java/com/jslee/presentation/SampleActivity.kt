@@ -118,7 +118,7 @@ class SampleViewModel @Inject constructor() : ViewModel() {
     private fun handleIntent(intent: SampleIntent) {
         when (intent) {
             is SampleIntent.ClickButton -> {
-                mviContext.reduce { copy(count = mviContext.currentState.count + 1) }
+                mviContext.reduce { copy(count = this.count + 1) }
                 showToast()
             }
         }
