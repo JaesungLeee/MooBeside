@@ -7,7 +7,10 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 
 internal class SideEffectEmitter<SE : SideEffect> {
-    private val _sideEffect: MutableSharedFlow<SE> = MutableSharedFlow(onBufferOverflow = BufferOverflow.DROP_OLDEST)
+    private val _sideEffect: MutableSharedFlow<SE> = MutableSharedFlow(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST,
+    )
     val sideEffect: SharedFlow<SE> = _sideEffect.asSharedFlow()
 
     suspend fun emit(sideEffect: SE) {
