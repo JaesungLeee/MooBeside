@@ -28,6 +28,7 @@ dependencies {
     implementation(projects.core.local)
     implementation(projects.core.logger)
     implementation(projects.core.model)
+    implementation(projects.core.navigation)
     implementation(projects.core.remote)
     implementation(projects.feature.bookmark)
     implementation(projects.feature.boxoffice)
