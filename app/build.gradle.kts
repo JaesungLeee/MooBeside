@@ -42,4 +42,9 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.kakao.share)
     implementation(libs.firebase.crashlytics)
+
+    implementation(libs.androidx.compose.activity)
+    implementation(libs.androidx.compose.hilt.navigation)
+    implementation(libs.androidx.compose.lifecycle.runtime)
+    implementation(libs.androidx.navigation3.runtime)
 }
