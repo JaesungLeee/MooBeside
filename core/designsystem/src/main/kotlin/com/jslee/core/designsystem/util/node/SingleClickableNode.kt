@@ -75,7 +75,7 @@ class SingleClickableNode(
     }
 
     override fun SemanticsPropertyReceiver.applySemantics() {
-        role?.let { this.role = it }
+        this@SingleClickableNode.role?.let { this.role = it }
 
         onClick(
             label = onClickLabel,
