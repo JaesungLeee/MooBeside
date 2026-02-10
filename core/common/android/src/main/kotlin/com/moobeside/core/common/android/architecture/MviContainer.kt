@@ -3,7 +3,7 @@ package com.moobeside.core.common.android.architecture
 import com.moobeside.core.common.android.architecture.contract.Intent
 import com.moobeside.core.common.android.architecture.contract.SideEffect
 import com.moobeside.core.common.android.architecture.contract.UiState
-import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 
 class MviContainer<I : Intent, SE : SideEffect, S : UiState>(
@@ -14,7 +14,7 @@ class MviContainer<I : Intent, SE : SideEffect, S : UiState>(
     private val sideEffectEmitter: SideEffectEmitter<SE> = SideEffectEmitter()
 
     val uiState: StateFlow<S> = uiStateHolder.state
-    val sideEffect: SharedFlow<SE> = sideEffectEmitter.sideEffect
+    val sideEffect: Flow<SE> = sideEffectEmitter.sideEffect
 
     val mviContext = object : MviContext<S, SE> {
         override val currentState: S
