@@ -2,7 +2,6 @@ package com.jslee.presentation
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,7 +29,7 @@ import com.moobeside.core.common.android.architecture.contract.SideEffect
 import com.moobeside.core.common.android.architecture.contract.UiState
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -62,11 +61,11 @@ fun SampleRoute(
     val context = LocalContext.current
     LaunchedEffect(key1 = Unit) {
         viewModel.sideEffect.collectLatest { sideEffect ->
-            Log.d("TAG", "SampleRoute: showToast")
             when (sideEffect) {
                 is SampleSideEffect.ShowToast -> {
                     Toast.makeText(context, "INCREASE", Toast.LENGTH_LONG).show()
                 }
+
                 else -> {}
             }
         }
@@ -109,7 +108,7 @@ class SampleViewModel @Inject constructor() : ViewModel() {
     private val mviContext = container.mviContext
 
     val uiState: StateFlow<SampleUiState> = container.uiState
-    val sideEffect: SharedFlow<SampleSideEffect> = container.sideEffect
+    val sideEffect: Flow<SampleSideEffect> = container.sideEffect
 
     private fun intent(intent: SampleIntent) {
         container.handleIntent(intent)
