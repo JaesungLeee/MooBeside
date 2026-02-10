@@ -1,0 +1,82 @@
+package com.jslee.core.navigation
+
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.ContentTransform
+import androidx.compose.animation.SizeTransform
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavEntryDecorator
+import androidx.navigation3.scene.Scene
+import androidx.navigation3.scene.SceneStrategy
+import androidx.navigation3.scene.SinglePaneSceneStrategy
+import androidx.navigation3.ui.NavDisplay
+import androidx.navigation3.ui.defaultPopTransitionSpec
+import androidx.navigation3.ui.defaultPredictivePopTransitionSpec
+import androidx.navigation3.ui.defaultTransitionSpec
+import androidx.navigationevent.NavigationEvent
+
+@Composable
+fun MooBesideNavDisplay(
+    backStack: List<RouteKey>,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+    entryDecorators: List<NavEntryDecorator<RouteKey>> = emptyList(),
+    contentAlignment: Alignment = Alignment.TopCenter,
+    sceneStrategy: SceneStrategy<RouteKey> = SinglePaneSceneStrategy(),
+    sizeTransform: SizeTransform? = null,
+    transitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.() -> ContentTransform)? = null,
+    popTransitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.() -> ContentTransform)? = null,
+    predictivePopTransitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.(@NavigationEvent.SwipeEdge Int) -> ContentTransform)? = null,
+    entryProvider: (key: RouteKey) -> NavEntry<RouteKey>,
+) {
+    val transitionSpec = transitionSpec ?: defaultTransitionSpec()
+    val popTransitionSpec = popTransitionSpec ?: defaultPopTransitionSpec()
+    val predictivePopTransitionSpec =
+        predictivePopTransitionSpec ?: defaultPredictivePopTransitionSpec()
+
+    NavDisplay(
+        modifier = modifier,
+        backStack = backStack,
+        onBack = onBack,
+        entryDecorators = entryDecorators,
+        contentAlignment = contentAlignment,
+        sceneStrategy = sceneStrategy,
+        sizeTransform = sizeTransform,
+        transitionSpec = transitionSpec,
+        popTransitionSpec = popTransitionSpec,
+        predictivePopTransitionSpec = predictivePopTransitionSpec,
+        entryProvider = entryProvider,
+    )
+}
+
+@Composable
+fun MooBesideNavDisplay(
+    entries: List<NavEntry<RouteKey>>,
+    modifier: Modifier = Modifier,
+    contentAlignment: Alignment = Alignment.TopCenter,
+    sceneStrategy: SceneStrategy<RouteKey> = SinglePaneSceneStrategy(),
+    sizeTransform: SizeTransform? = null,
+    transitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.() -> ContentTransform)? = null,
+    popTransitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.() -> ContentTransform)? = null,
+    predictivePopTransitionSpec: (AnimatedContentTransitionScope<Scene<RouteKey>>.(@NavigationEvent.SwipeEdge Int) -> ContentTransform)? = null,
+    onBack: () -> Unit,
+) {
+    val transitionSpec = transitionSpec ?: defaultTransitionSpec()
+    val popTransitionSpec = popTransitionSpec ?: defaultPopTransitionSpec()
+    val predictivePopTransitionSpec =
+        predictivePopTransitionSpec ?: defaultPredictivePopTransitionSpec()
+
+    NavDisplay(
+        entries = entries,
+        modifier = modifier,
+        contentAlignment = contentAlignment,
+        sceneStrategy = sceneStrategy,
+        sizeTransform = sizeTransform,
+        transitionSpec = transitionSpec,
+        popTransitionSpec = popTransitionSpec,
+        predictivePopTransitionSpec = predictivePopTransitionSpec,
+        onBack = onBack,
+    )
+}
