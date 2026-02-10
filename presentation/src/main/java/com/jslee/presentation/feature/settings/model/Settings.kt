@@ -61,7 +61,7 @@ class Settings(private val context: Context) {
     }
 
     private fun getVersionName(): String {
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        val versionName: String? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             context.applicationContext.packageManager.getPackageInfo(
                 context.packageName, PackageManager.PackageInfoFlags.of(0L)
             ).versionName
@@ -70,5 +70,8 @@ class Settings(private val context: Context) {
                 context.packageName, 0
             ).versionName
         }
+
+        // TODO: versionName이 null이 될 경우에 대한 처리
+        return versionName ?: "EMPTY"
     }
 }
