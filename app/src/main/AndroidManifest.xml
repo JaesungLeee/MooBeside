@@ -19,8 +19,9 @@
         android:theme="@style/Theme.MooBeside"
         android:usesCleartextTraffic="true">
 
+<!--            android:name="com.jslee.presentation.feature.MainActivity"-->
         <activity
-            android:name="com.jslee.presentation.feature.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
 
             <nav-graph android:value="@navigation/navigation_bottom_bar" />
