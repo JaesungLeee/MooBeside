@@ -2,26 +2,27 @@ package com.jslee.moobeside.component.navigation
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation3.runtime.NavKey
 import com.jslee.core.designsystem.component.navigation.NavigationBar
 import com.jslee.core.designsystem.component.navigation.NavigationBarItem
 import com.jslee.core.designsystem.theme.MooBesideAppTheme
 import com.jslee.core.designsystem.theme.MooBesideTheme
-import com.jslee.core.navigation.BoxOffice
-import com.jslee.core.navigation.RouteKey
 import com.jslee.moobeside.navigation.TOP_LEVEL_ROUTES
+import com.moobeside.feature.boxoffice.navigation.BoxOffice
 
 @Composable
 fun BottomNavigationBar(
-    currentTab: RouteKey,
-    onTabSelected: (RouteKey) -> Unit,
+    currentTab: NavKey,
+    onTabSelected: (NavKey) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     NavigationBar(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
     ) {
         for ((key, value) in TOP_LEVEL_ROUTES) {
             NavigationBarItem(

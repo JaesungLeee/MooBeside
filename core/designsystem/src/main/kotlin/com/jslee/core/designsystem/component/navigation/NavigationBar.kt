@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,8 +18,10 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -32,7 +35,6 @@ import com.jslee.core.designsystem.foundation.icons.iconpack.List
 import com.jslee.core.designsystem.foundation.icons.iconpack.Person
 import com.jslee.core.designsystem.theme.MooBesideAppTheme
 import com.jslee.core.designsystem.theme.MooBesideTheme
-
 
 @Composable
 fun NavigationBar(
@@ -76,24 +78,15 @@ fun RowScope.NavigationBarItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val iconColor by animateColorAsState(
-        targetValue = NavigationBarDefaults.colors().iconColor(selected),
-        animationSpec = tween(ItemAnimationDurationMillis)
-    )
-
-    val textColor by animateColorAsState(
-        targetValue = NavigationBarDefaults.colors().labelColor(selected),
-        animationSpec = tween(ItemAnimationDurationMillis)
-    )
-
-    val styledLabelTextStyle = NavigationBarDefaults.labelTextStyle().copy(color = textColor)
-
+    val interactionSource = remember { MutableInteractionSource() }
     Column(
         modifier = modifier
             .selectable(
                 selected = selected,
                 onClick = dropUnlessResumed { onClick() },
                 role = Role.Tab,
+                interactionSource = interactionSource,
+                indication = ripple(),
             )
             .defaultMinSize(minHeight = NavigationBarDefaults.containerHeight)
             .weight(1f)
@@ -101,6 +94,18 @@ fun RowScope.NavigationBarItem(
         verticalArrangement = Arrangement.spacedBy(NavigationBarDefaults.IconLabelGap),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        val iconColor by animateColorAsState(
+            targetValue = NavigationBarDefaults.colors().iconColor(selected),
+            animationSpec = tween(ItemAnimationDurationMillis)
+        )
+
+        val textColor by animateColorAsState(
+            targetValue = NavigationBarDefaults.colors().labelColor(selected),
+            animationSpec = tween(ItemAnimationDurationMillis)
+        )
+
+        val styledLabelTextStyle = NavigationBarDefaults.labelTextStyle().copy(color = textColor)
+
         Icon(
             modifier = Modifier.size(NavigationBarDefaults.iconSize),
             imageVector = icon,

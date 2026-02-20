@@ -37,6 +37,7 @@ dependencies {
     implementation(projects.feature.home)
     implementation(projects.feature.search)
     implementation(projects.feature.settings)
+    implementation(projects.feature.showing)
     implementation(projects.presentation)
 
     implementation(libs.timber)
@@ -47,4 +48,5 @@ dependencies {
     implementation(libs.androidx.compose.hilt.navigation)
     implementation(libs.androidx.compose.lifecycle.runtime)
     implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
 }
