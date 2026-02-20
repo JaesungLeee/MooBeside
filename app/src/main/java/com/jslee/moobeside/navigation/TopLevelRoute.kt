@@ -5,10 +5,9 @@ import com.jslee.core.designsystem.foundation.icons.MooBesideIconPack
 import com.jslee.core.designsystem.foundation.icons.iconpack.Bookmark
 import com.jslee.core.designsystem.foundation.icons.iconpack.Crown
 import com.jslee.core.designsystem.foundation.icons.iconpack.Ticket
-import com.jslee.core.navigation.BookMark
-import com.jslee.core.navigation.BoxOffice
-import com.jslee.core.navigation.Showing
-
+import com.moobeside.feature.bookmark.navigation.BookMark
+import com.moobeside.feature.boxoffice.navigation.BoxOffice
+import com.moobeside.feature.showing.navigation.Showing
 
 val TOP_LEVEL_ROUTES = mapOf(
     BoxOffice to NavigationBarItem(label = "박스오피스", icon = MooBesideIconPack.Crown),
